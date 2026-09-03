@@ -236,13 +236,46 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 .callegend{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:var(--ink-2)}
 .callegend div{display:flex;align-items:center;gap:8px}
 .callegend i{width:13px;height:13px;border-radius:3px;flex:none;font-style:normal}
+
+/* stat cards */
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:0 0 28px}
+.big > div{background:var(--surface);border:1px solid var(--rule);border-radius:5px;padding:18px 20px}
+.big .bn{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(24px,3.6vw,32px);font-weight:600;line-height:1.15;color:var(--shu)}
+.big .bk{font-size:12.5px;color:var(--ink-2);margin-top:7px;line-height:1.6}
+.big .bs{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:9px}
+
+/* dark-band overrides: every token-driven surface restated for the dark ground */
+.band tr.hi td,.band tr.hi th{background:#2E2119;color:var(--on-deep)}
+.band tr.hi td.n{color:#CF7D68}
+.band em{background:linear-gradient(transparent 62%,rgba(207,125,104,.32) 62%)}
+.band .tag.t-shu{background:#3B2620;color:#CF7D68}
+.band .tag.t-mid{background:#232C24;color:#93AC95}
+.band .tag.t-warn{background:#332B16;color:#D2AC55}
+.band .yes{color:#93AC95}
+.band .no{color:#CF7D68}
+.band .call{background:#1F1B16;border-color:#413a30;color:var(--on-deep)}
+.band .c-warn{background:#332B16;border-left-color:#D2AC55}
+.band .c-warn .lab{color:#D2AC55}
+.band .c-judge{border-left-color:#CF7D68}
+.band .c-judge .lab{color:#CF7D68}
+.band .c-note{border-left-color:#93AC95}
+.band .c-note .lab{color:#93AC95}
+.band ul,.band li{color:var(--on-deep)}
+.band .big > div{background:#1F1B16;border-color:#413a30}
+.band .big .bn{color:#CF7D68}
+.band .big .bk{color:var(--on-deep-2)}
+.band .big .bs{color:#8A7C66}
+.band .figbox{background:#1F1B16;border-color:#413a30}
+.band figcaption{color:var(--on-deep-2)}
+.band h4{color:var(--on-deep)}
+.band a{color:#CF7D68}
 </style>
 
 <nav class="topbar">
   <div class="wrap">
     <b>町田Wブランド企画書</b>
     <div class="jump">
-      <a href="#cycle">14日サイクル</a><a href="#summary">結論</a><a href="#home">住まい</a><a href="#finance">収支</a><a href="#yokkaichi">四日市</a><a href="#owner">オーナーの単価</a><a href="#employment">雇用</a><a href="#price">価格・分離</a><a href="#partner">共同経営</a><a href="#review">補足</a><a href="#marketing">集客</a><a href="#ops">実務</a><a href="#roadmap">計画</a><a href="#kpi">KPI</a><a href="#risk">リスク</a>
+      <a href="#cycle">14日サイクル</a><a href="#summary">結論</a><a href="#home">自宅兼院</a><a href="#finance">収支</a><a href="#yokkaichi">四日市</a><a href="#owner">オーナーの単価</a><a href="#employment">雇用</a><a href="#price">価格・分離</a><a href="#partner">共同経営</a><a href="#review">補足</a><a href="#marketing">集客</a><a href="#ops">実務</a><a href="#roadmap">計画</a><a href="#kpi">KPI</a><a href="#risk">リスク</a>
     </div>
   </div>
 </nav>
@@ -250,18 +283,18 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow">企画書 ／ 2026.09.03 ／ 米倉まな</p>
-    <h1>月に19日、東京にいる。<br>でも施術は6日だけ。</h1>
-    <p class="lede">14日サイクルの二拠点生活を前提に、はりきゅう処ここちめいど 町田院（米倉まな1人・90分）と、ねここち（頭皮鍼30分サブスク・鍼灸師を雇用）をどう組むか。価格・役割・収支・そして四日市への影響までの設計書です。</p>
-    <div class="thesis">4,980円の店のオーナーが、同じ住所で28,000円の施術をどう成立させるか。<br>そして、空いている13日を、どう埋めずにおくか。</div>
+    <h1>町田に住み、1階で院をやり、<br>月に6日だけ施術する。</h1>
+    <p class="lede">原町田4-20-12 の1階がここちめいど町田院とねここち、2階が住居。14日サイクルの二拠点生活を前提に、価格・役割・収支・そして四日市への影響までを設計します。</p>
+    <div class="thesis">4,980円の店のオーナーが、自宅の同じ1階で28,000円の施術をどう成立させるか。<br>そして、空いている13日を、どう埋めずにおくか。</div>
     <div class="meta">
-      <span>東京都町田市原町田4-20-12</span>
+      <span>1階 院 ／ 2階 住居</span>
       <span>東京9日 → 四日市5日 の14日周期</span>
       <span>施術は毎週水曜＋隔週木曜</span>
       <span>2026.10 – 2027.09</span>
     </div>
     <div class="key">
-      <div><i class="k-shu"></i>ここちめいど — 米倉まな1人・90分28,000円・月24枠</div>
-      <div><i class="k-mid"></i>ねここち — 雇用1〜2名・30分サブスク・HPB集客</div>
+      <div><i class="k-shu"></i>ここちめいど — 自宅1階・米倉まな1人・90分28,000円・月24枠</div>
+      <div><i class="k-mid"></i>ねここち — 自宅1階を賃借・雇用1〜2名・30分サブスク・HPB集客</div>
     </div>
   </div>
 </header>
@@ -270,7 +303,7 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
   <div class="wrap">
     <p class="snum">01 ／ 14日サイクル</p>
     <h2>2週間ちょうどで回るから、曜日が固定される</h2>
-    <p class="sub">東京9日（水木金土日月火水木）→ 木曜夜に四日市へ → 四日市5日（金土日月火）→ 東京へ。周期が14日なので、<strong>水曜と木曜は必ず東京、金〜火は隔週</strong>になります。</p>
+    <p class="sub">町田の自宅に9日（水木金土日月火水木）→ 木曜夜に四日市へ → 四日市5日（金土日月火）→ 町田へ。周期が14日なので、<strong>水曜と木曜は必ず町田、金〜火は隔週</strong>になります。</p>
 
     <figure>
       <div class="figbox">
@@ -278,7 +311,7 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
           <div class="h"></div>
           <div class="h">水</div><div class="h">木</div><div class="h">金</div><div class="h">土</div><div class="h">日</div><div class="h">月</div><div class="h">火</div>
 
-          <div class="wk">第1週<br>町田</div>
+          <div class="wk">第1週<br>町田<br>（自宅）</div>
           <div class="c c-tx"><b>施術</b><span>4枠</span></div>
           <div class="c c-tx"><b>施術</b><span>4枠</span></div>
           <div class="c c-to"><b>ねここち</b><span>面談・カンファ</span></div>
@@ -349,22 +382,27 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 <section id="summary">
   <div class="wrap">
     <p class="snum">02 ／ 結論</p>
-    <h2>「月6日だけ来る人」ではなく「月19日いて、6日だけ施術する人」</h2>
-    <p class="sub">まったく違うポジションです。この生活リズムが変えることが3つあります。</p>
+    <h2>「月6日だけ来る人」ではなく「町田に住んで、6日だけ施術する人」</h2>
+    <p class="sub">まったく違うポジションです。この形が変えることが4つあります。</p>
 
     <div class="big">
       <div>
         <div class="bs">変わること ①</div>
         <div class="bn" style="font-size:19px;line-height:1.5">雇用モデルが<br>初めて成立する</div>
-        <div class="bk">前案では現場にいられるのが月2回・木曜午前だけでした。労働契約1〜2名をそれで管理するのは無理筋です。月19日いるなら、教育・面談・シフト調整が日常業務になる。</div>
+        <div class="bk">前案では現場にいられるのが月2回・木曜午前だけでした。労働契約1〜2名をそれで管理するのは無理筋です。<strong>月19.5日いて、しかも住んでいる</strong>なら、教育・面談・シフト調整が日常業務になる。</div>
       </div>
       <div>
         <div class="bs">変わること ②</div>
-        <div class="bn" style="font-size:19px;line-height:1.5">東京にいること<br>自体が資産になる</div>
-        <div class="bk">武蔵野大学・東京有明医療大学・玉川大学・医学書院・日本精神神経学会——連携先は全部東京圏。9日連続でいられるなら、共同研究・打ち合わせ・登壇の密度が一段上がる。</div>
+        <div class="bn" style="font-size:19px;line-height:1.5">1階の遊休時間を<br>ねここちが埋める</div>
+        <div class="bk">施術日が月6日の院に1フロアは贅沢すぎる。ねここちが月20日埋めるから、この物件が成立する。Wブランドは、物件の必然でもあります。</div>
       </div>
       <div>
         <div class="bs">変わること ③</div>
+        <div class="bn">▲210<span style="font-size:16px">万円／年</span></div>
+        <div class="bk">場所コストが下がる。住居75,000＋店舗300,000＝月375,000 が、建物1軒（仮置き月200,000）に統合される。ねここちの立ち上がり赤字127万を1年で吸収する規模。</div>
+      </div>
+      <div>
+        <div class="bs">変わること ④</div>
         <div class="bn" style="font-size:19px;line-height:1.5">施術以外の時間が<br>月13日ある</div>
         <div class="bk">監修・研究・執筆・サロン運営。つまり「時間に比例しない収入」を積み上げる時間。ここを施術で埋めた瞬間、また時給18,667円の労働者に戻ります。</div>
       </div>
@@ -377,10 +415,12 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
         <tr class="hi"><th>施術日</th><td><strong>毎週水曜（月4〜5日）＋ 隔週木曜（月2日）＝ 月6〜7日 / 24枠</strong></td></tr>
         <tr class="hi"><th>残りの東京13日</th><td>ねここち経営・監修・研究・執筆・サロン。<strong>施術で埋めない</strong></td></tr>
         <tr><th>ねここちでの施術</th><td>原則ゼロ</td></tr>
-        <tr class="hi"><th>住まい</th><td><strong>借りる。</strong>月18泊はホテルでは成立しない（03章）</td></tr>
+        <tr class="hi"><th>1階の使い方</th><td>水曜・隔週木曜は<strong>ここちめいどが専有</strong>。それ以外はねここち</td></tr>
+        <tr class="hi"><th>1階の賃料</th><td><strong>ねここちから月150,000円を受け取る。無償提供しない</strong>（03章）</td></tr>
+        <tr><th>ここちめいどの月固定費</th><td><strong>80,000円</strong>（交通50,000＋1階の内部按分30,000）。<strong>損益分岐 月3枠</strong></td></tr>
         <tr><th>予約公開</th><td>完全紹介・LINE限定。<strong>HPBには絶対に載せない</strong></td></tr>
         <tr class="hi"><th>四日市</th><td><strong>隔週5日の集中営業に切り替える</strong>（05章）</td></tr>
-        <tr><th>ねここちからの対価</th><td>技術監修料（売上の3〜5%）＋ 採用・教育支援フィー ＋ 持分配当</td></tr>
+        <tr><th>ねここちからの対価</th><td><strong>1階賃料</strong> ＋ 技術監修料（売上の3〜5%）＋ 採用・教育支援フィー ＋ 持分配当</td></tr>
         <tr><th>集客</th><td>広告ゼロ。「水曜はいつも町田」＋ ねここち会員からの引き上げ</td></tr>
       </tbody>
     </table></div>
@@ -403,11 +443,11 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
             <text x="115" y="192" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">認定院ネットワーク</text>
             <rect x="355" y="120" width="190" height="88" rx="5" fill="none" stroke="#5E7060" stroke-width="2"/>
             <text x="450" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#5E7060">ねここち</text>
-            <text x="450" y="174" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">頭皮鍼30分・雇用1〜2名</text>
+            <text x="450" y="174" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">自宅1階を賃借・雇用1〜2名</text>
             <text x="450" y="192" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">5,500〜9,900円／月</text>
             <rect x="690" y="120" width="190" height="88" rx="5" fill="none" stroke="#9C5446" stroke-width="2.5"/>
             <text x="785" y="150" text-anchor="middle" font-size="15" font-weight="700" fill="#9C5446">ここちめいど町田院</text>
-            <text x="785" y="172" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">米倉まな1人・毎週水曜</text>
+            <text x="785" y="172" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">自宅1階・米倉まな1人</text>
             <text x="785" y="190" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.7">90分 28,000円</text>
             <rect x="355" y="332" width="190" height="76" rx="5" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
             <text x="450" y="362" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">研究・症例DB</text>
@@ -431,60 +471,153 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 
 <section id="home">
   <div class="wrap">
-    <p class="snum">03 ／ 住まい</p>
-    <h2>月18泊。ホテルでは成立しません</h2>
-    <p class="sub">これは生活リズムが判明して、新たに必要になった検討項目です。</p>
+    <p class="snum">03 ／ 自宅兼院</p>
+    <h2>住居費は消えた。代わりに、あとから直せない論点が5つ立つ</h2>
+    <p class="sub">1階が院、2階が住居。経済的には圧倒的に有利ですが、保健所・従業員・防犯・税務の設計を、内装を発注する前に済ませる必要があります。</p>
 
+    <h3>経済的には、圧倒的に有利</h3>
     <div class="tw"><table>
-      <thead><tr><th>選択肢</th><th class="n">月額</th><th class="n">初期費用</th><th>判定</th></tr></thead>
+      <thead><tr><th></th><th class="n">前案：住居＋店舗を別々に</th><th class="n">自宅兼院</th></tr></thead>
       <tbody>
-        <tr><th>ビジネスホテル（11,000円 × 18泊）</th><td class="n">198,000円</td><td class="n">0円</td><td><span class="no">✕</span> 論外</td></tr>
-        <tr><th>マンスリーマンション（町田・1K）</th><td class="n">100,000〜130,000円</td><td class="n">3〜5万円</td><td>△ 立ち上げ期には有効</td></tr>
-        <tr class="hi"><th>賃貸 1K（町田駅圏）</th><td class="n">70,000〜80,000円</td><td class="n">約40万円</td><td><span class="yes">○</span> 定常運用の最適解</td></tr>
-        <tr><th>シェアハウス</th><td class="n">50,000〜70,000円</td><td class="n">少額</td><td>△ 仕事の集中には不向き</td></tr>
+        <tr><th>東京の住居</th><td class="n">75,000円</td><td class="n">建物に含まれる</td></tr>
+        <tr><th>ねここちの店舗家賃</th><td class="n">300,000円</td><td class="n">建物に含まれる</td></tr>
+        <tr class="hi"><th>場所コスト 合計</th><td class="n">375,000円／月</td><td class="n">200,000円／月（仮置き）</td></tr>
+        <tr class="hi"><th>差額</th><td class="n">—</td><td class="n">▲175,000円／月 ＝ 年210万円</td></tr>
+        <tr><th>通勤</th><td class="n">あり</td><td class="n">ゼロ</td></tr>
+        <tr><th>1階の稼働</th><td class="n">—</td><td class="n">ここちめいど月6日＋ねここち月20日で<strong>ほぼ埋まる</strong></td></tr>
       </tbody>
     </table></div>
-    <p>ホテルとの差は<strong>月12万円、年間144万円</strong>です。</p>
+    <p><strong>年210万円の削減は、ねここちの立ち上がり赤字（約127万円）を1年で吸収してしまう規模です。</strong></p>
 
+    <h3>★ 1階を、ねここちに無償で使わせないこと</h3>
+    <p>本章でいちばん重要です。自宅の家賃・ローンを払っているのは米倉さん個人。そこにねここち（共同事業）が入るなら、<em>適正な賃料を、ねここちから受け取ってください。</em></p>
+    <div class="tw"><table>
+      <thead><tr><th>理由</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><th>① 共同オーナーとの公平性</th><td>無償提供は、米倉さんが一方的に資産を持ち出す形。あとで必ず揉めます</td></tr>
+        <tr class="hi"><th>② FCモデルの再現性</th><td><strong>加盟店は家賃を払います。</strong>直営1号店だけ家賃ゼロだと、収支モデルが加盟店に再現できない。「1号店は家賃がかからない特殊例でした」ではFCは売れません</td></tr>
+        <tr><th>③ 税務の整理</th><td>事業用と居住用の按分、賃料収入の計上。曖昧にすると税務調査で否認されます</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tw"><table>
+      <thead><tr><th>提案：1階の適正賃料 月150,000円</th><th class="n">金額</th></tr></thead>
+      <tbody>
+        <tr><th>建物全体のコスト（仮置き）</th><td class="n">200,000円／月</td></tr>
+        <tr><th>ねここちから受け取る1階賃料</th><td class="n">＋150,000円／月</td></tr>
+        <tr class="hi"><th>米倉さんの実質住居負担</th><td class="n">50,000円／月</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:13.5px;color:var(--ink-2)">ここちめいども1階を月6〜7日使います。ここは内部按分として月30,000円をここちめいどの原価に置きます（04章）。実務上の処理は税理士に確認してください。</p>
+
+    <h3>★ オーナー不在の5日間、自宅で従業員が営業する</h3>
+    <p>隔週で5日間、米倉さんは四日市にいます。そのあいだ、<strong>雇った鍼灸師が、米倉さんの自宅1階で営業します。</strong>前案（外部店舗）にはなかった論点です。</p>
+    <div class="tw"><table>
+      <thead><tr><th>項目</th><th>決めておくこと</th></tr></thead>
+      <tbody>
+        <tr><th>鍵の管理</th><td>従業員に渡す鍵は<strong>1階部分のみ</strong>。2階への動線は施錠して物理的に分ける</td></tr>
+        <tr><th>施錠・開錠の手順</th><td>開店・閉店のチェックリストを紙で用意。スマートロックの履歴管理を推奨</td></tr>
+        <tr class="hi"><th>金銭管理</th><td>現金を置かない。<strong>キャッシュレス決済のみ</strong>にするのが最も安全</td></tr>
+        <tr><th>緊急連絡</th><td>四日市滞在中の連絡体制。急病・設備トラブル・クレームの一次対応</td></tr>
+        <tr><th>防犯カメラ</th><td>1階の出入口と待合。従業員にも事前に説明しておく</td></tr>
+        <tr class="hi"><th>2階の扱い</th><td><strong>従業員は2階に立ち入らない</strong>ことを雇用契約書に明記</td></tr>
+      </tbody>
+    </table></div>
     <div class="call c-judge">
-      <span class="lab">判断 — 3ヶ月マンスリー → 賃貸</span>
-      <p>いきなり賃貸を契約しない方がいい理由があります。<em>このサイクルが本当に回るか、まだ誰も知らない</em>から。</p>
-      <p style="margin-bottom:0">最初の3ヶ月はマンスリー（約36万円）で検証し、パターンが固まってから賃貸（月75,000円）へ。初期費用40万を後ろ倒しできます。</p>
+      <span class="lab">判断</span>
+      <p style="margin:0">これが成立するかどうかは、<em>採用の質にすべてかかっています。</em>「自宅を任せられる人」を1人採る——ここちはりネットワークからの採用を強く勧める理由が、もう一つ増えました。</p>
     </div>
-    <p style="font-size:13.5px;color:var(--ink-2)">事業用としての按分計上の可否、住民票をどちらに置くか、二拠点の税務処理は、税理士に必ず相談してください（13章 #6）。</p>
+
+    <h3>★ 施術所としての構造設備基準（自宅兼だとシビアになる）</h3>
+    <p class="sub">あはき法施行規則の施術所基準は、自宅兼でも当然に適用されます。1階でこれを満たす必要があります。</p>
+    <div class="tw"><table>
+      <thead><tr><th>基準</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><th>専用の施術室</th><td><strong>6.6㎡以上</strong>。他の用途と兼ねられない</td></tr>
+        <tr><th>待合室</th><td><strong>3.3㎡以上</strong></td></tr>
+        <tr><th>換気</th><td>施術室の<strong>床面積の1/7以上</strong>の外気開口部（または換気装置）</td></tr>
+        <tr><th>消毒設備</th><td>手洗い・器具消毒の設備</td></tr>
+        <tr class="hi"><th>居住部分との区画</th><td><strong>施術所と住居を明確に区画すること。</strong>ここが自宅兼で最も指摘される点</td></tr>
+      </tbody>
+    </table></div>
+    <ul class="chk">
+      <li><span class="num">01</span><span>1階で施術室を<strong>2室</strong>とれるか（ここちめいどとねここちを並行運用するなら必須）</span></li>
+      <li><span class="num">02</span><span>1階専用の出入口があるか。なければ設けられるか</span></li>
+      <li><span class="num">03</span><span>トイレ・洗面を、来客と居住で分けられるか</span></li>
+      <li><span class="num">04</span><span><strong>内装工事の見積り</strong>（施術所仕様への改装。<strong>200〜500万円規模になる可能性</strong>。運転資金とは別枠で見ておく）</span></li>
+      <li><span class="num">05</span><span><strong>用途地域の確認。</strong>第一種低層住居専用地域だと店舗面積に制限。原町田4丁目は町田駅至近なので商業系と思われるが、必ず役所で確認</span></li>
+      <li><span class="num">06</span><span>看板の設置可否（屋外広告物条例）</span></li>
+    </ul>
+
+    <h3>★ 自宅住所が、HPBに載る</h3>
+    <p>ねここちはHPB集客が前提です。つまり<strong>自宅の住所が、不特定多数に公開されます。</strong></p>
+    <div class="tw"><table>
+      <thead><tr><th>リスク</th><th>対応</th></tr></thead>
+      <tbody>
+        <tr class="hi"><th>自宅住所の公開</th><td>覚悟のうえで決めるしかない。<strong>ただし「2階が住居」であることは公開しない</strong></td></tr>
+        <tr><th>見知らぬ来客</th><td><strong>完全予約制</strong>にする（HPBの当日予約枠を開けない運用も可能）</td></tr>
+        <tr><th>2階への侵入</th><td>階段の施錠・目隠し。動線を物理的に遮断</td></tr>
+        <tr><th>女性スタッフの安全</th><td>防犯カメラ、緊急通報装置、施術中の施錠ルール</td></tr>
+        <tr><th>夜間営業</th><td>遅い時間帯の枠を開けるかは慎重に。<strong>ねここちの営業時間の上限を決めておく</strong></td></tr>
+      </tbody>
+    </table></div>
+    <div class="call c-note">
+      <span class="lab">構造上の救い</span>
+      <p style="margin:0">ここちめいど（完全紹介制・LINEのみ）は、そもそも住所を公開しません。<strong>住所が出るのはねここち側だけ</strong>という構造は、意外にも防御になっています。</p>
+    </div>
+
+    <h3>税務：住居と事業の按分</h3>
+    <p class="sub">税理士案件です。開業前に必ず相談してください。</p>
+    <div class="tw"><table>
+      <thead><tr><th>論点</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><th>家賃・ローンの按分</th><td>床面積按分が基本。1階事業・2階居住で概ね50%ずつ</td></tr>
+        <tr class="hi"><th>住宅ローン控除</th><td>購入の場合、<strong>居住用部分が床面積の50%以上</strong>でないと適用できない。1階/2階が同面積なら<strong>ぎりぎり</strong>。控除額も居住割合で按分される</td></tr>
+        <tr><th>水道光熱費・通信費</th><td>使用実態に応じて按分</td></tr>
+        <tr><th>固定資産税・減価償却</th><td>事業用部分は経費算入・償却可</td></tr>
+        <tr class="hi"><th>賃料収入</th><td>ねここちから受け取る150,000円の所得区分（不動産所得か事業収入か）</td></tr>
+        <tr><th>住民票・納税地</th><td>二拠点。東京が生活の本拠になるなら、住民票と確定申告の納税地を整理する</td></tr>
+      </tbody>
+    </table></div>
   </div>
 </section>
 
 <section id="finance" class="band">
   <div class="wrap">
     <p class="snum">04 ／ 収支</p>
-    <h2>固定費は月125,000円。損益分岐は24枠のうち5枠</h2>
+    <h2>固定費は月80,000円。損益分岐は月3枠</h2>
+    <p class="sub">自宅兼院になったことで、ここちめいどの固定費は交通費と場所の内部按分だけになりました。</p>
 
     <div class="tw"><table>
       <thead><tr><th>月固定費</th><th class="n">金額</th><th>備考</th></tr></thead>
       <tbody>
-        <tr><th>住居費</th><td class="n">75,000円</td><td>定常時。最初の3ヶ月はマンスリーで約120,000円</td></tr>
         <tr><th>交通費</th><td class="n">50,000円</td><td>23,000円 × 2.17往復</td></tr>
-        <tr><th>施術スペース</th><td class="n">0円</td><td>ねここちと共用と仮定</td></tr>
-        <tr class="hi"><th>合計</th><td class="n">125,000円</td><td></td></tr>
+        <tr><th>1階の使用（内部按分）</th><td class="n">30,000円</td><td>月6〜7日ぶん。03章参照</td></tr>
+        <tr class="hi"><th>合計</th><td class="n">80,000円</td><td></td></tr>
       </tbody>
     </table></div>
-    <p>前案（月6日の日帰り遠征）は月114,000円でした。<strong>11,000円増えるだけで、東京滞在日数が3倍になります。</strong></p>
+    <div class="tw"><table>
+      <thead><tr><th>参考：固定費の推移</th><th class="n">月額</th></tr></thead>
+      <tbody>
+        <tr><th>初案（月6日の日帰り遠征）</th><td class="n">114,000円</td></tr>
+        <tr><th>二拠点案（1Kを借りる）</th><td class="n">125,000円</td></tr>
+        <tr class="hi"><th>自宅兼院</th><td class="n">80,000円</td></tr>
+      </tbody>
+    </table></div>
 
     <div class="tw"><table>
       <thead><tr><th class="n">稼働率</th><th class="n">埋まった枠</th><th class="n">売上</th><th class="n">固定費</th><th class="n">手残り</th></tr></thead>
       <tbody>
-        <tr><td class="n">20%</td><td class="n">4.8枠</td><td class="n">134,400円</td><td class="n">125,000円</td><td class="n">9,400円</td></tr>
-        <tr><td class="n">50%</td><td class="n">12枠</td><td class="n">336,000円</td><td class="n">125,000円</td><td class="n">211,000円</td></tr>
-        <tr class="hi"><td class="n">70%</td><td class="n">16.8枠</td><td class="n">470,400円</td><td class="n">125,000円</td><td class="n">345,400円</td></tr>
-        <tr><td class="n">90%</td><td class="n">21.6枠</td><td class="n">604,800円</td><td class="n">125,000円</td><td class="n">479,800円</td></tr>
-        <tr><td class="n">100%</td><td class="n">24枠</td><td class="n">672,000円</td><td class="n">125,000円</td><td class="n">547,000円</td></tr>
+        <tr><td class="n">15%</td><td class="n">3.6枠</td><td class="n">100,800円</td><td class="n">80,000円</td><td class="n">20,800円</td></tr>
+        <tr><td class="n">50%</td><td class="n">12枠</td><td class="n">336,000円</td><td class="n">80,000円</td><td class="n">256,000円</td></tr>
+        <tr class="hi"><td class="n">70%</td><td class="n">16.8枠</td><td class="n">470,400円</td><td class="n">80,000円</td><td class="n">390,400円</td></tr>
+        <tr><td class="n">90%</td><td class="n">21.6枠</td><td class="n">604,800円</td><td class="n">80,000円</td><td class="n">524,800円</td></tr>
+        <tr><td class="n">100%</td><td class="n">24枠</td><td class="n">672,000円</td><td class="n">80,000円</td><td class="n">592,000円</td></tr>
       </tbody>
     </table></div>
 
     <div class="call c-judge" style="background:#1F1B16;border-color:#413a30">
-      <span class="lab">これが自由度の正体</span>
-      <p style="margin:0">損益分岐は<strong>4.5枠（稼働率19%）</strong>。月24枠のうち5枠埋まれば黒字。だから枠が埋まらない月があっても平気で、だから<strong>施術日を増やさずにいられる。</strong></p>
+      <span class="lab">この計画のいちばん強い部分</span>
+      <p style="margin:0">損益分岐は<strong>2.9枠（稼働率12%）。月3枠埋まれば黒字です。</strong>月3枠で黒字だから、施術日を増やす必要がない。だから13日の空白を守れる。</p>
     </div>
 
     <h3>東京関連の年間像</h3>
@@ -496,19 +629,22 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
         <tr><th>オンライン傾聴</th><td>月6件 × 12,000円 × 12</td><td class="n">864,000円</td></tr>
         <tr class="hi"><th>ねここち 技術監修料</th><td>2店舗 × 146万 × 4% × 12 <span class="tag t-shu">施術時間ゼロ</span></td><td class="n">1,401,600円</td></tr>
         <tr><th>ねここち 採用・教育支援フィー</th><td>年2名 × 200,000円</td><td class="n">400,000円</td></tr>
-        <tr><th>売上計</th><td></td><td class="n">8,497,600円</td></tr>
-        <tr><th>住居費・交通費・その他</th><td>（900,000＋600,000＋360,000）</td><td class="n">▲1,860,000円</td></tr>
-        <tr class="hi"><th>東京関連の年間利益（概算）</th><td></td><td class="n">約 6,640,000円</td></tr>
+        <tr class="hi"><th>ねここちから受け取る1階賃料</th><td>150,000円 × 12 <span class="tag t-shu">施術時間ゼロ</span></td><td class="n">1,800,000円</td></tr>
+        <tr><th>売上計</th><td></td><td class="n">10,297,600円</td></tr>
+        <tr><th>交通費・1階按分・その他経費</th><td>（600,000＋360,000＋360,000）</td><td class="n">▲1,320,000円</td></tr>
+        <tr><th>自宅コスト（建物全体・仮置き）</th><td>200,000円 × 12</td><td class="n">▲2,400,000円</td></tr>
+        <tr class="hi"><th>差引（生活費込み）</th><td></td><td class="n">約 6,577,600円</td></tr>
       </tbody>
     </table></div>
-    <p>売上850万のうち、330万は期初に確定し、180万は施術時間ゼロで発生します。<em>売上の6割が、その月の予約数に連動しません。</em></p>
+    <p>売上1,030万のうち、330万は期初に確定し、<strong>360万は施術時間ゼロ（監修料＋賃料）</strong>で発生します。<em>つまり売上の約7割が、その月の予約数に連動しません。</em></p>
 
     <div class="call c-warn">
       <span class="lab">見落とせない — 消費税</span>
-      <p>東京 約850万 ＋ 四日市 約900万 ＝ <strong>年商1,750万円前後。課税売上1,000万円を確実に超えます。インボイス登録と消費税の申告が必須です。</strong></p>
+      <p>東京 約1,030万 ＋ 四日市 約900万 ＝ <strong>年商1,900万円前後。課税売上1,000万円を確実に超えます。インボイス登録と消費税の申告が必須です。</strong></p>
       <ul style="margin-bottom:0">
         <li>28,000円が税込なら実質手取りは約25,455円。<strong>税抜28,000円（税込30,800円）にするか、開業前に判断が要る</strong></li>
-        <li>簡易課税（サービス業 第五種・みなし仕入率50%）の選択可否を税理士と検討</li>
+        <li>簡易課税の事業区分に注意（施術＝第五種／<strong>不動産賃料＝第六種</strong>。混在すると計算が複雑になる）</li>
+        <li><strong>事業用建物の賃貸は課税取引。</strong>1階賃料にも消費税がかかる</li>
       </ul>
     </div>
   </div>
@@ -562,7 +698,7 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
   <div class="wrap">
     <p class="snum">06 ／ オーナーの単価</p>
     <h2>空いた13日を、施術で埋めないこと</h2>
-    <p class="sub">この生活リズムがもたらす、いちばん大きな誘惑です。月19日も東京にいるのに、施術しているのは6日。残り13日が空いて見える。埋めたくなる。</p>
+    <p class="sub">この生活リズムがもたらす、いちばん大きな誘惑です。月19.5日も町田にいて、しかも1階が職場です。施術しているのは6日。残り13日が空いて見える。<strong>通勤ゼロなので、なおさら埋めたくなる。</strong></p>
 
     <figure>
       <div class="figbox" style="background:#1F1B16;border-color:#413a30">
@@ -625,7 +761,7 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 <section id="employment">
   <div class="wrap">
     <p class="snum">07 ／ 雇用</p>
-    <h2>業務委託50%をやめた。生活リズムがそれを支える</h2>
+    <h2>自宅1階にしたことで、損益分岐が23人ぶん近づいた</h2>
 
     <div class="tw"><table>
       <thead><tr><th></th><th>業務委託50%（当初案）</th><th>労働契約（変更後）</th></tr></thead>
@@ -637,20 +773,20 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
         <tr><th>標準化・FC展開</th><td>ばらつきが出る</td><td>しやすい</td></tr>
         <tr><th>労務管理</th><td>不要</td><td><strong>必要</strong></td></tr>
         <tr><th>採用失敗のコスト</th><td>低い</td><td><strong>高い</strong></td></tr>
-        <tr class="hi"><th>オーナーの現場滞在</th><td>月2回・数時間</td><td><strong>月19日 ← 生活リズムが解決した</strong></td></tr>
+        <tr class="hi"><th>オーナーの現場滞在</th><td>月2回・数時間</td><td><strong>月19.5日。しかも同じ建物に住んでいる</strong></td></tr>
       </tbody>
     </table></div>
-    <p>最後の行が決定的です。<strong>月19日東京にいるからこそ、雇用モデルが機能します。</strong></p>
+    <p>最後の行が決定的です。自宅兼院で月19.5日いるからこそ、雇用モデルが機能します。ただし裏返せば、<strong>不在の5日間は自宅で従業員だけが営業する</strong>ということでもあります（03章）。</p>
 
-    <h3>損益分岐が生まれた</h3>
+    <h3>固定費と損益分岐</h3>
     <div class="tw"><table>
-      <thead><tr><th>想定固定費（1名体制・月額）</th><th class="n">金額</th></tr></thead>
+      <thead><tr><th>想定固定費（1名体制・月額）</th><th class="n">前案（外部店舗）</th><th class="n">自宅1階</th></tr></thead>
       <tbody>
-        <tr><th>人件費（月給30万＋社会保険 会社負担 約15%）</th><td class="n">350,000円</td></tr>
-        <tr><th>家賃（町田駅圏・小規模店舗）</th><td class="n">300,000円</td></tr>
-        <tr><th>HPB掲載費</th><td class="n">50,000円</td></tr>
-        <tr><th>水道光熱・消耗品・システム・保険</th><td class="n">100,000円</td></tr>
-        <tr class="hi"><th>固定費 合計</th><td class="n">800,000円</td></tr>
+        <tr><th>人件費（月給30万＋社保 約15%）</th><td class="n">350,000円</td><td class="n">350,000円</td></tr>
+        <tr class="hi"><th>家賃</th><td class="n">300,000円</td><td class="n">150,000円<br><span style="font-size:11px">米倉さんへ支払</span></td></tr>
+        <tr><th>HPB掲載費</th><td class="n">50,000円</td><td class="n">50,000円</td></tr>
+        <tr><th>水道光熱・消耗品・システム・保険</th><td class="n">100,000円</td><td class="n">100,000円</td></tr>
+        <tr class="hi"><th>固定費 合計</th><td class="n">800,000円</td><td class="n">650,000円</td></tr>
       </tbody>
     </table></div>
     <p>会員1人あたりの月次売上は<strong>約6,636円</strong>（提供資料のミックス：売上146万円 ÷ 220人）。</p>
@@ -658,38 +794,42 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
     <div class="big">
       <div style="border-left:3px solid var(--shu)">
         <div class="bs">1名体制</div>
-        <div class="bn">121<span style="font-size:16px">人</span></div>
-        <div class="bk">損益分岐となる会員数。固定費80万円／月</div>
+        <div class="bn">98<span style="font-size:16px">人</span></div>
+        <div class="bk">損益分岐となる会員数。固定費65万円／月。前案121人から23人ぶん近づいた</div>
       </div>
       <div>
         <div class="bs">2名体制</div>
-        <div class="bn" style="color:var(--ink-3)">173<span style="font-size:16px">人</span></div>
-        <div class="bk">固定費115万円／月。分岐が52人ぶん遠のく</div>
+        <div class="bn" style="color:var(--ink-3)">151<span style="font-size:16px">人</span></div>
+        <div class="bk">固定費100万円／月。分岐が53人ぶん遠のく</div>
       </div>
       <div>
-        <div class="bs">必要運転資金</div>
-        <div class="bn">300〜350<span style="font-size:16px">万円</span></div>
-        <div class="bk">事業の累積赤字201万＋東京の住居初期40万＋予備</div>
+        <div class="bs">必要資金 合計</div>
+        <div class="bn">350〜700<span style="font-size:16px">万円</span></div>
+        <div class="bk">運転資金150〜200万 ＋ <strong>1階の内装200〜500万</strong></div>
       </div>
     </div>
 
-    <h3>立ち上がり期の資金繰り（1名体制・会員が月20人ずつ増える想定）</h3>
+    <h3>立ち上がり期の資金繰り（1名体制・固定費65万・会員が月20人ずつ増える想定）</h3>
     <div class="tw"><table>
       <thead><tr><th class="n">月</th><th class="n">会員数</th><th class="n">売上</th><th class="n">固定費</th><th class="n">損益</th></tr></thead>
       <tbody>
-        <tr><td class="n">1ヶ月目</td><td class="n">20人</td><td class="n">133,000円</td><td class="n">800,000円</td><td class="n">▲667,000円</td></tr>
-        <tr><td class="n">2ヶ月目</td><td class="n">40人</td><td class="n">265,000円</td><td class="n">800,000円</td><td class="n">▲535,000円</td></tr>
-        <tr><td class="n">3ヶ月目</td><td class="n">60人</td><td class="n">398,000円</td><td class="n">800,000円</td><td class="n">▲402,000円</td></tr>
-        <tr><td class="n">4ヶ月目</td><td class="n">80人</td><td class="n">531,000円</td><td class="n">800,000円</td><td class="n">▲269,000円</td></tr>
-        <tr><td class="n">5ヶ月目</td><td class="n">100人</td><td class="n">664,000円</td><td class="n">800,000円</td><td class="n">▲136,000円</td></tr>
-        <tr><td class="n">6ヶ月目</td><td class="n">121人</td><td class="n">803,000円</td><td class="n">800,000円</td><td class="n">±0</td></tr>
-        <tr class="hi"><th>累積</th><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">約 ▲201万円</td></tr>
+        <tr><td class="n">1ヶ月目</td><td class="n">20人</td><td class="n">133,000円</td><td class="n">650,000円</td><td class="n">▲517,000円</td></tr>
+        <tr><td class="n">2ヶ月目</td><td class="n">40人</td><td class="n">265,000円</td><td class="n">650,000円</td><td class="n">▲385,000円</td></tr>
+        <tr><td class="n">3ヶ月目</td><td class="n">60人</td><td class="n">398,000円</td><td class="n">650,000円</td><td class="n">▲252,000円</td></tr>
+        <tr><td class="n">4ヶ月目</td><td class="n">80人</td><td class="n">531,000円</td><td class="n">650,000円</td><td class="n">▲119,000円</td></tr>
+        <tr><td class="n">5ヶ月目</td><td class="n">98人</td><td class="n">650,000円</td><td class="n">650,000円</td><td class="n">±0</td></tr>
+        <tr class="hi"><th>累積</th><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">約 ▲127万円</td></tr>
       </tbody>
     </table></div>
 
+    <div class="call c-warn">
+      <span class="lab">運転資金は減ったが、内装費が新たに乗る</span>
+      <p style="margin:0">1階を施術所仕様にする工事は<strong>200〜500万円規模</strong>になる可能性があります。しかも「あとから」ができない支出です。<strong>見積りを、いちばん先に取ってください。</strong></p>
+    </div>
+
     <div class="call c-judge">
       <span class="lab">判断 — 1名で始める</span>
-      <p style="margin:0">1名のキャパ（月220〜352回）は会員150〜220人分。<strong>2人目は、会員が150人を超えて、かつ予約が取れない状態が2ヶ月続いてから。</strong>2名同時開業だと損益分岐173人・必要資金500〜600万円に跳ね上がります。</p>
+      <p style="margin:0"><strong>2人目は、会員が130人を超えて、かつ予約が取れない状態が2ヶ月続いてから。</strong>1名のキャパ（月220〜352回）は会員150〜220人分あります。2名同時開業だと損益分岐151人・運転資金320〜400万円（内装別）に跳ね上がります。</p>
     </div>
   </div>
 </section>
@@ -766,30 +906,38 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 <section id="partner">
   <div class="wrap">
     <p class="snum">09 ／ 共同経営</p>
-    <h2>持ち込む資産を、施術以外で対価にする</h2>
-    <p class="sub">米倉さんが持ち込むのは、現金でも労働でもなく、置き換えの効かない無形資産です。ここを対価にしないと、施術で働くしかなくなります。</p>
+    <h2>1階の賃料が、いちばん堅い対価になる</h2>
+    <p class="sub">米倉さんが持ち込むのは、現金でも労働でもなく、置き換えの効かない無形資産と、自分の家の1階です。ここを対価にしないと、施術で働くしかなくなります。</p>
 
     <div class="tw"><table>
       <thead><tr><th>対価の設計案</th><th>提案</th><th class="n">1店舗</th><th class="n">5店舗</th><th class="n">10店舗</th></tr></thead>
       <tbody>
-        <tr class="hi"><th>技術監修料</th><td>各店舗 売上の 3〜5%</td><td class="n">4.4〜7.3万円/月</td><td class="n">21.9〜36.5万円/月</td><td class="n">43.8〜73.0万円/月</td></tr>
+        <tr class="hi"><th>1階の賃料 ★</th><td>自宅1階をねここちに賃貸</td><td class="n">15.0万円/月</td><td class="n">15.0万円/月</td><td class="n">15.0万円/月</td></tr>
+        <tr><th>技術監修料</th><td>各店舗 売上の 3〜5%</td><td class="n">4.4〜7.3万円/月</td><td class="n">21.9〜36.5万円/月</td><td class="n">43.8〜73.0万円/月</td></tr>
         <tr><th>採用・教育支援フィー</th><td>鍼灸師1名の採用・初期教育につき</td><td class="n">20万円/名</td><td class="n">—</td><td class="n">—</td></tr>
         <tr><th>FCロイヤリティ分配</th><td>加盟金・ロイヤリティのうち監修相当分</td><td class="n">—</td><td class="n">—</td><td class="n">別途</td></tr>
         <tr><th>持分配当</th><td>出資比率に応じて</td><td class="n">別途</td><td class="n">別途</td><td class="n">別途</td></tr>
+        <tr class="hi"><th>合計（賃料＋監修料）</th><td></td><td class="n">19.4〜22.3万円/月</td><td class="n">36.9〜51.5万円/月</td><td class="n">58.8〜88.0万円/月</td></tr>
       </tbody>
     </table></div>
-    <p><strong>10店舗になれば、監修料だけで月43〜73万円。</strong>ここちめいど町田院を満席にした額（月55万円）に並びます。しかも東京にいる日数は増えません。</p>
+    <div class="call c-judge">
+      <span class="lab">なぜ賃料が重要か</span>
+      <p style="margin:0"><strong>1階賃料は、1号店の時点から確実に入る唯一の対価</strong>です。会員が集まる前から発生し、しかも施術時間ゼロ。<em>「オーナーに見合う出し方」の、いちばん堅い部分です。</em>10店舗になれば、賃料と監修料だけで月59〜88万円。東京にいる日数は1日も増えません。</p>
+    </div>
 
     <h3>契約書に必ず入れる条項</h3>
     <ul class="chk">
-      <li><span class="num">01</span><span><strong>商標</strong>：「ねここち」「ここちめいど」「ここちはり」の出願人・権利者を明記</span></li>
-      <li><span class="num">02</span><span><strong>ブランド分離</strong>：ここちめいどのブランド・患者情報はねここちに帰属しないこと</span></li>
-      <li><span class="num">03</span><span><strong>施術の非義務</strong>：米倉さんはねここちで施術義務を負わないこと <span class="tag t-warn">最重要</span></span></li>
-      <li><span class="num">04</span><span><strong>滞在の非義務</strong>：月19日東京にいることを、労働の提供義務と混同しないこと <span class="tag t-warn">生活リズムを共有した以上、これも要る</span></span></li>
-      <li><span class="num">05</span><span><strong>雇用主体</strong>：従業員の雇用主はどちらか。労務責任の所在</span></li>
-      <li><span class="num">06</span><span><strong>運転資金の負担割合</strong>：立ち上がり赤字 約201万円を誰がどう負担するか</span></li>
-      <li><span class="num">07</span><span><strong>監修料の算定基礎</strong>：売上ベースか利益ベースか。直営とFCで別建て</span></li>
-      <li><span class="num">08</span><span><strong>離脱条項</strong>／<strong>競業避止の範囲</strong>／<strong>意思決定</strong>（価格変更・採用・出店・FC承認）</span></li>
+      <li><span class="num">01</span><span><strong>1階の賃貸借契約</strong>：米倉さん個人 ↔ ねここち。賃料・使用範囲・使用曜日・原状回復・解約予告 <span class="tag t-warn">新規かつ最重要</span></span></li>
+      <li><span class="num">02</span><span><strong>使用曜日の明記</strong>：水曜・隔週木曜はここちめいどが専有すること（08章 #5）を、賃貸借契約に書き込む</span></li>
+      <li><span class="num">03</span><span><strong>2階への立入禁止</strong>：従業員・来客ともに。雇用契約書と就業規則にも明記</span></li>
+      <li><span class="num">04</span><span><strong>ねここちが撤退した場合の扱い</strong>：1階が空いたときの原状回復と、賃料収入が消える前提での資金計画</span></li>
+      <li><span class="num">05</span><span><strong>施術の非義務</strong>：米倉さんはねここちで施術義務を負わないこと <span class="tag t-warn">最重要</span></span></li>
+      <li><span class="num">06</span><span><strong>滞在の非義務</strong>：月19.5日東京にいて、しかも同じ建物に住んでいることを、労働の提供義務と混同しないこと <span class="tag t-warn">自宅兼院では前案より格段に重要</span></span></li>
+      <li><span class="num">07</span><span><strong>商標</strong>：「ねここち」「ここちめいど」「ここちはり」の出願人・権利者を明記</span></li>
+      <li><span class="num">08</span><span><strong>ブランド分離</strong>：ここちめいどのブランド・患者情報はねここちに帰属しないこと</span></li>
+      <li><span class="num">09</span><span><strong>雇用主体</strong>：従業員の雇用主はどちらか。労務責任の所在</span></li>
+      <li><span class="num">10</span><span><strong>運転資金の負担割合</strong>：立ち上がり赤字 約127万円を誰がどう負担するか</span></li>
+      <li><span class="num">11</span><span><strong>監修料の算定基礎</strong>／<strong>離脱条項</strong>／<strong>競業避止の範囲</strong>／<strong>意思決定</strong>（価格変更・採用・出店・FC承認）</span></li>
     </ul>
   </div>
 </section>
@@ -803,13 +951,13 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
     <div class="tw"><table>
       <thead><tr><th class="n">#</th><th>論点</th><th>指摘されること</th></tr></thead>
       <tbody>
-        <tr class="hi"><td class="n">1</td><th>収支モデルが変わった</th><td>資料は業務委託50%前提（スタッフ73万／店舗68万）。<strong>労働契約なら人件費は固定費35万</strong>。満席時の利益は増えるが、<strong>損益分岐が会員121人として新たに発生する</strong></td></tr>
-        <tr class="hi"><td class="n">2</td><th>運転資金の記載がない</th><td>立ち上がり6ヶ月の累積赤字 約201万円。<strong>必要運転資金250〜300万円</strong>を明記すべき</td></tr>
+        <tr class="hi"><td class="n">1</td><th>収支モデルが変わった</th><td>資料は業務委託50%前提（スタッフ73万／店舗68万）。<strong>労働契約なら人件費は固定費35万</strong>。満席時の利益は増えるが、<strong>損益分岐が会員98人として新たに発生する</strong>（自宅1階・家賃15万前提）</td></tr>
+        <tr class="hi"><td class="n">2</td><th>運転資金の記載がない</th><td>立ち上がり5ヶ月の累積赤字 約127万円。<strong>必要運転資金150〜200万円＋内装200〜500万円</strong>を明記すべき</td></tr>
         <tr><td class="n">3</td><th>キャパと売上の不整合</th><td>稼働率60%＝月220回と書きながら、売上試算は月270回（＝77%）。どちらかに揃える</td></tr>
         <tr><td class="n">4</td><th>解約率（チャーン）</th><td>記載なし。月次解約率5%なら150人維持に毎月7〜8人の新規が必要</td></tr>
         <tr><td class="n">5</td><th>会員転換率</th><td>初回4,980円→会員化が何%か。30%なら150人集めるのに<strong>500人の初回</strong>が必要</td></tr>
         <tr><td class="n">6</td><th>予約枠の集中</th><td>会員150人の希望は土日・平日夜に集中。1名体制では平日昼が空き、土日が取れない</td></tr>
-        <tr><td class="n">7</td><th>家賃・内装が未計上</th><td>町田駅圏の家賃25〜40万を明示した方が、かえって信頼される</td></tr>
+        <tr><td class="n">7</td><th>家賃・内装が未計上</th><td><strong>自宅1階なら家賃15万</strong>。ただし「オーナーの自宅だから安い」ではなく<strong>適正賃料である</strong>と示すこと。加盟店が再現できない前提はFCを壊す</td></tr>
         <tr><td class="n">8</td><th>労務体制</th><td>就業規則・労働時間管理・社会保険・労災。1〜2名でも必須</td></tr>
         <tr><td class="n">9</td><th>1名採用への依存</th><td>1名が辞めた瞬間に売上ゼロ。<strong>ここちはりネットワークがバックアップになることを強みとして書くべき</strong></td></tr>
       </tbody>
@@ -817,7 +965,7 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 
     <div class="call c-note">
       <span class="lab">資料に足せる、いちばん大きな強み</span>
-      <p style="margin:0">オーナーが<strong>月19日、現地にいる</strong>こと。「オーナー不在の遠隔経営」ではなく<em>「常駐に近い監修体制」</em>だと書けます。これは加盟希望者にも投資家にも効きます。</p>
+      <p style="margin:0">オーナーが<strong>月19.5日、現地にいる</strong>こと。しかも<strong>同じ建物に住んでいる</strong>。「オーナー不在の遠隔経営」ではなく<em>「常駐に近い監修体制」</em>だと書けます。これは加盟希望者にも投資家にも効きます。</p>
     </div>
   </div>
 </section>
@@ -852,7 +1000,7 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
     <div class="flow">
       <div class="fs mid"><div class="fh">HPB → 初回体験 4,980円</div><div class="fd">ねここちが広告費を払って新規を集める</div></div>
       <div class="fa">↓　LINE登録・カウンセリング</div>
-      <div class="fs mid"><div class="fh">ねここち 月額会員（5,500〜9,900円）</div><div class="fd">月220回の接点が生まれる</div></div>
+      <div class="fs mid"><div class="fh">ねここち 月額会員（5,500〜9,900円）</div><div class="fd">月220回の接点が、同じ建物の1階で生まれる</div></div>
       <div class="fa">↓　従業員が気づく：眠れない日が続いている／心療内科に通っている／30分では追いつかない</div>
       <div class="fs shu"><div class="fh">引き上げ相談枠（隔週火曜・30分・無料 or 5,000円）</div><div class="fd">施術ではなく「相談」。ここが価格の階段を安全に登る唯一の踊り場</div></div>
       <div class="fa">↓　合意のうえで</div>
@@ -933,23 +1081,52 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 <section id="ops">
   <div class="wrap">
     <p class="snum">12 ／ 実務</p>
-    <h2>着手前のチェックリスト</h2>
+    <h2>内装を発注する前に、済ませておくこと</h2>
+
+    <h3>物件・施術所（自宅兼院で新たに発生）</h3>
     <div class="tw"><table>
       <thead><tr><th class="n">#</th><th>項目</th><th>内容</th><th class="n">優先</th></tr></thead>
       <tbody>
-        <tr class="hi"><td class="n">1</td><th>町田市保健所への相談・届出</th><td>施術所開設届（開設後10日以内）。<strong>同一施設で2ブランドを名乗る場合の扱い</strong>。構造設備基準</td><td class="n">★★★</td></tr>
-        <tr class="hi"><td class="n">2</td><th>2ブランドの表示</th><td>同一施術所で2つの名称を掲げられるか。看板・広告表示の可否</td><td class="n">★★★</td></tr>
-        <tr class="hi"><td class="n">3</td><th>商標出願</th><td>「ねここち」「ここちめいど」「ここちはり」</td><td class="n">★★★</td></tr>
-        <tr class="hi"><td class="n">4</td><th>労務体制の整備</th><td>就業規則・雇用契約書・労働時間管理・社会保険・労災</td><td class="n">★★★</td></tr>
-        <tr class="hi"><td class="n">5</td><th>運転資金の確保</th><td>300〜350万円（事業201万＋住居初期40万＋予備）</td><td class="n">★★★</td></tr>
-        <tr class="hi"><td class="n">6</td><th>税理士相談</th><td><strong>消費税・インボイス</strong>（年商1,750万想定）／<strong>二拠点の住居費按分</strong>／住民票の所在／簡易課税の選択</td><td class="n">★★★</td></tr>
-        <tr class="hi"><td class="n">7</td><th>東京の住まい</th><td>マンスリー3ヶ月 → 賃貸。契約・住所変更・郵便転送</td><td class="n">★★★</td></tr>
-        <tr class="hi"><td class="n">8</td><th>四日市の営業体制変更</th><td>隔週5日集中営業への切り替えと、既存患者への告知</td><td class="n">★★★</td></tr>
-        <tr><td class="n">9</td><th>賠償責任保険</th><td>東京での施術・従業員の施術がカバーされるか</td><td class="n">★★★</td></tr>
-        <tr><td class="n">10</td><th>医療廃棄物</th><td>使用済鍼の処理委託契約（両拠点）</td><td class="n">★★★</td></tr>
-        <tr><td class="n">11</td><th>事前決済システム</th><td>Square / STORES 予約 等。<strong>両院を1つで管理</strong></td><td class="n">★★</td></tr>
-        <tr><td class="n">12</td><th>広告表現</th><td>あはき法の広告制限・医療広告ガイドライン。<strong>HPB掲載文も対象</strong></td><td class="n">★★</td></tr>
-        <tr><td class="n">13</td><th>カルテ管理</th><td>2拠点＋2ブランドのカルテをクラウドで一元化</td><td class="n">★★</td></tr>
+        <tr class="hi"><td class="n">1</td><th>町田市保健所への事前相談</th><td><strong>1階が施術所の構造設備基準を満たすか</strong>（専用施術室6.6㎡以上／待合3.3㎡以上／換気／消毒設備／<strong>居住部分との区画</strong>）。<strong>ここが通らなければ何も始まらない</strong></td><td class="n">★★★</td></tr>
+        <tr class="hi"><td class="n">2</td><th>同一施設で2ブランドを名乗る扱い</th><td>ここちめいどとねここちを1階で並べられるか。看板・広告表示の可否</td><td class="n">★★★</td></tr>
+        <tr class="hi"><td class="n">3</td><th>用途地域の確認</th><td>役所で確認。第一種低層住居専用地域だと店舗面積に制限。屋外広告物条例も</td><td class="n">★★★</td></tr>
+        <tr class="hi"><td class="n">4</td><th>内装工事の見積り</th><td>施術室2室・待合・1階専用出入口・トイレ分離・2階への動線遮断。<strong>200〜500万円規模</strong></td><td class="n">★★★</td></tr>
+        <tr><td class="n">5</td><th>防犯設備</th><td>防犯カメラ（1階出入口・待合）、スマートロック、2階階段の施錠</td><td class="n">★★★</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>資金・税務</h3>
+    <div class="tw"><table>
+      <thead><tr><th class="n">#</th><th>項目</th><th>内容</th><th class="n">優先</th></tr></thead>
+      <tbody>
+        <tr class="hi"><td class="n">6</td><th>資金の確保</th><td>運転資金150〜200万円 ＋ <strong>内装200〜500万円</strong> ＝ 350〜700万円</td><td class="n">★★★</td></tr>
+        <tr class="hi"><td class="n">7</td><th>税理士相談</th><td><strong>住居と事業の按分</strong>（床面積）／<strong>住宅ローン控除</strong>（居住用50%以上の要件）／<strong>1階賃料の所得区分</strong>／<strong>消費税・インボイス</strong>（年商1,900万想定）／簡易課税の事業区分（施術＝第五種・<strong>賃貸＝第六種</strong>の混在）／住民票と納税地</td><td class="n">★★★</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>契約・労務</h3>
+    <div class="tw"><table>
+      <thead><tr><th class="n">#</th><th>項目</th><th>内容</th><th class="n">優先</th></tr></thead>
+      <tbody>
+        <tr class="hi"><td class="n">8</td><th>1階の賃貸借契約</th><td>米倉さん個人 ↔ ねここち。賃料・使用範囲・使用曜日・原状回復・解約予告（09章）</td><td class="n">★★★</td></tr>
+        <tr><td class="n">9</td><th>共同オーナーとの契約</th><td>施術義務／滞在義務の非負担、運転資金の負担割合、意思決定（09章）</td><td class="n">★★★</td></tr>
+        <tr><td class="n">10</td><th>労務体制の整備</th><td>就業規則・雇用契約書（<strong>2階立入禁止を明記</strong>）・労働時間管理・社会保険・労災</td><td class="n">★★★</td></tr>
+        <tr class="hi"><td class="n">11</td><th>不在時の運営ルール</th><td>鍵の管理・開閉店チェックリスト・キャッシュレス限定・緊急連絡体制（03章）</td><td class="n">★★★</td></tr>
+        <tr><td class="n">12</td><th>商標出願</th><td>「ねここち」「ここちめいど」「ここちはり」</td><td class="n">★★★</td></tr>
+        <tr><td class="n">13</td><th>賠償責任保険</th><td>施術・従業員の施術・<strong>自宅兼用であること</strong>を保険会社に伝えて確認</td><td class="n">★★★</td></tr>
+        <tr class="hi"><td class="n">14</td><th>火災保険</th><td><strong>店舗併用住宅</strong>としての契約になっているか。居住専用のままだと事業部分が補償されない</td><td class="n">★★★</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>運営</h3>
+    <div class="tw"><table>
+      <thead><tr><th class="n">#</th><th>項目</th><th>内容</th><th class="n">優先</th></tr></thead>
+      <tbody>
+        <tr class="hi"><td class="n">15</td><th>四日市の営業体制変更</th><td>隔週5日集中営業への切り替えと、既存患者への告知（05章）</td><td class="n">★★★</td></tr>
+        <tr><td class="n">16</td><th>医療廃棄物</th><td>使用済鍼の処理委託契約（両拠点）</td><td class="n">★★★</td></tr>
+        <tr><td class="n">17</td><th>事前決済システム</th><td>Square / STORES 予約 等。<strong>両院を1つで管理</strong></td><td class="n">★★</td></tr>
+        <tr><td class="n">18</td><th>広告表現</th><td>あはき法の広告制限・医療広告ガイドライン。<strong>HPB掲載文も対象</strong></td><td class="n">★★</td></tr>
+        <tr><td class="n">19</td><th>カルテ管理</th><td>2拠点＋2ブランドのカルテをクラウドで一元化</td><td class="n">★★</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -967,8 +1144,8 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
         <span class="what">土台</span>
         <ul>
           <li><strong>四日市の隔週5日体制を決定し、既存患者に告知</strong>（いちばん影響が大きい）</li>
-          <li><strong>東京の住まいを決める</strong>（マンスリー3ヶ月で開始）</li>
-          <li><strong>運転資金 300〜350万円の目処を立てる</strong></li>
+          <li><strong>町田市保健所に相談</strong>（1階が施術所基準を満たすか）＋<strong>用途地域確認</strong>＋<strong>内装見積り</strong> ★最優先</li>
+          <li><strong>資金の目処を立てる</strong>（運転資金150〜200万＋<strong>1階の内装200〜500万</strong>）</li>
           <li><strong>税理士に相談</strong>（消費税・インボイス・二拠点の按分・住民票）</li>
           <li>共同オーナーと契約条項をすり合わせ（施術義務／滞在義務の非負担／運転資金）</li>
           <li>商標出願／町田市保健所に相談／就業規則のひな形（社労士）</li>
@@ -993,14 +1170,14 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
           <li>頭皮鍼プロトコル・施術マニュアル・カウンセリングスクリプト整備</li>
           <li><strong>隔週の金・月を、ねここちの経営日として固定</strong></li>
           <li>HPB掲載開始／引き上げ相談枠の運用開始（隔週火曜）</li>
-          <li>ここちめいど 稼働率50%（月12枠）／<strong>住まいを賃貸へ切り替え</strong></li>
+          <li>ここちめいど 稼働率50%（月12枠）／<strong>不在時の運営ルールを文書化</strong></li>
         </ul>
       </li>
       <li>
         <span class="when">PHASE 3 ／ 2027.03 – 06</span>
         <span class="what">連結</span>
         <ul>
-          <li>ねここち 会員 80名 → 121名（損益分岐）</li>
+          <li>ねここち 会員 60名 → 98名（損益分岐）</li>
           <li>年間メンバーシップを個別案内（公開販売しない／10名上限）</li>
           <li>ここちめいど 稼働率70%（月17枠）／技術監修料の受け取り開始</li>
         </ul>
@@ -1053,8 +1230,8 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
     <div class="tw"><table>
       <thead><tr><th>指標</th><th class="n">目標</th><th>なぜ見るか</th></tr></thead>
       <tbody>
-        <tr class="hi"><th>会員数</th><td class="n">2027.03に121名<br>2027.09に150名</td><td><strong>赤字か黒字かを分ける唯一の線</strong></td></tr>
-        <tr class="hi"><th>キャッシュ残高</th><td class="n">常に240万円以上</td><td><strong>3ヶ月分の固定費。立ち上がり期の生命線</strong></td></tr>
+        <tr class="hi"><th>会員数</th><td class="n">2027.03に98名<br>2027.09に150名</td><td><strong>赤字か黒字かを分ける唯一の線</strong></td></tr>
+        <tr class="hi"><th>キャッシュ残高</th><td class="n">常に195万円以上</td><td><strong>3ヶ月分の固定費（65万×3）。立ち上がり期の生命線</strong></td></tr>
         <tr><th>月次解約率</th><td class="n">5%以下</td><td>サブスクの生命線</td></tr>
         <tr><th>初回 → 会員 転換率</th><td class="n">30%以上</td><td>ここが低いとHPB広告費を回収できない</td></tr>
         <tr class="hi"><th>引き上げ数</th><td class="n">月2名以上</td><td>Wブランドが機能しているかの唯一の証拠</td></tr>
@@ -1067,24 +1244,40 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 <section id="risk">
   <div class="wrap">
     <p class="snum">15 ／ リスク</p>
-    <h2>先に手を打っておくこと</h2>
+    <h2>自宅兼院に固有のリスクが、8つ増えた</h2>
+
+    <div class="tw"><table>
+      <thead><tr><th>自宅兼院に固有のリスク</th><th class="n">影響</th><th>対応</th></tr></thead>
+      <tbody>
+        <tr class="hi"><th>1階が施術所の基準を満たさない</th><td class="n">開業不能</td><td><strong>最優先で町田市保健所に相談</strong>（12章 #1）。<strong>内装の発注前に</strong></td></tr>
+        <tr><th>内装費が想定を超える</th><td class="n">大</td><td>早期に2〜3社から見積り。基準を満たす最小構成から詰める</td></tr>
+        <tr class="hi"><th>自宅住所がHPBで公開される</th><td class="n">中〜大</td><td>完全予約制／1階専用出入口／2階への動線遮断／防犯カメラ／<strong>「2階が住居」であることは公開しない</strong></td></tr>
+        <tr class="hi"><th>不在の5日間、自宅で従業員だけが営業する</th><td class="n">大</td><td>鍵は1階のみ／キャッシュレス限定／開閉店チェックリスト／緊急連絡体制／<strong>採用の質がすべて</strong></td></tr>
+        <tr><th>仕事と生活の境界が消える</th><td class="n">中</td><td>2階に上がったら仕事をしない、施術日以外は1階に降りない等、<strong>自分向けのルールを先に決める</strong></td></tr>
+        <tr><th>ねここちが撤退したら、1階が空く</th><td class="n">大</td><td>月15万円の賃料収入が消える前提の資金計画。賃貸借契約に解約予告期間を入れる</td></tr>
+        <tr><th>住宅ローン控除が使えない／減る</th><td class="n">中</td><td>居住用が床面積の50%以上か。税理士に事前確認（03章）</td></tr>
+        <tr><th>火災保険が事業部分をカバーしていない</th><td class="n">中</td><td>店舗併用住宅への切り替え（12章 #14）</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>事業リスク</h3>
     <div class="tw"><table>
       <thead><tr><th>リスク</th><th class="n">影響</th><th>対応</th></tr></thead>
       <tbody>
         <tr class="hi"><th>四日市の売上・患者が減る</th><td class="n">大</td><td><strong>東京より先に、隔週5日集中営業を設計する</strong>（05章）。先出しカレンダー・オンライン傾聴・認定院への引き継ぎ</td></tr>
         <tr class="hi"><th>カニバリ（28,000円が売れなくなる）</th><td class="n">致命的</td><td>08章の分離ルールを厳守。特に「HPB非掲載」「オーナーは施術に入らない」</td></tr>
-        <tr class="hi"><th>ねここちに施術者として引きずり込まれる</th><td class="n">致命的</td><td>契約書に「施術義務を負わない」「滞在＝労務ではない」条項（09章）。<strong>月19日いるぶん、この危険は前案より高い</strong></td></tr>
-        <tr class="hi"><th>立ち上がり期のキャッシュ切れ</th><td class="n">致命的</td><td>運転資金300〜350万円を先に確保。1名で開業する</td></tr>
-        <tr class="hi"><th>13日の空白を施術で埋めてしまう</th><td class="n">大</td><td>施術日「月7日以下」をKPIとして毎月確認（14章）</td></tr>
-        <tr><th>住居費が固定化する</th><td class="n">中</td><td>最初の3ヶ月はマンスリー。サイクルが回ってから賃貸へ</td></tr>
-        <tr><th>消費税・インボイスの見落とし</th><td class="n">大</td><td>年商1,750万想定。開業前に税理士へ（12章 #6）</td></tr>
+        <tr class="hi"><th>ねここちに施術者として引きずり込まれる</th><td class="n">致命的</td><td>契約書に「施術義務を負わない」「滞在＝労務ではない」条項（09章）。<strong>同じ建物に住んでいるぶん、この危険は前案より格段に高い</strong></td></tr>
+        <tr class="hi"><th>1階を無償で使わせてしまう</th><td class="n">大</td><td>賃貸借契約を先に結ぶ（03章）。FCの再現性の観点からも必須</td></tr>
+        <tr><th>立ち上がり期のキャッシュ切れ</th><td class="n">致命的</td><td>運転資金150〜200万＋内装200〜500万を先に確保。1名で開業する</td></tr>
+        <tr class="hi"><th>13日の空白を施術で埋めてしまう</th><td class="n">大</td><td>施術日「月7日以下」をKPIとして毎月確認（14章）。<strong>通勤ゼロだと、なおさら埋めたくなる</strong></td></tr>
+        <tr><th>消費税・インボイスの見落とし</th><td class="n">大</td><td>年商1,900万想定。開業前に税理士へ（12章 #7）</td></tr>
         <tr><th>1名の離職＝売上ゼロ</th><td class="n">大</td><td>ここちはりネットワークをバックアップに</td></tr>
-        <tr><th>届出・法規の不備</th><td class="n">事業停止</td><td>開始前に町田市保健所へ相談（12章 #1・#2）</td></tr>
         <tr><th>労務トラブル</th><td class="n">大</td><td>就業規則・雇用契約書を社労士と整備</td></tr>
         <tr><th>商標の取り漏れ</th><td class="n">FC停止</td><td>開業前に出願</td></tr>
-        <tr><th>共同オーナーとの認識齟齬</th><td class="n">事業解消</td><td>09章の条項を文書化</td></tr>
+        <tr><th>共同オーナーとの認識齟齬</th><td class="n">事業解消</td><td>09章の条項を文書化。<strong>特に1階の賃貸借</strong></td></tr>
         <tr class="hi"><th>14日サイクルが体力的に続かない</th><td class="n">大</td><td><strong>3ヶ月で必ず見直す。</strong>四日市5日連続 × 5枠と、町田の連続滞在の負荷を実測する</td></tr>
-        <tr><th>稼働率が上がらない</th><td class="n">中</td><td>損益分岐19%（4.5枠）。<strong>5枠未満の水曜は中止する判断ルール</strong>を事前に決めておく</td></tr>
+        <tr><th>稼働率が上がらない</th><td class="n">低</td><td>損益分岐12%（2.9枠）。<strong>月3枠で黒字なので耐性は非常に高い</strong></td></tr>
+        <tr><th>当日キャンセル</th><td class="n">中</td><td>事前決済＋キャンセルポリシー</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -1093,20 +1286,32 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
 <section id="next">
   <div class="wrap">
     <p class="snum">16 ／ 次の一手</p>
-    <h2>9月のうちに終わらせること</h2>
+    <h2>すぐ（今週）</h2>
     <ul class="chk">
-      <li><span class="num">01</span><span><strong>四日市の隔週5日体制を決めて、既存患者に告知する</strong>（いちばん影響が大きい）</span></li>
-      <li><span class="num">02</span><span><strong>東京の住まいを決める</strong>（まずマンスリー3ヶ月）</span></li>
-      <li><span class="num">03</span><span><strong>運転資金 300〜350万円の目処を立てる</strong></span></li>
-      <li><span class="num">04</span><span><strong>税理士に相談</strong>（消費税・インボイス・二拠点の按分・住民票）</span></li>
-      <li><span class="num">05</span><span><strong>共同オーナーと契約条項をすり合わせ</strong>（施術義務／滞在義務の非負担／運転資金）</span></li>
-      <li><span class="num">06</span><span><strong>商標出願</strong>（ねここち・ここちめいど・ここちはり）</span></li>
-      <li><span class="num">07</span><span><strong>町田市保健所に相談</strong>（届出／同一施設2ブランドの表示）</span></li>
-      <li><span class="num">08</span><span>就業規則・雇用契約書のひな形（社労士）</span></li>
-      <li><span class="num">09</span><span>ねここち企画書を労働契約ベースに書き直す（10章 #1・#2）</span></li>
-      <li><span class="num">10</span><span>既存リーチ人数を数える（11章の表を埋める）</span></li>
-      <li><span class="num">11</span><span>10〜11月の両院カレンダーを公開・価格確定<span style="color:var(--ink-3)">（10月初）</span></span></li>
-      <li><span class="num">12</span><span>鍼灸師1名の採用候補をここちはりネットワークから洗い出す<span style="color:var(--ink-3)">（10月中）</span></span></li>
+      <li><span class="num">01</span><span><strong>町田市保健所に相談</strong>（1階が施術所基準を満たすか／2ブランド表示／区画）— <strong>ここが通らなければ、内装も開業も決められない</strong></span></li>
+      <li><span class="num">02</span><span><strong>用途地域を役所で確認</strong>（店舗としての制限・看板）</span></li>
+      <li><span class="num">03</span><span><strong>1階の内装見積りを2〜3社から取る</strong>（施術室2室・待合・専用出入口・動線遮断）— 金額が決まらないと資金計画が立たない</span></li>
+    </ul>
+
+    <h3>9月中</h3>
+    <ul class="chk">
+      <li><span class="num">04</span><span><strong>四日市の隔週5日体制を決めて、既存患者に告知する</strong>（いちばん影響が大きい）</span></li>
+      <li><span class="num">05</span><span><strong>税理士に相談</strong>（按分・住宅ローン控除・1階賃料の所得区分・消費税/インボイス・住民票）</span></li>
+      <li><span class="num">06</span><span><strong>資金の目処を立てる</strong>（運転資金150〜200万＋内装200〜500万）</span></li>
+      <li><span class="num">07</span><span><strong>1階の賃貸借契約を、共同オーナーと詰める</strong>（賃料15万・使用曜日・原状回復）</span></li>
+      <li><span class="num">08</span><span><strong>共同オーナーとの事業契約</strong>（施術義務／滞在義務の非負担・運転資金の負担割合・意思決定）</span></li>
+      <li><span class="num">09</span><span><strong>商標出願</strong>（ねここち・ここちめいど・ここちはり）</span></li>
+      <li><span class="num">10</span><span>就業規則・雇用契約書のひな形（社労士。<strong>2階立入禁止</strong>を明記）</span></li>
+      <li><span class="num">11</span><span>火災保険・賠償責任保険を店舗併用住宅ベースに切り替え</span></li>
+      <li><span class="num">12</span><span>ねここち企画書を「労働契約＋自宅1階（家賃15万）」ベースに書き直す（10章）</span></li>
+      <li><span class="num">13</span><span>既存リーチ人数を数える（11章の表を埋める）</span></li>
+    </ul>
+
+    <h3>10月</h3>
+    <ul class="chk">
+      <li><span class="num">14</span><span>10〜11月の両院カレンダーを公開・価格確定</span></li>
+      <li><span class="num">15</span><span>不在時の運営ルールを文書化（鍵・開閉店・キャッシュレス・緊急連絡）</span></li>
+      <li><span class="num">16</span><span>鍼灸師1名の採用候補をここちはりネットワークから洗い出す</span></li>
     </ul>
   </div>
 </section>
@@ -1116,7 +1321,7 @@ figcaption{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:14px;max
     <p class="q">ねここちが「習慣」を引き受けるから、ここちめいどは「不定期」でいられる。</p>
     <p class="q">ねここちが「量」を集めるから、ここちめいどは「質」に集中できる。</p>
     <p class="q">ねここちを「仕組み」で回すから、オーナーは施術に入らなくていい。</p>
-    <p class="fin">月19日、東京にいる。でも施術は6日だけ。<br>残る13日の空白こそが、この計画でいちばん価値のある資産です。<br>埋めないでください。</p>
+    <p class="fin">町田に住み、1階で院をやり、月に6日だけ施術する。<br>残る13日の空白こそが、この計画でいちばん価値のある資産です。<br>通勤がゼロになったぶん、埋めたくなります。埋めないでください。</p>
   </div>
 </div>
 
