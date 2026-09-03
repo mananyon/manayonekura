@@ -3,14 +3,13 @@
 メンタル鍼灸師・米倉まな（よねくら まな）の実績プロフィールページ。
 静的HTML 1枚 + 画像のみ。ビルド不要。
 
-**公開URL**: `https://<GitHubユーザー名>.github.io/mana-yonekura-profile/`
+**公開URL**: https://mananyon.github.io/manayonekura/
 
 ## 構成
 
 ```
 index.html          サイト本体（これ1枚で完結）
 images/             写真・ロゴ（11点）
-.nojekyll           Jekyll処理を無効化（GitHub Pages用）
 CLAUDE.md           Claude Code 向けの作業コンテキスト
 docs/HANDOFF.md     引き継ぎ資料（設計思想・編集ガイド）
 docs/WORKLOG.md     これまでの作業ログ
