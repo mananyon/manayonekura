@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#ECE3D4"/>
+  <rect x="30" y="30" width="40" height="40" rx="8" fill="#9C5446"/>
+  <text x="50" y="58" font-family="serif" font-size="22" fill="#F3ECE0" text-anchor="middle" font-weight="600">米</text>
+</svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script>
+(function(){
+  var l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap';
+  document.head.appendChild(l);
+})();
+</script>
+<script src="image-slot.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #ECE3D4; }
+  * { box-sizing: border-box; }
+  ::selection { background: rgba(156,84,70,0.18); }
+  image-slot { display: block; }
+  @media (min-width: 761px) and (max-width: 1000px) {
+    [data-screen-label="Stats"] > div { grid-template-columns: repeat(2, 1fr) !important; row-gap: 34px !important; }
+  }
+  @media (max-width: 760px) {
+    [style*="max-width: 1080px"] { padding-left: 22px !important; padding-right: 22px !important; padding-top: 56px !important; padding-bottom: 56px !important; }
+    [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+    [data-screen-label="Stats"] > div { padding-left: 22px !important; padding-right: 22px !important; row-gap: 32px !important; }
+    [data-screen-label="Hero"] h1 { font-size: 52px !important; }
+    [data-screen-label="Hero"] p { font-size: 21px !important; }
+    [data-screen-label="Clinic Night"] { height: 340px !important; }
+    [data-screen-label="Clinic Night"] > div:last-child { left: 22px !important; right: 22px !important; bottom: 28px !important; }
+    [data-screen-label="Clinic Night"] > div:last-child > div:last-child { font-size: 22px !important; }
+    [data-screen-label="Media"] a[style*="130px 1fr auto"], [data-screen-label="Media"] div[style*="130px 1fr auto"] { row-gap: 6px !important; padding-top: 20px !important; padding-bottom: 20px !important; }
+  }
+</style>
+</helmet>
+<div style="--accent: {{ accent }}; --accent2: {{ accent2 }}; background: #ECE3D4; min-height: 100%; width: 100%; font-family: 'Noto Sans JP', sans-serif; color: #2B2620; -webkit-font-smoothing: antialiased; padding: 0 0 0 0;">
+
+  <!-- ============ HERO ============ -->
+  <section data-screen-label="Hero" style="max-width: 1080px; margin: 0 auto; padding: 88px 56px 64px 56px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 40px;">
+      <div style="width: 34px; height: 1px; background: var(--accent, #9C5446);"></div>
+      <span style="font-size: 13px; letter-spacing: 0.32em; color: var(--accent, #9C5446); font-weight: 500;">PROFILE &amp; WORKS</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.35fr 0.9fr; gap: 56px; align-items: center;">
+      <div>
+        <div style="font-size: 15px; letter-spacing: 0.28em; color: #8B8175; margin-bottom: 18px; font-weight: 500;">よねくら　まな</div>
+        <h1 style="font-family: 'Noto Serif JP', serif; font-weight: 600; font-size: 76px; line-height: 1.05; margin: 0 0 28px 0; letter-spacing: 0.04em;">米倉まな</h1>
+        <p style="font-family: 'Noto Serif JP', serif; font-size: 25px; line-height: 1.7; color: #4A4239; margin: 0 0 30px 0; font-weight: 500; text-wrap: pretty;">{{ tagline }}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span style="font-size: 14.5px; padding: 8px 16px; border: 1px solid #D6C9B6; border-radius: 100px; color: #5A5249; background: rgba(255,255,255,0.45); white-space: nowrap;">認定鍼灸師</span>
+          <span style="font-size: 14.5px; padding: 8px 16px; border: 1px solid #D6C9B6; border-radius: 100px; color: #5A5249; background: rgba(255,255,255,0.45); white-space: nowrap;">はりきゅう処ここちめいど 院長</span>
+          <span style="font-size: 14.5px; padding: 8px 16px; border: 1px solid #D6C9B6; border-radius: 100px; color: #5A5249; background: rgba(255,255,255,0.45); white-space: nowrap;">オンラインサロン ここちめいど 主宰</span>
+          <span style="font-size: 14.5px; padding: 8px 16px; border: 1px solid #D6C9B6; border-radius: 100px; color: #5A5249; background: rgba(255,255,255,0.45); white-space: nowrap;">ここちはり 代表</span>
+        </div>
+      </div>
+      <div style="position: relative;">
+        <img src="images/mana-portrait.jpg" alt="米倉まな" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 32%; border-radius: 8px; box-shadow: 0 18px 48px -18px rgba(60,42,30,0.4); display: block;">
+        <div style="position: absolute; bottom: -16px; left: -16px; width: 88px; height: 88px; border: 1px solid var(--accent, #9C5446); border-radius: 8px; z-index: -1;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS BAND ============ -->
+  <section data-screen-label="Stats" style="background: #2B2620; color: #F3ECE0;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 52px 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;">
+      <div>
+        <div style="font-family: 'Noto Serif JP', serif; font-size: 46px; font-weight: 600; line-height: 1; color: #E8C9A8; white-space: nowrap;">11<span style="font-size: 20px; font-weight: 400; margin-left: 4px;">年目</span></div>
+        <div style="font-size: 14px; color: #BCB1A2; margin-top: 12px; letter-spacing: 0.04em;">鍼灸院開業</div>
+      </div>
+      <div>
+        <div style="font-family: 'Noto Serif JP', serif; font-size: 46px; font-weight: 600; line-height: 1; color: #E8C9A8; white-space: nowrap;">20,000<span style="font-size: 20px; font-weight: 400; margin-left: 4px;">人+</span></div>
+        <div style="font-size: 14px; color: #BCB1A2; margin-top: 12px; letter-spacing: 0.04em;">のべ臨床患者数</div>
+      </div>
+      <div>
+        <div style="font-family: 'Noto Serif JP', serif; font-size: 46px; font-weight: 600; line-height: 1; color: #E8C9A8; white-space: nowrap;">3<span style="font-size: 20px; font-weight: 400; margin-left: 4px;">事業</span></div>
+        <div style="font-size: 14px; color: #BCB1A2; margin-top: 12px; letter-spacing: 0.04em;">臨床・育成・研究の柱</div>
+      </div>
+      <div>
+        <div style="font-family: 'Noto Serif JP', serif; font-size: 46px; font-weight: 600; line-height: 1; color: #E8C9A8; white-space: nowrap;">修士</div>
+        <div style="font-size: 14px; color: #BCB1A2; margin-top: 12px; letter-spacing: 0.04em;">武蔵野大学大学院 人間学</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section data-screen-label="Story" style="max-width: 1080px; margin: 0 auto; padding: 88px 56px;">
+    <div style="display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: start;">
+      <div>
+        <h2 style="font-family: 'Noto Serif JP', serif; font-size: 32px; font-weight: 600; margin: 0 0 10px 0; line-height: 1.4;">患者から、<br>鍼灸師へ。</h2>
+        <div style="width: 40px; height: 3px; background: var(--accent, #9C5446); margin-top: 18px;"></div>
+        <p style="font-size: 14.5px; color: #8B8175; margin-top: 22px; line-height: 1.9;">1983年生まれ／三重県出身</p>
+        <img src="images/clinic-day.jpeg" alt="はりきゅう処ここちめいど 外観" style="width: 100%; max-width: 320px; margin-top: 28px; border-radius: 8px; display: block; box-shadow: 0 12px 30px -18px rgba(60,42,30,0.45);">
+      </div>
+      <div style="font-size: 17.5px; line-height: 2.25; color: #46403A; text-wrap: pretty;">
+        <p style="margin: 0 0 24px 0;">中学時代は不登校。就職してからは、原因のわからない体調不良に悩みました。20歳のころには心の病気を抱え、たくさんのお薬を飲む日々が、約8年つづきました。</p>
+        <p style="margin: 0 0 24px 0;">そんなとき、<strong style="color: var(--accent, #9C5446); font-weight: 600;">鍼灸と出会いました</strong>。少しずつ心と体が元気を取り戻し、やがてお薬も手放せるように。「どうして自分に鍼灸が効いたのだろう」。その答えを知りたくて、鍼灸の学校へ進みました。そして自分の経験をいかし、心によりそう<strong style="font-weight: 600;">メンタル鍼灸</strong>をはじめました。</p>
+        <p style="margin: 0; padding: 24px 28px; background: #FBF7F0; border-left: 3px solid var(--accent2, #5E7060); border-radius: 0 8px 8px 0; font-family: 'Noto Serif JP', serif; font-size: 18px; line-height: 1.9; color: #3A342E;">「生きづらさを抱えた人を、減らしたい。生きづらさから、未来を創る」。それが、わたしの活動の根っこにある願いです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHOTO BAND ============ -->
+  <section data-screen-label="Clinic Night" style="position: relative; height: 460px; overflow: hidden;">
+    <img src="images/clinic-night.jpg" alt="はりきゅう処ここちめいど 夜の外観" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; display: block;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,15,10,0.55) 0%, rgba(20,15,10,0.1) 55%, rgba(20,15,10,0) 100%);"></div>
+    <div style="position: absolute; left: 56px; bottom: 44px; max-width: 520px;">
+      <div style="font-size: 12px; letter-spacing: 0.3em; color: #E8C9A8; font-weight: 500; margin-bottom: 12px;">ACUPUNCTURE</div>
+      <div style="font-family: 'Noto Serif JP', serif; font-size: 28px; font-weight: 600; color: #FBF7F0; line-height: 1.5; text-shadow: 0 2px 12px rgba(0,0,0,0.4);">夜22時まで灯る、<br>四日市のメンタル専門鍼灸院</div>
+    </div>
+  </section>
+
+  <!-- ============ INTERVIEW VIDEO ============ -->
+  <section data-screen-label="Interview" style="max-width: 1080px; margin: 0 auto; padding: 88px 56px;">
+    <div style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: center;">
+      <div>
+        <span style="font-size: 13px; letter-spacing: 0.3em; color: var(--accent, #9C5446); font-weight: 500;">INTERVIEW</span>
+        <h2 style="font-family: 'Noto Serif JP', serif; font-size: 32px; font-weight: 600; margin: 14px 0 18px 0; line-height: 1.5;">言葉で知る、<br>米倉まなの歩み</h2>
+        <div style="width: 40px; height: 3px; background: var(--accent, #9C5446); margin-bottom: 22px;"></div>
+        <p style="font-size: 15.5px; line-height: 2; color: #46403A; margin: 0; text-wrap: pretty;">自身の闘病から鍼灸との出会い、そしてメンタル鍼灸という道へ。インタビュー動画でその思いを語っています。</p>
+      </div>
+      <div style="display: grid; gap: 20px;">
+        <div style="position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; box-shadow: 0 16px 44px -20px rgba(60,42,30,0.55);">
+          <iframe src="https://www.youtube.com/embed/cEwos-6wRxs" title="米倉まな インタビュー動画" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+        </div>
+        <div style="position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; box-shadow: 0 16px 44px -20px rgba(60,42,30,0.55);">
+          <iframe src="https://www.youtube.com/embed/Mzrz0QYo3Nc" title="米倉まな インタビュー動画 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 ACTIVITIES ============ -->
+  <section data-screen-label="Activities" style="background: #E4D9C6;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 84px 56px;">
+      <div style="text-align: center; margin-bottom: 52px;">
+        <span style="font-size: 13px; letter-spacing: 0.3em; color: var(--accent, #9C5446); font-weight: 500;">THREE PILLARS</span>
+        <h2 style="font-family: 'Noto Serif JP', serif; font-size: 36px; font-weight: 600; margin: 14px 0 0 0;">3つの活動</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+
+        <div style="background: #FCFAF4; border-radius: 12px; padding: 34px 30px; box-shadow: 0 12px 32px -22px rgba(60,42,30,0.5); display: flex; flex-direction: column;">
+          <div style="font-size: 12px; letter-spacing: 0.18em; color: var(--accent, #9C5446); font-weight: 600;">01　臨床</div>
+          <h3 style="font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 600; margin: 14px 0 6px 0; line-height: 1.5;">はりきゅう処<br>ここちめいど</h3>
+          <div style="font-size: 14px; color: #9A9082; margin-bottom: 18px;">三重県四日市市 ／ 旧・まな鍼灸堂</div>
+          <img src="images/logo-cocochimade.jpg" alt="はりきゅう処ここちめいど ロゴ" style="width: 84px; height: 84px; object-fit: contain; display: block; margin: 0 auto 18px auto; mix-blend-mode: multiply;">
+          <p style="font-size: 15.5px; line-height: 2.05; color: #4A4239; margin: 0 0 18px 0;">心の不調にむきあう鍼灸院です。気分の落ち込みや不安、原因のわからないめまい・頭痛などに悩む方が、多く来てくださっています。国家資格をもつ女性の鍼灸師が、ていねいに施術します。</p>
+          <ul style="margin: auto 0 0 0; padding: 20px 0 0 0; list-style: none; display: flex; flex-direction: column; gap: 9px;">
+            <li style="font-size: 14.5px; color: #5A5249; padding-left: 18px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent2, #5E7060);">●</span>2015年 開院・2021年リニューアル</li>
+            <li style="font-size: 14.5px; color: #5A5249; padding-left: 18px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent2, #5E7060);">●</span>町田院 2026年夏オープン予定</li>
+          </ul>
+        </div>
+
+        <div style="background: #FCFAF4; border-radius: 12px; padding: 34px 30px; box-shadow: 0 12px 32px -22px rgba(60,42,30,0.5); display: flex; flex-direction: column;">
+          <div style="font-size: 12px; letter-spacing: 0.18em; color: var(--accent, #9C5446); font-weight: 600;">02　学び・コミュニティ</div>
+          <h3 style="font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 600; margin: 14px 0 6px 0; line-height: 1.5;">オンラインサロン<br>ここちめいど</h3>
+          <div style="font-size: 14px; color: #9A9082; margin-bottom: 18px;">傾聴を学ぶ鍼灸師コミュニティ</div>
+          <img src="images/logo-salon.jpg" alt="オンラインサロン ここちめいど ロゴ" style="width: 84px; height: 84px; object-fit: contain; display: block; margin: 0 auto 18px auto; mix-blend-mode: multiply;">
+          <p style="font-size: 15.5px; line-height: 2.05; color: #4A4239; margin: 0 0 18px 0;">体だけでなく「心」も大切にする鍼灸を学ぶ、仲間の集まりです。相手の話にじっくり耳をかたむける「傾聴」を軸に、全国の鍼灸師が学会発表や研究にも挑戦しています。</p>
+          <ul style="margin: auto 0 0 0; padding: 20px 0 0 0; list-style: none; display: flex; flex-direction: column; gap: 9px;">
+            <li style="font-size: 14.5px; color: #5A5249; padding-left: 18px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent2, #5E7060);">●</span>ここちめいど 2020年4月開始</li>
+            <li style="font-size: 14.5px; color: #5A5249; padding-left: 18px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent2, #5E7060);">●</span>5年間の学会発表体制を構築</li>
+            <li style="font-size: 14.5px; color: #5A5249; padding-left: 18px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent2, #5E7060);">●</span>傾聴カウンセリングの実践</li>
+          </ul>
+        </div>
+
+        <div style="background: #FCFAF4; border-radius: 12px; padding: 34px 30px; box-shadow: 0 12px 32px -22px rgba(60,42,30,0.5); display: flex; flex-direction: column;">
+          <div style="font-size: 12px; letter-spacing: 0.18em; color: var(--accent, #9C5446); font-weight: 600;">03　育成・コンサル</div>
+          <h3 style="font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 600; margin: 14px 0 6px 0; line-height: 1.5;">ここちはり</h3>
+          <div style="font-size: 14px; color: #9A9082; margin-bottom: 18px;">技術と経営を育てる学びの場</div>
+          <img src="images/logo-cocochihari.jpg" alt="ここちはり ロゴ" style="width: 84px; height: 84px; object-fit: contain; display: block; margin: 0 auto 18px auto; mix-blend-mode: multiply;">
+          <p style="font-size: 15.5px; line-height: 2.05; color: #4A4239; margin: 0 0 18px 0;">心の不調にむきあう鍼灸師を育てるプログラムです。技術やカウンセリング、お店の運営まで、確かなデータにもとづいて、まるごとサポートします。</p>
+          <ul style="margin: auto 0 0 0; padding: 20px 0 0 0; list-style: none; display: flex; flex-direction: column; gap: 9px;">
+            <li style="font-size: 14.5px; color: #5A5249; padding-left: 18px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent2, #5E7060);">●</span>2025年11月 開始</li>
+            <li style="font-size: 14.5px; color: #5A5249; padding-left: 18px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent2, #5E7060);">●</span>感情・心・身体・技術の4軸</li>
+            <li style="font-size: 14.5px; color: #5A5249; padding-left: 18px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent2, #5E7060);">●</span>症例データベースを公開・運用</li>
+          </ul>
+        </div>
+
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 44px;">
+        <figure style="margin: 0;">
+          <img src="images/salon-zoom.png" alt="オンラインサロン ここちめいどの勉強会の様子" style="width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 12px; display: block; box-shadow: 0 16px 40px -22px rgba(60,42,30,0.55);">
+          <figcaption style="font-size: 13.5px; color: #6E645A; margin-top: 16px; text-align: center; line-height: 1.7;">全国から鍼灸師が集う、オンラインサロン「ここちめいど」の学びの場</figcaption>
+        </figure>
+        <figure style="margin: 0;">
+          <img src="images/training-workshop.jpg" alt="対面での実技勉強会の様子" style="width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 12px; display: block; box-shadow: 0 16px 40px -22px rgba(60,42,30,0.55);">
+          <figcaption style="font-size: 13.5px; color: #6E645A; margin-top: 16px; text-align: center; line-height: 1.7;">実技を確かめあう、対面での勉強会</figcaption>
+        </figure>
+      </div>
+      <a href="https://cocochimade.me/member/" target="_blank" rel="noopener" style="text-decoration: none; margin-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: #FCFAF4; border-radius: 12px; padding: 26px 32px; box-shadow: 0 12px 32px -24px rgba(60,42,30,0.5); transition: transform .2s;" style-hover="transform: translateY(-3px);">
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.16em; color: var(--accent, #9C5446); font-weight: 600; margin-bottom: 8px;">MEMBER&apos;S CLINICS</div>
+          <div style="font-family: 'Noto Serif JP', serif; font-size: 19px; font-weight: 600; color: #2B2620; line-height: 1.5;">全国の信頼できる鍼灸院</div>
+          <div style="font-size: 14px; color: #5A5249; margin-top: 8px; line-height: 1.7;">私がオーナーを務めるオンラインサロンの、信頼できる仲間たちの鍼灸院です。</div>
+        </div>
+        <span style="font-size: 13.5px; color: var(--accent, #9C5446); white-space: nowrap; border: 1px solid #D6C9B6; border-radius: 100px; padding: 9px 20px;">一覧を見る ↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section data-screen-label="Timeline" style="max-width: 1080px; margin: 0 auto; padding: 88px 56px;">
+    <div style="margin-bottom: 48px;">
+      <span style="font-size: 13px; letter-spacing: 0.3em; color: var(--accent, #9C5446); font-weight: 500;">HISTORY</span>
+      <h2 style="font-family: 'Noto Serif JP', serif; font-size: 36px; font-weight: 600; margin: 14px 0 0 0;">これまでの歩み</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 56px;">
+      <div style="border-left: 1.5px solid #D6C9B6; padding-left: 0;">
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 0 0 30px 26px; position: relative;"><span style="position: absolute; left: -6.5px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent, #9C5446); border: 2px solid #ECE3D4;"></span><span style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--accent, #9C5446); font-weight: 600;">2014.03</span><span style="font-size: 15px; color: #46403A; line-height: 1.6;">ユマニテク医療福祉大学校 卒業</span></div>
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 0 0 30px 26px; position: relative;"><span style="position: absolute; left: -6.5px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent, #9C5446); border: 2px solid #ECE3D4;"></span><span style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--accent, #9C5446); font-weight: 600;">2015.09</span><span style="font-size: 15px; color: #46403A; line-height: 1.6;">鍼灸院「まな鍼灸堂」開院</span></div>
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 0 0 30px 26px; position: relative;"><span style="position: absolute; left: -6.5px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent, #9C5446); border: 2px solid #ECE3D4;"></span><span style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--accent, #9C5446); font-weight: 600;">2020.04</span><span style="font-size: 15px; color: #46403A; line-height: 1.6;">オンラインサロン「ここちめいど」開始</span></div>
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 0 0 8px 26px; position: relative;"><span style="position: absolute; left: -6.5px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent, #9C5446); border: 2px solid #ECE3D4;"></span><span style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--accent, #9C5446); font-weight: 600;">2021.03</span><span style="font-size: 15px; color: #46403A; line-height: 1.6;">「はりきゅう処ここちめいど」へ改名</span></div>
+      </div>
+      <div style="border-left: 1.5px solid #D6C9B6;">
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 0 0 30px 26px; position: relative;"><span style="position: absolute; left: -6.5px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent, #9C5446); border: 2px solid #ECE3D4;"></span><span style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--accent, #9C5446); font-weight: 600;">2022.03</span><span style="font-size: 15px; color: #46403A; line-height: 1.6;">武蔵野大学 通信教育部 人間科学部 卒業</span></div>
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 0 0 30px 26px; position: relative;"><span style="position: absolute; left: -6.5px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent, #9C5446); border: 2px solid #ECE3D4;"></span><span style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--accent, #9C5446); font-weight: 600;">2025.03</span><span style="font-size: 15px; color: #46403A; line-height: 1.6;">武蔵野大学大学院 人間学 修士取得</span></div>
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 0 0 30px 26px; position: relative;"><span style="position: absolute; left: -6.5px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent, #9C5446); border: 2px solid #ECE3D4;"></span><span style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--accent, #9C5446); font-weight: 600;">2025.11</span><span style="font-size: 15px; color: #46403A; line-height: 1.6;">施術者育成「ここちはり」開始</span></div>
+        <div style="display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 0 0 8px 26px; position: relative;"><span style="position: absolute; left: -6.5px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent2, #5E7060); border: 2px solid #ECE3D4;"></span><span style="font-family: 'Noto Serif JP', serif; font-size: 15px; color: var(--accent2, #5E7060); font-weight: 600;">2026 夏</span><span style="font-size: 15px; color: #46403A; line-height: 1.6;">ここちめいど 町田院 オープン予定</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH ============ -->
+  <section data-screen-label="Research" style="background: #2B2620; color: #F3ECE0;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 84px 56px;">
+      <div style="margin-bottom: 48px;">
+        <span style="font-size: 13px; letter-spacing: 0.3em; color: #E8C9A8; font-weight: 500;">RESEARCH &amp; ACADEMIA</span>
+        <h2 style="font-family: 'Noto Serif JP', serif; font-size: 36px; font-weight: 600; margin: 14px 0 0 0; color: #F7F1E6;">学会発表・研究</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px;">
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(232,201,168,0.18); border-radius: 12px; padding: 34px 32px;">
+          <h3 style="font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 600; margin: 0 0 18px 0; color: #E8C9A8;">全日本鍼灸学会での発表</h3>
+          <p style="font-size: 14.5px; line-height: 1.95; color: #D6CDBF; margin: 0 0 22px 0;">2024・2025・2026年と連続して、ここちめいどから複数演題を発表。米倉まな本人も継続して登壇しています。</p>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="padding-left: 16px; border-left: 2px solid #E8C9A8;">
+              <div style="font-size: 12.5px; color: #B5A992; margin-bottom: 3px;">2024・2025</div>
+              <div style="font-size: 14.5px; color: #EFE8DB; line-height: 1.55;">鍼灸院におけるうつと不安症状を有する患者の実態調査（第3報・第4報）</div>
+            </div>
+            <div style="padding-left: 16px; border-left: 2px solid #E8C9A8;">
+              <div style="font-size: 12.5px; color: #B5A992; margin-bottom: 3px;">2026</div>
+              <div style="font-size: 14.5px; color: #EFE8DB; line-height: 1.55;">鍼灸師コミュニティの学会発表体制構築 ―5年間の分析―</div>
+            </div>
+            <div style="padding-left: 16px; border-left: 2px solid var(--accent2, #5E7060);">
+              <div style="font-size: 12.5px; color: #B5A992; margin-bottom: 3px;">2026.06</div>
+              <div style="font-size: 14.5px; color: #EFE8DB; line-height: 1.55;">日本精神神経学会 鍼灸シンポジウム シンポジスト</div>
+            </div>
+          </div>
+        </div>
+        <div style="background: rgba(232,201,168,0.08); border: 1px solid rgba(232,201,168,0.2); border-radius: 12px; padding: 34px 32px; display: flex; flex-direction: column;">
+          <h3 style="font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 600; margin: 0 0 14px 0; color: #E8C9A8;">鍼灸症例データベース<br>構築プロジェクト</h3>
+          <p style="font-size: 15px; line-height: 2.05; color: #D6CDBF; margin: 0 0 22px 0;">体の痛みに悩む方の施術データを集めて分析し、鍼灸の効果をたしかめる土台づくり。大学や企業と協力した共同研究を進めています。</p>
+          <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 13.5px; color: #EFE8DB;">株式会社ケアクル</span>
+            <span style="font-size: 13.5px; color: #EFE8DB;">東京有明医療大学（松浦悠人）</span>
+            <span style="font-size: 13.5px; color: #EFE8DB;">玉川大学（柴田健一）</span>
+            <span style="font-size: 13.5px; color: #EFE8DB;">ここちめいど（米倉まな）</span>
+          </div>
+        </div>
+      </div>
+      <a href="https://scholar.google.com/citations?view_op=list_works&hl=ja&user=_6XMzOwAAAAJ" target="_blank" rel="noopener" style="text-decoration: none; margin-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(232,201,168,0.2); border-radius: 12px; padding: 24px 32px; transition: background .2s;" style-hover="background: rgba(255,255,255,0.1);">
+        <div style="display: flex; align-items: center; gap: 18px;">
+          <span style="font-family: 'Noto Serif JP', serif; font-size: 30px; font-weight: 600; color: #E8C9A8; line-height: 1;">論文</span>
+          <div>
+            <div style="font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 600; color: #F7F1E6;">研究業績・論文一覧</div>
+            <div style="font-size: 13px; color: #B5A992; margin-top: 4px;">Google Scholar で発表論文・被引用をご覧いただけます</div>
+          </div>
+        </div>
+        <span style="font-size: 13.5px; color: #E8C9A8; white-space: nowrap; border: 1px solid rgba(232,201,168,0.4); border-radius: 100px; padding: 9px 20px;">Google Scholar ↗</span>
+      </a>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 44px;">
+        <figure style="margin: 0;">
+          <img src="images/research-poster.jpg" alt="全日本鍼灸学会でのポスター発表" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 60% 30%; border-radius: 12px; display: block;">
+          <figcaption style="font-size: 13px; color: #B5A992; margin-top: 14px; line-height: 1.75;">全日本鍼灸学会でのポスター発表。うつ・不安症状を有する患者の実態調査（第3報）</figcaption>
+        </figure>
+        <figure style="margin: 0;">
+          <img src="images/research-podium.jpg" alt="学会での口演発表" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 35%; border-radius: 12px; display: block;">
+          <figcaption style="font-size: 13px; color: #B5A992; margin-top: 14px; line-height: 1.75;">演者として登壇。臨床から見えたことを報告しています</figcaption>
+        </figure>
+        <figure style="margin: 0;">
+          <img src="images/research-panel.jpg" alt="シンポジウムでの登壇" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 45%; border-radius: 12px; display: block;">
+          <figcaption style="font-size: 13px; color: #B5A992; margin-top: 14px; line-height: 1.75;">シンポジウムでの討論。他分野の専門家とともに登壇する機会も増えています</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MEDIA ============ -->
+  <section data-screen-label="Media" style="max-width: 1080px; margin: 0 auto; padding: 88px 56px 0 56px;">
+    <div style="margin-bottom: 48px;">
+      <span style="font-size: 13px; letter-spacing: 0.3em; color: var(--accent, #9C5446); font-weight: 500;">MEDIA &amp; PRESS</span>
+      <h2 style="font-family: 'Noto Serif JP', serif; font-size: 36px; font-weight: 600; margin: 14px 0 0 0;">メディア掲載・プレスリリース</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #D6C9B6;">
+      <a href="https://www.igaku-shoin.co.jp/journal/detail/41948" target="_blank" rel="noopener" style="text-decoration: none; display: grid; grid-template-columns: 130px 1fr auto; gap: 24px; align-items: center; padding: 26px 8px; border-bottom: 1px solid #D6C9B6; transition: background .2s;" style-hover="background: rgba(255,255,255,0.4);">
+        <span style="font-size: 13px; color: var(--accent2, #5E7060); font-weight: 600; letter-spacing: 0.08em; line-height: 1.5;">精神看護<br><span style="font-size: 11.5px; color: #9A9082; font-weight: 400;">Vol.28 No.3 / 2025.05</span></span>
+        <span style="font-size: 16px; color: #2B2620; line-height: 1.55;">特集「鍼灸は、なぜ『うつ』に効くのだろうか」に寄稿 ―「自分の体験を通じて考える『地域の』鍼灸師の役割」</span>
+        <span style="font-size: 13px; color: #9A9082; white-space: nowrap;">誌面を見る ↗</span>
+      </a>
+      <a href="https://webview.isho.jp/journal/detail/abs/10.11477/mf.134327610280050404" target="_blank" rel="noopener" style="text-decoration: none; display: grid; grid-template-columns: 130px 1fr auto; gap: 24px; align-items: center; padding: 26px 8px; border-bottom: 1px solid #D6C9B6; transition: background .2s;" style-hover="background: rgba(255,255,255,0.4);">
+        <span style="font-size: 13px; color: var(--accent2, #5E7060); font-weight: 600; letter-spacing: 0.08em; line-height: 1.5;">精神看護<br><span style="font-size: 11.5px; color: #9A9082; font-weight: 400;">Vol.28 No.5 / 2025.09</span></span>
+        <span style="font-size: 16px; color: #2B2620; line-height: 1.55;">レポート「障害と美の多様性 ―視覚・触覚・感性が交わる対話と創造の場」（pp.404-406）</span>
+        <span style="font-size: 13px; color: #9A9082; white-space: nowrap;">誌面を見る ↗</span>
+      </a>
+      <a href="https://prtimes.jp/main/html/rd/p/000000024.000098762.html" target="_blank" rel="noopener" style="text-decoration: none; display: grid; grid-template-columns: 130px 1fr auto; gap: 24px; align-items: center; padding: 26px 8px; border-bottom: 1px solid #D6C9B6; transition: background .2s;" style-hover="background: rgba(255,255,255,0.4);">
+        <span style="font-size: 13px; color: var(--accent, #9C5446); font-weight: 600; letter-spacing: 0.08em;">PR TIMES</span>
+        <span style="font-size: 16px; color: #2B2620; line-height: 1.55;">「パパゲーノ・アンバサダー認定制度」認定第一号として紹介</span>
+        <span style="font-size: 13px; color: #9A9082; white-space: nowrap;">記事を読む ↗</span>
+      </a>
+      <a href="https://prtimes.jp/main/html/rd/p/000000020.000034840.html" target="_blank" rel="noopener" style="text-decoration: none; display: grid; grid-template-columns: 130px 1fr auto; gap: 24px; align-items: center; padding: 26px 8px; border-bottom: 1px solid #D6C9B6; transition: background .2s;" style-hover="background: rgba(255,255,255,0.4);">
+        <span style="font-size: 13px; color: var(--accent, #9C5446); font-weight: 600; letter-spacing: 0.08em;">PR TIMES</span>
+        <span style="font-size: 16px; color: #2B2620; line-height: 1.55;">「鍼灸症例データベース」構築プロジェクト始動を発表</span>
+        <span style="font-size: 13px; color: #9A9082; white-space: nowrap;">記事を読む ↗</span>
+      </a>
+      <a href="https://prtimes.jp/main/html/rd/p/000000011.000034840.html" target="_blank" rel="noopener" style="text-decoration: none; display: grid; grid-template-columns: 130px 1fr auto; gap: 24px; align-items: center; padding: 26px 8px; border-bottom: 1px solid #D6C9B6; transition: background .2s;" style-hover="background: rgba(255,255,255,0.4);">
+        <span style="font-size: 13px; color: var(--accent, #9C5446); font-weight: 600; letter-spacing: 0.08em;">PR TIMES</span>
+        <span style="font-size: 16px; color: #2B2620; line-height: 1.55;">大学研究者との産学連携による共同研究を発表</span>
+        <span style="font-size: 13px; color: #9A9082; white-space: nowrap;">記事を読む ↗</span>
+      </a>
+    </div>
+    <div style="margin-top: 40px; display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 36px; align-items: center;">
+      <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 16px 40px -22px rgba(60,42,30,0.55); aspect-ratio: 16/9;">
+        <iframe src="https://www.youtube.com/embed/GS1-r6vp_tM" title="米倉まな インタビュー動画" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+      </div>
+      <div>
+        <span style="font-size: 13px; letter-spacing: 0.3em; color: var(--accent, #9C5446); font-weight: 500;">INTERVIEW</span>
+        <h3 style="font-family: 'Noto Serif JP', serif; font-size: 24px; font-weight: 600; margin: 14px 0 14px 0; line-height: 1.5;">インタビュー動画</h3>
+        <p style="font-size: 15.5px; line-height: 2; color: #46403A; margin: 0;">闘病の経験から鍼灸師となり、臨床・育成・研究へと活動を広げてきた歩みを語ったインタビュー。米倉まなの言葉で「生きづらさから未来を創る」想いをご覧いただけます。</p>
+      </div>
+    </div>
+  </section>
+  <section data-screen-label="Contribution" style="max-width: 1080px; margin: 0 auto; padding: 88px 56px;">
+    <div style="margin-bottom: 48px;">
+      <span style="font-size: 13px; letter-spacing: 0.3em; color: var(--accent, #9C5446); font-weight: 500;">SOCIAL IMPACT</span>
+      <h2 style="font-family: 'Noto Serif JP', serif; font-size: 36px; font-weight: 600; margin: 14px 0 0 0;">社会貢献・連携</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div style="background: #FCFAF4; border-radius: 12px; padding: 32px 28px; border-top: 3px solid var(--accent, #9C5446);">
+        <div style="font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 600; margin-bottom: 12px; line-height: 1.5;">パパゲーノ・アンバサダー<br>認定 第一号</div>
+        <p style="font-size: 15px; line-height: 2.05; color: #4A4239; margin: 0;">障害のある方が働く「パパゲーノ Work &amp; Recovery」へお仕事を依頼。挑戦の場をつくる企業として、認定第一号に選ばれました。</p>
+      </div>
+      <div style="background: #FCFAF4; border-radius: 12px; padding: 32px 28px; border-top: 3px solid var(--accent2, #5E7060);">
+        <div style="font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 600; margin-bottom: 12px; line-height: 1.5;">小さないのちのドア<br>と業務提携</div>
+        <p style="font-size: 15px; line-height: 2.05; color: #4A4239; margin: 0;">思いがけない妊娠で悩む方を支える団体「小さないのちのドア」と、業務提携を結びました。</p>
+      </div>
+      <div style="background: #FCFAF4; border-radius: 12px; padding: 32px 28px; border-top: 3px solid #C8A06A;">
+        <div style="font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 600; margin-bottom: 12px; line-height: 1.5;">メンバーの<br>書籍出版を支援</div>
+        <p style="font-size: 15px; line-height: 2.05; color: #4A4239; margin: 0;">サロンの仲間の活動を後押しし、本の出版を実現。挑戦したい気持ちを、みんなで支えています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LINKS / FOOTER ============ -->
+  <section data-screen-label="Links" style="background: #E4D9C6;">
+    <div style="max-width: 1080px; margin: 0 auto; padding: 70px 56px;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 44px;">
+        <a href="https://mana89.jimdofree.com/" target="_blank" rel="noopener" style="text-decoration: none; background: #FCFAF4; border-radius: 12px; padding: 26px 26px; display: block; transition: transform .2s;" style-hover="transform: translateY(-3px);">
+          <img src="images/logo-cocochimade.jpg" alt="" style="width: 48px; height: 48px; object-fit: contain; display: block; margin: 0 auto 14px auto; mix-blend-mode: multiply;">
+          <div style="font-size: 12px; letter-spacing: 0.16em; color: var(--accent, #9C5446); font-weight: 600; margin-bottom: 8px;">鍼灸院</div>
+          <div style="font-family: 'Noto Serif JP', serif; font-size: 18px; color: #2B2620; font-weight: 600;">ここちめいど</div>
+          <div style="font-size: 12.5px; color: #9A9082; margin-top: 8px; word-break: break-all;">mana89.jimdofree.com ↗</div>
+        </a>
+        <a href="https://cocochimade.me/" target="_blank" rel="noopener" style="text-decoration: none; background: #FCFAF4; border-radius: 12px; padding: 26px 26px; display: block; transition: transform .2s;" style-hover="transform: translateY(-3px);">
+          <img src="images/logo-salon.jpg" alt="" style="width: 48px; height: 48px; object-fit: contain; display: block; margin: 0 auto 14px auto; mix-blend-mode: multiply;">
+          <div style="font-size: 12px; letter-spacing: 0.16em; color: var(--accent, #9C5446); font-weight: 600; margin-bottom: 8px;">オンラインサロン</div>
+          <div style="font-family: 'Noto Serif JP', serif; font-size: 18px; color: #2B2620; font-weight: 600;">ここちめいど サロン</div>
+          <div style="font-size: 12.5px; color: #9A9082; margin-top: 8px; word-break: break-all;">cocochimade.me ↗</div>
+        </a>
+        <a href="https://cocochihari-gezbog2.gamma.site/" target="_blank" rel="noopener" style="text-decoration: none; background: #FCFAF4; border-radius: 12px; padding: 26px 26px; display: block; transition: transform .2s;" style-hover="transform: translateY(-3px);">
+          <img src="images/logo-cocochihari.jpg" alt="" style="width: 48px; height: 48px; object-fit: contain; display: block; margin: 0 auto 14px auto; mix-blend-mode: multiply;">
+          <div style="font-size: 12px; letter-spacing: 0.16em; color: var(--accent, #9C5446); font-weight: 600; margin-bottom: 8px;">施術者育成</div>
+          <div style="font-family: 'Noto Serif JP', serif; font-size: 18px; color: #2B2620; font-weight: 600;">ここちはり</div>
+          <div style="font-size: 12.5px; color: #9A9082; margin-top: 8px; word-break: break-all;">cocochihari ↗</div>
+        </a>
+      </div>
+      <div style="text-align: center; border-top: 1px solid #D2C5B0; padding-top: 44px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+          <a href="https://lin.ee/9NReWxy" target="_blank" rel="noopener" style="text-decoration: none; display: inline-flex; align-items: center; gap: 12px; background: #06C755; color: #fff; padding: 16px 32px; border-radius: 100px; font-size: 16px; font-weight: 600; box-shadow: 0 10px 26px -12px rgba(6,199,85,0.7); transition: transform .2s;" style-hover="transform: translateY(-2px);">
+            <span style="font-size: 19px;">LINE</span>
+            <span>四日市院のご予約・お問い合わせ</span>
+          </a>
+          <a href="https://lin.ee/9C3gDXy" target="_blank" rel="noopener" style="text-decoration: none; display: inline-flex; align-items: center; gap: 12px; background: #06C755; color: #fff; padding: 16px 32px; border-radius: 100px; font-size: 16px; font-weight: 600; box-shadow: 0 10px 26px -12px rgba(6,199,85,0.7); transition: transform .2s;" style-hover="transform: translateY(-2px);">
+            <span style="font-size: 19px;">LINE</span>
+            <span>町田院のご予約・お問い合わせ</span>
+          </a>
+        </div>
+        <div style="font-size: 13px; color: #8B8175; margin-top: 14px;">各院のご予約・お問い合わせは公式LINEからご連絡ください</div>
+        <div style="font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.04em; margin-top: 40px;">米倉まな</div>
+        <div style="font-size: 13.5px; color: #8B8175; margin-top: 8px;">メンタル鍼灸師　／　@mana89000</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1080, &quot;height&quot;: 1600 },
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#9C5446&quot; },
+  &quot;accent2&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#5E7060&quot; },
+  &quot;tagline&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;生きづらさを抱えた人を減らしたい。\n臨床・育成・研究で、心に寄り添うメンタル鍼灸を。&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#9C5446',
+      accent2: this.props.accent2 ?? '#5E7060',
+      tagline: this.props.tagline ?? '生きづらさを抱えた人を減らしたい。\n臨床・育成・研究で、心に寄り添うメンタル鍼灸を。',
+    };
+  }
+}
+</script>
+</body>
+</html>
