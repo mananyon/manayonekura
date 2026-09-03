@@ -56,11 +56,15 @@ CSS変数 `--accent` `--accent2` はルート `<div>` のstyle属性で定義。
 | `Stats` | 濃色帯、数字4つ |
 | `Story` | 患者から鍼灸師へ。闘病の経緯 |
 | `Clinic Night` | 夜の院外観、フルブリード写真帯 |
+| `Interview` | 「言葉で知る、米倉まなの歩み」＋ YouTube 2本（`cEwos-6wRxs` / `Mzrz0QYo3Nc`） |
 | `Activities` | 3事業カード（臨床 / サロン / 育成）＋ MEMBER'S CLINICS リンク |
+| `Timeline` | 「これまでの歩み」経歴8項目（2014〜2026） |
 | `Research` | 濃色帯。大学院・学会・論文（Google Scholar リンク） |
-| `Media` | メディア掲載5件のリスト ＋ YouTubeインタビュー埋め込み |
+| `Media` | メディア掲載5件のリスト ＋ YouTube 1本（`GS1-r6vp_tM`） |
 | `Contribution` | 社会貢献カード3枚 |
 | `Links` | 3サイトへのリンクカード ＋ LINE CTA 2つ ＋ フッター |
+
+動画は計3本。**2本は `Interview`、1本は `Media`** に分かれている点に注意。
 
 ## スマホ対応
 
@@ -74,7 +78,7 @@ CSS変数 `--accent` `--accent2` はルート `<div>` のstyle属性で定義。
 - 「実績を1件追加」→ `data-screen-label="Media"` の `<a>` をコピーして追記
 - 「色味を変えたい」→ ルート `<div>` の `--accent` / `--accent2` を変更
 - 「写真を差し替え」→ `images/` に同名で上書き、または `src` を変更
-- 「動画を変えたい」→ `Media` セクションの iframe `src` の動画ID部分
+- 「動画を変えたい」→ `Interview` / `Media` セクションの iframe `src` の動画ID部分
 - 「肩書きを追加」→ `Hero` のタグ `<span>` をコピー
 
 ## デプロイ

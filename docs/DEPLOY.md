@@ -59,7 +59,7 @@ claude
 
 ## 公開後にやると良いこと
 
-- `index.html` の `<link rel="canonical">` を実URLに更新
-  （現在はプレースホルダなし、必要なら追加）
+- ~~`index.html` の `<link rel="canonical">` を実URLに更新~~ → 対応済み
+  （`canonical` / `og:url` / `og:image` すべて絶対URLで設定済み）
 - カスタムドメインを当てる場合: リポジトリ直下に `CNAME` ファイルを追加し、
   DNS の CNAME レコードを `mananyon.github.io` に向ける

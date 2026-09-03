@@ -88,8 +88,8 @@
 
 | 位置 | 動画ID |
 |---|---|
-| Story下 上段 | `cEwos-6wRxs` |
-| Story下 下段 | `Mzrz0QYo3Nc` |
+| Interview セクション 上段 | `cEwos-6wRxs` |
+| Interview セクション 下段 | `Mzrz0QYo3Nc` |
 | Media セクション | `GS1-r6vp_tM` |
 
 ## 画像

@@ -10,6 +10,7 @@
 ```
 index.html          サイト本体（これ1枚で完結）
 images/             写真・ロゴ（11点）
+favicon.svg         ファビコン（朱地に「米」）
 CLAUDE.md           Claude Code 向けの作業コンテキスト
 docs/HANDOFF.md     引き継ぎ資料（設計思想・編集ガイド）
 docs/WORKLOG.md     これまでの作業ログ
