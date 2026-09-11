@@ -1,0 +1,308 @@
+<title>未病ビジネス早見表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  /* 用紙の中は印刷前提で固定。ステージ（用紙の外）だけテーマに追随する */
+  --paper:#FDFDFC;
+  --ink:#16202A;
+  --ink-2:#46535F;
+  --ink-3:#78838B;
+  --rule:#DCE0DB;
+  --rule-strong:#B7BEB8;
+  --brand:#22456E;
+  --c1:#2F5D96;
+  --c2:#1F7C68;
+  --amber:#A9720F;
+  --crimson:#A93A4E;
+  --wash-1:#EEF3F9;
+  --wash-2:#E7F2EE;
+  --wash-amber:#FAF2E0;
+
+  --stage-bg:#E9EBE7;
+  --stage-ink:#5C666D;
+
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --stage-bg:#14181C; --stage-ink:#8A949B; }
+}
+:root[data-theme="dark"]{ --stage-bg:#14181C; --stage-ink:#8A949B; }
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--stage-bg);color:var(--stage-ink);
+  font-family:var(--body);-webkit-font-smoothing:antialiased;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.stage{padding-block:20px 26px;padding-inline:16px;overflow-x:auto}
+.scaler{transform-origin:top center;margin-inline:auto;width:210mm}
+.hint{
+  max-width:210mm;margin:0 auto 10px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--stage-ink);
+  display:flex;flex-wrap:wrap;gap:4px 14px;
+}
+
+/* ============ 用紙 ============ */
+.sheet{
+  width:210mm;min-height:297mm;background:var(--paper);color:var(--ink);
+  padding:10mm 11mm 8mm;box-shadow:0 2px 6px rgba(0,0,0,.10),0 24px 60px -30px rgba(0,0,0,.45);
+  display:flex;flex-direction:column;gap:4mm;
+  font-size:8.4pt;line-height:1.6;
+}
+
+/* ---- ヘッダ ---- */
+.head{border-bottom:1.4pt solid var(--ink);padding-bottom:2.6mm}
+.kicker{
+  font-family:var(--mono);font-size:6.4pt;letter-spacing:.18em;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:2px 12px;margin-bottom:1.8mm;
+}
+.kicker b{color:var(--brand);font-weight:500}
+h1{font-family:var(--display);font-weight:700;font-size:18.5pt;line-height:1.18;margin:0 0 1.2mm;letter-spacing:.02em}
+.dek{font-family:var(--display);font-weight:600;font-size:8.8pt;line-height:1.5;color:var(--ink-2);margin:0;max-width:176mm}
+.dek em{font-style:normal;color:var(--brand)}
+
+/* ---- セクション見出し ---- */
+.sec-h{display:flex;align-items:baseline;gap:2.6mm;margin-bottom:2.2mm}
+.sec-n{font-family:var(--mono);font-size:6.4pt;letter-spacing:.16em;color:var(--amber);white-space:nowrap}
+.sec-h h2{font-family:var(--display);font-weight:700;font-size:11pt;line-height:1.3;margin:0}
+.sec-h .note{font-size:7pt;color:var(--ink-3);margin-left:auto;text-align:right;line-height:1.4}
+
+/* ---- 機種比較 ---- */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.dev{border:.8pt solid var(--rule-strong);border-radius:1mm;overflow:hidden;display:flex;flex-direction:column}
+.dev-top{padding:2.2mm 3mm 1.8mm;border-bottom:.8pt solid var(--rule)}
+.dev.o .dev-top{background:var(--wash-1)}
+.dev.s .dev-top{background:var(--wash-2)}
+.dev-name{font-family:var(--display);font-weight:700;font-size:11pt;line-height:1.2;margin:0 0 .6mm}
+.dev.o .dev-name{color:var(--c1)}
+.dev.s .dev-name{color:var(--c2)}
+.dev-pos{font-size:7.4pt;line-height:1.45;color:var(--ink-2);margin:0}
+.dev-body{padding:2.4mm 3mm 2.6mm;display:flex;flex-direction:column;gap:1.8mm;flex:1}
+.pm{font-family:var(--mono);font-size:6.2pt;letter-spacing:.14em;display:flex;align-items:center;gap:1.4mm;margin:0}
+.pm::before{content:"";width:2.2mm;height:2.2mm;border-radius:50%;display:inline-block;flex:none}
+.pm.plus{color:var(--c2)} .pm.plus::before{background:var(--c2)}
+.pm.minus{color:var(--crimson)} .pm.minus::before{background:var(--crimson)}
+.dev ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.3mm}
+.dev li{font-size:7.8pt;line-height:1.5;padding-left:2.8mm;position:relative;color:var(--ink-2)}
+.dev li::before{content:"";position:absolute;left:0;top:1.4mm;width:1.4mm;height:.6pt;background:var(--rule-strong)}
+.dev li b{color:var(--ink);font-weight:700}
+.cost{
+  margin-top:auto;padding-top:1.8mm;border-top:.8pt dashed var(--rule-strong);
+  display:grid;grid-template-columns:auto 1fr;gap:.6mm 2.2mm;align-items:baseline;
+}
+.cost dt{font-family:var(--mono);font-size:6pt;letter-spacing:.1em;color:var(--ink-3);white-space:nowrap}
+.cost dd{margin:0;font-size:7.8pt;line-height:1.45;color:var(--ink)}
+.cost dd b{font-weight:700}
+
+/* ---- 使い分け ---- */
+.rule-bar{
+  background:var(--wash-amber);border:.8pt solid #E3D3A8;border-radius:1mm;
+  padding:2.4mm 3.4mm;display:grid;grid-template-columns:auto 1fr;gap:1mm 3.4mm;align-items:baseline;
+}
+.rule-bar .rb-t{font-family:var(--mono);font-size:6.2pt;letter-spacing:.14em;color:var(--amber);white-space:nowrap}
+.rule-bar p{margin:0;font-size:8.2pt;line-height:1.55;color:var(--ink)}
+.rule-bar p b{font-weight:700}
+.rule-bar .rb-sub{grid-column:2;font-size:7.2pt;color:var(--ink-2);line-height:1.5}
+
+/* ---- 独自性 ---- */
+.uniq{display:grid;grid-template-columns:1fr 1fr;gap:2.4mm 4mm}
+.u{display:grid;grid-template-columns:auto 1fr;gap:0 2.4mm;align-items:start}
+.u .n{
+  font-family:var(--mono);font-size:6.6pt;color:var(--paper);background:var(--brand);
+  width:4.4mm;height:4.4mm;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin-top:.3mm;flex:none;
+}
+.u h3{font-family:var(--display);font-weight:700;font-size:8.8pt;line-height:1.3;margin:0 0 .5mm;color:var(--ink)}
+.u p{margin:0;font-size:7.8pt;line-height:1.5;color:var(--ink-2)}
+.u p b{color:var(--ink);font-weight:700}
+.u.wide{grid-column:1 / -1}
+.u.wide .n{background:var(--amber)}
+
+/* ---- 足元 ---- */
+.foot{margin-top:auto;border-top:.8pt solid var(--rule-strong);padding-top:2.4mm;display:grid;grid-template-columns:1fr 58mm;gap:4.5mm}
+.foot h4{font-family:var(--mono);font-size:6pt;letter-spacing:.14em;color:var(--ink-3);margin:0 0 1.2mm;font-weight:500}
+.steps{list-style:none;margin:0;padding:0;display:flex;gap:3mm}
+.steps li{font-size:7pt;line-height:1.45;color:var(--ink-2);flex:1;padding-left:2.2mm;border-left:.8pt solid var(--rule-strong)}
+.steps li b{display:block;color:var(--ink);font-weight:700}
+.src{font-size:6.2pt;line-height:1.5;color:var(--ink-3);margin:0}
+.src b{color:var(--ink-2);font-weight:500}
+
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff}
+  .stage{padding:0;overflow:visible}
+  .hint{display:none}
+  .scaler{transform:none!important;width:auto}
+  .sheet{box-shadow:none;width:210mm;height:297mm;min-height:0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="stage">
+  <p class="hint"><span>A4 1枚 ／ 印刷用</span><span>Ctrl / ⌘ + P でそのままA4に出ます</span></p>
+  <div class="scaler" id="scaler">
+  <div class="sheet">
+
+    <header class="head">
+      <p class="kicker"><b>未病産業 新規事業</b><span>A4 1枚要約</span><span>2026.09.11</span><span>公開情報のみ</span></p>
+      <h1>未病ビジネス早見表</h1>
+      <p class="dek">リングは手段にすぎません。<em>研究実績を買うか、運用コストを買うか</em>でOuraとSOXAIは分かれ、<em>本当に差がつくのは測定したあとの設計</em>です。</p>
+    </header>
+
+    <section>
+      <div class="sec-h">
+        <span class="sec-n">01</span>
+        <h2>オーラリング と ソクサイリング ── 新規事業で使うなら</h2>
+        <span class="note">評価軸：研究実績／ランニングコスト／国内運用／規制</span>
+      </div>
+
+      <div class="compare">
+        <div class="dev o">
+          <div class="dev-top">
+            <p class="dev-name">Oura Ring</p>
+            <p class="dev-pos">世界の大学・病院が使う「標準測定器」。エビデンスを買うための選択。</p>
+          </div>
+          <div class="dev-body">
+            <p class="pm plus">メリット</p>
+            <ul>
+              <li><b>第三者研究が圧倒的に厚い。</b>ハーバード・UCSF・スタンフォード等の独立研究が多数あり、2025年には系統的レビュー／メタアナリシスも登場。「なぜこの機器か」の説明コストがほぼゼロ。</li>
+              <li><b>日本人データがある。</b>成人96名・約42万エポックのPSG比較（Sleep Medicine 2024）。国内の提案にそのまま使える。</li>
+              <li><b>研究インフラが整備済み。</b>研究者向けプラン、公開API、外部の解析ツール群。50以上の生体指標でテーマの幅も広い。</li>
+            </ul>
+            <p class="pm minus">デメリット</p>
+            <ul>
+              <li><b>月額サブスクが人数×月数で効く。</b>多年度・多人数ほど不利。参加者負担にすれば脱落率が上がり、自社負担なら経費が恒常的に乗る。</li>
+              <li><b>個人向け設計。</b>法人での一括調達・台数管理・請求の国内チャネルが弱く、日本語サポートも手薄。現場運用の負荷が上がる。</li>
+              <li>一般ウェルネス機器の扱い。血圧機能でFDAクリアランスを追求中で、<b>機能の可否が海外規制の進捗に左右される。</b></li>
+            </ul>
+            <dl class="cost">
+              <dt>ランニング</dt><dd><b>本体＋月額サブスク</b>（人数×期間で線形に増加）</dd>
+              <dt>向く場面</dt><dd>n=10〜30の探索・論文化・行政提案フェーズ</dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="dev s">
+          <div class="dev-top">
+            <p class="dev-name">SOXAI RING</p>
+            <p class="dev-pos">日本の法人・自治体に配れる国産リング。実装コストを買うための選択。</p>
+          </div>
+          <div class="dev-body">
+            <p class="pm plus">メリット</p>
+            <ul>
+              <li><b>買い切り（月額なし）。</b>単年度予算に収まり稟議が通る。長期・多人数になるほど総コストで効いてくる。</li>
+              <li><b>国内の法人チャネルが機能している。</b>NTTPCが企業向けに取扱い、健康経営アライアンスにも参画。完全日本語で、装着継続率＝データ品質を左右する現場運用に強い。</li>
+              <li><b>事業者側からテーマを持ち込む産学連携が動いている。</b>東大・英エセックス大との共同研究（IEEE TIM 2025）、明治＝腸活、相鉄＝沿線健康。</li>
+            </ul>
+            <p class="pm minus">デメリット</p>
+            <ul>
+              <li><b>研究が自社主導に寄っている。</b>第三者が道具として使った研究の蓄積が薄く、機器選定の妥当性を自分で論証する必要がある。</li>
+              <li><b>デバイス精度の検証フェーズ。</b>疾患アウトカムにつながる研究がまだ少なく、公開APIエコシステムも未成熟で自前実装が増える。</li>
+              <li>海外での認知・実績がなく、国際共同研究や越境サービスでは不利。</li>
+            </ul>
+            <dl class="cost">
+              <dt>ランニング</dt><dd><b>買い切り・追加費用なし</b>（端末代のみ）</dd>
+              <dt>向く場面</dt><dd>n=100超・多年度、法人／自治体への配布</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule-bar">
+      <span class="rb-t">使い分けの結論</span>
+      <p><b>探索フェーズはOuraで「妥当性」を買い、スケールフェーズはSOXAIで「運用コスト」を買う。</b>二段構えが現実解です。</p>
+      <p class="rb-sub">分岐点は3つ ──（1）機器の妥当性を査読者・行政に説明する必要があるか（2）配布台数と継続年数（3）費用の負担者。(1)がYesならOura、(2)が大きく(3)が自社負担ならSOXAI。</p>
+    </div>
+
+    <section>
+      <div class="sec-h">
+        <span class="sec-n">02</span>
+        <h2>未病領域での新規事業の独自性 ── 他の市場にない5つの構造</h2>
+        <span class="note">デバイス選定より、こちらが事業の生死を決めます</span>
+      </div>
+
+      <div class="uniq">
+        <div class="u">
+          <span class="n">1</span>
+          <div>
+            <h3>規制の外側に立てる ── 速さが武器になる</h3>
+            <p>保険点数に縛られず、価格も体験も自由に設計でき、医療機関より速く動けます。ただし<b>「治療」「診断」「改善」と言った瞬間に薬機法（SaMD）側</b>へ。線の内側にいる限り、速度そのものが参入障壁になります。</p>
+          </div>
+        </div>
+        <div class="u">
+          <span class="n">2</span>
+          <div>
+            <h3>「異常なし」と言われた人が、まるごと市場</h3>
+            <p>日本未病学会の定義のうち<b>「自覚症状はあるが検査では異常がない」</b>層は、保険診療に受け皿がありません。競合が医療ではなく、需要だけが存在する空白地帯です。</p>
+          </div>
+        </div>
+        <div class="u">
+          <span class="n">3</span>
+          <div>
+            <h3>公的な物差しが、すでに用意されている</h3>
+            <p>神奈川県のME-BYO INDEX（生活習慣・認知機能・生活機能・メンタル／ストレスの4領域）という検証済みの共通言語があります。<b>自社スコアを発明せず公的指標の変化で語れば</b>、自治体・健保・大企業への説明コストが激減します。</p>
+          </div>
+        </div>
+        <div class="u">
+          <span class="n">4</span>
+          <div>
+            <h3>エビデンスの入口が、小さく開いている</h3>
+            <p>未病産業研究会は<b>入会無料</b>（2022年11月時点993社）。全国10万人規模のみらい未病コホートも動いています。医薬品開発と違い、<b>小さなnと整ったプロトコルから産学連携を始められる</b>のが未病領域の特異点です。</p>
+          </div>
+        </div>
+        <div class="u wide">
+          <span class="n">5</span>
+          <div>
+            <h3>最終的な資産はデバイスではなく、「測定 → 介入 → 再測定」の縦断データと介入プロトコル</h3>
+            <p>端末は誰でも買え、測るだけなら差がつきません。研究の主戦場もすでに「正確に測れるか」から<b>「測った値が未病の改善につながるか」</b>へ移りました。介入設計とアウトカム証明を持つ側が勝ちます ── そしてそれは、買ってくることができない唯一の資産です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div>
+        <h4>最初の90日</h4>
+        <ol class="steps">
+          <li><b>Week 1–4</b>未病産業研究会に入会（無料）。動かす指標を1枚で定義し、2機種を自分で装着して運用コストを比較する。</li>
+          <li><b>Month 2</b>薬機法の該非判定を先に済ませ、「治療／診断／改善」を使わない表現ガイドラインを作る。</li>
+          <li><b>Month 3</b>n=10〜30のパイロットを「測定→介入→再測定」で実施し、報告書を持って大学に共同研究を打診する。</li>
+        </ol>
+      </div>
+      <div>
+        <h4>出典・注記</h4>
+        <p class="src"><b>出典：</b>Oura Science and Research／Sleep Medicine (2024)／Oura vs 医療グレード睡眠検査の系統的レビュー (2025)／SOXAI×東大×英エセックス大 IEEE TIM (2025)／SOXAI Sensors 掲載／NTTPC (2025)／日本未病学会／神奈川県 ME-BYO INDEX・未病産業研究会・みらい未病コホート研究。<b>注記：</b>査読論文の正確な件数は未確認（比較は主導者・フェーズ・掲載誌による定性評価）。本資料は事業設計の材料であり、医学的・法的助言ではありません。</p>
+      </div>
+    </footer>
+
+  </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var scaler = document.getElementById('scaler');
+  var stage = scaler.parentElement;
+  function fit(){
+    scaler.style.transform = 'none';
+    scaler.style.height = '';
+    var avail = stage.clientWidth - 32;
+    var w = scaler.offsetWidth;
+    if (!w) return;
+    var s = Math.min(1, avail / w);
+    if (s < 0.999) {
+      scaler.style.transform = 'scale(' + s + ')';
+      scaler.style.height = (scaler.offsetHeight * s) + 'px';
+    }
+  }
+  window.addEventListener('resize', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  fit();
+})();
+</script>
