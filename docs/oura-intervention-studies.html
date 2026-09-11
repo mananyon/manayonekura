@@ -1,0 +1,343 @@
+<title>オーラリング介入研究カタログ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --paper:#FDFDFC;
+  --ink:#16202A;
+  --ink-2:#46535F;
+  --ink-3:#78838B;
+  --rule:#DCE0DB;
+  --rule-strong:#B7BEB8;
+  --brand:#22456E;
+  --tA:#2F5D96;
+  --tB:#A9720F;
+  --tC:#1F7C68;
+  --crimson:#A93A4E;
+  --wash-A:#EEF3F9;
+  --wash-B:#FAF2E0;
+  --wash-C:#E7F2EE;
+
+  --stage-bg:#E9EBE7;
+  --stage-ink:#5C666D;
+
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --stage-bg:#14181C; --stage-ink:#8A949B; }
+}
+:root[data-theme="dark"]{ --stage-bg:#14181C; --stage-ink:#8A949B; }
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--stage-bg);color:var(--stage-ink);
+  font-family:var(--body);-webkit-font-smoothing:antialiased;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.stage{padding-block:20px 26px;padding-inline:16px;overflow-x:auto}
+.scaler{transform-origin:top center;margin-inline:auto;width:210mm}
+.hint{
+  max-width:210mm;margin:0 auto 10px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--stage-ink);
+  display:flex;flex-wrap:wrap;gap:4px 14px;
+}
+
+.sheet{
+  width:210mm;min-height:297mm;background:var(--paper);color:var(--ink);
+  padding:9mm 11mm 6mm;box-shadow:0 2px 6px rgba(0,0,0,.10),0 24px 60px -30px rgba(0,0,0,.45);
+  display:flex;flex-direction:column;gap:2.4mm;
+  font-size:8.4pt;line-height:1.58;
+}
+
+/* ---- ヘッダ ---- */
+.head{border-bottom:1.4pt solid var(--ink);padding-bottom:2mm}
+.kicker{
+  font-family:var(--mono);font-size:6.4pt;letter-spacing:.18em;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:2px 12px;margin-bottom:1.6mm;
+}
+.kicker b{color:var(--brand);font-weight:500}
+h1{font-family:var(--display);font-weight:700;font-size:16.5pt;line-height:1.18;margin:0 0 1.2mm;letter-spacing:.02em}
+.dek{font-family:var(--display);font-weight:600;font-size:8.6pt;line-height:1.5;color:var(--ink-2);margin:0;max-width:178mm}
+.dek em{font-style:normal;color:var(--brand)}
+
+/* ---- セクション見出し ---- */
+.sec-h{display:flex;align-items:baseline;gap:2.6mm;margin-bottom:1.4mm}
+.sec-n{font-family:var(--mono);font-size:6.4pt;letter-spacing:.16em;color:var(--tB);white-space:nowrap}
+.sec-h h2{font-family:var(--display);font-weight:700;font-size:10.5pt;line-height:1.3;margin:0}
+.sec-h .note{font-size:6.9pt;color:var(--ink-3);margin-left:auto;text-align:right;line-height:1.4}
+
+/* ---- 3つの型 ---- */
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
+.type{border:.8pt solid var(--rule-strong);border-radius:1mm;padding:1.8mm 2.4mm;display:flex;flex-direction:column;gap:.6mm}
+.type.a{background:var(--wash-A)} .type.b{background:var(--wash-B)} .type.c{background:var(--wash-C)}
+.type .th{display:flex;align-items:center;gap:1.8mm}
+.badge{
+  font-family:var(--mono);font-size:6.6pt;color:var(--paper);width:4.2mm;height:4.2mm;border-radius:.8mm;
+  display:flex;align-items:center;justify-content:center;flex:none;font-weight:500;
+}
+.badge.a{background:var(--tA)} .badge.b{background:var(--tB)} .badge.c{background:var(--tC)}
+.type h3{font-family:var(--display);font-weight:700;font-size:8.2pt;line-height:1.25;margin:0}
+.type.a h3{color:var(--tA)} .type.b h3{color:var(--tB)} .type.c h3{color:var(--tC)}
+.type p{margin:0;font-size:7.1pt;line-height:1.45;color:var(--ink-2)}
+.type .cnt{font-family:var(--mono);font-size:6pt;letter-spacing:.08em;color:var(--ink-3);margin-top:auto;padding-top:.5mm}
+
+/* ---- カタログ表 ---- */
+table{border-collapse:collapse;width:100%;table-layout:fixed}
+thead th{
+  font-family:var(--mono);font-size:6pt;letter-spacing:.12em;color:var(--ink-3);font-weight:500;
+  text-align:left;padding:0 0 1.2mm 2.4mm;border-bottom:.9pt solid var(--ink);vertical-align:bottom;
+}
+thead th:first-child{padding-left:0}
+tbody td{
+  padding:1.05mm 2.2mm;border-bottom:.6pt solid var(--rule);vertical-align:top;
+  font-size:7.1pt;line-height:1.42;color:var(--ink-2);
+}
+tbody td:first-child{padding-left:0;padding-right:1.4mm}
+tbody tr:last-child td{border-bottom:none}
+.c-type{width:7mm}
+.c-study{width:42mm}
+.c-who{width:31mm}
+.c-design{width:32mm}
+.c-res{width:auto}
+.study-n{display:block;color:var(--ink);font-weight:700;font-size:7.3pt;line-height:1.35;margin-bottom:.3mm}
+.study-s{display:block;font-family:var(--mono);font-size:5.8pt;letter-spacing:.03em;color:var(--ink-3);line-height:1.4}
+tbody td b{color:var(--ink);font-weight:700}
+.flag{color:var(--crimson);font-weight:700}
+
+/* ---- 示唆 ---- */
+.takeaways{display:grid;grid-template-columns:1fr 1fr;gap:1.8mm 4mm}
+.tk{display:grid;grid-template-columns:auto 1fr;gap:0 2.4mm;align-items:start}
+.tk .n{
+  font-family:var(--mono);font-size:6.6pt;color:var(--paper);background:var(--brand);
+  width:4.4mm;height:4.4mm;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin-top:.3mm;flex:none;
+}
+.tk h3{font-family:var(--display);font-weight:700;font-size:8.2pt;line-height:1.28;margin:0 0 .3mm;color:var(--ink)}
+.tk p{margin:0;font-size:7.3pt;line-height:1.45;color:var(--ink-2)}
+.tk p b{color:var(--ink);font-weight:700}
+
+/* ---- 足元 ---- */
+.foot{margin-top:auto;border-top:.8pt solid var(--rule-strong);padding-top:1.8mm;display:grid;grid-template-columns:1fr 56mm;gap:4.5mm}
+.foot h4{font-family:var(--mono);font-size:6pt;letter-spacing:.14em;color:var(--ink-3);margin:0 0 1.2mm;font-weight:500}
+.proto{display:flex;gap:0;align-items:stretch}
+.proto li{list-style:none;flex:1;font-size:6.8pt;line-height:1.4;color:var(--ink-2);padding:0 2.2mm;border-left:.8pt solid var(--rule-strong)}
+.proto li:first-child{padding-left:0;border-left:none}
+.proto li b{display:block;color:var(--ink);font-weight:700}
+.proto{margin:0;padding:0}
+.src{font-size:6.2pt;line-height:1.5;color:var(--ink-3);margin:0}
+.src b{color:var(--ink-2);font-weight:500}
+
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff}
+  .stage{padding:0;overflow:visible}
+  .hint{display:none}
+  .scaler{transform:none!important;width:auto}
+  .sheet{box-shadow:none;width:210mm;height:297mm;min-height:0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="stage">
+  <p class="hint"><span>A4 1枚 ／ 印刷用</span><span>Ctrl / ⌘ + P でそのままA4に出ます</span></p>
+  <div class="scaler" id="scaler">
+  <div class="sheet">
+
+    <header class="head">
+      <p class="kicker"><b>未病産業 新規事業</b><span>オーラリングの介入研究</span><span>A4 1枚</span><span>2026.09.11</span></p>
+      <h1>オーラリング介入研究カタログ</h1>
+      <p class="dek">未病領域＝<em>診断のつかない層</em>を対象にした介入研究に絞って9件。<em>リングが「測る道具」なのか「介入そのもの」なのか</em>で、事業の組み立て方は大きく変わります。</p>
+    </header>
+
+    <section>
+      <div class="sec-h">
+        <span class="sec-n">01</span>
+        <h2>介入研究には3つの型がある</h2>
+        <span class="note">どの型を採るかが、そのまま事業モデルの選択になります</span>
+      </div>
+      <div class="types">
+        <div class="type a">
+          <div class="th"><span class="badge a">A</span><h3>リングは「アウトカム測定器」</h3></div>
+          <p>介入は別にある（サプリ、アプリ、運動、支援プログラム）。リングは効果を客観的に示すための計測器。<b>最も件数が多く、最短で組める型。</b></p>
+          <p class="cnt">本資料で6件</p>
+        </div>
+        <div class="type b">
+          <div class="th"><span class="badge b">B</span><h3>リング自体が「介入」</h3></div>
+          <p>測って本人に返すこと（フィードバック・自己モニタリング）が介入。<b>デバイスを配る事業が、そのまま研究になる型。</b></p>
+          <p class="cnt">本資料で2件</p>
+        </div>
+        <div class="type c">
+          <div class="th"><span class="badge c">C</span><h3>リング＋AIコーチングが「介入」</h3></div>
+          <p>計測値をもとにAIが個別に行動を指示する。<b>いま最も新しく、Oura自身が証明しにいっている型。</b></p>
+          <p class="cnt">本資料で1件</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-h">
+        <span class="sec-n">02</span>
+        <h2>研究カタログ ── 未病領域の介入研究 9件</h2>
+        <span class="note">対象はいずれも「健康な人」「閾値下」「予防」。疾患治療の試験は除外</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="c-type">型</th>
+            <th class="c-study">研究・掲載</th>
+            <th class="c-who">対象・規模・期間</th>
+            <th class="c-design">デザイン</th>
+            <th class="c-res">結果 ／ 主要評価</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge a">A</span></td>
+            <td><span class="study-n">デジタル・マインドフルネス（Ouraアプリ内プログラム）</span><span class="study-s">Scientific Reports</span></td>
+            <td>健康成人81名／10日間＋4週フォロー</td>
+            <td>無作為化・待機リスト対照（介入49／対照32）</td>
+            <td>睡眠効率・総睡眠・深睡眠・浅睡眠・入眠時刻の<b>すべてで群×時間の交互作用が有意</b>（p&lt;0.031）。知覚ストレス・バーンアウトも質問票で併測</td>
+          </tr>
+          <tr>
+            <td><span class="badge a">A</span></td>
+            <td><span class="study-n">PeptiSleep（AI探索ペプチド素材）</span><span class="study-s">Sleep Medicine: X ／ 豪州</span></td>
+            <td>成人／8週間／250mg・1日1回</td>
+            <td>無作為化・二重盲検・プラセボ対照</td>
+            <td>Leeds睡眠評価質問票の<b>4領域すべてで改善（計10.2ポイント）</b>。Oura計測のHRVも介入群で改善（幅は企業発表ベース）。<b>食品・サプリ企業の典型モデル</b></td>
+          </tr>
+          <tr>
+            <td><span class="badge a">A</span></td>
+            <td><span class="study-n">個別化メラトニン N-of-1 試験</span><span class="study-s">実現可能性試験／2025</span></td>
+            <td>睡眠が悪い人／2週ベースライン＋12週介入／60試験</td>
+            <td>デジタルN-of-1クロスオーバー（3.0mg vs 0.5mg vs プラセボ）</td>
+            <td>「最適用量は人ごとに違う」を前提に<b>一人の中で効果を検証する</b>設計。パーソナライズ商材の雛形</td>
+          </tr>
+          <tr>
+            <td><span class="badge a">A</span></td>
+            <td><span class="study-n">カンナビノイド・サプリ × 閾値下不眠</span><span class="study-s">パイロット試験／2025</span></td>
+            <td>閾値下不眠（subthreshold insomnia）の成人</td>
+            <td>無作為化・二重盲検・プラセボ対照クロスオーバー</td>
+            <td>睡眠と気分への効果を検証。<b class="flag">診断がつかない「閾値下」層を正面から対象にした、未病そのもののデザイン</b></td>
+          </tr>
+          <tr>
+            <td><span class="badge a">A</span></td>
+            <td><span class="study-n">介護者への在宅支援プログラム</span><span class="study-s">RCT（多様な背景の介護者）</span></td>
+            <td>介護者／3か月</td>
+            <td>無作為化（文化・言語適合型の在宅支援 vs 注意対照）</td>
+            <td>REM睡眠が介入群で1日あたり<b>+0.06分</b>、対照群で<b>−0.12分</b>（P&lt;.001）。<b>長期装着だから検出できる微小な差</b>。自治体・地域包括ケア向けの型</td>
+          </tr>
+          <tr>
+            <td><span class="badge a">A</span></td>
+            <td><span class="study-n">看護師の生理的ストレス縦断測定＋睡眠介入</span><span class="study-s">パイロット試験</span></td>
+            <td>看護師（交代勤務）</td>
+            <td>縦断的な生理指標測定＋睡眠の質への介入</td>
+            <td>心理的ウェルビーイングの改善を検証。<b>健康経営・シフトワーク対策の直接の雛形</b></td>
+          </tr>
+          <tr>
+            <td><span class="badge b">B</span></td>
+            <td><span class="study-n">飲酒量低減の行動フィードバック介入</span><span class="study-s">JMIR 2025 (e78613)／NCT05090995</span></td>
+            <td>リスク飲酒の若年成人</td>
+            <td>無作為化パイロット（Ouraの睡眠・HRV・安静時心拍＋日誌の自己モニタリング）</td>
+            <td><b class="flag">ウェアラブルの個別化フィードバックを介入とした初のRCT。</b>生理データを本人に返すこと自体が介入 ── デバイス配布事業がそのまま研究になる型</td>
+          </tr>
+          <tr>
+            <td><span class="badge b">B</span></td>
+            <td><span class="study-n">Ouraリング単独・4週間トライアル</span><span class="study-s">UNC 学位論文／2025</span></td>
+            <td>中年成人26名（平均49.2歳・女性57.7%）／4週間</td>
+            <td>リングとアプリを渡すだけ（単独使用）</td>
+            <td>睡眠時間・入眠潜時・睡眠効率・睡眠の質、動脈スティフネス、HRVの<b class="flag">いずれも有意な変化なし</b>。「他の介入戦略との併用が必要」と結論</td>
+          </tr>
+          <tr>
+            <td><span class="badge c">C</span></td>
+            <td><span class="study-n">GONDOR-AS（Oura初の自社RCT）</span><span class="study-s">JMIR Research Protocols（プロトコル公開段階）</span></td>
+            <td>3群×各55名＝計165名／12週間</td>
+            <td>①リングのみ（対照）②リング＋週2回HIIT ③リング＋AIコーチングによる定常有酸素運動</td>
+            <td>主要評価は<b>動脈スティフネス</b>。②を生理学的ベンチマークに置き、<b>AIアドバイザーの効果そのものを証明しにいく</b>設計。結果は未公表</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="sec-h">
+        <span class="sec-n">03</span>
+        <h2>新規事業への示唆</h2>
+        <span class="note">9件を通して読むと、設計の勘所は4つに集約されます</span>
+      </div>
+      <div class="takeaways">
+        <div class="tk">
+          <span class="n">1</span>
+          <div>
+            <h3>自社商材 × Oura＝測定器が、最短ルート</h3>
+            <p>サプリ・アプリ・運動プログラム・支援サービスを既に持っているなら、<b>8週間・n=数十</b>で型Aが組めます。リングを開発する必要はまったくありません。</p>
+          </div>
+        </div>
+        <div class="tk">
+          <span class="n">2</span>
+          <div>
+            <h3>配って終わりは、研究上すでに否定されている</h3>
+            <p>リング単独4週間では睡眠もHRVも動きませんでした（UNC）。<b>「従業員に配布して終わり」の健康経営パッケージは効かない</b>と示されている、と読むべきです。</p>
+          </div>
+        </div>
+        <div class="tk">
+          <span class="n">3</span>
+          <div>
+            <h3>対象は「閾値下」を狙う</h3>
+            <p>閾値下不眠、リスク飲酒、健康成人、介護者、交代勤務者 ──<b>診断がつかない層がそのまま研究対象になっている。</b>未病の定義が、研究の組入基準の定義と一致します。</p>
+          </div>
+        </div>
+        <div class="tk">
+          <span class="n">4</span>
+          <div>
+            <h3>評価は二階建てにする</h3>
+            <p>確立した質問票（Leeds、PSQI等）を主要評価に置き、<b>Ouraの睡眠効率・HRVは客観的な裏づけとして従に置く。</b>この順序を逆にすると査読も行政提案も通りません。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div>
+        <h4>標準的な設計テンプレート（9件の共通項）</h4>
+        <ul class="proto">
+          <li><b>① ベースライン 2週</b>介入前の素の値を取る。ここを省くと個人差に埋もれて差が出ない。</li>
+          <li><b>② 介入 8〜12週</b>期間の中央値はこのあたり。4週では足りない事例が複数。</li>
+          <li><b>③ フォロー 4週</b>やめた後も効果が残るかを見る。継続課金の根拠になる。</li>
+          <li><b>④ 対照群は必須</b>待機リスト／プラセボ／注意対照。規模はn=26〜165。</li>
+        </ul>
+      </div>
+      <div>
+        <h4>出典・注記</h4>
+        <p class="src"><b>出典：</b>Scientific Reports（デジタル・マインドフルネス）／Sleep Medicine: X・Nuritas（PeptiSleep）／個別化メラトニンN-of-1試験（2025）／カンナビノイド×閾値下不眠パイロット（2025）／介護者支援RCT／看護師パイロット／JMIR 2025 e78613・NCT05090995（飲酒量低減）／UNC学位論文 Bourtayre (2025)／JMIR Research Protocols・Oura（GONDOR-AS）。<b>注記：</b>網羅的なデータベース検索ではなく公開情報からの抽出です。n数・期間・結果は各出典の公表値。GONDOR-ASは結果未公表。本資料は事業設計の材料であり、医学的・法的助言ではありません。</p>
+      </div>
+    </footer>
+
+  </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var scaler = document.getElementById('scaler');
+  var stage = scaler.parentElement;
+  function fit(){
+    scaler.style.transform = 'none';
+    scaler.style.height = '';
+    var avail = stage.clientWidth - 32;
+    var w = scaler.offsetWidth;
+    if (!w) return;
+    var s = Math.min(1, avail / w);
+    if (s < 0.999) {
+      scaler.style.transform = 'scale(' + s + ')';
+      scaler.style.height = (scaler.offsetHeight * s) + 'px';
+    }
+  }
+  window.addEventListener('resize', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  fit();
+})();
+</script>
