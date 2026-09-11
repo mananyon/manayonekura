@@ -1,0 +1,766 @@
+<title>未病エビデンス地図</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --paper:#F3F4F2;
+  --surface:#FFFFFF;
+  --surface-2:#EAECE8;
+  --ink:#16202A;
+  --ink-2:#45525E;
+  --ink-3:#6C7A85;
+  --rule:#D9DDD8;
+  --rule-strong:#B9C0BA;
+  --brand:#22456E;
+  --brand-soft:#E4EAF2;
+  --c1:#4374B4;
+  --c2:#2E9C86;
+  --amber:#C88A1C;
+  --amber-soft:#F5EBD6;
+  --crimson:#C0455E;
+  --crimson-soft:#F6E3E7;
+  --teal-soft:#DDEFE9;
+  --shadow:0 1px 2px rgba(22,32,42,.06), 0 8px 24px -16px rgba(22,32,42,.28);
+
+  --display:"Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --body:"Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12161A;
+    --surface:#1A1F25;
+    --surface-2:#222932;
+    --ink:#E9EBE7;
+    --ink-2:#AEB7BD;
+    --ink-3:#828D94;
+    --rule:#2A323A;
+    --rule-strong:#3C464F;
+    --brand:#8FB6EA;
+    --brand-soft:#1E2833;
+    --c1:#4F86D0;
+    --c2:#1E9E85;
+    --amber:#C08A20;
+    --amber-soft:#2B2416;
+    --crimson:#D05770;
+    --crimson-soft:#2C1B21;
+    --teal-soft:#16271F;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12161A;
+  --surface:#1A1F25;
+  --surface-2:#222932;
+  --ink:#E9EBE7;
+  --ink-2:#AEB7BD;
+  --ink-3:#828D94;
+  --rule:#2A323A;
+  --rule-strong:#3C464F;
+  --brand:#8FB6EA;
+  --brand-soft:#1E2833;
+  --c1:#4F86D0;
+  --c2:#1E9E85;
+  --amber:#C08A20;
+  --amber-soft:#2B2416;
+  --crimson:#D05770;
+  --crimson-soft:#2C1B21;
+  --teal-soft:#16271F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.85;
+  margin:0;
+  padding:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:900px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
+
+/* ---------- masthead ---------- */
+.masthead{border-bottom:1px solid var(--rule-strong);padding-block:44px 30px;margin-bottom:44px}
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 20px;display:flex;flex-wrap:wrap;gap:6px 14px;
+}
+.eyebrow b{color:var(--brand);font-weight:500}
+h1{
+  font-family:var(--display);font-weight:700;font-size:clamp(34px,7vw,54px);
+  line-height:1.24;letter-spacing:.02em;margin:0 0 6px;text-wrap:balance;
+}
+.subtitle{
+  font-family:var(--display);font-weight:600;font-size:clamp(15px,2.6vw,19px);
+  color:var(--ink-2);margin:0 0 24px;line-height:1.7;text-wrap:balance;
+}
+.standfirst{font-size:15.5px;color:var(--ink-2);margin:0;max-width:64ch}
+.standfirst strong{color:var(--ink);font-weight:700}
+
+/* ---------- sections ---------- */
+section{margin-block:56px}
+.chapnum{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--amber);
+  display:block;margin-bottom:8px;
+}
+h2{
+  font-family:var(--display);font-weight:700;font-size:clamp(22px,4.2vw,30px);
+  line-height:1.4;margin:0 0 10px;text-wrap:balance;
+}
+h2 + .lede{color:var(--ink-2);font-size:15px;margin:0 0 28px;max-width:64ch}
+h3{
+  font-family:var(--display);font-weight:600;font-size:18.5px;line-height:1.5;
+  margin:34px 0 10px;text-wrap:balance;
+}
+h4{font-family:var(--body);font-weight:700;font-size:15px;margin:0 0 6px;letter-spacing:.01em}
+p{margin:0 0 16px;max-width:66ch}
+a{color:var(--brand);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+strong{font-weight:700}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---------- verdict ---------- */
+.verdicts{display:grid;gap:2px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.verdict{background:var(--surface);padding:22px 24px}
+.verdict .tag{
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.verdict .answer{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.5;margin:0 0 8px}
+.verdict .answer em{font-style:normal;color:var(--brand)}
+.verdict p{font-size:14.5px;color:var(--ink-2);margin:0}
+
+/* ---------- continuum ---------- */
+.continuum{margin:28px 0 8px}
+.cont-bar{display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:2px;border-radius:2px;overflow:hidden}
+.cont-seg{padding:14px 16px;min-height:74px}
+.cont-seg .cs-title{font-family:var(--display);font-weight:700;font-size:16px;display:block;margin-bottom:3px}
+.cont-seg .cs-sub{font-size:12.5px;line-height:1.6;display:block;color:var(--ink-2)}
+.cs-well{background:var(--teal-soft);border-top:3px solid var(--c2)}
+.cs-mibyo{background:var(--amber-soft);border-top:3px solid var(--amber)}
+.cs-ill{background:var(--crimson-soft);border-top:3px solid var(--crimson)}
+.cont-axis{
+  display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;
+  color:var(--ink-3);margin-top:8px;letter-spacing:.06em;
+}
+
+/* ---------- chart ---------- */
+figure{margin:28px 0 0;padding:22px 22px 18px;background:var(--surface);border:1px solid var(--rule);border-radius:3px;box-shadow:var(--shadow)}
+figcaption{font-size:12.5px;color:var(--ink-3);line-height:1.7;margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.fig-title{font-family:var(--display);font-weight:700;font-size:16px;margin:0 0 2px}
+.fig-unit{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.08em;margin:0 0 18px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 18px;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.swatch{width:11px;height:11px;border-radius:2px;display:inline-block;flex:none}
+.bars{display:grid;gap:18px}
+.bargroup{display:grid;gap:9px}
+.bargroup-label{font-size:12.5px;color:var(--ink-2);font-weight:500;line-height:1.5}
+.barrow{display:grid;grid-template-columns:76px 1fr;align-items:center;gap:12px}
+.barrow .yr{font-family:var(--mono);font-size:12px;color:var(--ink-3);text-align:right;font-variant-numeric:tabular-nums}
+.track{position:relative;height:22px;background:var(--surface-2);border-radius:2px}
+.fill{position:absolute;inset-block:0;left:0;border-radius:0 4px 4px 0;display:flex;align-items:center;justify-content:flex-end;padding-right:8px}
+.fill .val{font-family:var(--mono);font-size:12px;font-weight:500;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fill.outside{justify-content:flex-start}
+.fill.outside .val{color:var(--ink);position:absolute;left:calc(100% + 8px)}
+.axis{display:flex;justify-content:space-between;margin-top:14px;padding-left:88px;font-family:var(--mono);font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:24px 0;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+caption{text-align:left;font-family:var(--display);font-weight:700;font-size:16px;padding:18px 18px 0;color:var(--ink)}
+th,td{padding:13px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule);line-height:1.7}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;border-bottom:1px solid var(--rule-strong);white-space:nowrap;
+}
+tbody th{font-weight:700;font-size:13.5px;color:var(--ink);white-space:nowrap}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:none}
+td.oura{background:color-mix(in srgb, var(--c1) 5%, transparent)}
+td.soxai{background:color-mix(in srgb, var(--c2) 6%, transparent)}
+
+/* ---------- research columns ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin:26px 0}
+.col{background:var(--surface);padding:22px}
+.col-head{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.col-head .dot{width:10px;height:10px;border-radius:50%;flex:none;transform:translateY(-1px)}
+.col-head h4{font-family:var(--display);font-size:17px;margin:0}
+.col .role{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-3);margin:0 0 16px}
+.studies{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.studies li{font-size:13.5px;line-height:1.7;padding-left:14px;border-left:2px solid var(--rule-strong)}
+.studies .who{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;margin-bottom:2px}
+.studies .what{color:var(--ink)}
+.studies .res{display:block;color:var(--ink-2);font-size:13px;margin-top:2px}
+
+/* ---------- theme map ---------- */
+.themes{display:grid;gap:2px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin:26px 0}
+.theme{background:var(--surface);padding:20px 22px;display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:start}
+.theme h4{grid-column:1;font-family:var(--display);font-size:17px;font-weight:600}
+.theme .dist{grid-column:2;grid-row:1 / span 3;align-self:start}
+.theme .measures{grid-column:1;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.03em;margin:0 0 6px}
+.theme .body{grid-column:1;font-size:14px;color:var(--ink-2);margin:0;max-width:60ch}
+.theme .body b{color:var(--ink);font-weight:500}
+.pill{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:4px 9px;border-radius:2px;
+  white-space:nowrap;border:1px solid transparent;
+}
+.pill-near{background:var(--teal-soft);color:var(--c2);border-color:color-mix(in srgb,var(--c2) 35%,transparent)}
+.pill-mid{background:var(--amber-soft);color:var(--amber);border-color:color-mix(in srgb,var(--amber) 35%,transparent)}
+.pill-far{background:var(--surface-2);color:var(--ink-3);border-color:var(--rule-strong)}
+
+/* ---------- models ---------- */
+.models{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:26px 0}
+.model{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.model .mtag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--amber)}
+.model h4{font-family:var(--display);font-size:17.5px;font-weight:600;margin:0}
+.model dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13.5px;line-height:1.65}
+.model dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3);padding-top:4px;white-space:nowrap}
+.model dd{margin:0;color:var(--ink-2)}
+.model dd b{color:var(--ink);font-weight:500}
+.model .trap{font-size:13px;color:var(--crimson);border-top:1px dashed var(--rule-strong);padding-top:10px;margin:2px 0 0;line-height:1.65}
+
+/* ---------- callout ---------- */
+.callout{
+  background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--amber);
+  border-radius:0 3px 3px 0;padding:18px 22px;margin:26px 0;
+}
+.callout.warn{border-left-color:var(--crimson)}
+.callout h4{font-family:var(--display);font-size:16px;font-weight:600;margin-bottom:8px}
+.callout p:last-child{margin-bottom:0}
+.callout p{font-size:14px;color:var(--ink-2)}
+.callout ul{margin:0;padding-left:1.1em;font-size:14px;color:var(--ink-2);line-height:1.8}
+.callout li{margin-bottom:5px}
+.callout li:last-child{margin-bottom:0}
+
+/* ---------- timeline ---------- */
+.timeline{margin:26px 0;border:1px solid var(--rule);border-radius:3px;background:var(--surface);padding:22px;overflow-x:auto}
+.tl{display:grid;gap:0;min-width:560px}
+.tl-row{display:grid;grid-template-columns:66px 1fr 1fr;gap:0 16px;align-items:stretch}
+.tl-head{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding-bottom:10px;border-bottom:1px solid var(--rule-strong)}
+.tl-yr{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding:14px 0 0;font-variant-numeric:tabular-nums}
+.tl-cell{padding:14px 0 14px 16px;border-left:2px solid var(--rule);font-size:13.5px;line-height:1.7;color:var(--ink-2)}
+.tl-cell.has{border-left-color:currentColor}
+.tl-cell.o.has{color:var(--c1)}
+.tl-cell.s.has{color:var(--c2)}
+.tl-cell .ev{color:var(--ink);display:block}
+.tl-cell .ev b{font-weight:700}
+
+/* ---------- plan ---------- */
+.plan th:first-child{width:96px}
+
+/* ---------- sources ---------- */
+.sources{columns:2;column-gap:36px;font-size:13px;line-height:1.75;color:var(--ink-2);margin:0;padding:0;list-style:none}
+.sources li{break-inside:avoid;margin-bottom:12px;padding-left:26px;position:relative}
+.sources li::before{
+  content:attr(data-n);position:absolute;left:0;top:0;font-family:var(--mono);font-size:11px;color:var(--amber);
+}
+.sources a{word-break:break-word}
+
+.method{border-top:1px solid var(--rule-strong);margin-top:56px;padding-top:24px;font-size:13.5px;color:var(--ink-3);line-height:1.8}
+.method h3{font-size:15px;margin-top:0;color:var(--ink-2)}
+.method p{max-width:74ch;margin-bottom:12px}
+
+@media (max-width:760px){
+  .two,.models{grid-template-columns:1fr}
+  .cont-bar{grid-template-columns:1fr}
+  .sources{columns:1}
+  .theme{grid-template-columns:1fr}
+  .theme .dist{grid-column:1;grid-row:auto;justify-self:start;margin-bottom:4px}
+  .axis{padding-left:0}
+  .barrow{grid-template-columns:60px 1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow"><b>未病産業 新規事業ブリーフ</b><span>2026年9月11日時点</span><span>公開情報のみで作成</span></p>
+  <h1>未病エビデンス地図</h1>
+  <p class="subtitle">ソクサイリング（SOXAI RING）とオーラリング（Oura Ring）は、どちらが研究に使われているのか。<br>そして未病領域では、いま何が研究されているのか。</p>
+  <p class="standfirst">未病産業で新規事業を立ち上げる人に向けた実務資料です。デバイス2機種の<strong>研究利用の実態を比較</strong>し、未病分野の<strong>研究テーマを7領域に整理</strong>したうえで、<strong>参入モデル4類型と規制の境界線</strong>、最初の90日にやることまでを一本につないでいます。数字と論文名は出典番号つきで示し、確認できなかったことは確認できなかったと書いています。</p>
+</header>
+
+<!-- ============ 結論 ============ -->
+<section id="verdict">
+  <span class="chapnum">結論 ／ 30秒で読む</span>
+  <h2>「研究で使われている」のはOura。「日本の未病事業で使える」のはSOXAI。</h2>
+  <p class="lede">同じスマートリングでも、2社は研究との関わり方がまるで違います。この違いを理解しないまま「エビデンスがある方」を選ぶと、事業設計を間違えます。</p>
+
+  <div class="verdicts">
+    <div class="verdict">
+      <span class="tag">Q1 ── 研究に使われているのは？</span>
+      <p class="answer"><em>Oura Ringが圧倒的。</em>第三者研究の「測定機器」として世界標準になっている。</p>
+      <p>ハーバード大医学部、ブリガム・アンド・ウィメンズ病院、UCSF、スタンフォード大、シンガポール国立大など多数の機関が採用。UCSFのTemPredict研究は参加者6.5万人超。2025年には「Oura Ring vs 医療グレード睡眠検査」の<strong>系統的レビュー／メタアナリシス</strong>まで出ており、これは「個々の研究が十分に溜まった領域」でしか起きない現象です。<span class="num">[1][2][3][6]</span></p>
+    </div>
+    <div class="verdict">
+      <span class="tag">Q2 ── ではSOXAIは？</span>
+      <p class="answer"><em>件数では及ばないが、質の高い産学連携を自社主導で積んでいる。</em></p>
+      <p>東京大学・英エセックス大学との共同研究で睡眠ステージ推定が<em>IEEE Transactions on Instrumentation and Measurement</em>（2025年、UAR 77.2%）に、心拍検出手法が<em>Sensors</em>に掲載。2026年5月には東大大学院教育学研究科と正式な共同研究契約へ格上げしています。ただし現段階は<strong>デバイス自体の精度検証フェーズ</strong>で、「第三者がSOXAIを道具として使って健康を研究する」段階には至っていません。<span class="num">[7][8][9]</span></p>
+    </div>
+    <div class="verdict">
+      <span class="tag">Q3 ── 新規事業として、どこに機会があるか</span>
+      <p class="answer"><em>デバイスの精度勝負はもう終盤。次は「未病指標 × コホート × 行動変容」。</em></p>
+      <p>神奈川県のME-BYO INDEXとみらい未病コホート研究（J-MICC神奈川サイト／全国10万人規模）が示す通り、研究の主戦場は「正確に測れるか」から「測った値が未病の改善につながるか」に移っています。デバイスは買えばいい。<strong>介入設計とアウトカム証明を持っている側が勝ちます。</strong><span class="num">[12][13][14]</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第1章 ============ -->
+<section id="ch1">
+  <span class="chapnum">第 1 章</span>
+  <h2>前提整理 ── 「未病」は健康と病気のあいだの、連続した幅</h2>
+  <p class="lede">事業の言語として未病を使うなら、3つの定義を押さえれば足ります。ここを曖昧にしたまま資料を作ると、投資家にも自治体にも通りません。</p>
+
+  <h3>1-1. 日本未病学会の定義 ── 2つの型</h3>
+  <p>日本未病学会は、次のいずれかを未病と定義しています。<span class="num">[10]</span></p>
+  <ul>
+    <li><strong>自覚症状はないが、検査では異常がある</strong>（西洋医学型の未病）</li>
+    <li><strong>自覚症状はあるが、検査では異常がない</strong>（東洋医学型の未病）</li>
+  </ul>
+  <p>後者が重要です。「検査で異常なし」と言われた人の不調は、現在の保険診療の枠組みでは受け皿がありません。<strong>ここが保険外ヘルスケアの市場そのもの</strong>です。</p>
+
+  <h3>1-2. 健康と病気は二者択一ではなく、連続体</h3>
+  <p>東洋医学の一元的健康観では、健康と疾病を二律背反とは捉えず、健康の程度に高低の幅があり、それが低下して疾病に至ると考えます。<span class="num">[10][11]</span> 国も2015年閣議決定の「健康・医療戦略」で未病の概念に触れており、行政の言語としても通用します。<span class="num">[11]</span></p>
+
+  <div class="continuum">
+    <div class="cont-bar">
+      <div class="cont-seg cs-well">
+        <span class="cs-title">健康</span>
+        <span class="cs-sub">自覚症状なし／検査異常なし。<br>市場：フィットネス、予防食、ウェルビーイング</span>
+      </div>
+      <div class="cont-seg cs-mibyo">
+        <span class="cs-title">未病</span>
+        <span class="cs-sub">症状はあるが検査で異常なし／異常はあるが無症状。<br>市場：PHR、健康経営、鍼灸・整体、睡眠・ストレスケア、腸活、フレイル予防</span>
+      </div>
+      <div class="cont-seg cs-ill">
+        <span class="cs-title">病気</span>
+        <span class="cs-sub">診断がつく。<br>市場：保険診療、SaMD、医薬品</span>
+      </div>
+    </div>
+    <div class="cont-axis"><span>保険外 ←</span><span>新規事業の主戦場</span><span>→ 保険内</span></div>
+  </div>
+
+  <h3>1-3. 未病を「測る」公的な物差しはすでにある ── ME-BYO INDEX</h3>
+  <p>神奈川県のME-BYO INDEX（未病指標）は、<strong>生活習慣・認知機能・生活機能・メンタルヘルス／ストレス</strong>の4領域から、いま自分が健康と病気のどこにいるかを数値で可視化する仕組みです。無料スマホアプリ「マイME-BYOカルテ」や、インターネット接続機器からも測定できます。<span class="num">[12]</span></p>
+  <div class="callout">
+    <h4>事業者にとっての含意</h4>
+    <p>未病の「指標」を自社でゼロから作る必要はありません。ME-BYO INDEXという公的に検証された共通言語があり、実証事業の枠組みも用意されています。自社サービスの効果をこの指標の変化で示せれば、自治体・健保・大企業に対する説明コストが一気に下がります。</p>
+  </div>
+</section>
+
+<!-- ============ 第2章 ============ -->
+<section id="ch2">
+  <span class="chapnum">第 2 章</span>
+  <h2>市場 ── どこにお金が流れているか</h2>
+  <p class="lede">未病市場そのものの公式統計はありません。代わりに、政府と業界団体が出している隣接市場の推計を積み上げて輪郭を掴みます。</p>
+
+  <figure>
+    <p class="fig-title">保険外ヘルスケア市場と休養（リカバリー）市場の推計</p>
+    <p class="fig-unit">単位：兆円　／　推計主体と定義が異なる2系統を、同一スケールで並置</p>
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--c1)"></i>実績値</span>
+      <span><i class="swatch" style="background:var(--c2)"></i>将来推計</span>
+    </div>
+    <div class="bars">
+      <div class="bargroup">
+        <p class="bargroup-label">公的保険外のヘルスケア・介護 国内市場（経済産業省）<span class="num"> [15]</span></p>
+        <div class="barrow">
+          <span class="yr">2020年</span>
+          <div class="track"><div class="fill" style="width:30%;background:var(--c1)"><span class="val">24</span></div></div>
+        </div>
+        <div class="barrow">
+          <span class="yr">2050年</span>
+          <div class="track"><div class="fill" style="width:96.3%;background:var(--c2)"><span class="val">77</span></div></div>
+        </div>
+      </div>
+      <div class="bargroup">
+        <p class="bargroup-label">休養（リカバリー）市場（日本リカバリー協会 × 神奈川県未病産業研究会）<span class="num"> [16]</span></p>
+        <div class="barrow">
+          <span class="yr">2019年</span>
+          <div class="track"><div class="fill outside" style="width:4.9%;background:var(--c1)"><span class="val">3.9</span></div></div>
+        </div>
+        <div class="barrow">
+          <span class="yr">2030年</span>
+          <div class="track"><div class="fill" style="width:17.6%;background:var(--c2)"><span class="val">14.1</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="axis"><span>0</span><span>20</span><span>40</span><span>60</span><span>80</span></div>
+    <figcaption>経産省推計は2020年24兆円から2050年77兆円へ（年平均約4%成長）。休養市場は2019年3.9兆円から2030年14.1兆円へ約3.6倍。両者は定義も推計主体も異なるため合算はできず、市場の「向き」を読むための並置です。</figcaption>
+  </figure>
+
+  <h3>デバイス側の市場 ── 小さいが、伸び方が速い</h3>
+  <p>スマートリングの世界市場は2024年に約<span class="num">3.49億</span>米ドル、2025〜2030年の年平均成長率は<span class="num">21.1%</span>と推計されています。別の推計では2025年<span class="num">4.18億</span>米ドル→2033年<span class="num">20.8億</span>米ドル。<span class="num">[17]</span></p>
+  <div class="callout warn">
+    <h4>数字の扱いに注意</h4>
+    <p>「未病市場◯兆円」という表現は、ほぼすべて<strong>保険外ヘルスケア市場の推計を言い換えたもの</strong>です。定義の取り方で数倍ぶれます。事業計画で使う場合は、必ず「誰の推計か・何を含む定義か」を併記してください。投資家はここを見ます。</p>
+  </div>
+</section>
+
+<!-- ============ 第3章 ============ -->
+<section id="ch3">
+  <span class="chapnum">第 3 章</span>
+  <h2>デバイス比較 ── Oura Ring と SOXAI RING の研究利用</h2>
+  <p class="lede">「どちらが研究に使われているか」は、件数だけでは答えになりません。<strong>誰が研究しているか</strong>という軸を足すと、2社の立ち位置がはっきり分かれます。</p>
+
+  <div class="two">
+    <div class="col">
+      <div class="col-head"><i class="dot" style="background:var(--c1)"></i><h4>Oura Ring</h4></div>
+      <p class="role">第三者主導 ／ 研究インフラ型</p>
+      <ul class="studies">
+        <li>
+          <span class="who">Svensson et al. / Sleep Medicine (2024)</span>
+          <span class="what">健康な日本人成人96名を対象に、睡眠ポリグラフ検査（PSG）とOuraのアルゴリズム OSSA 2.0 を比較。</span>
+          <span class="res">約42万エポック（421,045区間）を解析。日本人データで精度を裏づけた点で、日本での事業展開に使える数少ない証拠。<span class="num">[4][5]</span></span>
+        </li>
+        <li>
+          <span class="who">系統的レビュー／メタアナリシス (2025)</span>
+          <span class="what">「Oura Ring vs 医療グレード睡眠検査」として、個別研究を統合した解析が公表。</span>
+          <span class="res">メタアナリシスが成立すること自体が、研究蓄積量の証明。<span class="num">[6]</span></span>
+        </li>
+        <li>
+          <span class="who">UCSF TemPredict</span>
+          <span class="what">体温・生体データから発熱や感染症の発症を予測できるかを検証。参加者6.5万人超。</span>
+          <span class="res">体温とうつ症状の関連など、派生研究がUCSF／UCSDから複数誌に。<span class="num">[2][3]</span></span>
+        </li>
+        <li>
+          <span class="who">ClinicalTrials.gov 登録試験</span>
+          <span class="what">骨髄異形成症候群（MDS）患者での実現可能性試験、若年成人の飲酒量低減RCT、肥満治療中のバイオメトリクス連続モニタリング（SMART-BMI）など。</span>
+          <span class="res">疾患領域の臨床試験に「測定器」として組み込まれている段階。<span class="num">[18]</span></span>
+        </li>
+        <li>
+          <span class="who">研究者向けインフラ</span>
+          <span class="what">Oura for Organizations が研究者向けプランを提供。50以上の生体指標、ダッシュボード、Oura API v2 によるデータ連携。</span>
+          <span class="res">Stanford Health が Oura のデータ抽出Notebookを公開するなど、解析エコシステムが外部にも育っている。<span class="num">[19]</span></span>
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-head"><i class="dot" style="background:var(--c2)"></i><h4>SOXAI RING</h4></div>
+      <p class="role">自社主導 ／ 産学連携型</p>
+      <ul class="studies">
+        <li>
+          <span class="who">東京大学 × 英エセックス大学 × SOXAI / IEEE TIM (2025)</span>
+          <span class="what">PPG由来の心拍情報と加速度センサ情報のみを入力とする軽量ニューラルネットワークで、睡眠ステージ（覚醒／浅い／深い／REM）を推定。</span>
+          <span class="res">UAR <span class="num">77.2%</span>。DOI: 10.1109/TIM.2025.3635330。PSGなしで高精度分類ができることを示した。<span class="num">[7]</span></span>
+        </li>
+        <li>
+          <span class="who">SOXAI / Sensors</span>
+          <span class="what">加速度センサと光学式心拍センサを組み合わせた「SAB-HRT」手法。複雑な深層学習モデルなしで、体動時のノイズ耐性を改善。</span>
+          <span class="res">従来手法比で約20%以上の精度改善。小型ウェアラブルでの心拍検出精度を国際誌で裏づけ。<span class="num">[8]</span></span>
+        </li>
+        <li>
+          <span class="who">東京大学大学院教育学研究科（2026年5月）</span>
+          <span class="what">山本義春教授の技術アドバイザー体制から、正式な共同研究契約＋サテライト研究拠点へ格上げ。</span>
+          <span class="res">テーマは「睡眠・行動・生理モニタリングのための先進的スマートリング開発」。<span class="num">[9]</span></span>
+        </li>
+        <li>
+          <span class="who">株式会社 明治 × SOXAI</span>
+          <span class="what">「腸活 × スマートリング」共創プロジェクト。参加者が約8週間リングを装着しつつ、腸内細菌叢検査と指定のココア飲料摂取を行う。</span>
+          <span class="res">食品メーカーが自社商材の効果検証にリングを使う、事業直結型の典型例。<span class="num">[20]</span></span>
+        </li>
+        <li>
+          <span class="who">相鉄ホールディングス／相模鉄道 × SOXAI</span>
+          <span class="what">沿線住民の健康増進・健康意識向上を目的とした実証実験。</span>
+          <span class="res">交通・不動産事業者が「まちの未病対策」に参入する形。自治体連携モデルの参考に。<span class="num">[21]</span></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <caption>主要論点の対照表</caption>
+      <thead>
+        <tr><th scope="col">観点</th><th scope="col">Oura Ring</th><th scope="col">SOXAI RING</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">研究の主導者</th><td class="oura">大学・病院など<strong>第三者</strong>。メーカーが関与しない独立研究が多数</td><td class="soxai">おおむね<strong>自社＋提携大学</strong>の共同研究</td></tr>
+        <tr><th scope="row">研究のフェーズ</th><td class="oura">デバイス検証は終え、<strong>疾患・介入研究の測定器</strong>として使われる段階</td><td class="soxai"><strong>デバイス精度の検証</strong>フェーズ。成果は出ているが件数は限定的</td></tr>
+        <tr><th scope="row">代表的な掲載誌</th><td class="oura">Journal of Medical Internet Research、Sleep Medicine、Sensors ほか</td><td class="soxai">IEEE Trans. on Instrumentation and Measurement、Sensors</td></tr>
+        <tr><th scope="row">日本人被験者のデータ</th><td class="oura">あり（日本人成人96名・約42万エポックのPSG比較）</td><td class="soxai">あり（東大との共同研究が日本国内で実施）</td></tr>
+        <tr><th scope="row">研究者向けインフラ</th><td class="oura"><strong>整備済み</strong>。研究者向けプラン、ダッシュボード、公開API、外部の解析ツール群</td><td class="soxai">法人・組織・研究向けの窓口あり。公開APIエコシステムはOuraほど成熟していない</td></tr>
+        <tr><th scope="row">国内の事業実装</th><td class="oura">個人向け中心</td><td class="soxai"><strong>強い</strong>。NTTPCが法人向けに取扱い開始（2025年）、健康経営アライアンス参画、鉄道・食品メーカーとの実証</td></tr>
+        <tr><th scope="row">課金モデル</th><td class="oura">本体購入＋<strong>月額サブスクリプション</strong></td><td class="soxai"><strong>買い切り</strong>（月額なし）</td></tr>
+        <tr><th scope="row">法規制上の位置づけ</th><td class="oura">一般的なウェルネス機器（医療機器ではない）。血圧関連機能でFDAクリアランスを追求中</td><td class="soxai">一般的なウェルネス機器（医療機器ではない）</td></tr>
+        <tr><th scope="row">事業規模の目安</th><td class="oura">全世界累計550万個販売と報じられる</td><td class="soxai">2022年10月発売、1年で1.4万台超・売上4億円。累計調達20億円超、バイタルセンシング搭載スマートリングで国内シェア1位（同社公表）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px;color:var(--ink-3);margin-top:-8px">出典：<span class="num">[1]–[9], [20]–[25]</span>。「国内シェア1位」は同社公表値（2026年6月時点）で、第三者調査による確認は取れていません。</p>
+
+  <h3>研究の積み上がり方（時系列）</h3>
+  <div class="timeline">
+    <div class="tl">
+      <div class="tl-row">
+        <div class="tl-head">年</div><div class="tl-head" style="padding-left:16px">Oura</div><div class="tl-head" style="padding-left:16px">SOXAI</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-yr">2020–22</div>
+        <div class="tl-cell o has"><span class="ev">UCSF <b>TemPredict</b> 始動。COVID-19の発症予測に6.5万人超が参加。心拍・HRV精度の検証がJMIRに掲載。</span></div>
+        <div class="tl-cell s"><span class="ev">2022年10月 SOXAI Ring 発売。1年で1.4万台超・売上4億円。</span></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-yr">2023</div>
+        <div class="tl-cell o has"><span class="ev">大学・病院での独立研究が拡大。体温とうつの関連などUCSF／UCSD発の派生研究。</span></div>
+        <div class="tl-cell s has"><span class="ev">健康経営アライアンス参画。シリーズAで<b>8.8億円</b>調達（未来創生ファンド等8社）。</span></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-yr">2024</div>
+        <div class="tl-cell o has"><span class="ev">Svensson et al.、<b>Sleep Medicine</b> に日本人96名・約42万エポックのPSG比較を掲載。</span></div>
+        <div class="tl-cell s"><span class="ev">SOXAI RING 2 開発。独自PPGセンサー「Deep Sensing」搭載。</span></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-yr">2025</div>
+        <div class="tl-cell o has"><span class="ev">「Oura vs 医療グレード睡眠検査」の<b>系統的レビュー／メタアナリシス</b>公表。血圧機能のFDAクリアランス追求を表明。</span></div>
+        <div class="tl-cell s has"><span class="ev">東大・英エセックス大との共同研究が<b>IEEE TIM</b> に掲載（UAR 77.2%）。心拍検出手法が <b>Sensors</b> に。NTTPCが法人向け取扱い開始。</span></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-yr">2026</div>
+        <div class="tl-cell o has"><span class="ev">累計550万個販売と報道。低リスクウェアラブルのFDA規制緩和を政策提言。</span></div>
+        <div class="tl-cell s has"><span class="ev">5月、<b>東大大学院教育学研究科と共同研究契約</b>を締結しサテライト拠点を設置。明治との腸活プロジェクト始動。</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>どちらを選ぶか ── 3つの問いで決まる</h3>
+  <div class="callout">
+    <ul>
+      <li><strong>論文で「測定機器として妥当」と査読者に説明する必要があるか？</strong> → Oura。第三者による検証論文が既にあることが、そのまま査読対応になります。</li>
+      <li><strong>法人・自治体に数十〜数百台を配り、運用と請求まで回す必要があるか？</strong> → SOXAI。国内の法人販売チャネル（NTTPC等）とサブスクなしの買い切りは、稟議と予算計上が通りやすい。</li>
+      <li><strong>参加者に費用負担させるか？</strong> → 月額の有無が脱落率に直結します。長期コホートなら買い切りモデルが有利。</li>
+    </ul>
+    <p style="margin-top:12px">実務的な折衷案として、<strong>探索フェーズはOuraで論文的な妥当性を確保し、スケールフェーズはSOXAIで国内展開のコストを下げる</strong>という二段構えを取る事業者が出てきています。</p>
+  </div>
+</section>
+
+<!-- ============ 第4章 ============ -->
+<section id="ch4">
+  <span class="chapnum">第 4 章</span>
+  <h2>未病分野では、いま何が研究されているか</h2>
+  <p class="lede">7つの領域に整理しました。右端のラベルは<strong>事業化までの距離</strong>の目安です。「近い」は今日のサービスに組み込める、「遠い」はまだ研究段階を意味します。</p>
+
+  <div class="themes">
+    <div class="theme">
+      <h4>睡眠・生体リズム</h4>
+      <span class="pill pill-near dist">事業化：近い</span>
+      <p class="measures">睡眠ステージ ／ 総睡眠時間 ／ 中途覚醒 ／ 睡眠負債</p>
+      <p class="body">未病領域でもっとも研究が厚く、もっとも消費者に売りやすい領域。Oura・SOXAIともに主戦場がここで、<b>PSG（睡眠ポリグラフ）との一致度</b>が競争軸になっています。東大の検証ではOuraの睡眠ステージ判定が75.5〜90.6%、SOXAIは東大・エセックス大との共同研究でUAR 77.2%。ただし「総睡眠時間はよく合うが、細かいステージ判定には限界がある」という点は両社に共通する制約です。<span class="num">[4][5][7]</span></p>
+    </div>
+    <div class="theme">
+      <h4>自律神経・ストレス（HRV）</h4>
+      <span class="pill pill-near dist">事業化：近い</span>
+      <p class="measures">心拍変動（HRV） ／ 安静時心拍 ／ 呼吸数</p>
+      <p class="body">「検査では異常がないが、しんどい」という東洋医学型の未病に、もっとも直接届く指標。OuraのHRV精度は心電図との比較で時間領域・周波数領域ともに検証済み（JMIR 2022）。SOXAIは体動下でのノイズ耐性改善（SAB-HRT、従来比約20%以上の精度改善）で攻めています。<b>鍼灸・整体・マッサージ・瞑想・サウナといった既存の施術ビジネスが、効果を数値で見せられるようになる</b>のがこの領域の破壊力です。<span class="num">[8][22]</span></p>
+    </div>
+    <div class="theme">
+      <h4>体温・感染症の予兆・女性の健康</h4>
+      <span class="pill pill-mid dist">事業化：中</span>
+      <p class="measures">皮膚温トレンド ／ 発熱検知 ／ 月経周期・排卵</p>
+      <p class="body">UCSFのTemPredictは、体温と生体データから発症前に不調の兆候を捉えられるかを6.5万人超で検証したもの。Ouraは周期・排卵の規則性、体温とうつ症状の関連、1万件の妊娠の後方視的解析といった大規模研究にも使われています。<b>ただし「予測」「診断」に踏み込むと薬機法の領域</b>に入るため、日本で事業化する際は表現設計が生命線になります（第6章）。<span class="num">[1][2][3]</span></p>
+    </div>
+    <div class="theme">
+      <h4>未病指標とコホート研究</h4>
+      <span class="pill pill-near dist">事業化：近い</span>
+      <p class="measures">ME-BYO INDEX ／ 特定健診データ ／ ゲノム情報</p>
+      <p class="body">神奈川県みらい未病コホート研究は、全国10万人以上が参加する<b>J-MICC Study（日本多施設共同コーホート研究）の神奈川サイト</b>。健康な段階からゲノム・生活習慣・健診・がん検診データを統合し、生活習慣病の一次予防に役立てる設計です。未病指標のコンセプトと実証に関する論文は2023年5月に <i>Frontiers in Public Health</i> で公開。<b>この枠組みに自社サービスを乗せられるかが、エビデンス獲得の最短ルート</b>です。<span class="num">[12][13][14]</span></p>
+    </div>
+    <div class="theme">
+      <h4>フレイル・サルコペニア</h4>
+      <span class="pill pill-mid dist">事業化：中</span>
+      <p class="measures">骨格筋量 ／ 血中老化関連因子 ／ 歩行・活動量</p>
+      <p class="body">国立長寿医療研究センターと広島大学の研究グループが、フレイル患者と健常者の血液の統合解析から、骨格筋量と4つの老化関連因子（<b>GDF15・Adiponectin・CXCL9・Apelin</b>）がフレイル診断のバイオマーカー候補になり得ることを報告。血液バイオマーカーとウェアラブルの活動量を組み合わせる方向に研究が進んでいます。高齢化を抱える自治体の予算が最も付きやすい領域でもあります。<span class="num">[23]</span></p>
+    </div>
+    <div class="theme">
+      <h4>腸内細菌叢（マイクロバイオーム）</h4>
+      <span class="pill pill-mid dist">事業化：中</span>
+      <p class="measures">メタゲノム解析 ／ 酪酸産生菌 ／ 腸脳相関</p>
+      <p class="body">メタゲノム解析と多層オミクス解析により、腸内フローラが代謝・免疫・脳機能とどう関わるかの解明が進行中。日本人高齢者では筋力低下と特定の腸内細菌の減少の関連が報告され、男性のサルコペニア患者では<b>酪酸産生菌が健常者より少ない</b>ことが分かっています。ストレス下での腸内環境変化と、善玉菌によるセロトニン経路の活性化も研究テーマ。明治×SOXAIの「腸活×スマートリング」は、この研究潮流を商品開発に直結させた例です。<span class="num">[20][24]</span></p>
+    </div>
+    <div class="theme">
+      <h4>行動変容とデジタル介入</h4>
+      <span class="pill pill-near dist">事業化：近い</span>
+      <p class="measures">継続率 ／ ピアサポート ／ PHR連携</p>
+      <p class="body">測れるようになった次の問いは「で、人は変わるのか」。神奈川県みらい未病コホート研究と習慣化アプリ「みんチャレ」を組み合わせ、行動変容の効果を検証する臨床研究が動いています。PHR分野ではNTT東日本×神戸市×千葉大学のような産官学連携（サービス提供×データ提供×リスク評価）が実装例。<b>デバイスもデータも他社のものを使い、介入設計だけで勝負できる</b>のがこの領域です。<span class="num">[14][25]</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 第5章 ============ -->
+<section id="ch5">
+  <span class="chapnum">第 5 章</span>
+  <h2>参入モデル4類型 ── どこで戦うか</h2>
+  <p class="lede">未病×ウェアラブルの事業は、おおむね次の4つに分類できます。上から下へ、参入障壁と利益率がともに上がります。</p>
+
+  <div class="models">
+    <div class="model">
+      <p class="mtag">モデル A</p>
+      <h4>デバイス販売・代理店</h4>
+      <dl>
+        <dt>収益源</dt><dd>端末の販売差益</dd>
+        <dt>必要資本</dt><dd><b>小</b>／在庫リスクのみ</dd>
+        <dt>勝ち筋</dt><dd>特定チャネル（鍼灸院、ジム、企業健保）への独占的な販路</dd>
+      </dl>
+      <p class="trap">落とし穴：価格競争にしかならない。メーカー直販とEC最安値に必ず負けます。単体では事業として成立しにくい。</p>
+    </div>
+    <div class="model">
+      <p class="mtag">モデル B</p>
+      <h4>法人向け健康経営パッケージ</h4>
+      <dl>
+        <dt>収益源</dt><dd>従業員1人あたり月額＋導入コンサル</dd>
+        <dt>必要資本</dt><dd><b>中</b>／運用体制と法人営業</dd>
+        <dt>勝ち筋</dt><dd>「配って終わり」にしない運用設計。健康経営優良法人の認定要件や健保の保健事業予算に接続する</dd>
+      </dl>
+      <p class="trap">落とし穴：装着率が3か月で落ちる。継続率の設計（第4章「行動変容」）を持たない提案は更新されません。</p>
+    </div>
+    <div class="model">
+      <p class="mtag">モデル C</p>
+      <h4>データ・アルゴリズム層</h4>
+      <dl>
+        <dt>収益源</dt><dd>SaaS／API利用料／共同研究費</dd>
+        <dt>必要資本</dt><dd><b>大</b>／データサイエンス人材と検証コスト</dd>
+        <dt>勝ち筋</dt><dd>ME-BYO INDEXや既存コホートと接続し、自社アルゴリズムの妥当性を第三者に検証させる</dd>
+      </dl>
+      <p class="trap">落とし穴：「予測」「診断」に踏み込んだ瞬間にSaMD規制の対象。設計初期に該非判定をしないと、開発をやり直すことになります。</p>
+    </div>
+    <div class="model">
+      <p class="mtag">モデル D</p>
+      <h4>領域特化の測定つきケアサービス</h4>
+      <dl>
+        <dt>収益源</dt><dd>施術・プログラム料金（測定込み）</dd>
+        <dt>必要資本</dt><dd><b>中</b>／有資格者と施設</dd>
+        <dt>勝ち筋</dt><dd><b>測定 → 介入 → 再測定</b>を一気通貫で提供し、自社に縦のデータを溜める。鍼灸・睡眠・女性の健康・メンタルなど領域を絞るほど強い</dd>
+      </dl>
+      <p class="trap">落とし穴：スケールしにくい。ただし、ここで溜まった縦断データはモデルCへの唯一の現実的な入口になります。</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>推奨する順序</h4>
+    <p>単独で始めるなら <strong>D → C</strong>。すでに法人顧客基盤があるなら <strong>B → C</strong>。Aから入るのは、他の事業の集客導線として使う場合に限ります。いずれの経路でも、<strong>最終的な資産はデバイスではなく「縦断データと介入プロトコル」</strong>です。</p>
+  </div>
+</section>
+
+<!-- ============ 第6章 ============ -->
+<section id="ch6">
+  <span class="chapnum">第 6 章</span>
+  <h2>規制の境界線 ── ここで事業が死ぬ</h2>
+  <p class="lede">未病ビジネスの最大のリスクは、技術でも資金でもなく<strong>表現</strong>です。同じ機能でも、言い方ひとつで薬機法の対象になります。</p>
+
+  <h3>6-1. SaMD か、非医療機器プログラムか</h3>
+  <p>プログラムが医療機器に該当するかを判断することを<strong>「医療機器該当性の判断」</strong>と呼び、これが開発期間と導入ハードルを決めます。健康増進等を目的として薬機法の規制を受けないものは<strong>非医療機器プログラム（Non-SaMD）</strong>と整理されます。<span class="num">[26]</span></p>
+  <p>判断軸は2つ。<strong>医療目的があるか</strong>、<strong>人体の機能に影響を与えるか</strong>。健康管理アプリやウェアラブルであっても、広告や説明書に<strong>「治療」「診断」「改善」</strong>と書けば規制対象になるリスクが高まります。<span class="num">[26][27]</span></p>
+
+  <div class="callout warn">
+    <h4>実務上の鉄則</h4>
+    <ul>
+      <li>一度医療機器とみなされると、PMDAへの認証・承認申請、品質管理体制の整備が必要になり、<strong>コストもスケジュールも桁が変わります</strong>。開発初期に該非判定を済ませてください。</li>
+      <li>医療機器に該当しない場合でも、<strong>景品表示法・特定商取引法</strong>の規制は別途かかります。「未病だから自由」ではありません。</li>
+      <li>Oura Ringも現時点ではFDAの医療機器としての承認・認証は受けておらず、<strong>一般的なウェルネス機器</strong>として位置づけられています。世界最大手ですらこの線を守っている、という事実は重い。<span class="num">[28]</span></li>
+    </ul>
+  </div>
+
+  <h3>6-2. 「未病」という言葉が持つ戦略的な意味</h3>
+  <p>未病は医療ではない。これは制約であると同時に、<strong>保険点数に縛られず、自由に価格設定と体験設計ができる</strong>という意味でもあります。医療に寄せすぎると規制で動けなくなり、ウェルネスに寄せすぎるとエビデンスが要らない世界になって差別化が消えます。<strong>「規制の外側に立ちながら、研究の作法を守る」</strong>── これが未病産業で長く残るための姿勢です。</p>
+</section>
+
+<!-- ============ 第7章 ============ -->
+<section id="ch7">
+  <span class="chapnum">第 7 章</span>
+  <h2>最初の90日 ── 動き出しの手順</h2>
+  <p class="lede">未病産業研究会への入会は<strong>無料</strong>で、2022年11月時点で993社が加盟しています。<span class="num">[29]</span> ここを起点にするのが最も費用対効果が高い立ち上がりです。</p>
+
+  <div class="tablewrap">
+    <table class="plan">
+      <thead>
+        <tr><th scope="col">期間</th><th scope="col">やること</th><th scope="col">手元に残る成果物</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Week 1–2</th>
+          <td>神奈川県「未病産業研究会」に入会（無料）。ME-BYO INDEXの4領域を自社サービスに当てはめ、どの領域の数値を動かすのかを1枚で定義する。</td>
+          <td>未病仮説シート（「誰の・どの指標を・どれだけ動かすか」）</td>
+        </tr>
+        <tr>
+          <th scope="row">Week 3–4</th>
+          <td>デバイスを2機種とも自分で装着。Oura（月額あり・研究実績豊富）とSOXAI（買い切り・国内法人チャネル）を、事業の運用コストで比較する。</td>
+          <td>デバイス選定メモ＋30日分の自分の実測データ</td>
+        </tr>
+        <tr>
+          <th scope="row">Month 2</th>
+          <td>該非判定を先に済ませる。表示・広告に使う文言リストを作り、「治療／診断／改善」を使わずに価値を伝える表現に置き換える。可能なら行政書士・薬事の専門家に一度通す。</td>
+          <td>表現ガイドライン（禁止語／代替語の対照表）</td>
+        </tr>
+        <tr>
+          <th scope="row">Month 2–3</th>
+          <td>10〜30名規模のパイロットを回す。測定 → 介入 → 再測定の3点セットを必ず守る。n数が小さくても、プロトコルが整っていれば次につながります。</td>
+          <td>パイロット報告書（前後比較つき）</td>
+        </tr>
+        <tr>
+          <th scope="row">Month 3</th>
+          <td>大学・研究機関にパイロット報告書を持ち込み、共同研究の可能性を打診。SOXAI×東大、明治×SOXAI、相鉄×SOXAIのように、<strong>事業者側からテーマを持ち込む形</strong>が実際に動いています。</td>
+          <td>共同研究の打診リストと初回面談</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <h4>90日で避けるべきこと</h4>
+    <p>デバイスを大量購入すること、自社独自の「未病スコア」を先に作ること、エビデンスなしに効果を訴求する広告を打つこと。この3つは、いずれも後戻りのコストが極めて高くつきます。</p>
+  </div>
+</section>
+
+<!-- ============ 出典 ============ -->
+<section id="sources">
+  <span class="chapnum">出典</span>
+  <h2>参照した情報源</h2>
+  <p class="lede">すべて公開情報です。数値は各出典の公表時点のものを記載しています。</p>
+  <ol class="sources">
+    <li data-n="[1]"><a href="https://ouraring.com/science-and-research">Oura｜Science and Research</a></li>
+    <li data-n="[2]"><a href="https://osher.ucsf.edu/research/current-research-studies/tempredict">UCSF Osher Center｜TemPredict</a></li>
+    <li data-n="[3]"><a href="https://mtec-sc.org/technology-showcase/researchers-ucsf-and-ucsd-show-link-between-body-temperature-and-depression">MTEC｜UCSF・UCSD 体温とうつの関連</a></li>
+    <li data-n="[4]"><a href="https://ouraring.com/blog/ja/oura-ring-accuracy-validation-study-university-of-tokyo/">Oura｜東大の新しい研究がOura Ringの精度を裏付け</a></li>
+    <li data-n="[5]"><a href="https://www.smartwatchlife.jp/70673/">Smart Watch Life｜スマートリングの睡眠計測はどこまで正確？</a></li>
+    <li data-n="[6]"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12602993/">The Oura Ring Versus Medical-Grade Sleep Studies: A Systematic Review and Meta-Analysis（PMC）</a></li>
+    <li data-n="[7]"><a href="https://prtimes.jp/main/html/rd/p/000000040.000089024.html">SOXAI｜東大・英エセックス大との共同研究で睡眠ステージ測定が最高水準（IEEE TIM, DOI:10.1109/TIM.2025.3635330）</a></li>
+    <li data-n="[8]"><a href="https://soxai.co.jp/blogs/news/131">SOXAI｜国際論文誌『Sensors』に研究成果を発表（SAB-HRT）</a></li>
+    <li data-n="[9]"><a href="https://www.shijyukukai.jp/2026/05/30110">月刊私塾界｜SOXAI、東京大学大学院教育学研究科と共同研究契約を締結</a></li>
+    <li data-n="[10]"><a href="https://j-mibyou.or.jp/mibyotowa.htm">一般社団法人 日本未病学会｜未病とは</a></li>
+    <li data-n="[11]"><a href="https://www.ktr.mlit.go.jp/ktr_content/content/000622185.pdf">健康・医療戦略（平成27年7月22日 閣議決定）抜粋資料</a></li>
+    <li data-n="[12]"><a href="https://www.pref.kanagawa.jp/docs/mv4/mebyo-index.html">神奈川県｜未病指標（ME-BYO INDEX）</a></li>
+    <li data-n="[13]"><a href="https://www.me-byo-cohort.jp/">神奈川県みらい未病コホート研究</a></li>
+    <li data-n="[14]"><a href="https://prtimes.jp/main/html/rd/p/000000085.000024217.html">エーテンラボ｜「みんチャレ」×みらい未病コホート研究の臨床研究</a></li>
+    <li data-n="[15]"><a href="https://www.meti.go.jp/shingikai/sankoshin/shin_kijiku/pdf/020_04_00.pdf">経済産業省｜新しい健康社会の実現（2024年2月）</a></li>
+    <li data-n="[16]"><a href="https://prtimes.jp/main/html/rd/p/000000003.000085299.html">日本リカバリー協会｜休養（リカバリー）市場規模の推計</a></li>
+    <li data-n="[17]"><a href="https://www.gii.co.jp/report/grvi1631002-smart-rings-market-size-share-trends-analysis.html">GII｜スマートリング市場 市場規模・シェア・動向分析</a></li>
+    <li data-n="[18]"><a href="https://clinicaltrials.gov/study/NCT06270771">ClinicalTrials.gov｜OURA Ring Wearable Testing in MDS Patients（NCT06270771）ほか</a></li>
+    <li data-n="[19]"><a href="https://organizations.ouraring.com/solutions/researchers">Oura for Organizations｜Academic and Medical Research</a></li>
+    <li data-n="[20]"><a href="https://gourmetpress.net/1477359/">SOXAI×明治｜「腸活×スマートリング」共創プロジェクト</a></li>
+    <li data-n="[21]"><a href="https://prtimes.jp/main/html/rd/p/000000011.000089024.html">SOXAI×相鉄ホールディングス・相模鉄道｜健康増進の実証実験</a></li>
+    <li data-n="[22]"><a href="https://www.jmir.org/2022/1/e27487">JMIR｜Accuracy Assessment of Oura Ring Nocturnal Heart Rate and HRV vs Electrocardiography</a></li>
+    <li data-n="[23]"><a href="https://www.hiroshima-u.ac.jp/news/82637">広島大学｜フレイル診断のバイオマーカー候補を発見（国立長寿医療研究センターとの共同研究）</a></li>
+    <li data-n="[24]"><a href="https://fmt.sym-biosis.co.jp/blog/microbiome/25062603-2">腸内細菌と健康への影響（國澤純氏インタビュー）</a></li>
+    <li data-n="[25]"><a href="https://solution.toppan.co.jp/lifesensing/contents/cc_contents03.html">TOPPAN｜PHRの活用事例</a></li>
+    <li data-n="[26]"><a href="https://www.jaame.or.jp/program/rule.html">医療機器センター｜薬機法やルール等を知ろう（医療のプログラム開発のきほん）</a></li>
+    <li data-n="[27]"><a href="https://oggo.jp/point-kaisetsu/healthcare/medical-devices-and-digital-health/samd-regulations-overview/">ヘルスケアアプリはどこから「医療機器プログラム（SaMD）」か</a></li>
+    <li data-n="[28]"><a href="https://www.medtechdive.com/news/oura-fda-clearance-smart-ring-blood-pressure/803181/">MedTech Dive｜Oura to pursue FDA clearance of blood pressure feature</a></li>
+    <li data-n="[29]"><a href="https://www.pref.kanagawa.jp/docs/mv4/cnt/f536433/index.html">神奈川県｜未病産業研究会</a></li>
+    <li data-n="[30]"><a href="https://soxai.co.jp/blogs/news/84">SOXAI｜シリーズAラウンドで総額8.8億円の資金調達</a></li>
+    <li data-n="[31]"><a href="https://www.nttpc.co.jp/press/info/2025/04/202504301000.html">NTTPC｜企業向け健康管理用スマートリング「SOXAI RING 1.1」取扱い開始</a></li>
+  </ol>
+</section>
+
+<div class="method">
+  <h3>この資料の作り方と、限界</h3>
+  <p>公開情報のウェブ検索のみで作成しています（2026年9月11日時点）。PubMed・Europe PMC・ClinicalTrials.gov への直接アクセスができない環境で作成したため、<strong>「Oura Ringを扱った査読論文が何件、SOXAI RINGが何件」という正確な件数は確認できていません</strong>。本資料の比較は、件数ではなく「誰が研究を主導しているか」「どのフェーズにあるか」「どの学術誌に載ったか」という定性的な軸で行っています。投資判断や行政提案に使う場合は、各データベースで件数を直接検索して裏づけを取ってください。</p>
+  <p>SOXAIの「国内シェア1位」は同社公表値（2026年6月時点）、Ouraの「累計550万個販売」は報道ベースの数値で、いずれも第三者調査による確認は取っていません。市場規模の推計は、推計主体によって定義も数値も大きく異なります。</p>
+  <p>また、本資料は事業設計の材料であり、医学的・法的な助言ではありません。薬機法の該非判定は、必ず所管の窓口または薬事の専門家に確認してください。</p>
+</div>
+
+</div>
