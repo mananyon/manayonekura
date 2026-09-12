@@ -17,8 +17,8 @@
   --tone-fg2:#BDB2A2;
   --tone-rule:#4A423A;
   --shadow:0 24px 60px -28px rgba(60,42,30,.45);
-  --serif:'Noto Serif JP',"Hiragino Mincho ProN","Yu Mincho",serif;
-  --sans:'Noto Sans JP',"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --serif:"Meiryo","メイリオ","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  --sans:"Meiryo","メイリオ","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -46,7 +46,7 @@ body{background:var(--ground);color:var(--ink);font-family:var(--sans);-webkit-f
   background:var(--paper);border:1px solid var(--rule);border-radius:calc(var(--u)*.5);
   box-shadow:var(--shadow);overflow:hidden;
   display:flex;flex-direction:column;
-  padding:calc(var(--u)*3.4) calc(var(--u)*4) calc(var(--u)*2.6);
+  padding:calc(var(--u)*2.8) calc(var(--u)*3.6) calc(var(--u)*2.1);
 }
 @supports not (container-type:inline-size){ .stage{--u:clamp(8px,1.45vw,17px);} }
 .stage[data-dense="1"]{--u:clamp(7px,1.30cqw,14.6px);}
@@ -59,91 +59,91 @@ body{background:var(--ground);color:var(--ink);font-family:var(--sans);-webkit-f
 .stage[data-tone="dark"] .card .k{color:var(--tone-fg);}
 .stage[data-tone="dark"] .card .v{color:var(--tone-fg2);}
 
-.eyebrow{display:flex;align-items:center;gap:calc(var(--u)*.9);margin-bottom:calc(var(--u)*1.6);}
+.eyebrow{display:flex;align-items:center;gap:calc(var(--u)*.9);margin-bottom:calc(var(--u)*1.15);}
 .eyebrow-line{width:calc(var(--u)*2.2);height:1px;background:var(--shu);}
 .eyebrow-num{font-family:var(--serif);font-size:calc(var(--u)*.92);letter-spacing:.22em;color:var(--shu);font-weight:600;font-variant-numeric:tabular-nums;}
 .eyebrow-label{font-size:calc(var(--u)*.92);letter-spacing:.3em;color:var(--ink-3);font-weight:500;}
 
-h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);line-height:1.34;letter-spacing:.02em;margin:0 0 calc(var(--u)*1.5);text-wrap:balance;}
+h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);line-height:1.3;letter-spacing:.02em;margin:0 0 calc(var(--u)*1.05);text-wrap:balance;}
 .stage[data-tone="dark"] h2.head{color:var(--tone-fg);}
 .lede{font-size:calc(var(--u)*1.08);line-height:1.85;color:var(--ink-2);margin:0;max-width:62ch;}
-.body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:calc(var(--u)*1.5);min-height:0;overflow:hidden;}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:calc(var(--u)*1.1);min-height:0;overflow:hidden;}
 
 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*1.2);}
-.card{background:rgba(255,255,255,.5);border:1px solid var(--rule);border-radius:calc(var(--u)*.4);padding:calc(var(--u)*1.35) calc(var(--u)*1.35) calc(var(--u)*1.45);display:flex;flex-direction:column;gap:calc(var(--u)*.55);}
-.card .tag{font-size:calc(var(--u)*.82);letter-spacing:.2em;color:var(--shu);font-weight:700;}
-.card .k{font-family:var(--serif);font-size:calc(var(--u)*1.3);font-weight:600;line-height:1.4;color:var(--ink);}
-.card .v{font-size:calc(var(--u)*.95);line-height:1.8;color:var(--ink-2);}
+.card{background:rgba(255,255,255,.5);border:1px solid var(--rule);border-radius:calc(var(--u)*.4);padding:calc(var(--u)*1.1) calc(var(--u)*1.15) calc(var(--u)*1.2);display:flex;flex-direction:column;gap:calc(var(--u)*.55);}
+.card .tag{font-size:calc(var(--u)*.88);letter-spacing:.2em;color:var(--shu);font-weight:700;}
+.card .k{font-family:var(--serif);font-size:calc(var(--u)*1.3);font-weight:700;line-height:1.4;color:var(--ink);}
+.card .v{font-size:calc(var(--u)*1.02);line-height:1.8;color:var(--ink-2);}
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--u)*1.1);border-top:1px solid var(--rule);padding-top:calc(var(--u)*1.25);}
 .stat .n{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.05);line-height:1.1;letter-spacing:.01em;font-variant-numeric:tabular-nums;color:var(--ink);}
 .stat .n small{font-size:calc(var(--u)*1.05);font-weight:500;margin-left:.15em;}
-.stat .l{font-size:calc(var(--u)*.86);color:var(--ink-3);margin-top:calc(var(--u)*.35);letter-spacing:.06em;}
+.stat .l{font-size:calc(var(--u)*.9);color:var(--ink-3);margin-top:calc(var(--u)*.35);letter-spacing:.06em;}
 .stage[data-tone="dark"] .stats{border-color:var(--tone-rule);}
 .stage[data-tone="dark"] .stat .n{color:var(--tone-fg);}
 .stage[data-tone="dark"] .stat .l{color:var(--tone-fg2);}
 
 .flow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:calc(var(--u)*1.6);}
-.flow-list{display:flex;flex-direction:column;gap:calc(var(--u)*.95);}
-.fact{display:grid;grid-template-columns:calc(var(--u)*1.5) 1fr;gap:calc(var(--u)*.9);align-items:start;font-size:calc(var(--u)*1.06);line-height:1.7;}
+.flow-list{display:flex;flex-direction:column;gap:calc(var(--u)*.8);}
+.fact{display:grid;grid-template-columns:calc(var(--u)*1.6) 1fr;gap:calc(var(--u)*.9);align-items:start;font-size:calc(var(--u)*1.1);line-height:1.7;}
 .fact b{font-family:var(--serif);color:var(--shu);font-weight:600;font-variant-numeric:tabular-nums;}
 .arrow{font-size:calc(var(--u)*2);color:var(--shu);line-height:1;}
 .punch{border-left:calc(var(--u)*.22) solid var(--shu);padding-left:calc(var(--u)*1.3);}
-.punch .p1{font-family:var(--serif);font-size:calc(var(--u)*2);font-weight:600;line-height:1.45;}
-.punch .p2{font-size:calc(var(--u)*1);line-height:1.85;color:var(--ink-2);margin-top:calc(var(--u)*.7);}
+.punch .p1{font-family:var(--serif);font-size:calc(var(--u)*1.9);font-weight:700;line-height:1.45;}
+.punch .p2{font-size:calc(var(--u)*1.05);line-height:1.85;color:var(--ink-2);margin-top:calc(var(--u)*.7);}
 .stage[data-tone="dark"] .punch .p2{color:var(--tone-fg2);}
 
 .pairs{display:grid;grid-template-columns:1fr 1fr;column-gap:calc(var(--u)*2.4);row-gap:0;align-items:stretch;}
-.pairhead{font-size:calc(var(--u)*.82);letter-spacing:.24em;font-weight:700;padding-bottom:calc(var(--u)*.6);}
+.pairhead{font-size:calc(var(--u)*.88);letter-spacing:.24em;font-weight:700;padding-bottom:calc(var(--u)*.6);}
 .pairhead.a{color:var(--shu);}
 .pairhead.b{color:var(--midori);}
-.cell{font-size:calc(var(--u)*.97);line-height:1.7;padding:calc(var(--u)*.72) 0;border-top:1px solid var(--rule);}
+.cell{font-size:calc(var(--u)*1.03);line-height:1.65;padding:calc(var(--u)*.58) 0;border-top:1px solid var(--rule);}
 .cell.b{color:var(--ink-2);padding-left:calc(var(--u)*1.6);border-left:1px solid var(--rule);}
 .cell:last-child,.cell:nth-last-child(2){padding-bottom:0;}
 .cell .fig{font-family:var(--serif);font-weight:600;color:var(--shu);font-size:calc(var(--u)*1.42);font-variant-numeric:tabular-nums;letter-spacing:.01em;}
 .stage[data-tone="dark"] .cell{border-color:var(--tone-rule);}
 .stage[data-tone="dark"] .cell.b{color:var(--tone-fg2);border-left-color:var(--tone-rule);}
 .refs{display:flex;flex-direction:column;gap:0;}
-.ref{display:grid;grid-template-columns:calc(var(--u)*6) 1fr;gap:calc(var(--u)*1.2);align-items:baseline;padding:calc(var(--u)*.7) 0;border-top:1px solid var(--rule);}
+.ref{display:grid;grid-template-columns:calc(var(--u)*6) 1fr;gap:calc(var(--u)*1.2);align-items:baseline;padding:calc(var(--u)*.5) 0;border-top:1px solid var(--rule);}
 .ref:last-child{border-bottom:1px solid var(--rule);}
-.ry{font-size:calc(var(--u)*.8);letter-spacing:.16em;color:var(--shu);font-weight:700;}
-.rt{font-size:calc(var(--u)*1);line-height:1.65;}
-.rm{font-size:calc(var(--u)*.82);color:var(--ink-3);line-height:1.8;}
-.close-line{margin-top:calc(var(--u)*1.2);border-left:calc(var(--u)*.22) solid var(--shu);padding-left:calc(var(--u)*1.3);font-family:var(--serif);font-size:calc(var(--u)*1.78);font-weight:600;line-height:1.5;}
-.src{margin-top:calc(var(--u)*.9);font-size:calc(var(--u)*.72);line-height:1.7;color:var(--ink-3);letter-spacing:.02em;}
+.ry{font-size:calc(var(--u)*.88);letter-spacing:.16em;color:var(--shu);font-weight:700;}
+.rt{font-size:calc(var(--u)*1.05);line-height:1.45;}
+.rm{font-size:calc(var(--u)*.88);color:var(--ink-3);line-height:1.5;}
+.close-line{margin-top:calc(var(--u)*.85);border-left:calc(var(--u)*.22) solid var(--shu);padding-left:calc(var(--u)*1.3);font-family:var(--serif);font-size:calc(var(--u)*1.7);font-weight:700;line-height:1.5;}
+.src{margin-top:calc(var(--u)*.65);font-size:calc(var(--u)*.78);line-height:1.7;color:var(--ink-3);letter-spacing:.02em;}
 .stage[data-tone="dark"] .src{color:var(--tone-fg2);opacity:.8;}
 .split{display:grid;grid-template-columns:1.15fr .85fr;gap:calc(var(--u)*2.2);align-items:start;}
-.kv{display:flex;flex-direction:column;gap:calc(var(--u)*.8);}
-.kv .row{display:grid;grid-template-columns:auto 1fr;gap:calc(var(--u)*.9);align-items:baseline;font-size:calc(var(--u)*1.02);line-height:1.75;}
+.kv{display:flex;flex-direction:column;gap:calc(var(--u)*.62);}
+.kv .row{display:grid;grid-template-columns:auto 1fr;gap:calc(var(--u)*.9);align-items:baseline;font-size:calc(var(--u)*1.06);line-height:1.75;}
 .kv .row .dot{width:calc(var(--u)*.42);height:calc(var(--u)*.42);border-radius:50%;background:var(--midori);transform:translateY(-.15em);}
 .figure{background:rgba(155,84,70,.08);border:1px solid var(--shu);border-radius:calc(var(--u)*.4);padding:calc(var(--u)*1.5);text-align:center;}
-.figure .cap{font-size:calc(var(--u)*.88);letter-spacing:.16em;color:var(--shu);font-weight:700;}
+.figure .cap{font-size:calc(var(--u)*.92);letter-spacing:.16em;color:var(--shu);font-weight:700;}
 .figure .big{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*3.1);line-height:1.15;margin-top:calc(var(--u)*.5);font-variant-numeric:tabular-nums;color:var(--ink);}
-.figure .note{font-size:calc(var(--u)*.9);color:var(--ink-2);margin-top:calc(var(--u)*.6);line-height:1.75;}
+.figure .note{font-size:calc(var(--u)*.95);color:var(--ink-2);margin-top:calc(var(--u)*.6);line-height:1.75;}
 .stage[data-tone="dark"] .figure .big{color:var(--tone-fg);}
 
-.quote{background:rgba(94,112,96,.12);border:1px solid var(--midori);border-radius:calc(var(--u)*.4);padding:calc(var(--u)*1.25) calc(var(--u)*1.4);}
-.quote .q1{font-size:calc(var(--u)*.86);letter-spacing:.2em;color:var(--midori);font-weight:700;margin-bottom:calc(var(--u)*.5);}
-.quote .q2{font-size:calc(var(--u)*1.02);line-height:1.85;color:var(--ink-2);}
+.quote{background:rgba(94,112,96,.12);border:1px solid var(--midori);border-radius:calc(var(--u)*.4);padding:calc(var(--u)*1.05) calc(var(--u)*1.2);}
+.quote .q1{font-size:calc(var(--u)*.9);letter-spacing:.2em;color:var(--midori);font-weight:700;margin-bottom:calc(var(--u)*.5);}
+.quote .q2{font-size:calc(var(--u)*1.06);line-height:1.85;color:var(--ink-2);}
 .stage[data-tone="dark"] .quote .q2{color:var(--tone-fg2);}
 
-.asks{display:flex;flex-direction:column;gap:calc(var(--u)*.85);}
-.ask{display:grid;grid-template-columns:calc(var(--u)*2.6) 1fr;gap:calc(var(--u)*1.1);align-items:baseline;padding-bottom:calc(var(--u)*.85);border-bottom:1px solid var(--rule);}
+.asks{display:flex;flex-direction:column;gap:calc(var(--u)*.65);}
+.ask{display:grid;grid-template-columns:calc(var(--u)*2.6) 1fr;gap:calc(var(--u)*1.1);align-items:baseline;padding-bottom:calc(var(--u)*.65);border-bottom:1px solid var(--rule);}
 .ask:last-child{border-bottom:0;padding-bottom:0;}
 .ask .no{font-family:var(--serif);font-size:calc(var(--u)*1.5);font-weight:600;color:var(--shu);font-variant-numeric:tabular-nums;}
-.ask .t{font-family:var(--serif);font-size:calc(var(--u)*1.34);font-weight:600;line-height:1.5;}
-.ask .d{font-size:calc(var(--u)*.95);line-height:1.8;color:var(--ink-2);margin-top:calc(var(--u)*.3);}
+.ask .t{font-family:var(--serif);font-size:calc(var(--u)*1.34);font-weight:700;line-height:1.5;}
+.ask .d{font-size:calc(var(--u)*1.0);line-height:1.8;color:var(--ink-2);margin-top:calc(var(--u)*.3);}
 
-.foot{margin-top:auto;padding-top:calc(var(--u)*1.1);border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:baseline;gap:calc(var(--u)*1);font-size:calc(var(--u)*.84);color:var(--ink-3);letter-spacing:.08em;}
+.foot{margin-top:auto;padding-top:calc(var(--u)*.8);border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:baseline;gap:calc(var(--u)*1);font-size:calc(var(--u)*.85);color:var(--ink-3);letter-spacing:.08em;}
 .foot .time{font-variant-numeric:tabular-nums;}
 
 /* --- title slide --- */
 .title-stage{justify-content:center;}
 .title-kana{margin-top:calc(var(--u)*3.2);font-size:calc(var(--u)*1);letter-spacing:.32em;color:var(--ink-3);margin-bottom:calc(var(--u)*.9);}
-.title-name{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*3.3);line-height:1.05;letter-spacing:.05em;margin:0 0 calc(var(--u)*1.5);}
-.title-lead{font-family:var(--serif);font-size:calc(var(--u)*1.62);line-height:1.75;font-weight:500;color:var(--ink-2);margin:0 0 calc(var(--u)*1.8);text-wrap:balance;}
+.title-name{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*3.3);line-height:1.05;letter-spacing:.05em;margin:0 0 calc(var(--u)*1.5);}
+.title-lead{font-family:var(--serif);font-size:calc(var(--u)*1.55);line-height:1.75;font-weight:500;color:var(--ink-2);margin:0 0 calc(var(--u)*1.8);text-wrap:balance;}
 .pills{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.55);}
-.pill{font-size:calc(var(--u)*.9);padding:calc(var(--u)*.45) calc(var(--u)*1);border:1px solid var(--rule);border-radius:100px;color:var(--ink-2);background:rgba(255,255,255,.4);white-space:nowrap;}
+.pill{font-size:calc(var(--u)*.92);padding:calc(var(--u)*.45) calc(var(--u)*1);border:1px solid var(--rule);border-radius:100px;color:var(--ink-2);background:rgba(255,255,255,.4);white-space:nowrap;}
 .addressee{font-size:calc(var(--u)*1.02);letter-spacing:.14em;color:var(--shu);font-weight:500;}
 
 /* --- controls --- */
@@ -210,13 +210,13 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
         <div class="flow">
           <div class="flow-list">
             <div class="fact"><b>01</b><span>精神疾患の当事者として、<b>約8年間さまよいました</b>。</span></div>
-            <div class="fact"><b>02</b><span>病院にも通いました。よくならない時期が、とても長く続きました。</span></div>
-            <div class="fact"><b>03</b><span>最後に私を助けたのが、鍼灸でした。いまこの仕事をしているのは、そのためです。</span></div>
+            <div class="fact"><b>02</b><span>病院に通っても、よくならない時期が長く続きました。</span></div>
+            <div class="fact"><b>03</b><span>最後に私を助けたのが、鍼灸でした。</span></div>
           </div>
           <div class="arrow" aria-hidden="true">→</div>
           <div class="punch">
             <div class="p1">「もっと早く、<br>鍼灸に出会いたかった」</div>
-            <div class="p2">患者さんから、いちばん多く言われる言葉です。この「もっと早く」をなくすことが、私の仕事だと思っています。</div>
+            <div class="p2">患者さんから、いちばん多く言われる言葉です。この「もっと早く」をなくすのが私の仕事です。</div>
           </div>
         </div>
       </div>
@@ -232,17 +232,17 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
           <div class="card">
             <span class="tag">臨床</span>
             <span class="k">はりきゅう処ここちめいど</span>
-            <span class="v">三重県四日市市。2015年開院、夜22時まで。心の不調を主訴とする患者を中心に診ています。2026年9月に町田院を開院予定。</span>
+            <span class="v">三重県四日市市。2015年開院、夜22時まで。心の不調を主訴とする方が中心です。2026年9月に町田院を開院予定。</span>
           </div>
           <div class="card">
             <span class="tag">育成・コミュニティ</span>
             <span class="k">ここちめいど／ここちはり</span>
-            <span class="v">傾聴を学ぶ鍼灸師のオンラインサロンを2020年から主宰。2025年からは施術者育成事業を開始し、感情・心・身体・技術の4軸で指導。</span>
+            <span class="v">傾聴を学ぶ鍼灸師のオンラインサロンを2020年から主宰。2025年からは施術者の育成事業も開始しました。</span>
           </div>
           <div class="card">
             <span class="tag">研究</span>
             <span class="k">学会発表・産学連携</span>
-            <span class="v">全日本鍼灸学会・日本うつ病学会で継続的に発表し、日本精神神経学会にも登壇。理化学研究所・東京有明医療大学・玉川大学・ケアクルとの共同研究に参画しています。</span>
+            <span class="v">全日本鍼灸学会・日本うつ病学会で発表し、日本精神神経学会にも登壇。理化学研究所や大学との共同研究に参画しています。</span>
           </div>
         </div>
         <div class="stats">
@@ -256,7 +256,7 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
     </section>
 
     <!-- 4 -->
-    <section class="stage" data-dense="1" data-tone="dark" hidden aria-label="スライド4 課題感">
+    <section class="stage" data-tone="dark" hidden aria-label="スライド4 課題感">
       <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">03</span><span class="eyebrow-label">ISSUE</span></div>
       <h2 class="head">これは私の実感であり、社会の数字でもあります</h2>
       <div class="body">
@@ -264,14 +264,14 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
           <div class="pairhead a">社会で起きていること</div>
           <div class="pairhead b">私が現場で見ていること</div>
 
-          <div class="cell a"><span class="fig">約600万人</span>　精神疾患を持つ患者数。国は2024年、厚生労働白書で初めて「こころの健康」をテーマに据えました。</div>
-          <div class="cell b">のべ20,000人を診てきて、心の不調を主訴に来られる方が明らかに増えました。</div>
+          <div class="cell a"><span class="fig">約600万人</span>　精神疾患を持つ患者数。国は2024年、厚生労働白書で初めて「こころの健康」をテーマにしました。</div>
+          <div class="cell b">のべ20,000人を診てきて、心の不調の方が明らかに増えました。</div>
 
           <div class="cell a"><span class="fig">2028年4月</span>　50人未満の事業場にもストレスチェックが義務化。現在の実施率は6割弱です。</div>
-          <div class="cell b">気づいても、次に行く場所がない。精神科は予約が埋まり、新規の受付を止める医療機関が出ています。</div>
+          <div class="cell b">気づいても、次に行く場所がない。精神科は予約が埋まり、新規を止める医療機関も出ています。</div>
 
-          <div class="cell a"><span class="fig">年7.6兆円</span>　メンタル不調による経済損失。うち7.3兆円は「出勤しているのに力が出ない」分です。</div>
-          <div class="cell b">休職や通院の手前で止まっている方が、いちばん多い。この層は、いま誰の担当でもありません。</div>
+          <div class="cell a"><span class="fig">年7.6兆円</span>　メンタル不調による経済損失。うち7.3兆円は「出勤しているのに力が出ない」分。</div>
+          <div class="cell b">休職や通院の手前で止まる方が、いちばん多い。この層は誰の担当でもありません。</div>
         </div>
         <div class="close-line">だから、未病の段階で止めておきたい。</div>
       </div>
@@ -280,16 +280,16 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
     </section>
 
     <!-- 5 -->
-    <section class="stage" data-dense="1" hidden aria-label="スライド5 先行事例">
+    <section class="stage" hidden aria-label="スライド5 先行事例">
       <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">04</span><span class="eyebrow-label">CASE</span></div>
       <h2 class="head">「企業 × 鍼灸」は、すでに成立しています</h2>
       <div class="body">
         <div class="split">
           <div class="kv">
-            <div class="row"><span class="dot"></span><span>睡眠製品のブレインスリープ社は、<b>睡眠専門の鍼灸マッサージ「コンディショニングスタジオ」</b>を自社ブランドで運営しています。枕の売り場ではなく、独立した鍼灸院です。</span></div>
-            <div class="row"><span class="dot"></span><span>二子玉川・南青山・<b>有楽町マルイ</b>・東京ミッドタウン八重洲の<b>4店舗</b>。商業施設側である丸井グループも、自らプレスリリースを出しています。</span></div>
+            <div class="row"><span class="dot"></span><span>睡眠製品のブレインスリープ社は、<b>睡眠専門の鍼灸マッサージ「コンディショニングスタジオ」</b>を自社ブランドで運営。枕の売り場ではなく、独立した鍼灸院です。</span></div>
+            <div class="row"><span class="dot"></span><span>二子玉川・南青山・<b>有楽町マルイ</b>・東京ミッドタウン八重洲の<b>4店舗</b>。商業施設側の丸井グループも、自らプレスリリースを出しています。</span></div>
             <div class="row"><span class="dot"></span><span>オープン以来<b>累計1万人以上</b>が利用。自社研究では、1度の施術で眠りの深さが<b>35%</b>、疲労回復度が<b>59%</b>向上したと公表。</span></div>
-            <div class="row"><span class="dot"></span><span>スタッフは全員が国家資格保有者で、自社資格「スリーププランナー」を取得。<b>定額プラン</b>で、継続して通う前提が設計されています。</span></div>
+            <div class="row"><span class="dot"></span><span>スタッフは全員が国家資格保有者。自社資格「スリーププランナー」も取得。<b>定額プラン</b>で、継続して通う前提が設計されています。</span></div>
           </div>
           <div class="quote">
             <div class="q1">ここから私が受け取ったこと</div>
@@ -308,15 +308,15 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
       <div class="body">
         <div class="split">
           <div class="kv">
-            <div class="row"><span class="dot"></span><span><b>ねここち</b>／頭オフ事業。考えごとで止まらない頭を、強制的にオフにする時間を売ります。いま立ち上げを準備しています。</span></div>
-            <div class="row"><span class="dot"></span><span>扱うのは睡眠そのものではなく、<b>思考が止まらない状態</b>です。眠れないの手前にある、頭が休まらない時間に手を入れます。</span></div>
-            <div class="row"><span class="dot"></span><span>施術は<b>鍼灸師の国家資格を持つ人</b>が行います。医療の知識を持つ人が、治療の手前にいる層に関わる形です。</span></div>
-            <div class="row"><span class="dot"></span><span>「治療」と身構えずに入れる入口をつくり、<b>必要な人だけを鍼灸や医療につなぐ</b>。未病の層に、継続的に関わり続けるための事業です。</span></div>
+            <div class="row"><span class="dot"></span><span><b>ねここち</b>／頭オフ事業。考えごとで止まらない頭を、強制的にオフにする時間を売ります。いま準備中です。</span></div>
+            <div class="row"><span class="dot"></span><span>扱うのは睡眠そのものではなく、<b>思考が止まらない状態</b>です。眠れないの手前にある、頭が休まらない時間を扱います。</span></div>
+            <div class="row"><span class="dot"></span><span>施術は<b>鍼灸師の国家資格を持つ人</b>が行います。医療の知識を持つ人が、治療の手前の層に関わる形です。</span></div>
+            <div class="row"><span class="dot"></span><span>「治療」と身構えずに入れる入口をつくり、<b>必要な人だけを鍼灸や医療につなぐ</b>。未病の層に継続的に関わるための事業です。</span></div>
           </div>
           <div class="figure">
             <div class="cap">1店舗あたり</div>
             <div class="big">月次利益 30<span style="font-size:.45em;">万円</span></div>
-            <div class="note">想定値。多店舗展開を前提に設計しています。</div>
+            <div class="note">想定値。多店舗展開を前提に設計。</div>
           </div>
         </div>
       </div>
@@ -324,7 +324,7 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
     </section>
 
     <!-- 7 -->
-    <section class="stage" data-dense="1" hidden aria-label="スライド7 強み">
+    <section class="stage" hidden aria-label="スライド7 強み">
       <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">06</span><span class="eyebrow-label">STRENGTH</span></div>
       <h2 class="head">企業の新規事業に、専門家として入ってきました</h2>
       <div class="body">
@@ -332,22 +332,22 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
           <div class="card">
             <span class="tag">パパゲーノ</span>
             <span class="k">アンバサダー認定 第一号</span>
-            <span class="v">就労継続支援B型「パパゲーノ Work &amp; Recovery」への発注を通じ、精神障害のある方が担う事業に伴走。認定制度の第一号企業です。</span>
+            <span class="v">就労継続支援B型への発注を通じ、精神障害のある方が担う事業に伴走。認定制度の第一号企業です。</span>
           </div>
           <div class="card">
             <span class="tag">ファンコミュニケーションズ</span>
             <span class="k">ThirdTalk（サードトーク）</span>
-            <span class="v">「病院やカウンセリングに行く、その一歩手前」を想定したオンライン対話サービス。企画段階からご相談をいただき、立ち上げを見守ってきました。特別対談番組にも出演しています。</span>
+            <span class="v">「病院やカウンセリングに行く、その一歩手前」を想定したオンライン対話サービス。企画段階からご相談をいただきました。特別対談番組にも出演しています。</span>
           </div>
           <div class="card">
             <span class="tag">stand up</span>
             <span class="k">アミューズメント事業</span>
-            <span class="v">新規事業の立ち上げについてご相談をいただき、現在もお取引が続いています。医療以外の業種でも、人の状態を扱う事業の設計に入ってきました。</span>
+            <span class="v">新規事業の立ち上げについてご相談をいただき、現在もお取引が続いています。医療以外の業種にも入っています。</span>
           </div>
         </div>
         <div class="quote">
           <div class="q1">共通してやってきたこと</div>
-          <div class="q2">心の不調を抱えた人が、実際にどこで止まり、どこで動くのか。その一次情報を事業の言葉に翻訳するのが私の役割です。なかでもThirdTalkは、このあとお話しする<b>「病院の一歩手前」という発想を、そのまま事業にしたもの</b>でした。</div>
+          <div class="q2">なかでもThirdTalkは、今日お話ししてきた<b>「病院の一歩手前」という発想を、そのまま事業にしたもの</b>でした。</div>
         </div>
       </div>
       <div class="src">出典：株式会社ファンコミュニケーションズ ニュースリリース（2022.8.26）／株式会社パパゲーノ プレスリリース</div>
@@ -368,7 +368,7 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
           <div class="arrow" aria-hidden="true">→</div>
           <div class="punch">
             <div class="p1">仕組みと、人と、<br>座組みが要る。</div>
-            <div class="p2">ここは私が最も苦手としてきた領域であり、御社が最も強い領域だと考えています。</div>
+            <div class="p2">ここは私が最も苦手な領域であり、御社が最も強い領域だと考えています。</div>
           </div>
         </div>
       </div>
@@ -376,34 +376,34 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
     </section>
 
     <!-- 9 -->
-    <section class="stage" data-dense="1" hidden aria-label="スライド9 ご相談したいこと">
+    <section class="stage" hidden aria-label="スライド9 ご相談したいこと">
       <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">08</span><span class="eyebrow-label">ASK</span></div>
       <h2 class="head">だから、アポプラスステーション様と話したい</h2>
       <div class="body">
         <div class="asks">
           <div class="ask">
             <span class="no">01</span>
-            <div><div class="t">未病領域の新規事業を、共同で検討させてください</div><div class="d">東洋医学 × 御社の事業アセット。入口となるサービス設計から、実証までを一緒に。</div></div>
+            <div><div class="t">未病領域の新規事業を、共同で検討させてください</div><div class="d">東洋医学 × 御社の事業アセット。サービス設計から実証までを一緒に。</div></div>
           </div>
           <div class="ask">
             <span class="no">02</span>
-            <div><div class="t">人と組織の知見をお借りしたい</div><div class="d">施術者の採用・育成・配置。属人から仕組みへ移すために、御社の人材領域の知見が必要です。</div></div>
+            <div><div class="t">人と組織の知見をお借りしたい</div><div class="d">施術者の採用・育成・配置。属人から仕組みへ移すために必要です。</div></div>
           </div>
           <div class="ask">
             <span class="no">03</span>
-            <div><div class="t">実証の場をご一緒したい</div><div class="d">法人向けの健康支援など、未病層に届く場での実証。効果は学会発表の形で残し、根拠として積み上げます。</div></div>
+            <div><div class="t">実証の場をご一緒したい</div><div class="d">法人向けの健康支援など、未病層に届く場で。効果は学会発表として残します。</div></div>
           </div>
         </div>
         <div class="quote">
           <div class="q1">本日お願いしたいこと</div>
-          <div class="q2">生きづらさを抱えた人を、治療が必要になる手前で減らしたい。そのために、鍼灸の外側にある方法も含めて手を尽くします。<b>まずは本日、この3つのうちどこに可能性がありそうか、率直なご意見をいただけたら嬉しいです。</b></div>
+          <div class="q2">生きづらさを抱えた人を、治療が必要になる手前で減らしたい。<b>まずは本日、この3つのうちどこに可能性がありそうか、率直なご意見をいただけたら嬉しいです。</b></div>
         </div>
       </div>
       <div class="foot"><span>米倉まな｜アポプラスステーション様 ご提案</span><span class="time">4:30 → 5:00</span></div>
     </section>
 
     <!-- 10 -->
-    <section class="stage" data-dense="2" hidden aria-label="スライド10 参考資料">
+    <section class="stage" hidden aria-label="スライド10 参考資料">
       <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-label">APPENDIX ／ 参考</span></div>
       <h2 class="head">公開されている実績・共同研究</h2>
       <div class="body">
@@ -446,7 +446,7 @@ h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);l
     '<b>プロフィール（35秒）</b>　三重で鍼灸院を11年。のべ2万人以上を診てきました。臨床だけでなく、鍼灸師の育成と、学会での研究発表も続けています。全日本鍼灸学会と日本うつ病学会で発表し、日本精神神経学会にも登壇しました。心の不調を扱う鍼灸師として、現場・人・データの3つを持っているのが私の立ち位置です。',
     '<b>課題感（50秒）</b>　ここからは、私が現場で感じていることをお話しします。左が社会の数字、右が私が院で見ていることです。精神疾患の患者は約600万人、国も2024年に初めて白書のテーマにこころの健康を据えました。私の院でも、心の不調を主訴に来られる方が明らかに増えています。さらに2028年からは50人未満の会社にもストレスチェックが義務化されます。ただ、検査で気づいても次に行く場所がない。病院はもう新規を受けきれていません。そして損失の7.6兆円のうち7.3兆円は、休んでいる人ではなく、出勤しているのに力が出ない人の分です。この層が、いま誰の担当にもなっていない。だから私は、未病の段階で止めたいと考えています。',
     '<b>先行事例（35秒）</b>　企業と鍼灸の組み合わせは、もう絵空事ではありません。枕で知られるブレインスリープさんは、睡眠専門の鍼灸院を自社ブランドで4店舗運営しています。有楽町マルイのように商業施設の中にも入っていて、丸井グループ側もプレスリリースを出しています。累計1万人以上が利用し、施術の効果も数字で公表し、定額プランで通い続けてもらう設計です。製品を売って終わりにせず、施術で人と関わり続けている。私がやろうとしている構造とほぼ同じで、違いは入口だけです。あの会社は睡眠から入った。私はこころから入ります。',
-    '<b>打ち手（35秒）</b>　いま「ねここち」という、頭をオフにする事業の立ち上げを準備しています。頭が考えごとで止まらない人に、強制的にオフにする時間を売る事業です。施術は鍼灸師の国家資格を持つ人が行います。医療の知識を持つ人が、治療の手前にいる層に関わる形です。治療と身構えずに入れる入口をつくって、必要な人だけを鍼灸や医療につなぐ。1店舗あたり月次利益30万円を想定しています。',
+    '<b>打ち手（35秒）</b>　いま「ねここち」という、頭をオフにする事業の立ち上げを準備しています。頭が考えごとで止まらない人に、強制的にオフにする時間を売る事業です。施術は鍼灸師の国家資格を持つ人が行います。医療の知識を持つ人が、治療の手前の層に関わる形です。治療と身構えずに入れる入口をつくって、必要な人だけを鍼灸や医療につなぐ。1店舗あたり月次利益30万円を想定しています。',
     '<b>強み（40秒）</b>　もうひとつの顔が、企業の新規事業への伴走です。パパゲーノでは認定第一号として、就労継続支援の事業に発注する側で関わりました。ファンコミュニケーションズさんのThirdTalkは、病院やカウンセリングに行く一歩手前の人のためのオンライン対話サービスで、企画段階からご相談をいただき、立ち上げを見守ってきました。stand upさんはアミューズメントの会社で、新規事業のご相談から、いまもお取引が続いています。医療の中でも外でも、臨床でしか得られない一次情報を事業の形に翻訳する役割です。',
     '<b>私に足りないもの（20秒）</b>　正直に申し上げると、いまはすべてが私に紐づいていて、1人で抱えられる量に天井があります。仕組みと人と座組みが足りない。ここは御社が最も強い領域だと考えています。',
     '<b>ご相談（30秒）</b>　お願いしたいことは3つです。未病領域の新規事業の共同検討、人材・組織の知見、そして実証の場。治療が必要になる手前で、生きづらさを抱えた人を減らしたい。まずは本日、この3つのうちどこに可能性がありそうか、率直なご意見をいただけたら嬉しいです。',
