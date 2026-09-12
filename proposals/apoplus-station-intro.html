@@ -1,0 +1,433 @@
+<title>米倉まな｜治療の手前で</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ground:#E5DAC7;
+  --paper:#F3EADB;
+  --ink:#2B2620;
+  --ink-2:#5A5249;
+  --ink-3:#8B8175;
+  --rule:#D2C4AE;
+  --shu:#9C5446;
+  --midori:#5E7060;
+  --tone-bg:#2B2620;
+  --tone-fg:#F3ECE0;
+  --tone-fg2:#BDB2A2;
+  --tone-rule:#4A423A;
+  --shadow:0 24px 60px -28px rgba(60,42,30,.45);
+  --serif:'Noto Serif JP',"Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:'Noto Sans JP',"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#1C1815; --paper:#292420; --ink:#F1E8DA; --ink-2:#CBBFAE; --ink-3:#948A7C;
+    --rule:#433C34; --shu:#CB8170; --midori:#93AC93;
+    --tone-bg:#0F0C0A; --tone-fg:#F1E8DA; --tone-fg2:#A69B8B; --tone-rule:#332C26;
+    --shadow:0 24px 60px -30px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#1C1815; --paper:#292420; --ink:#F1E8DA; --ink-2:#CBBFAE; --ink-3:#948A7C;
+  --rule:#433C34; --shu:#CB8170; --midori:#93AC93;
+  --tone-bg:#0F0C0A; --tone-fg:#F1E8DA; --tone-fg2:#A69B8B; --tone-rule:#332C26;
+  --shadow:0 24px 60px -30px rgba(0,0,0,.7);
+}
+
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+*{box-sizing:border-box;}
+.wrap{min-height:100vh;display:flex;flex-direction:column;gap:18px;padding:20px 16px 16px;}
+.deck{container-type:inline-size;flex:1;display:flex;align-items:center;justify-content:center;}
+
+.stage{
+  --u:clamp(8px,1.52cqw,17px);
+  position:relative;width:100%;max-width:1180px;aspect-ratio:16/9;
+  background:var(--paper);border:1px solid var(--rule);border-radius:calc(var(--u)*.5);
+  box-shadow:var(--shadow);overflow:hidden;
+  display:flex;flex-direction:column;
+  padding:calc(var(--u)*3.4) calc(var(--u)*4) calc(var(--u)*2.6);
+}
+@supports not (container-type:inline-size){ .stage{--u:clamp(8px,1.45vw,17px);} }
+.stage[data-tone="dark"]{background:var(--tone-bg);border-color:var(--tone-rule);color:var(--tone-fg);}
+.stage[data-tone="dark"] .eyebrow-line{background:var(--shu);}
+.stage[data-tone="dark"] .lede,.stage[data-tone="dark"] .sub{color:var(--tone-fg2);}
+.stage[data-tone="dark"] .foot{border-color:var(--tone-rule);color:var(--tone-fg2);}
+.stage[data-tone="dark"] .card{background:rgba(255,255,255,.045);border-color:var(--tone-rule);}
+.stage[data-tone="dark"] .card .k{color:var(--tone-fg);}
+.stage[data-tone="dark"] .card .v{color:var(--tone-fg2);}
+
+.eyebrow{display:flex;align-items:center;gap:calc(var(--u)*.9);margin-bottom:calc(var(--u)*1.6);}
+.eyebrow-line{width:calc(var(--u)*2.2);height:1px;background:var(--shu);}
+.eyebrow-num{font-family:var(--serif);font-size:calc(var(--u)*.92);letter-spacing:.22em;color:var(--shu);font-weight:600;font-variant-numeric:tabular-nums;}
+.eyebrow-label{font-size:calc(var(--u)*.92);letter-spacing:.3em;color:var(--ink-3);font-weight:500;}
+
+h2.head{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.55);line-height:1.34;letter-spacing:.02em;margin:0 0 calc(var(--u)*1.5);text-wrap:balance;}
+.stage[data-tone="dark"] h2.head{color:var(--tone-fg);}
+.lede{font-size:calc(var(--u)*1.08);line-height:1.85;color:var(--ink-2);margin:0;max-width:62ch;}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:calc(var(--u)*1.5);min-height:0;}
+
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*1.2);}
+.card{background:rgba(255,255,255,.5);border:1px solid var(--rule);border-radius:calc(var(--u)*.4);padding:calc(var(--u)*1.35) calc(var(--u)*1.35) calc(var(--u)*1.45);display:flex;flex-direction:column;gap:calc(var(--u)*.55);}
+.card .tag{font-size:calc(var(--u)*.82);letter-spacing:.2em;color:var(--shu);font-weight:700;}
+.card .k{font-family:var(--serif);font-size:calc(var(--u)*1.3);font-weight:600;line-height:1.4;color:var(--ink);}
+.card .v{font-size:calc(var(--u)*.95);line-height:1.8;color:var(--ink-2);}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--u)*1.1);border-top:1px solid var(--rule);padding-top:calc(var(--u)*1.25);}
+.stat .n{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*2.05);line-height:1.1;letter-spacing:.01em;font-variant-numeric:tabular-nums;color:var(--ink);}
+.stat .n small{font-size:calc(var(--u)*1.05);font-weight:500;margin-left:.15em;}
+.stat .l{font-size:calc(var(--u)*.86);color:var(--ink-3);margin-top:calc(var(--u)*.35);letter-spacing:.06em;}
+.stage[data-tone="dark"] .stats{border-color:var(--tone-rule);}
+.stage[data-tone="dark"] .stat .n{color:var(--tone-fg);}
+.stage[data-tone="dark"] .stat .l{color:var(--tone-fg2);}
+
+.flow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:calc(var(--u)*1.6);}
+.flow-list{display:flex;flex-direction:column;gap:calc(var(--u)*.95);}
+.fact{display:grid;grid-template-columns:calc(var(--u)*1.5) 1fr;gap:calc(var(--u)*.9);align-items:start;font-size:calc(var(--u)*1.06);line-height:1.7;}
+.fact b{font-family:var(--serif);color:var(--shu);font-weight:600;font-variant-numeric:tabular-nums;}
+.arrow{font-size:calc(var(--u)*2);color:var(--shu);line-height:1;}
+.punch{border-left:calc(var(--u)*.22) solid var(--shu);padding-left:calc(var(--u)*1.3);}
+.punch .p1{font-family:var(--serif);font-size:calc(var(--u)*2);font-weight:600;line-height:1.45;}
+.punch .p2{font-size:calc(var(--u)*1);line-height:1.85;color:var(--ink-2);margin-top:calc(var(--u)*.7);}
+.stage[data-tone="dark"] .punch .p2{color:var(--tone-fg2);}
+
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:calc(var(--u)*2.2);align-items:start;}
+.kv{display:flex;flex-direction:column;gap:calc(var(--u)*.8);}
+.kv .row{display:grid;grid-template-columns:auto 1fr;gap:calc(var(--u)*.9);align-items:baseline;font-size:calc(var(--u)*1.02);line-height:1.75;}
+.kv .row .dot{width:calc(var(--u)*.42);height:calc(var(--u)*.42);border-radius:50%;background:var(--midori);transform:translateY(-.15em);}
+.figure{background:rgba(155,84,70,.08);border:1px solid var(--shu);border-radius:calc(var(--u)*.4);padding:calc(var(--u)*1.5);text-align:center;}
+.figure .cap{font-size:calc(var(--u)*.88);letter-spacing:.16em;color:var(--shu);font-weight:700;}
+.figure .big{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*3.1);line-height:1.15;margin-top:calc(var(--u)*.5);font-variant-numeric:tabular-nums;color:var(--ink);}
+.figure .note{font-size:calc(var(--u)*.9);color:var(--ink-2);margin-top:calc(var(--u)*.6);line-height:1.75;}
+.stage[data-tone="dark"] .figure .big{color:var(--tone-fg);}
+
+.quote{background:rgba(94,112,96,.12);border:1px solid var(--midori);border-radius:calc(var(--u)*.4);padding:calc(var(--u)*1.25) calc(var(--u)*1.4);}
+.quote .q1{font-size:calc(var(--u)*.86);letter-spacing:.2em;color:var(--midori);font-weight:700;margin-bottom:calc(var(--u)*.5);}
+.quote .q2{font-size:calc(var(--u)*1.02);line-height:1.85;color:var(--ink-2);}
+.stage[data-tone="dark"] .quote .q2{color:var(--tone-fg2);}
+
+.asks{display:flex;flex-direction:column;gap:calc(var(--u)*.85);}
+.ask{display:grid;grid-template-columns:calc(var(--u)*2.6) 1fr;gap:calc(var(--u)*1.1);align-items:baseline;padding-bottom:calc(var(--u)*.85);border-bottom:1px solid var(--rule);}
+.ask:last-child{border-bottom:0;padding-bottom:0;}
+.ask .no{font-family:var(--serif);font-size:calc(var(--u)*1.5);font-weight:600;color:var(--shu);font-variant-numeric:tabular-nums;}
+.ask .t{font-family:var(--serif);font-size:calc(var(--u)*1.34);font-weight:600;line-height:1.5;}
+.ask .d{font-size:calc(var(--u)*.95);line-height:1.8;color:var(--ink-2);margin-top:calc(var(--u)*.3);}
+
+.foot{margin-top:auto;padding-top:calc(var(--u)*1.1);border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:baseline;gap:calc(var(--u)*1);font-size:calc(var(--u)*.84);color:var(--ink-3);letter-spacing:.08em;}
+.foot .time{font-variant-numeric:tabular-nums;}
+
+/* --- title slide --- */
+.title-stage{justify-content:center;}
+.title-kana{font-size:calc(var(--u)*1);letter-spacing:.32em;color:var(--ink-3);margin-bottom:calc(var(--u)*.9);}
+.title-name{font-family:var(--serif);font-weight:600;font-size:calc(var(--u)*4.6);line-height:1.05;letter-spacing:.05em;margin:0 0 calc(var(--u)*1.5);}
+.title-lead{font-family:var(--serif);font-size:calc(var(--u)*1.62);line-height:1.75;font-weight:500;color:var(--ink-2);margin:0 0 calc(var(--u)*1.8);text-wrap:balance;}
+.pills{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.55);}
+.pill{font-size:calc(var(--u)*.9);padding:calc(var(--u)*.45) calc(var(--u)*1);border:1px solid var(--rule);border-radius:100px;color:var(--ink-2);background:rgba(255,255,255,.4);white-space:nowrap;}
+.addressee{font-size:calc(var(--u)*1.02);letter-spacing:.14em;color:var(--shu);font-weight:500;}
+
+/* --- controls --- */
+.bar{max-width:1180px;width:100%;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.rail{display:flex;gap:6px;flex:1;min-width:120px;}
+.tick{flex:1;height:4px;border-radius:2px;border:0;padding:0;background:var(--rule);cursor:pointer;transition:background .18s;}
+.tick[aria-current="true"]{background:var(--shu);}
+.tick:hover{background:var(--ink-3);}
+.btn{font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:.06em;color:var(--ink-2);background:transparent;border:1px solid var(--rule);border-radius:100px;padding:7px 15px;cursor:pointer;}
+.btn:hover{background:rgba(155,84,70,.1);color:var(--shu);border-color:var(--shu);}
+.btn[aria-pressed="true"]{background:var(--shu);border-color:var(--shu);color:#F7F1E7;}
+.counter{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums;letter-spacing:.1em;}
+:focus-visible{outline:2px solid var(--shu);outline-offset:3px;}
+
+.notes{max-width:1180px;width:100%;margin:0 auto;background:var(--paper);border:1px solid var(--rule);border-left:3px solid var(--midori);border-radius:4px;padding:14px 18px;font-size:13.5px;line-height:1.95;color:var(--ink-2);}
+.notes b{color:var(--ink);font-weight:700;}
+
+@media (max-width:760px){
+  .wrap{padding:14px 16px 14px;}
+  .deck{display:block;}
+  .stage{--u:11px;aspect-ratio:auto;max-width:none;padding:26px 22px 22px;margin-bottom:14px;}
+  .stage[hidden]{display:flex!important;}
+  .cols,.stats{grid-template-columns:1fr;}
+  .flow{grid-template-columns:1fr;gap:16px;}
+  .arrow{transform:rotate(90deg);}
+  .split{grid-template-columns:1fr;}
+  .bar,.counter{display:none;}
+  .notes{display:none!important;}
+}
+@media print{
+  .wrap{padding:0;gap:0;}
+  .bar,.notes{display:none!important;}
+  .stage{box-shadow:none;break-after:page;}
+  .stage[hidden]{display:flex!important;}
+  .deck{display:block;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+</style>
+
+<div class="wrap">
+  <div class="deck">
+
+    <!-- 1 -->
+    <section class="stage title-stage" aria-label="スライド1 表紙">
+      <div class="eyebrow"><span class="eyebrow-line"></span><span class="addressee">アポプラスステーション株式会社 御中</span></div>
+      <div class="title-kana">よねくら　まな</div>
+      <h1 class="title-name">米倉まな</h1>
+      <p class="title-lead">ご提案の前に、<br>私が何者で、何を変えたいのかを。</p>
+      <div class="pills">
+        <span class="pill">認定鍼灸師（開業11年目）</span>
+        <span class="pill">はりきゅう処ここちめいど 院長</span>
+        <span class="pill">オンラインサロン ここちめいど 主宰</span>
+        <span class="pill">ここちはり 代表</span>
+        <span class="pill">武蔵野大学大学院 人間学 修士</span>
+      </div>
+      <div class="foot"><span>導入パート</span><span class="time">所要 約5分</span></div>
+    </section>
+
+    <!-- 2 -->
+    <section class="stage" hidden aria-label="スライド2 プロフィール">
+      <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">01</span><span class="eyebrow-label">PROFILE</span></div>
+      <h2 class="head">臨床・育成・研究の3本を、11年まわしてきました</h2>
+      <div class="body">
+        <div class="cols">
+          <div class="card">
+            <span class="tag">臨床</span>
+            <span class="k">はりきゅう処ここちめいど</span>
+            <span class="v">三重県四日市市。2015年開院、夜22時まで。心の不調を主訴とする患者を中心に診ています。2026年夏に町田院を開院予定。</span>
+          </div>
+          <div class="card">
+            <span class="tag">育成・コミュニティ</span>
+            <span class="k">ここちめいど／ここちはり</span>
+            <span class="v">傾聴を学ぶ鍼灸師のオンラインサロンを2020年から主宰。2025年からは施術者育成事業を開始し、感情・心・身体・技術の4軸で指導。</span>
+          </div>
+          <div class="card">
+            <span class="tag">研究</span>
+            <span class="k">学会発表・産学連携</span>
+            <span class="v">全日本鍼灸学会でうつ・不安症状の実態調査を継続報告。鍼灸症例データベース構築プロジェクトに大学・企業と共同で参画。</span>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="n">11<small>年目</small></div><div class="l">鍼灸院 開業</div></div>
+          <div class="stat"><div class="n">20,000<small>人+</small></div><div class="l">のべ臨床患者数</div></div>
+          <div class="stat"><div class="n">3<small>年連続</small></div><div class="l">全日本鍼灸学会 発表</div></div>
+          <div class="stat"><div class="n">修士</div><div class="l">武蔵野大学大学院 人間学</div></div>
+        </div>
+      </div>
+      <div class="foot"><span>米倉まな｜アポプラスステーション様 ご提案</span><span class="time">0:20 → 1:05</span></div>
+    </section>
+
+    <!-- 3 -->
+    <section class="stage" hidden aria-label="スライド3 強み">
+      <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">02</span><span class="eyebrow-label">STRENGTH</span></div>
+      <h2 class="head">企業の新規事業に、現場の専門家として入ってきました</h2>
+      <div class="body">
+        <div class="cols">
+          <div class="card">
+            <span class="tag">パパゲーノ</span>
+            <span class="k">当事者発の福祉事業</span>
+            <span class="v">アンバサダー認定 第一号。Work &amp; Recovery への発注を通じ、精神障害のある方が担う事業の立ち上げに伴走。</span>
+          </div>
+          <div class="card">
+            <span class="tag">ファンコミュニケーションズ</span>
+            <span class="k">ヘルスケア新規事業</span>
+            <span class="v">メンタルヘルス領域の専門家として新規事業の検討に参画。生活者のリアルな受療行動を、事業の設計に反映。</span>
+          </div>
+          <div class="card">
+            <span class="tag">stand up</span>
+            <span class="k">新規サービス開発</span>
+            <span class="v">サービス設計と現場オペレーションの両面から関与。臨床でしか得られない一次情報を提供。</span>
+          </div>
+        </div>
+        <div class="quote">
+          <div class="q1">共通してやってきたこと</div>
+          <div class="q2">「心の不調を抱えた人が、実際にどこで止まり、どこで動くのか」という臨床の一次情報を、事業が使える言葉と数字に翻訳する役割です。机上のペルソナではなく、のべ20,000人を診てきた現場の解像度を持ち込みます。</div>
+        </div>
+      </div>
+      <div class="foot"><span>米倉まな｜アポプラスステーション様 ご提案</span><span class="time">1:05 → 1:50</span></div>
+    </section>
+
+    <!-- 4 -->
+    <section class="stage" data-tone="dark" hidden aria-label="スライド4 課題感">
+      <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">03</span><span class="eyebrow-label">ISSUE</span></div>
+      <h2 class="head">患者は増え続け、病院はもう新規を受けきれない</h2>
+      <div class="body">
+        <div class="flow">
+          <div class="flow-list">
+            <div class="fact"><b>01</b><span>メンタル不調を訴える人が増え続けている</span></div>
+            <div class="fact"><b>02</b><span>精神科・心療内科は予約が埋まり、新規受付を止める医療機関が出ている</span></div>
+            <div class="fact"><b>03</b><span>結果、いちばん軽いうちに相談したい人ほど、行き場がない</span></div>
+          </div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="punch">
+            <div class="p1">未病の段階で、<br>止めておきたい。</div>
+            <div class="p2">治療に入る手前の層に、継続的に関わり続けられるサービスが要る。単発の癒やしでも、病院への送客でもなく、その人の生活のなかに残るものを。</div>
+          </div>
+        </div>
+      </div>
+      <div class="foot"><span>米倉まな｜アポプラスステーション様 ご提案</span><span class="time">1:50 → 2:35</span></div>
+    </section>
+
+    <!-- 5 -->
+    <section class="stage" hidden aria-label="スライド5 いま動いていること">
+      <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">04</span><span class="eyebrow-label">ACTION</span></div>
+      <h2 class="head">鍼灸には天井がある。だから「頭をオフにする」事業を始めます</h2>
+      <div class="body">
+        <div class="split">
+          <div class="kv">
+            <div class="row"><span class="dot"></span><span><b>ねここち</b>／頭オフ事業。考えごとで止まらない頭を、強制的にオフにする時間を売ります。2026年 立ち上げ予定。</span></div>
+            <div class="row"><span class="dot"></span><span>鍼灸は国家資格者に依存し、施術者1人あたりの時間が上限になる。＝ 売上に天井がある。</span></div>
+            <div class="row"><span class="dot"></span><span>ねここちは資格に依存しない設計。未病層が「治療」と身構えずに入れる入口になる。</span></div>
+            <div class="row"><span class="dot"></span><span><b>入口＝ねここち／出口＝鍼灸・医療</b>。必要な人だけを、適切な先へ渡す導線を持てる。</span></div>
+          </div>
+          <div class="figure">
+            <div class="cap">1店舗あたり</div>
+            <div class="big">月次利益 30<span style="font-size:.45em;">万円</span></div>
+            <div class="note">想定値。多店舗展開を前提に設計しており、人と仕組みが揃えば積み上がる構造です。</div>
+          </div>
+        </div>
+      </div>
+      <div class="foot"><span>米倉まな｜アポプラスステーション様 ご提案</span><span class="time">2:35 → 3:20</span></div>
+    </section>
+
+    <!-- 6 -->
+    <section class="stage" hidden aria-label="スライド6 企業と東洋医学">
+      <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">05</span><span class="eyebrow-label">POSSIBILITY</span></div>
+      <h2 class="head">企業と東洋医学は、もっと組める</h2>
+      <div class="body">
+        <div class="split">
+          <div class="kv">
+            <div class="row"><span class="dot"></span><span><b>先行事例：ブレインスリープ×丸井</b>。睡眠の製品を扱う企業が、商業施設のなかで鍼灸院を運営している。</span></div>
+            <div class="row"><span class="dot"></span><span>製品やサービスが「買って終わり」で止まらず、<b>施術という接点で継続的に人と関わり続ける</b>形をつくった例です。</span></div>
+            <div class="row"><span class="dot"></span><span>東洋医学は本来、不調になる前の状態を扱う医学。未病領域と相性がよく、企業の事業と組み合わせる余地が大きく残っている。</span></div>
+          </div>
+          <div class="quote">
+            <div class="q1">ご一緒したい領域</div>
+            <div class="q2">御社が持つ医療・製薬領域のネットワークと人材の仕組みに、東洋医学の「未病を扱う」視点を掛け合わせる。医療の手前で人に関わり続ける事業を、一緒に設計させてください。</div>
+          </div>
+        </div>
+      </div>
+      <div class="foot"><span>米倉まな｜アポプラスステーション様 ご提案</span><span class="time">3:20 → 4:00</span></div>
+    </section>
+
+    <!-- 7 -->
+    <section class="stage" data-tone="dark" hidden aria-label="スライド7 当社の課題">
+      <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">06</span><span class="eyebrow-label">OUR LIMIT</span></div>
+      <h2 class="head">正直に言うと、私1人で抱えられる量に天井があります</h2>
+      <div class="body">
+        <div class="flow">
+          <div class="flow-list">
+            <div class="fact"><b>01</b><span>臨床も、育成も、研究も、いまは私に紐づいている（属人）</span></div>
+            <div class="fact"><b>02</b><span>店舗は増やせても、施術者と運営を担える人は増やせていない</span></div>
+            <div class="fact"><b>03</b><span>課題の大きさに対して、届けられる人数が圧倒的に足りない</span></div>
+          </div>
+          <div class="arrow" aria-hidden="true">→</div>
+          <div class="punch">
+            <div class="p1">仕組みと、人と、<br>座組みが要る。</div>
+            <div class="p2">ここは私が最も苦手としてきた領域であり、御社が最も強い領域だと考えています。</div>
+          </div>
+        </div>
+      </div>
+      <div class="foot"><span>米倉まな｜アポプラスステーション様 ご提案</span><span class="time">4:00 → 4:30</span></div>
+    </section>
+
+    <!-- 8 -->
+    <section class="stage" hidden aria-label="スライド8 ご相談したいこと">
+      <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">07</span><span class="eyebrow-label">ASK</span></div>
+      <h2 class="head">だから、アポプラスステーション様と話したい</h2>
+      <div class="body">
+        <div class="asks">
+          <div class="ask">
+            <span class="no">01</span>
+            <div><div class="t">未病領域の新規事業を、共同で検討させてください</div><div class="d">東洋医学 × 御社の事業アセット。入口となるサービス設計から、実証までを一緒に。</div></div>
+          </div>
+          <div class="ask">
+            <span class="no">02</span>
+            <div><div class="t">人と組織の知見をお借りしたい</div><div class="d">施術者の採用・育成・配置。属人から仕組みへ移すために、御社の人材領域の知見が必要です。</div></div>
+          </div>
+          <div class="ask">
+            <span class="no">03</span>
+            <div><div class="t">実証の場をご一緒したい</div><div class="d">法人向けの健康支援など、未病層に届く場での実証。効果は学会発表の形で残し、根拠として積み上げます。</div></div>
+          </div>
+        </div>
+        <div class="quote">
+          <div class="q1">私の目的</div>
+          <div class="q2">生きづらさを抱えた人を、治療が必要になる手前で減らしたい。そのために、鍼灸の外側にある方法も含めて手を尽くします。</div>
+        </div>
+      </div>
+      <div class="foot"><span>米倉まな｜アポプラスステーション様 ご提案</span><span class="time">4:30 → 5:00</span></div>
+    </section>
+
+  </div>
+
+  <nav class="bar" aria-label="スライド操作">
+    <button class="btn" id="prev" type="button">← 前へ</button>
+    <div class="rail" id="rail" role="tablist" aria-label="スライド一覧"></div>
+    <button class="btn" id="next" type="button">次へ →</button>
+    <span class="counter" id="counter">1 / 8</span>
+    <button class="btn" id="notesBtn" type="button" aria-pressed="false">話す内容（N）</button>
+  </nav>
+  <div class="notes" id="notes" hidden></div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.stage'));
+  var rail = document.getElementById('rail');
+  var counter = document.getElementById('counter');
+  var notes = document.getElementById('notes');
+  var notesBtn = document.getElementById('notesBtn');
+  var i = 0, notesOpen = false;
+
+  var script = [
+    '<b>表紙（20秒）</b>　本日はお時間をいただきありがとうございます。提案に入る前に、私が何者で、何を変えたいのかを5分だけお話しさせてください。',
+    '<b>プロフィール（45秒）</b>　三重で鍼灸院を11年。のべ2万人以上を診てきました。臨床だけでなく、鍼灸師の育成と、学会での研究発表も続けています。心の不調を扱う鍼灸師として、現場・人・データの3つを持っているのが私の立ち位置です。',
+    '<b>強み（45秒）</b>　もうひとつの顔が、企業の新規事業への伴走です。パパゲーノ、ファンコミュニケーションズ、stand up。いずれも、臨床でしか得られない一次情報を、事業が使える形に翻訳する役割で関わってきました。',
+    '<b>課題感（45秒）</b>　いま現場で起きているのは、患者が増え続ける一方で、病院が新規を受けきれないという事態です。いちばん軽いうちに相談したい人ほど行き場がない。だから私は、未病の段階で止めたい。そこに継続的に関われるサービスが要る、と考えています。',
+    '<b>打ち手（45秒）</b>　ただ、鍼灸だけでは天井があります。国家資格者の時間が上限になるからです。そこで「ねここち」という頭をオフにする事業を始めます。1店舗あたり月次利益30万円を想定。ねここちが入口、鍼灸や医療が出口という導線をつくります。',
+    '<b>可能性（40秒）</b>　企業と東洋医学の組み合わせには、まだ余地があります。たとえば枕のブレインスリープさんは、丸井のなかで鍼灸院を運営しています。製品で終わらせず、施術という接点で人と関わり続ける形です。',
+    '<b>当社の課題（30秒）</b>　正直に申し上げると、いまはすべてが私に紐づいていて、1人で抱えられる量に天井があります。仕組みと人と座組みが足りない。ここは御社が最も強い領域だと考えています。',
+    '<b>ご相談（30秒）</b>　お願いしたいことは3つです。未病領域の新規事業の共同検討、人材・組織の知見、そして実証の場。治療が必要になる手前で、生きづらさを抱えた人を減らしたい。ぜひご一緒させてください。'
+  ];
+
+  slides.forEach(function(s, n){
+    var t = document.createElement('button');
+    t.className = 'tick'; t.type = 'button'; t.setAttribute('role','tab');
+    t.setAttribute('aria-label', 'スライド ' + (n+1));
+    t.addEventListener('click', function(){ go(n); });
+    rail.appendChild(t);
+  });
+  var ticks = Array.prototype.slice.call(rail.children);
+
+  function go(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function(s, k){ s.hidden = (k !== i); });
+    ticks.forEach(function(t, k){ t.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    counter.textContent = (i + 1) + ' / ' + slides.length;
+    notes.innerHTML = script[i];
+    if (window.claude && window.claude.hot && window.claude.hot.snapshot) {
+      window.claude.hot.snapshot({ i: i, notesOpen: notesOpen });
+    }
+  }
+  function setNotes(open){
+    notesOpen = open;
+    notes.hidden = !open;
+    notesBtn.setAttribute('aria-pressed', open ? 'true' : 'false');
+  }
+
+  document.getElementById('prev').addEventListener('click', function(){ go(i - 1); });
+  document.getElementById('next').addEventListener('click', function(){ go(i + 1); });
+  notesBtn.addEventListener('click', function(){ setNotes(!notesOpen); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { go(i + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(i - 1); e.preventDefault(); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(slides.length - 1); }
+    else if (e.key === 'n' || e.key === 'N') { setNotes(!notesOpen); }
+  });
+
+  function start(state){
+    state = state || {};
+    setNotes(!!state.notesOpen);
+    go(state.i || 0);
+  }
+  var hot = window.claude && window.claude.hot;
+  if (hot && hot.ready) { hot.ready(start); } else { start((hot && hot.data) || {}); }
+})();
+</script>
