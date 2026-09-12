@@ -1,4 +1,32 @@
 const pptxgen = require('pptxgenjs');
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+
+// 出力先の決定：
+//   1) コマンドライン引数    node build-pptx.js "/path/to/dir"
+//   2) Dropbox の所定フォルダを自動検出
+//   3) それも無ければカレントディレクトリ
+const DROPBOX_SUBPATH = path.join('合同会社ここちめいど', '未病', 'アポプラスステーション');
+function findOutDir() {
+  if (process.argv[2]) {
+    fs.mkdirSync(process.argv[2], { recursive: true });
+    return process.argv[2];
+  }
+  const home = os.homedir();
+  const roots = [
+    path.join(home, 'Dropbox'),
+    path.join(home, 'Library', 'CloudStorage', 'Dropbox'),
+    path.join(home, 'Dropbox (Personal)'),
+  ];
+  for (const r of roots) {
+    const dir = path.join(r, DROPBOX_SUBPATH);
+    if (fs.existsSync(dir)) return dir;
+    if (fs.existsSync(r)) { fs.mkdirSync(dir, { recursive: true }); return dir; }
+  }
+  return process.cwd();
+}
+const OUT_DIR = findOutDir();
 const p = new pptxgen();
 p.layout = 'LAYOUT_WIDE';           // 13.333 x 7.5
 p.author = '米倉まな';
@@ -261,4 +289,5 @@ s.addText('米倉まな｜アポプラスステーション様 ご提案',{x:M,y
   isTextBox:true,margin:0,valign:'middle',charSpacing:1});
 s.addNotes('本編には含めません。実績の裏取りを求められたときに、共同研究や企業連携の公開情報としてお見せする用です。');
 
-p.writeFile({fileName:'米倉まな_アポプラスステーション様ご提案_導入.pptx'}).then(f=>console.log('written',f));
+const OUT = path.join(OUT_DIR, '米倉まな_アポプラスステーション様ご提案_導入.pptx');
+p.writeFile({fileName: OUT}).then(f => console.log('✅ 書き出しました: ' + f));
