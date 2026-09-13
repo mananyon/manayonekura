@@ -276,19 +276,19 @@ s.addText('御社がすでに持っているもの',{x:RX,y:1.78,w:RW,h:0.3,font
  [[{text:'03　',f:1},{text:'買い手が見つからない。新規開拓に数年かかります。'}],
   [{text:'CSO・CRO事業',b:1},{text:'で、製薬・食品メーカーとの取引があります。'}]]
 ].forEach((r,i)=>{
-  const y=2.18+i*1.06;
+  const y=2.05+i*1.02;
   hr(s,LX,y-0.12,LW); hr(s,RX,y-0.12,RW);
   s.addText(r[0].map(t=>({text:t.text,options:t.f?{fontFace:SERIF,fontSize:17,bold:true,color:SHU}:{color:INK}})),
     {x:LX,y,w:LW,h:0.9,fontSize:14,fontFace:SANS,isTextBox:true,margin:0,valign:'top',lineSpacing:24});
   s.addText(r[1].map(t=>({text:t.text,options:{color:t.b?INK:INK2,bold:!!t.b}})),
     {x:RX,y,w:RW,h:0.9,fontSize:14,fontFace:SANS,isTextBox:true,margin:0,valign:'top',lineSpacing:24});
 });
-s.addText('いちばん大きいのは、受託試験の記録基盤に転用できることです。',{x:LX,y:5.6,w:CW,h:0.6,fontSize:24,fontFace:SERIF,bold:true,
-  color:SHU,isTextBox:true,margin:0,valign:'middle'});
+s.addText('いちばん大きいのは、受託試験で参加者に毎日つけてもらう記録に、そのまま使えることです。',{x:LX,y:5.3,w:CW,h:1.1,fontSize:22,fontFace:SERIF,bold:true,
+  color:SHU,isTextBox:true,margin:0,valign:'top',lineSpacing:34});
 s.addText('※ 数字は公開情報をもとにした記載です。相違があればご指摘ください。',{x:M,y:6.42,w:CW,h:0.3,fontSize:11,fontFace:SANS,
   color:INK2,isTextBox:true,margin:0,valign:'top'});
 foot(s,'4:55 → 5:35');
-s.addNotes('この種の事業には3つの壁があります。利用者が集まらない、健康情報を扱う体制がない、買い手が見つからない。御社はこの3つが最初から解けています。従業員872名という初期母集団、プライバシーマーク認定、そしてCSO・CRO事業の製薬・食品のお客様。他社が3年かけて作る前提条件を、御社は初日から持っています。そしていちばん大きいのは、これを受託試験の記録基盤に転用できることだと考えています。');
+s.addNotes('この種の事業には3つの壁があります。利用者が集まらない、健康情報を扱う体制がない、買い手が見つからない。御社はこの3つが最初から解けています。従業員872名という初期母集団、プライバシーマーク認定、そしてCSO・CRO事業の製薬・食品のお客様。他社が3年かけて作る前提条件を、御社は初日から持っています。そしていちばん大きいのは、受託試験で参加者に毎日つけてもらう記録に、これがそのまま使えることです。');
 
 /* ---------- 11 ご相談 ---------- */
 s=p.addSlide(); bg(s); eyebrow(s,'10','ASK');
