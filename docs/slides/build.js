@@ -120,6 +120,29 @@ function body(s, txt, x, y, w, h, opt) {
    B. 自己紹介
    ══════════════════════════════════════════════════════════ */
 
+// 3b 私は、聴いてもらう側でした
+{
+  const s = S(false);
+  eyebrow(s, "はじめに", false);
+  title(s, "私は、聴いてもらう側でした");
+  card(s, M, 2.1, CW * 0.54, 2.5);
+  s.addText("うつ病・パニック障害・双極性障害", {
+    x: M + 0.5, y: 2.45, w: CW * 0.54 - 1.0, h: 0.4, isTextBox: true, margin: 0,
+    fontFace: MIN, fontSize: 18, bold: true, color: INK,
+  });
+  body(s, "最重症期は、1日30錠。\n患者だった期間は、8年。\n\nいまは16年間、寛解。投薬もありません。",
+    M + 0.5, 2.95, CW * 0.54 - 1.0, 1.4, { fontSize: 15, lineSpacing: 28 });
+  s.addText("あのとき私がいちばん欲しかったのは、\n正しい助言では、ありませんでした。", {
+    x: M + CW * 0.54 + 0.6, y: 2.45, w: CW * 0.46 - 0.6, h: 1.2, isTextBox: true, margin: 0,
+    fontFace: MIN, fontSize: 20, bold: true, color: INK, lineSpacing: 34,
+  });
+  s.addText("ただ、話を最後まで\n聴いてもらうことでした。", {
+    x: M + CW * 0.54 + 0.6, y: 3.75, w: CW * 0.46 - 0.6, h: 1.0, isTextBox: true, margin: 0,
+    fontFace: MIN, fontSize: 22, bold: true, color: SHU, lineSpacing: 36,
+  });
+  note(s, "【3:00-4:30】\n★非常に個人的な開示です。話すかどうかは、ご自身で決めてください。\n　削除しても講演は成立します。ただ、この講演では最も強い一枚になり得ます。\n\n淡々と言う。同情を求めない。事実だけ置いて、最後の一行に重心をかける。\n★ここが、41枚目のワーク④『最後にちゃんと聴いてもらえたのはいつ？』への伏線になります。");
+}
+
 // 4 私は聴けていませんでした
 {
   const s = S(false);
@@ -206,7 +229,7 @@ function body(s, txt, x, y, w, h, opt) {
   s.addText("これが、外から見た私たちです。期待されている、ということでもあります。", {
     x: M, y: 4.55, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: GO, fontSize: 16, color: INK,
   });
-  note(s, "【8:00-9:30】\n★『40分あります』（3枚目）を受けて、「実際、医師の先生方からもこう言われます」と繋ぐ。\n★これは調査データではなく、ご自身が言われてきた実感として話すこと。\n　「私が言われるのは」「よく言われるのは」という言い方で。データとして提示しない。\n誇らしい気持ちで読み上げてよい。次のスライドの落差が効きます。");
+  note(s, "【8:00-9:15】\n★『40分あります』（3枚目）を受けて、「実際、医師の先生方からもこう言われます」と繋ぐ。\n★これは調査データではなく、ご自身が言われてきた実感として話すこと。\n　「私が言われるのは」「よく言われるのは」という言い方で。データとして提示しない。\n誇らしい気持ちで読み上げてよい。次のスライドの落差が効きます。");
 }
 
 // 8 自問（濃色）
@@ -228,7 +251,7 @@ function body(s, txt, x, y, w, h, opt) {
   s.addText("私は、胸を張って「はい」とは言えませんでした。", {
     x: M, y: 5.1, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 20, bold: true, color: SHU,
   });
-  note(s, "【9:30-10:30】\n★講演でいちばん空気が変わる場所。ここは急がない。\n2つの問いを読んだあと、必ず3秒黙る。会場（画面の向こう）に考えさせる。\n最後の一行は、自分のこととして静かに言う。責める調子にしない。\n\n※ここで『私も聴けていませんでした』（4枚目）を思い出してもらえると効く。");
+  note(s, "【9:15-10:15】\n★講演でいちばん空気が変わる場所。ここは急がない。\n2つの問いを読んだあと、必ず3秒黙る。会場（画面の向こう）に考えさせる。\n最後の一行は、自分のこととして静かに言う。責める調子にしない。\n\n※ここで『私も聴けていませんでした』（4枚目）を思い出してもらえると効く。");
 }
 
 // 9 今日のテーマ
@@ -258,7 +281,147 @@ function body(s, txt, x, y, w, h, opt) {
   s.addText("対話は、才能ではありません。学べる技法です。", {
     x: M, y: 4.95, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: INK,
   });
-  note(s, "【10:30-11:00】\n★テーマ宣言。ここで聴衆に今日の地図を渡す。\n『東洋医学の話はしません』と絞ることで、話が締まる。欲張らない。\n★『技法です』と言い切ることが、後半の『訓練』『環境』の話への伏線になる。");
+  note(s, "【10:15-10:45】\n★テーマ宣言。ここで聴衆に今日の地図を渡す。\n『東洋医学の話はしません』と絞ることで、話が締まる。欲張らない。\n★『技法です』と言い切ることが、後半の『訓練』『環境』の話への伏線になる。");
+}
+
+// 10 東洋医学は、情報がすべて
+{
+  const s = S(false);
+  eyebrow(s, "なぜ、対話が要るのか", false);
+  title(s, "「証」は、聞かなければ立ちません");
+  s.addText("四診", { x: M, y: 2.1, w: 2.0, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 12, bold: true, charSpacing: 2, color: MUTED });
+  const shin = [["望", "見る"], ["聞", "聞く・嗅ぐ"], ["問", "尋ねる"], ["切", "触れる"]];
+  shin.forEach((it, i) => {
+    const x = M + i * 1.2;
+    const on = it[0] === "問";
+    circle(s, it[0], x, 2.55, 1.0, on ? SHU : "D9CDB8", on ? PAPER : INK, 28);
+    s.addText(it[1], {
+      x: x - 0.1, y: 3.68, w: 1.2, h: 0.35, isTextBox: true, margin: 0, align: "center",
+      fontFace: GO, fontSize: 11, bold: on, color: on ? SHU : MUTED,
+    });
+  });
+  card(s, M + 5.2, 2.2, CW - 5.2, 2.5);
+  s.addText("主訴の、その裏にあること", {
+    x: M + 5.7, y: 2.5, w: CW - 6.2, h: 0.4, isTextBox: true, margin: 0,
+    fontFace: MIN, fontSize: 18, bold: true, color: INK,
+  });
+  s.addText("睡眠　／　食欲　／　便通　／　月経\n情志　／　生活リズム　／　仕事と家族", {
+    x: M + 5.7, y: 3.0, w: CW - 6.2, h: 0.85, isTextBox: true, margin: 0,
+    fontFace: GO, fontSize: 15, color: INK, lineSpacing: 28,
+  });
+  s.addText("どれも、聞かなければ出てきません。", {
+    x: M + 5.7, y: 3.95, w: CW - 6.2, h: 0.4, isTextBox: true, margin: 0,
+    fontFace: MIN, fontSize: 16, bold: true, color: SHU,
+  });
+  s.addText("東洋医学ができていない、のではなく ――　聞けていないだけ、かもしれません。", {
+    x: M, y: 4.95, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 21, bold: true, color: INK,
+  });
+  note(s, "【10:45-12:15】\n★8枚目の「東洋医学、できていますか？」への答えを、ここで返す。\n四診のうち「問」だけを朱にしているのがポイント。望・聞・切は自分で取れるが、\n問診だけは患者さんに話してもらわないと1ミリも進まない。\n\n★最後の一行は、責めずに、自分の実感として。ここで会場が静かになります。");
+}
+
+// 11 慢性疼痛診療でも同じ
+{
+  const s = S(false);
+  eyebrow(s, "なぜ、対話が要るのか", false);
+  title(s, "現代の慢性疼痛診療でも、同じです");
+  const pts = [
+    ["患者教育", "医療者と患者の信頼関係を築く／痛みへの捉え方を是正する"],
+    ["目標設定", "QOLにつながる目標を、患者と協働で設定する"],
+    ["協働的意思決定", "患者の主体性と参加を引き出す（shared decision-making）"],
+    ["ペーシングの管理", "「0か100か」という患者さんの思考パターンをつかむ"],
+    ["アドヒアランスの管理", "続けられない理由を、一緒に分析する"],
+  ];
+  pts.forEach((it, i) => {
+    const y = 2.15 + i * 0.76;
+    card(s, M, y, CW, 0.64);
+    circle(s, "●", M + 0.3, y + 0.2, 0.24, i === 2 ? MORI : SHU, PAPER, 7);
+    s.addText(it[0], {
+      x: M + 0.8, y, w: 3.1, h: 0.64, isTextBox: true, margin: 0, valign: "middle",
+      fontFace: MIN, fontSize: 16, bold: true, color: INK,
+    });
+    s.addText(it[1], {
+      x: M + 4.0, y, w: CW - 4.4, h: 0.64, isTextBox: true, margin: 0, valign: "middle",
+      fontFace: GO, fontSize: 13, color: MUTED,
+    });
+  });
+  s.addText("慢性疼痛診療研修会「痛みの治療」（日本いたみ財団）より要約", {
+    x: M, y: 6.0, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: "9E9484",
+  });
+  s.addText("5つとも、患者さんから話を聴かなければ、始まりません。", {
+    x: M, y: 6.45, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: SHU,
+  });
+  note(s, "【12:15-14:00】\n★東洋医学（前スライド）と現代の疼痛診療が、同じ結論に着地することを見せる。\n「古い/新しい」の話ではなく、どちらも入口は対話だ、と。\n\n★出典は必ず明示すること。原典のスライドをそのまま複写せず、要約で提示しています。\n　もし図表をそのまま使う場合は、事前に許諾を取ってください。\n\n読み上げは5つ全部やらない。①と③だけ読んで、「全部そうです」と締めるとテンポが保てます。");
+}
+
+// 12 地域の鍼灸師に求められる4つの役割
+{
+  const s = S(false);
+  eyebrow(s, "なぜ、対話が要るのか", false);
+  title(s, "地域の鍼灸師に、求められている4つの役割");
+  const f = [
+    ["1", "レッドフラッグのアセスメント", "器質的疾患・神経疾患・精神疾患の可能性を念頭に問診し、\n専門医への早期紹介を判断する", SHU],
+    ["2", "話を聴き、困りごとを整理する", "症状そのものより「症状によって できなくなったこと」に\n焦点を当てる", MORI],
+    ["3", "医療・福祉等に繋げる", "精神科、訪問看護、ハローワーク、地域包括支援センター。\n多様な資源への橋渡し", SHU],
+    ["4", "服薬アドヒアランスの向上", "薬への不安・不満を傾聴して言語化。医師・薬剤師と\n共有できる形に整理する", MORI],
+  ];
+  f.forEach((it, i) => {
+    const x = M + (i % 2) * (CW / 2 + 0.15);
+    const y = 2.1 + Math.floor(i / 2) * 1.55;
+    const w = CW / 2 - 0.15;
+    card(s, x, y, w, 1.35);
+    circle(s, it[0], x + 0.3, y + 0.25, 0.5, it[3], PAPER, 15);
+    s.addText(it[1], {
+      x: x + 0.95, y: y + 0.22, w: w - 1.25, h: 0.42, isTextBox: true, margin: 0, valign: "middle",
+      fontFace: MIN, fontSize: 16, bold: true, color: INK,
+    });
+    s.addText(it[2], {
+      x: x + 0.32, y: y + 0.72, w: w - 0.64, h: 0.55, isTextBox: true, margin: 0,
+      fontFace: GO, fontSize: 11.5, color: MUTED, lineSpacing: 19,
+    });
+  });
+  s.addText("4つとも、入口は同じです。――　聴くこと。", {
+    x: M, y: 5.35, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 24, bold: true, color: INK,
+  });
+  s.addText("米倉まな「地域医療における鍼灸師と精神科医との連携の実際」（2026.06）より", {
+    x: M, y: 5.95, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: "9E9484",
+  });
+  note(s, "【13:30-15:00】\n★ご自身の学会発表からの引用なので、堂々と出せます。\n★②と④は傾聴そのもの。①も、聴かなければ異変に気づけない。③も、\n　困りごとを聞き出せなければ どの資源に繋ぐか決められない。\n　→「4つとも入口は聴くこと」という締めに説得力が出ます。\n\n読み上げは①と②だけ。③④は「こういうこともします」と流す。");
+}
+
+// 13 レッドフラッグの事例
+{
+  const s = S(false);
+  eyebrow(s, "なぜ、対話が要るのか", false);
+  title(s, "聴いていたから、気づけました");
+  const talk = [
+    [0, "最近、気分が落ち込んでいて、眠れません"],
+    [1, "落ち込みと、眠れない。日中の眠気はありますか？"],
+    [0, "眠気はないんですが、時々ぼーっとして、誰かいるように感じたり、虫が見えるような気がして"],
+    [1, "（あれっ）手が震えたり、お薬が効きすぎることはありませんか？"],
+    [0, "あります。うつのお薬を飲むと、逆効果に感じるんです"],
+  ];
+  talk.forEach((t, i) => {
+    const mine = t[0] === 1;
+    const w = CW * 0.76;
+    const x = mine ? M + CW - w : M;
+    const y = 2.05 + i * 0.72;
+    if (mine) {
+      s.addShape(pres.ShapeType.roundRect, { x, y, w, h: 0.6, rectRadius: 0.1, fill: { color: INK } });
+    } else {
+      card(s, x, y, w, 0.6);
+    }
+    s.addText(t[1], {
+      x: x + 0.35, y, w: w - 0.7, h: 0.6, isTextBox: true, margin: 0, valign: "middle",
+      fontFace: GO, fontSize: 13, color: mine ? ONDARK : INK,
+    });
+  });
+  s.addText("神経内科にご高診を依頼　→　レビー小体型認知症でした。", {
+    x: M, y: 5.8, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: SHU,
+  });
+  s.addText("抑うつを訴えて来院され、ご高診後に判明した診断名（当院事例）：パーキンソン病／レビー小体型認知症／アルツハイマー病／脳腫瘍／甲状腺機能亢進症・低下症／更年期障害／月経前不快気分障害／産後うつ／糖尿病／微小血管狭心症　など", {
+    x: M, y: 6.4, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: MUTED, lineSpacing: 17,
+  });
+  note(s, "【15:00-17:00】\n★この講演でいちばん強い実例。ここを丁寧に。\n会話を実際に演じる（患者役と自分役で声色を変える）と一気に引き込めます。\n\n★言いたいのは「傾聴＝優しさ」ではなく「傾聴＝安全性」。\n　聴いていなければ、幻視も手の震えも出てこなかった。\n　うつの薬を出し続けられていたかもしれない、という重さ。\n\n下段の診断名リストは読み上げない。目で見せるだけで十分効きます。");
 }
 
 // 8 あるある（投票）
@@ -276,7 +439,7 @@ function body(s, txt, x, y, w, h, opt) {
   s.addText("▶ Zoom投票：当てはまるもの全部（複数選択可）", {
     x: M, y: 5.5, w: CW, h: 0.4, isTextBox: true, margin: 0, fontFace: GO, fontSize: 13, bold: true, color: MORI,
   });
-  note(s, "【11:00-13:00】自覚のスイッチ。\n★Zoom投票をここで使う（カメラオフ100名の参加感をつくる）。\n投票を締めて結果を画面共有し、「8割の方が③ですね」と読み上げる。\nその数字が次のスライドに直結する。");
+  note(s, "【14:00-15:30】自覚のスイッチ。\n★Zoom投票をここで使う（カメラオフ100名の参加感をつくる）。\n投票を締めて結果を画面共有し、「8割の方が③ですね」と読み上げる。\nその数字が次のスライドに直結する。");
 }
 
 // 9 構造の問題
@@ -295,44 +458,39 @@ function body(s, txt, x, y, w, h, opt) {
   s.addText("悪いのは、あなたではありません。習っていないだけです。", {
     x: M, y: 4.85, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 28, bold: true, color: SHU,
   });
-  note(s, "【13:00-14:00】\n★ここで責めると問合せは来ない。必ず逃げ道を用意する。\n「習っていないだけ」＝『習えば変わる』への伏線。");
+  note(s, "【15:30-16:15】\n★ここで責めると問合せは来ない。必ず逃げ道を用意する。\n「習っていないだけ」＝『習えば変わる』への伏線。");
 }
 
-// 10 データ（差し替え枠）
+// データ（実態調査）
 {
   const s = S(false);
-  eyebrow(s, "なぜ、鍼灸師に傾聴か", false);
-  title(s, "身体の主訴の、その後ろにあるもの");
-  card(s, M, 2.05, CW * 0.55, 3.1);
-  s.addText("▶ 学会発表の図をここに貼付", {
-    x: M + 0.3, y: 3.3, w: CW * 0.55 - 0.6, h: 0.6, isTextBox: true, margin: 0,
-    align: "center", fontFace: GO, fontSize: 15, bold: true, color: MUTED,
-  });
-  s.addText("全日本鍼灸学会 第3報・第4報\n「鍼灸院におけるうつと不安症状を有する患者の実態調査」", {
-    x: M + 0.3, y: 3.95, w: CW * 0.55 - 0.6, h: 0.7, isTextBox: true, margin: 0,
-    align: "center", fontFace: GO, fontSize: 11.5, color: MUTED, lineSpacing: 19,
-  });
-  body(s, "肩こりで、腰痛で、不眠で来られる。\nでもその方の生活には、\n必ず心の話があります。\n\n私はそれを、感覚ではなく\nデータで確かめたくて、\n調べ続けてきました。",
-    M + CW * 0.55 + 0.55, 2.35, CW * 0.45 - 0.55, 2.8, { fontSize: 16, lineSpacing: 30 });
-  note(s, "【14:00-16:00】\n★このスライドは必ずご自身の学会発表の図に差し替えてください。\n数字はこちらでは入れていません（推測を載せない方針）。\n狙い：直感ではなくエビデンスで話す人、というポジション取り。\nこれがメンター依頼の『質』を上げます。");
-}
-
-// 11 治療の一部
-{
-  const s = S(false);
-  eyebrow(s, "なぜ、鍼灸師に傾聴か", false);
-  title(s, "聴くことは、治療の一部です");
-  const c = [["治療同盟", "関係の質そのものが、\n転帰に影響する"], ["安心と自律神経", "『わかってもらえた』は\n身体の状態を変える"], ["語りが変える", "話すことで、\n痛みの意味づけが変わる"]];
-  c.forEach((it, i) => {
+  eyebrow(s, "なぜ、対話が要るのか", false);
+  title(s, "鍼灸院に、どんな方が来ているか");
+  const cols = [
+    ["診断名", ["うつ病　28%", "うつ状態　20%", "不眠症・睡眠障害　15%", "自律神経失調症　15%"], SHU],
+    ["病　歴", ["10年以上　25%", "5〜10年　22%", "", "慢性的な経過の方が多い"], MORI],
+    ["来院の背景", ["精神科で治療中の方", "他科から受診を勧められた方", "受診を迷っている・未受診の方", ""], SHU],
+  ];
+  cols.forEach((c, i) => {
     const x = M + i * (CW / 3);
-    circle(s, "◯", x, 2.15, 0.5, i === 1 ? MORI : SHU, PAPER, 15);
-    s.addText(it[0], { x, y: 2.85, w: CW / 3 - 0.4, h: 0.45, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 21, bold: true, color: INK });
-    s.addText(it[1], { x, y: 3.4, w: CW / 3 - 0.4, h: 1.0, isTextBox: true, margin: 0, fontFace: GO, fontSize: 14, color: MUTED, lineSpacing: 24 });
+    const w = CW / 3 - 0.35;
+    card(s, x, 2.1, w, 2.75);
+    s.addText(c[0], {
+      x: x + 0.35, y: 2.4, w: w - 0.7, h: 0.42, isTextBox: true, margin: 0,
+      fontFace: MIN, fontSize: 19, bold: true, color: c[2],
+    });
+    s.addText(c[1].filter(Boolean).join("\n"), {
+      x: x + 0.35, y: 2.95, w: w - 0.7, h: 1.7, isTextBox: true, margin: 0,
+      fontFace: GO, fontSize: 13.5, color: INK, lineSpacing: 26,
+    });
   });
-  s.addText("傾聴は、施術の前段階ではありません。施術そのものです。", {
-    x: M, y: 5.2, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: INK,
+  s.addText("受診を迷っている方が、鍼灸院には来ます。", {
+    x: M, y: 5.1, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 26, bold: true, color: INK,
   });
-  note(s, "【16:00-17:15】\n『傾聴＝優しさ』から『傾聴＝治療技術』へ、聴衆の枠組みを移す。");
+  s.addText("米倉まな・松浦悠人ら「鍼灸院におけるうつと不安症状を有する患者の実態調査（第4報）電子システムを用いた集積」第74回 全日本鍼灸学会学術大会", {
+    x: M, y: 5.8, w: CW, h: 0.45, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: "9E9484", lineSpacing: 17,
+  });
+  note(s, "【19:15-20:45】\n★ご自身の第4報のデータ。数字はPDFの記載どおりです。発表前に最新値をご確認ください。\n\n★締めの一行がこのスライドの主役。\n　「受診を迷っている方が来る」＝だからレッドフラッグを拾う耳が要る、\n　という13枚目への回収になります。\n数字は読み上げず、「うつ病が3割弱、10年以上の方が4分の1」くらいで流す。");
 }
 
 // 12 スルーライン（濃色）
@@ -347,7 +505,7 @@ function body(s, txt, x, y, w, h, opt) {
     x: 1.5, y: 4.6, w: 10.3, h: 0.5, isTextBox: true, margin: 0, align: "center",
     fontFace: GO, fontSize: 16, color: MUTED_D,
   });
-  note(s, "【17:15-18:00】\nこの講演を貫く一行。ここで一度置いて、最後（53枚目）で同じ言葉に戻る。\n読んだあと一拍おいてから次へ。急がない。");
+  note(s, "【18:40-19:15】\nこの講演を貫く一行。ここで一度置いて、最後（53枚目）で同じ言葉に戻る。\n読んだあと一拍おいてから次へ。急がない。");
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -367,7 +525,7 @@ function body(s, txt, x, y, w, h, opt) {
     s.addText(t, { x: x + 0.3, y: 3.25, w: CW / 3 - 0.95, h: 0.7, isTextBox: true, margin: 0, align: "center", fontFace: GO, fontSize: 15, bold: true, color: INK, lineSpacing: 24 });
   });
   s.addText("全部、ちがいます。", { x: M, y: 4.6, w: CW, h: 0.7, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 32, bold: true, color: INK });
-  note(s, "【18:00-19:30】\n言い切る。ここで『え、違うの？』という顔をさせたい。\n特に③は多くの人が『我慢すること』だと思っている。");
+  note(s, "【19:15-20:40】\n言い切る。ここで『え、違うの？』という顔をさせたい。\n特に③は多くの人が『我慢すること』だと思っている。");
 }
 
 // 14 定義
@@ -390,7 +548,7 @@ function body(s, txt, x, y, w, h, opt) {
   s.addText("カール・ロジャーズが示した3条件（1957）", {
     x: M, y: 5.45, w: CW, h: 0.4, isTextBox: true, margin: 0, fontFace: GO, fontSize: 11.5, color: MUTED,
   });
-  note(s, "【19:30-21:30】\nロジャーズをそのまま説明すると眠くなる。必ず鍼灸の言葉に翻訳して話す。\n『証を立てる前に』のくだりが、この講演でいちばん鍼灸師に刺さる言い回し。");
+  note(s, "【20:40-22:30】\nロジャーズをそのまま説明すると眠くなる。必ず鍼灸の言葉に翻訳して話す。\n『証を立てる前に』のくだりが、この講演でいちばん鍼灸師に刺さる言い回し。");
 }
 
 // 15-17 三原則
@@ -408,9 +566,9 @@ principles.forEach((p, i) => {
   card(s, M, 2.3, CW, 1.35);
   s.addText("「" + p[2] + "」", { x: M + 0.5, y: 2.3, w: CW - 1.0, h: 1.35, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: p[4], valign: "middle", lineSpacing: 34 });
   body(s, p[3], M, 4.0, CW, 1.3, { fontSize: 16, lineSpacing: 30 });
-  note(s, ["【21:30-23:00】沈黙は『気を待つ』のと同じ、と重ねると鍼灸師には一発で伝わる。",
-    "【23:00-24:30】『診立てはあとからでも間に合う』は、責任感の強い人ほど救われる一言。",
-    "【24:30-26:00】ここで『訓練』という言葉を初めて出す。後半のサロンの話への伏線。"][i]);
+  note(s, ["【22:30-24:00】沈黙は『気を待つ』のと同じ、と重ねると鍼灸師には一発で伝わる。",
+    "【46:30-48:00】その場で1回、声に出して実演してみせるとよい。\n\n★実例を足すなら：「薬が怖い」と言われたとき、\n　『どんなところが怖いですか？』『どうしてそう思うんですか？』と返すだけ。\n　それで出てきた不安を、主治医に相談できる形に整理して渡す。\n　（服薬アドヒアランスの支援＝反復と問い返しだけで成立します）",
+    "【25:30-26:50】ここで『訓練』という言葉を初めて出す。後半のサロンの話への伏線。"][i]);
 });
 
 // 18 つなぎ
@@ -419,7 +577,7 @@ principles.forEach((p, i) => {
   s.addText("ここまでは、知識です。", { x: M, y: 2.5, w: CW, h: 0.8, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 34, bold: true, color: MUTED_D });
   s.addText("知識では、1ミリも変わりません。", { x: M, y: 3.4, w: CW, h: 0.9, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 40, bold: true, color: ONDARK });
   s.addText("では、やってみましょう。", { x: M, y: 4.6, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: GO, fontSize: 20, color: SHU });
-  note(s, "【26:00-27:00】\nワークへの切り替え。ここで声のトーンを一段上げる。");
+  note(s, "【26:50-27:20】\nワークへの切り替え。ここで声のトーンを一段上げる。");
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -437,7 +595,7 @@ principles.forEach((p, i) => {
   s.addText("使うもの：紙とペン ／ チャット ／ 耳", {
     x: M, y: 5.0, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 19, bold: true, color: MORI,
   });
-  note(s, "【27:00-28:00】\n★制約を『わざとそうした』に変える。ここで場の空気が一段変わる。\n『カメラはオフのままで大丈夫』は必ず言う。言うほど参加率が上がる。");
+  note(s, "【27:20-28:00】\n★制約を『わざとそうした』に変える。ここで場の空気が一段変わる。\n『カメラはオフのままで大丈夫』は必ず言う。言うほど参加率が上がる。");
 }
 
 // 20 ワーク①説明
@@ -671,21 +829,38 @@ kata.forEach((k, i) => {
     "【46:30-48:00】✕と◯の対比は音読する。耳だけで聴いている人がいる。"][i]);
 });
 
-// 45 症例
+// 症例：継続患者に起きた変化
 {
   const s = S(false);
   eyebrow(s, "明日からの臨床", false);
-  title(s, "実際に、こう変わりました");
-  card(s, M, 2.05, CW, 3.1);
-  s.addText("▶ ご自身の症例を1つ（個人が特定されない形で）", {
-    x: M + 0.6, y: 2.4, w: CW - 1.2, h: 0.45, isTextBox: true, margin: 0, fontFace: GO, fontSize: 13, bold: true, color: MUTED,
+  title(s, "続けて来られた方に、起きたこと");
+  const ch = [
+    ["復職・転職", "鍼灸を続けながら復職、または\nより自分に合った職場へ移った", SHU],
+    ["起業・就労形態の変更", "新しい働き方を選び、自分の\nペースで社会参加を続けている", MORI],
+    ["日常生活の安定", "就労形態を調整しながら、\n安定した生活を継続している", MORI],
+    ["多職種連携による支援", "医師・薬剤師・行政制度を\n組み合わせて社会復帰を目指す", SHU],
+  ];
+  ch.forEach((it, i) => {
+    const x = M + (i % 2) * (CW / 2 + 0.15);
+    const y = 2.1 + Math.floor(i / 2) * 1.5;
+    const w = CW / 2 - 0.15;
+    card(s, x, y, w, 1.3);
+    s.addText(it[0], {
+      x: x + 0.4, y: y + 0.22, w: w - 0.8, h: 0.42, isTextBox: true, margin: 0,
+      fontFace: MIN, fontSize: 18, bold: true, color: it[2],
+    });
+    s.addText(it[1], {
+      x: x + 0.4, y: y + 0.68, w: w - 0.8, h: 0.55, isTextBox: true, margin: 0,
+      fontFace: GO, fontSize: 12.5, color: INK, lineSpacing: 21,
+    });
   });
-  body(s, "語るのは、症状の改善ではなく——\n\n・関係が、どう変わったか\n・通院が、どう続くようになったか\n・その方が、何を話せるようになったか",
-    M + 0.6, 2.9, CW - 1.2, 2.1, { fontSize: 16, lineSpacing: 29 });
-  s.addText("鍼灸症例データベース構築プロジェクト（株式会社ケアクル／東京有明医療大学／玉川大学／ここちめいど）", {
-    x: M, y: 5.4, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: GO, fontSize: 11.5, color: MUTED,
+  s.addText("鍼灸院の中だけで、支援を完結させない。", {
+    x: M, y: 5.25, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 25, bold: true, color: INK,
   });
-  note(s, "【48:00-49:00】\n★ここはご自身の症例に差し替えてください。掲載許可の確認を忘れずに。\n★症状の改善で語ると『すごい人の話』になる。関係と継続で語ると『自分にもできそう』になる。\n時間が押していたら、このスライドは一言で流してよい。");
+  s.addText("医師・行政制度・地域の医療資源を、組み合わせて使う。", {
+    x: M, y: 5.9, w: CW, h: 0.45, isTextBox: true, margin: 0, fontFace: GO, fontSize: 15, color: MUTED,
+  });
+  note(s, "【49:30-51:00】\n★「症状が良くなりました」ではなく「生活が動きました」で語る。\n　鍼灸師の聴衆には、こちらのほうが圧倒的に刺さります。\n\n★締めの2行が、次の『私の失敗（ひとりでやると壊れます）』への橋です。\n　抱え込まないこと、外に繋ぐこと。ここを言っておくと、\n　後半のサロン／ここちはりの話が『仲間が要る』という文脈で通ります。\n\n※個別の症例を語る場合は、個人が特定されない形で。掲載許可の確認を。");
 }
 
 // 46 私の失敗（濃色）
@@ -842,6 +1017,8 @@ kata.forEach((k, i) => {
   note(s, "【57:40-60:00】\n★このスライドを30秒 黙って映す。読み取り待ち。ここを急ぐと激減します。\n★Q&Aの間も、このスライドを出しっぱなしにする。\n★チャットにも同じリンクを投下（事前にメモ帳に用意してコピペ／共同ホストに依頼）。\n　ただしチャットは録画に残らないので、画面表示が本体です。\n★短縮URLは口頭でも読み上げる（音声だけで聴いている人がいます）。\n\n【Q&Aのコツ】\n質問には即答せず、まず「その患者さん、なんて仰ってました？」と聴き返す。\n傾聴の実演が、いちばん強い営業になります。");
 }
 
+const TIMINGS = {1: "0:00-0:20", 2: "0:20-1:20", 3: "1:20-3:00", 4: "3:00-4:30", 5: "4:30-5:45", 6: "5:45-6:45", 7: "6:45-8:00", 8: "8:00-9:15", 9: "9:15-10:15", 10: "10:15-10:45", 11: "10:45-12:00", 12: "12:00-13:30", 13: "13:30-15:00", 14: "15:00-17:00", 15: "17:00-18:30", 16: "18:30-19:15", 17: "19:15-20:45", 18: "20:45-21:30", 19: "21:30-22:45", 20: "22:45-24:15", 21: "24:15-25:30", 22: "25:30-26:45", 23: "26:45-27:50", 24: "27:50-28:20", 25: "28:20-29:00", 26: "29:00-30:00", 27: "30:00-31:30", 28: "31:30-32:00", 29: "32:00-33:30", 30: "33:30-34:00", 41: "34:10-35:00", 42: "35:00-35:40", 43: "35:40-39:30", 44: "39:30-40:00", 45: "40:00-42:30", 46: "42:30-43:00", 47: "43:00-43:45", 48: "43:45-45:45", 49: "45:45-47:15", 50: "47:15-48:45", 51: "48:45-50:15", 52: "50:15-51:45", 53: "51:45-53:00", 54: "53:00-54:15", 55: "54:15-55:15", 56: "55:15-56:15", 57: "56:15-57:00", 58: "57:00-57:45", 59: "57:45-60:00"};
+
 const TOP = 0.34, BOTTOM = 6.92;
 
 for (const rec of decks) {
@@ -874,7 +1051,11 @@ for (const rec of decks) {
     x: W - 0.85, y: H - 0.5, w: 0.5, h: 0.3, isTextBox: true, margin: 0,
     align: "right", fontFace: GO, fontSize: 10, color: rec.dark ? "6B5F51" : "B7A991",
   });
-  if (rec.notes) s.addNotes(rec.notes);
+  if (rec.notes) {
+    let nt = rec.notes;
+    if (TIMINGS[rec.num]) nt = nt.replace(/^【[^】]*】/, "【" + TIMINGS[rec.num] + "】");
+    s.addNotes(nt);
+  }
 }
 
 const OUT = process.argv[2] || "APNET-keicho-60min.pptx";
