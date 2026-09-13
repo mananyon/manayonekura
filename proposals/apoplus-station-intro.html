@@ -97,12 +97,25 @@ h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);l
 .pairhead{font-size:calc(var(--u)*.88);letter-spacing:.24em;font-weight:700;padding-bottom:calc(var(--u)*.6);}
 .pairhead.a{color:var(--shu);}
 .pairhead.b{color:var(--midori);}
-.cell{font-size:calc(var(--u)*1.03);line-height:1.65;padding:calc(var(--u)*.58) 0;border-top:1px solid var(--rule);}
+.cell{font-size:calc(var(--u)*1.03);line-height:1.6;padding:calc(var(--u)*.46) 0;border-top:1px solid var(--rule);}
 .cell.b{color:var(--ink-2);padding-left:calc(var(--u)*1.6);border-left:1px solid var(--rule);}
 .cell:last-child,.cell:nth-last-child(2){padding-bottom:0;}
 .cell .fig{font-family:var(--serif);font-weight:600;color:var(--shu);font-size:calc(var(--u)*1.42);font-variant-numeric:tabular-nums;letter-spacing:.01em;}
 .stage[data-tone="dark"] .cell{border-color:var(--tone-rule);}
 .stage[data-tone="dark"] .cell.b{color:var(--tone-fg2);border-left-color:var(--tone-rule);}
+.figflow{margin:0;}
+.figflow svg{width:100%;height:auto;display:block;}
+.figflow text{font-family:var(--sans);fill:currentColor;}
+.figflow .bx{fill:rgba(255,255,255,.45);stroke:var(--rule);stroke-width:1.2;}
+.figflow .bx-a{fill:rgba(156,84,70,.08);stroke:var(--shu);stroke-width:1.6;}
+.figflow .ln{stroke:currentColor;stroke-width:1.4;fill:none;opacity:.55;}
+.figflow .ln-a{stroke:var(--shu);stroke-width:1.6;fill:none;stroke-dasharray:5 4;}
+.figflow .t1{font-size:17px;font-weight:700;}
+.figflow .t2{font-size:13px;opacity:.7;}
+.figflow .t3{font-size:15px;}
+.figflow .lb{font-size:12.5px;opacity:.7;letter-spacing:.04em;}
+.figflow .lb-a{font-size:12.5px;fill:var(--shu);font-weight:700;letter-spacing:.04em;}
+.figflow .num{font-size:14px;fill:var(--shu);font-weight:700;}
 .refs{display:flex;flex-direction:column;gap:0;}
 .ref{display:grid;grid-template-columns:calc(var(--u)*6) 1fr;gap:calc(var(--u)*1.2);align-items:baseline;padding:calc(var(--u)*.5) 0;border-top:1px solid var(--rule);}
 .ref:last-child{border-bottom:1px solid var(--rule);}
@@ -216,7 +229,7 @@ h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);l
           <div class="arrow" aria-hidden="true">→</div>
           <div class="punch">
             <div class="p1">「もっと早く、<br>鍼灸に出会いたかった」</div>
-            <div class="p2">患者さんから、いちばん多く言われる言葉です。この「もっと早く」をなくすのが私の仕事です。</div>
+            <div class="p2">患者さんから、いちばん多く言われる言葉です。<br>東洋医学や鍼灸という手段、未病という概念も、その一つです。<br>この「もっと早く」をなくすのが私の仕事です。</div>
           </div>
         </div>
       </div>
@@ -237,18 +250,18 @@ h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);l
           <div class="card">
             <span class="tag">育成・コミュニティ</span>
             <span class="k">ここちめいど／ここちはり</span>
-            <span class="v">傾聴を学ぶ鍼灸師のオンラインサロンを2020年から主宰。2025年からは施術者の育成事業も開始しました。</span>
+            <span class="v">傾聴を学ぶ鍼灸師のオンラインサロンを2020年から主宰。2025年からは施術者の育成事業も開始しました</span>
           </div>
           <div class="card">
             <span class="tag">研究</span>
             <span class="k">学会発表・産学連携</span>
-            <span class="v">全日本鍼灸学会・日本うつ病学会で発表し、日本精神神経学会にも登壇。理化学研究所や大学との共同研究に参画しています。</span>
+            <span class="v">全日本鍼灸学会・日本うつ病学会で発表し、日本東洋医学会、日本精神神経学会にも招待講演にて登壇。理化学研究所や大学との共同研究に参画。</span>
           </div>
         </div>
         <div class="stats">
           <div class="stat"><div class="n">12<small>年目</small></div><div class="l">鍼灸院 開業</div></div>
           <div class="stat"><div class="n">20,000<small>人+</small></div><div class="l">のべ臨床患者数</div></div>
-          <div class="stat"><div class="n">3<small>学会</small></div><div class="l">発表・登壇</div></div>
+          <div class="stat"><div class="n">4<small>学会</small></div><div class="l">発表・登壇</div></div>
           <div class="stat"><div class="n">修士</div><div class="l">武蔵野大学大学院 人間学</div></div>
         </div>
       </div>
@@ -322,7 +335,7 @@ h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);l
           </div>
           <div class="quote">
             <div class="q1">ここから私が受け取ったこと</div>
-            <div class="q2">製品を売って終わりにせず、施術という接点で人と関わり続ける。効果を数字で示し、資格者を自社で育て、定額で通ってもらう。このあとお話しする私の事業も、同じ構造です。<br><br>違いは入口です。<b>あの会社は「睡眠」から入った。私は「こころ」から入ります。</b></div>
+            <div class="q2">製品を売って終わりにせず、施術という接点で人と関わり続ける。効果を数字で示し、資格者を自社で育て、定額で通ってもらう。このあとお話しする私の事業も、同じ構造です。<br><br>違いは入口です。<br><b>ブレインスリープは「睡眠」から入った。<br>私は「こころ」から入ります。</b></div>
           </div>
         </div>
       </div>
@@ -339,13 +352,13 @@ h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);l
           <div class="pairhead a">社会で起きていること</div>
           <div class="pairhead b">私が現場で見ていること</div>
 
-          <div class="cell a"><span class="fig">約600万人</span>　精神疾患を持つ患者数。国は2024年、厚生労働白書で初めて「こころの健康」をテーマにしました。</div>
+          <div class="cell a"><span class="fig">約600万人</span>　精神疾患を持つ患者数。国は2024年、厚生労働白書で初めて「こころの健康」をテーマに。</div>
           <div class="cell b">のべ20,000人を診てきて、心の不調の方が明らかに増えました。</div>
 
           <div class="cell a"><span class="fig">2028年4月</span>　50人未満の事業場にもストレスチェックが義務化。現在の実施率は6割弱です。</div>
           <div class="cell b">気づいても、次に行く場所がない。精神科は予約が埋まり、新規を止める医療機関も出ています。</div>
 
-          <div class="cell a"><span class="fig">年7.6兆円</span>　メンタル不調による経済損失。うち7.3兆円は「出勤しているのに力が出ない」分。</div>
+          <div class="cell a"><span class="fig">年7.6兆円</span>　メンタル不調による経済損失。休職・欠勤（アブセンティーイズム）は0.3兆円。残り7.3兆円は出社している人（プレゼンティーイズム）です。</div>
           <div class="cell b">休職や通院の手前で止まる方が、いちばん多い。この層は誰の担当でもありません。</div>
         </div>
         <div class="close-line">だから、未病の段階で止めておきたい。</div>
@@ -357,7 +370,7 @@ h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);l
     <!-- 8 -->
     <section class="stage" hidden aria-label="スライド8 当社の課題">
       <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">07</span><span class="eyebrow-label">MY LIMIT</span></div>
-      <h2 class="head">正直に言うと、私1人で抱えられる量に天井があります</h2>
+      <h2 class="head">私の課題：私1人で抱えられる量に天井があります</h2>
       <div class="body">
         <div class="flow">
           <div class="flow-list">
@@ -368,7 +381,7 @@ h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);l
           <div class="arrow" aria-hidden="true">→</div>
           <div class="punch">
             <div class="p1">仕組みと、人と、<br>座組みが要る。</div>
-            <div class="p2">ここは私が最も苦手な領域であり、御社が最も強い領域だと考えています。</div>
+            <div class="p2">ここは私が最も苦手な領域であり、御社が強い領域だと考えています。</div>
           </div>
         </div>
       </div>
@@ -380,26 +393,49 @@ h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);l
       <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-num">08</span><span class="eyebrow-label">PRODUCT</span></div>
       <h2 class="head">いま提案したいのは「未病ノート」です</h2>
       <div class="body">
-        <div class="cols">
-          <div class="card">
-            <span class="tag">返事 1</span>
-            <span class="k">いま、同じ人がいます</span>
-            <span class="v">「白露のいま、同じ〈だるさ＋冷え〉を記録している人が、関東の40代に128人います」。同じ節気・年代・地域の人数を返します。</span>
-          </div>
-          <div class="card">
-            <span class="tag">返事 2</span>
-            <span class="k">去年の今頃</span>
-            <span class="v">「去年の白露も、3日続けてだるさを記録していました」。比較の単位を年ではなく<b>節気</b>に置くので、3か月で6回分貯まります。</span>
-          </div>
-          <div class="card">
-            <span class="tag">返事 3</span>
-            <span class="k">崩れやすさ予測</span>
-            <span class="v">気圧の低下と本人の過去パターンから「明後日は肩こりに注意」。毎日開く理由をつくります。</span>
-          </div>
-        </div>
+<figure class="figflow">
+          <svg viewBox="0 0 1060 246" role="img" aria-label="毎日30秒の記録に対して未病ノートがその場で3つの返事を返し、それがまた開きたくなる理由になって記録が続く、という循環の図">
+            <defs>
+              <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="currentColor" opacity=".55"></path>
+              </marker>
+              <marker id="ara" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#9C5446"></path>
+              </marker>
+            </defs>
+
+            <rect class="bx" x="1" y="77" width="214" height="60" rx="6"></rect>
+            <text class="t1" x="108" y="103" text-anchor="middle">毎日30秒の記録</text>
+            <text class="t2" x="108" y="123" text-anchor="middle">気・血・水・心 を各3項目</text>
+
+            <line class="ln" x1="215" y1="107" x2="288" y2="107" marker-end="url(#ar)"></line>
+            <text class="lb" x="251" y="97" text-anchor="middle">記録</text>
+
+            <rect class="bx-a" x="295" y="77" width="186" height="60" rx="6"></rect>
+            <text class="t1" x="388" y="113" text-anchor="middle" style="fill:var(--shu)">未病ノート</text>
+
+            <line class="ln" x1="481" y1="107" x2="592" y2="107" marker-end="url(#ar)"></line>
+            <text class="lb" x="536" y="97" text-anchor="middle">その場で返す</text>
+
+            <rect class="bx" x="600" y="30" width="459" height="46" rx="6"></rect>
+            <text class="num" x="620" y="59">1</text>
+            <text class="t3" x="640" y="59">いま、同じ人がいます</text>
+
+            <rect class="bx" x="600" y="84" width="459" height="46" rx="6"></rect>
+            <text class="num" x="620" y="113">2</text>
+            <text class="t3" x="640" y="113">去年の今頃も、同じでした</text>
+
+            <rect class="bx" x="600" y="138" width="459" height="46" rx="6"></rect>
+            <text class="num" x="620" y="167">3</text>
+            <text class="t3" x="640" y="167">明後日は崩れやすい</text>
+
+            <path class="ln-a" d="M830,184 L830,222 L108,222 L108,143" marker-end="url(#ara)"></path>
+            <text class="lb-a" x="469" y="213" text-anchor="middle">また開きたくなる ＝ 記録が続く</text>
+          </svg>
+        </figure>
         <div class="quote">
           <div class="q1">設計</div>
-          <div class="q2">毎日30秒、12項目の体調記録。気・血・水・心を各3項目ずつ。<b>記録して終わりにせず、必ず「返事」が返る</b>のが、ほかの記録アプリとの違いです。玉川大学 柴田研究室との共同提案で、私は臨床監修を担当します。</div>
+          <div class="q2"><b>記録して終わりにしない。返事があるから続き、続くからデータになる。</b>これがほかの記録アプリとの違いです。玉川大学 柴田研究室との共同提案で、私は臨床監修を担当します。</div>
         </div>
       </div>
       <div class="foot"><span>米倉まな｜アポプラスステーション様 ご提案</span><span class="time">4:10 → 4:55</span></div>
@@ -501,7 +537,7 @@ h2.head{font-family:var(--serif);font-weight:700;font-size:calc(var(--u)*2.55);l
     '<b>強み（40秒）</b>　もうひとつの顔が、企業の新規事業への伴走です。パパゲーノでは認定第一号として、就労継続支援の事業に発注する側で関わりました。ファンコミュニケーションズさんのThirdTalkは、病院やカウンセリングに行く一歩手前の人のためのオンライン対話サービスで、企画段階からご相談をいただき、立ち上げを見守ってきました。stand upさんはアミューズメントの会社で、新規事業のご相談から、いまもお取引が続いています。医療の中でも外でも、臨床でしか得られない一次情報を事業の形に翻訳する役割です。',
     '<b>打ち手（35秒）</b>　いま「ねここち」という、頭をオフにする事業の立ち上げを準備しています。頭が考えごとで止まらない人に、強制的にオフにする時間を売る事業です。施術は鍼灸師の国家資格を持つ人が行います。医療の知識を持つ人が、治療の手前の層に関わる形です。治療と身構えずに入れる入口をつくって、必要な人だけを鍼灸や医療につなぐ。1店舗あたり月次利益30万円を想定しています。',
     '<b>先行事例（35秒）</b>　企業と鍼灸の組み合わせは、もう絵空事ではありません。枕で知られるブレインスリープさんは、睡眠専門の鍼灸院を自社ブランドで4店舗運営しています。有楽町マルイのように商業施設の中にも入っていて、丸井グループ側もプレスリリースを出しています。累計1万人以上が利用し、施術の効果も数字で公表し、定額プランで通い続けてもらう設計です。製品を売って終わりにせず、施術で人と関わり続けている。私がやろうとしている構造とほぼ同じで、違いは入口だけです。あの会社は睡眠から入った。私はこころから入ります。',
-    '<b>課題感（50秒）</b>　ここからは、私が現場で感じていることをお話しします。左が社会の数字、右が私が院で見ていることです。精神疾患の患者は約600万人、国も2024年に初めて白書のテーマにこころの健康を据えました。私の院でも、心の不調を主訴に来られる方が明らかに増えています。さらに2028年からは50人未満の会社にもストレスチェックが義務化されます。ただ、検査で気づいても次に行く場所がない。病院はもう新規を受けきれていません。そして損失の7.6兆円のうち7.3兆円は、休んでいる人ではなく、出勤しているのに力が出ない人の分です。この層が、いま誰の担当にもなっていない。だから私は、未病の段階で止めたいと考えています。',
+    '<b>課題感（50秒）</b>　ここからは、私が現場で感じていることをお話しします。左が社会の数字、右が私が院で見ていることです。精神疾患の患者は約600万人、国も2024年に初めて白書のテーマにこころの健康を据えました。私の院でも、心の不調を主訴に来られる方が明らかに増えています。さらに2028年からは50人未満の会社にもストレスチェックが義務化されます。ただ、検査で気づいても次に行く場所がない。病院はもう新規を受けきれていません。そして損失の7.6兆円のうち、休職や欠勤によるアブセンティーイズムはわずか0.3兆円です。残りの7.3兆円は、出社しているのに力が出ていないプレゼンティーイズムの分。つまり損失のほとんどは、休んでいない人が生んでいます。この層が、いま誰の担当にもなっていない。だから私は、未病の段階で止めたいと考えています。',
     '<b>私に足りないもの（20秒）</b>　正直に申し上げると、いまはすべてが私に紐づいていて、1人で抱えられる量に天井があります。仕組みと人と座組みが足りない。ここは御社が最も強い領域だと考えています。',
     '<b>未病ノート（50秒）</b>　そのうえで、いま具体的に提案したいのが「未病ノート」です。毎日30秒、12項目の体調記録をつけてもらいます。気・血・水・心を各3項目ずつ、4段階で。特徴は、記録して終わりにせず必ず返事が返ることです。ひとつめは共感。いま同じ節気、同じ年代、同じ地域で似た記録をしている人が何人いるかを返します。ふたつめは去年の今頃。比較の単位を年ではなく節気に置くので、3か月使えば6回分の比較点が貯まります。みっつめは崩れやすさの予測です。玉川大学の柴田研究室との共同提案で、私は臨床監修を担当します。',
     '<b>なぜ御社と（45秒）</b>　この種の事業には3つの壁があります。利用者が集まらない、健康情報を扱う体制がない、買い手が見つからない。御社はこの3つが最初から解けています。従業員872名という初期母集団、プライバシーマーク認定、そしてCSO・CRO事業の製薬・食品のお客様。他社が3年かけて作る前提条件を、御社は初日から持っています。そしていちばん大きいのは、受託試験で参加者に毎日つけてもらう記録に、これがそのまま使えることです。',
