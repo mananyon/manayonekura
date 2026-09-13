@@ -183,23 +183,82 @@ function body(s, txt, x, y, w, h, opt) {
    C. なぜ鍼灸師に傾聴か
    ══════════════════════════════════════════════════════════ */
 
-// 7 最強の聴き手
+// 7 医師からの評価
 {
   const s = S(false);
-  eyebrow(s, "なぜ、鍼灸師に傾聴か", false);
-  title(s, "鍼灸師は、最強の聴き手になれる");
-  const c = [["40〜60分", "ふたりきりの時間がある"], ["身体に触れる", "言葉の前に、からだの情報がある"], ["会い続ける", "一度きりではない"], ["白衣でも医師でもない", "ちょうどいい距離"]];
-  c.forEach((it, i) => {
-    const x = M + (i % 2) * (CW / 2);
-    const y = 2.1 + Math.floor(i / 2) * 1.42;
-    circle(s, "●", x + 0.05, y + 0.16, 0.34, i % 2 === 0 ? SHU : MORI, PAPER, 9);
-    s.addText(it[0], { x: x + 0.6, y: y + 0.02, w: CW / 2 - 0.9, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: INK });
-    s.addText(it[1], { x: x + 0.6, y: y + 0.58, w: CW / 2 - 0.9, h: 0.45, isTextBox: true, margin: 0, fontFace: GO, fontSize: 14, color: MUTED });
+  eyebrow(s, "鍼灸師は、どう見られているか", false);
+  title(s, "医師の先生方から、こう言われます");
+  const v = [
+    ["「患者さんと、\n　時間がある」", SHU],
+    ["「身体全体を、\n　見てくれる」", MORI],
+    ["「東洋医学の、\n　専門家だから」", SHU],
+  ];
+  v.forEach((it, i) => {
+    const x = M + i * (CW / 3);
+    const w = CW / 3 - 0.35;
+    card(s, x, 2.1, w, 2.0);
+    circle(s, "●", x + 0.35, 2.42, 0.3, it[1], PAPER, 9);
+    s.addText(it[0], {
+      x: x + 0.35, y: 2.95, w: w - 0.7, h: 0.95, isTextBox: true, margin: 0,
+      fontFace: MIN, fontSize: 20, bold: true, color: INK, lineSpacing: 32,
+    });
   });
-  s.addText("こんな条件が揃っている職種は、他にありません。", {
-    x: M, y: 5.55, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 20, bold: true, color: SHU,
+  s.addText("これが、外から見た私たちです。期待されている、ということでもあります。", {
+    x: M, y: 4.55, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: GO, fontSize: 16, color: INK,
   });
-  note(s, "【8:00-9:30】\n誇りを立てるブロック。ここで会場の背筋が伸びる。\n『information』は『情報』に直しても可。");
+  note(s, "【8:00-9:30】\n★『40分あります』（3枚目）を受けて、「実際、医師の先生方からもこう言われます」と繋ぐ。\n★これは調査データではなく、ご自身が言われてきた実感として話すこと。\n　「私が言われるのは」「よく言われるのは」という言い方で。データとして提示しない。\n誇らしい気持ちで読み上げてよい。次のスライドの落差が効きます。");
+}
+
+// 8 自問（濃色）
+{
+  const s = S(true);
+  eyebrow(s, "鍼灸師は、どう見られているか", true);
+  s.addText("では、できているでしょうか。", {
+    x: M, y: 1.55, w: CW, h: 0.7, isTextBox: true, margin: 0, fontFace: GO, fontSize: 18, color: MUTED_D,
+  });
+  const q = ["東洋医学、できていますか？", "対話、できていますか？"];
+  q.forEach((t, i) => {
+    const y = 2.5 + i * 1.15;
+    circle(s, "？", M, y + 0.02, 0.62, i === 0 ? "4A4239" : SHU, ONDARK, 20);
+    s.addText(t, {
+      x: M + 1.0, y, w: CW - 1.0, h: 0.68, isTextBox: true, margin: 0, valign: "middle",
+      fontFace: MIN, fontSize: 32, bold: true, color: ONDARK,
+    });
+  });
+  s.addText("私は、胸を張って「はい」とは言えませんでした。", {
+    x: M, y: 5.1, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 20, bold: true, color: SHU,
+  });
+  note(s, "【9:30-10:30】\n★講演でいちばん空気が変わる場所。ここは急がない。\n2つの問いを読んだあと、必ず3秒黙る。会場（画面の向こう）に考えさせる。\n最後の一行は、自分のこととして静かに言う。責める調子にしない。\n\n※ここで『私も聴けていませんでした』（4枚目）を思い出してもらえると効く。");
+}
+
+// 9 今日のテーマ
+{
+  const s = S(false);
+  eyebrow(s, "今日のテーマ", false);
+  title(s, "今日は、対話の話をします");
+  card(s, M, 2.15, CW, 2.3);
+  s.addText("対　話", {
+    x: M + 0.7, y: 2.7, w: 3.0, h: 0.9, isTextBox: true, margin: 0, valign: "middle",
+    fontFace: MIN, fontSize: 44, bold: true, color: INK,
+  });
+  s.addText("→", {
+    x: M + 3.8, y: 2.7, w: 0.8, h: 0.9, isTextBox: true, margin: 0, align: "center", valign: "middle",
+    fontFace: GO, fontSize: 24, color: MUTED,
+  });
+  s.addText("そのための、ひとつの技法", {
+    x: M + 4.8, y: 2.38, w: 6.0, h: 0.38, isTextBox: true, margin: 0, fontFace: GO, fontSize: 14, color: MUTED,
+  });
+  s.addText("傾　聴", {
+    x: M + 4.8, y: 2.7, w: 6.0, h: 0.9, isTextBox: true, margin: 0, valign: "middle",
+    fontFace: MIN, fontSize: 40, bold: true, color: SHU,
+  });
+  s.addText("東洋医学の話は、今日はしません。対話だけに、絞ります。", {
+    x: M + 0.7, y: 3.8, w: CW - 1.4, h: 0.45, isTextBox: true, margin: 0, fontFace: GO, fontSize: 15, color: MUTED,
+  });
+  s.addText("対話は、才能ではありません。学べる技法です。", {
+    x: M, y: 4.95, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: INK,
+  });
+  note(s, "【10:30-11:00】\n★テーマ宣言。ここで聴衆に今日の地図を渡す。\n『東洋医学の話はしません』と絞ることで、話が締まる。欲張らない。\n★『技法です』と言い切ることが、後半の『訓練』『環境』の話への伏線になる。");
 }
 
 // 8 あるある（投票）
@@ -217,7 +276,7 @@ function body(s, txt, x, y, w, h, opt) {
   s.addText("▶ Zoom投票：当てはまるもの全部（複数選択可）", {
     x: M, y: 5.5, w: CW, h: 0.4, isTextBox: true, margin: 0, fontFace: GO, fontSize: 13, bold: true, color: MORI,
   });
-  note(s, "【9:30-11:30】自覚のスイッチ。\n★Zoom投票をここで使う（カメラオフ100名の参加感をつくる）。\n投票を締めて結果を画面共有し、「8割の方が③ですね」と読み上げる。\nその数字が次のスライドに直結する。");
+  note(s, "【11:00-13:00】自覚のスイッチ。\n★Zoom投票をここで使う（カメラオフ100名の参加感をつくる）。\n投票を締めて結果を画面共有し、「8割の方が③ですね」と読み上げる。\nその数字が次のスライドに直結する。");
 }
 
 // 9 構造の問題
@@ -236,7 +295,7 @@ function body(s, txt, x, y, w, h, opt) {
   s.addText("悪いのは、あなたではありません。習っていないだけです。", {
     x: M, y: 4.85, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 28, bold: true, color: SHU,
   });
-  note(s, "【11:30-13:00】\n★ここで責めると問合せは来ない。必ず逃げ道を用意する。\n「習っていないだけ」＝『習えば変わる』への伏線。");
+  note(s, "【13:00-14:00】\n★ここで責めると問合せは来ない。必ず逃げ道を用意する。\n「習っていないだけ」＝『習えば変わる』への伏線。");
 }
 
 // 10 データ（差し替え枠）
@@ -255,7 +314,7 @@ function body(s, txt, x, y, w, h, opt) {
   });
   body(s, "肩こりで、腰痛で、不眠で来られる。\nでもその方の生活には、\n必ず心の話があります。\n\n私はそれを、感覚ではなく\nデータで確かめたくて、\n調べ続けてきました。",
     M + CW * 0.55 + 0.55, 2.35, CW * 0.45 - 0.55, 2.8, { fontSize: 16, lineSpacing: 30 });
-  note(s, "【13:00-15:30】\n★このスライドは必ずご自身の学会発表の図に差し替えてください。\n数字はこちらでは入れていません（推測を載せない方針）。\n狙い：直感ではなくエビデンスで話す人、というポジション取り。\nこれがメンター依頼の『質』を上げます。");
+  note(s, "【14:00-16:00】\n★このスライドは必ずご自身の学会発表の図に差し替えてください。\n数字はこちらでは入れていません（推測を載せない方針）。\n狙い：直感ではなくエビデンスで話す人、というポジション取り。\nこれがメンター依頼の『質』を上げます。");
 }
 
 // 11 治療の一部
@@ -273,7 +332,7 @@ function body(s, txt, x, y, w, h, opt) {
   s.addText("傾聴は、施術の前段階ではありません。施術そのものです。", {
     x: M, y: 5.2, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: INK,
   });
-  note(s, "【15:30-17:00】\n『傾聴＝優しさ』から『傾聴＝治療技術』へ、聴衆の枠組みを移す。");
+  note(s, "【16:00-17:15】\n『傾聴＝優しさ』から『傾聴＝治療技術』へ、聴衆の枠組みを移す。");
 }
 
 // 12 スルーライン（濃色）
@@ -288,7 +347,7 @@ function body(s, txt, x, y, w, h, opt) {
     x: 1.5, y: 4.6, w: 10.3, h: 0.5, isTextBox: true, margin: 0, align: "center",
     fontFace: GO, fontSize: 16, color: MUTED_D,
   });
-  note(s, "【17:00-18:00】\nこの講演を貫く一行。ここで一度置いて、最後（53枚目）で同じ言葉に戻る。\n読んだあと一拍おいてから次へ。急がない。");
+  note(s, "【17:15-18:00】\nこの講演を貫く一行。ここで一度置いて、最後（53枚目）で同じ言葉に戻る。\n読んだあと一拍おいてから次へ。急がない。");
 }
 
 /* ══════════════════════════════════════════════════════════
