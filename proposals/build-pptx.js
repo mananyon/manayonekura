@@ -37,6 +37,7 @@ const PAPER='F3EADB', INK='2B2620', INK2='5A5249', INK3='8B8175', RULE='D2C4AE',
       DFG='F3ECE0', DFG2='BDB2A2', DRULE='4A423A';
 const SERIF='メイリオ', SANS='メイリオ';
 const M=0.75, W=13.333, CW=W-M*2;
+const LX=M, LW=5.5, RX=6.9, RW=5.68;
 
 function bg(s,dark){ s.background={color: dark?INK:PAPER}; }
 function eyebrow(s,num,label,dark){
@@ -116,7 +117,7 @@ pills.forEach(t=>{
     isTextBox:true,margin:0,valign:'middle'});
   px += w + 0.16;
 });
-foot(s,'所要 約5分');
+foot(s,'所要 約7分');
 s.addNotes('本日はお時間をいただきありがとうございます。提案に入る前に、私が何者で、何を変えたいのかを5分だけお話しさせてください。');
 
 /* ---------- 2 原点（濃色） ---------- */
@@ -159,7 +160,6 @@ s.addNotes('三重で鍼灸院を11年。のべ2万人以上を診てきまし�
 /* ---------- 4 課題感（濃色） ---------- */
 s=p.addSlide(); bg(s,true); eyebrow(s,'03','ISSUE',true);
 title(s,'これは私の実感であり、社会の数字でもあります',true);
-const LX=M, LW=5.5, RX=6.9, RW=5.68;
 s.addText('社会で起きていること',{x:LX,y:1.78,w:LW,h:0.28,fontSize:14,fontFace:SANS,bold:true,color:SHU_L,charSpacing:2,isTextBox:true,margin:0,valign:'middle'});
 s.addText('私が現場で見ていること',{x:RX,y:1.78,w:RW,h:0.28,fontSize:14,fontFace:SANS,bold:true,color:'93AC93',charSpacing:2,isTextBox:true,margin:0,valign:'middle'});
 const rows=[
@@ -251,10 +251,69 @@ s.addText('ここは私が最も苦手な領域であり、御社が最も強い
 foot(s,'4:10 → 4:30',true);
 s.addNotes('正直に申し上げると、いまはすべてが私に紐づいていて、1人で抱えられる量に天井があります。仕組みと人と座組みが足りない。ここは御社が最も強い領域だと考えています。');
 
-/* ---------- 9 ご相談 ---------- */
-s=p.addSlide(); bg(s); eyebrow(s,'08','ASK');
+/* ---------- 9 未病ノート ---------- */
+s=p.addSlide(); bg(s); eyebrow(s,'08','PRODUCT');
+title(s,'いま提案したいのは「未病ノート」です');
+card(s,M,1.85,3.78,2.9,'返事 1','いま、同じ人がいます','「白露のいま、同じ〈だるさ＋冷え〉を記録している人が、関東の40代に128人います」。同じ節気・年代・地域の人数を返します。');
+card(s,4.78,1.85,3.78,2.9,'返事 2','去年の今頃','「去年の白露も、3日続けてだるさを記録していました」。比較の単位を年ではなく節気に置くので、3か月で6回分貯まります。');
+card(s,8.81,1.85,3.78,2.9,'返事 3','崩れやすさ予測','気圧の低下と本人の過去パターンから「明後日は肩こりに注意」。毎日開く理由をつくります。');
+quote(s,M,4.95,CW,1.45,'設計',[
+  {text:'毎日30秒、12項目の体調記録。気・血・水・心を各3項目ずつ。'},
+  {text:'記録して終わりにせず、必ず「返事」が返る',options:{bold:true,color:INK}},
+  {text:'のが、ほかの記録アプリとの違いです。玉川大学 柴田研究室との共同提案で、私は臨床監修を担当します。'}]);
+foot(s,'4:30 → 5:20');
+s.addNotes('そのうえで、いま具体的に提案したいのが「未病ノート」です。毎日30秒、12項目の体調記録をつけてもらいます。気・血・水・心を各3項目ずつ、4段階で。特徴は、記録して終わりにせず必ず返事が返ることです。ひとつめは共感。いま同じ節気、同じ年代、同じ地域で似た記録をしている人が何人いるかを返します。ふたつめは去年の今頃。比較の単位を年ではなく節気に置くので、3か月使えば6回分の比較点が貯まります。みっつめは崩れやすさの予測です。玉川大学の柴田研究室との共同提案で、私は臨床監修を担当します。');
+
+/* ---------- 10 なぜ御社と（濃色） ---------- */
+s=p.addSlide(); bg(s,true); eyebrow(s,'09','STRATEGIC FIT',true);
+title(s,'3つの壁が、御社では最初から解けています',true);
+s.addText('立ちはだかる壁',{x:LX,y:1.78,w:LW,h:0.3,fontSize:14,fontFace:SANS,bold:true,color:SHU_L,charSpacing:2,isTextBox:true,margin:0,valign:'middle'});
+s.addText('御社がすでに持っているもの',{x:RX,y:1.78,w:RW,h:0.3,fontSize:14,fontFace:SANS,bold:true,color:'93AC93',charSpacing:2,isTextBox:true,margin:0,valign:'middle'});
+[[[{text:'01　',f:1},{text:'利用者が集まらない。母数がなければ「同じ人がいます」は成立しません。'}],
+  [{text:'従業員872名',b:1},{text:'という初期母集団。初日から実測値で動きます。'}]],
+ [[{text:'02　',f:1},{text:'健康情報を扱う体制がない。ここが新規参入の最大の障壁です。'}],
+  [{text:'プライバシーマーク認定',b:1},{text:'済み。1年以上かかる体制構築を、もう越えています。'}]],
+ [[{text:'03　',f:1},{text:'買い手が見つからない。新規開拓に数年かかります。'}],
+  [{text:'CSO・CRO事業',b:1},{text:'で、製薬・食品メーカーとの取引があります。'}]]
+].forEach((r,i)=>{
+  const y=2.18+i*1.06;
+  hr(s,LX,y-0.12,LW,true); hr(s,RX,y-0.12,RW,true);
+  s.addText(r[0].map(t=>({text:t.text,options:t.f?{fontFace:SERIF,fontSize:17,bold:true,color:SHU_L}:{color:DFG}})),
+    {x:LX,y,w:LW,h:0.9,fontSize:14,fontFace:SANS,isTextBox:true,margin:0,valign:'top',lineSpacing:24});
+  s.addText(r[1].map(t=>({text:t.text,options:{color:t.b?DFG:DFG2,bold:!!t.b}})),
+    {x:RX,y,w:RW,h:0.9,fontSize:14,fontFace:SANS,isTextBox:true,margin:0,valign:'top',lineSpacing:24});
+});
+s.addText('いちばん大きいのは、受託試験の記録基盤に転用できることです。',{x:LX,y:5.6,w:CW,h:0.6,fontSize:24,fontFace:SERIF,bold:true,
+  color:SHU_L,isTextBox:true,margin:0,valign:'middle'});
+s.addText('※ 数字は公開情報をもとにした記載です。相違があればご指摘ください。',{x:M,y:6.42,w:CW,h:0.3,fontSize:11,fontFace:SANS,
+  color:DFG2,isTextBox:true,margin:0,valign:'top'});
+foot(s,'5:20 → 6:05',true);
+s.addNotes('この種の事業には3つの壁があります。利用者が集まらない、健康情報を扱う体制がない、買い手が見つからない。御社はこの3つが最初から解けています。従業員872名という初期母集団、プライバシーマーク認定、そしてCSO・CRO事業の製薬・食品のお客様。他社が3年かけて作る前提条件を、御社は初日から持っています。そしていちばん大きいのは、これを受託試験の記録基盤に転用できることだと考えています。');
+
+/* ---------- 11 進め方 ---------- */
+s=p.addSlide(); bg(s); eyebrow(s,'10','PLAN');
+title(s,'まずPhase 0。つくる前の合意をつくります');
+bullets(s,M,2.05,7.3,[
+  [{text:'Phase 0（3か月）　',b:1},{text:'成果物はコードではなく、'},{text:'社内実証の実施合意と、法務・倫理ラインの確定',b:1},{text:'です。記録12項目と文言ガイドもここで固めます。'}],
+  [{text:'Phase 1（4〜6か月）　',b:1},{text:'御社従業員300名で社内実証。テスト環境は無料枠のみで組むため、'},{text:'この段階のインフラ費は0円',b:1},{text:'です。'}],
+  [{text:'Phase 2以降　',b:1},{text:'受託試験1件で実運用し、従来手法と記録の脱落率を比較。そこから外販に進みます。'}]
+]);
+s.addShape(p.ShapeType.roundRect,{x:8.45,y:2.05,w:4.13,h:2.5,rectRadius:0.05,fill:{color:'F3E3DE'},line:{color:SHU,width:0.75}});
+s.addText('3年目 売上イメージ',{x:8.45,y:2.3,w:4.13,h:0.3,fontSize:14,fontFace:SANS,bold:true,color:SHU,
+  charSpacing:2,align:'center',isTextBox:true,margin:0,valign:'middle'});
+s.addText([{text:'約1.6',options:{}},{text:'億円',options:{fontSize:18}}],
+  {x:8.45,y:2.65,w:4.13,h:0.8,fontSize:32,fontFace:SERIF,bold:true,color:INK,align:'center',
+   isTextBox:true,margin:0,valign:'middle'});
+s.addText('うち約9,200万円は、既存のお客様への追加提案だけで届く範囲の試算です。',
+  {x:8.75,y:3.55,w:3.53,h:0.85,fontSize:13,fontFace:SANS,color:INK2,align:'center',
+   isTextBox:true,margin:0,valign:'top',lineSpacing:20});
+foot(s,'6:05 → 6:40');
+s.addNotes('まずPhase 0、3か月です。ここでつくるのはコードではなく、社内実証の実施合意と、法務・倫理のラインの確定です。Phase 1は御社従業員300名での社内実証。テスト環境は無料枠で組むので、この段階のインフラ費はかかりません。3年目の売上イメージは約1.6億円、うち9,200万円は既存のお客様への追加提案だけで届く範囲の試算です。');
+
+/* ---------- 12 ご相談 ---------- */
+s=p.addSlide(); bg(s); eyebrow(s,'11','ASK');
 title(s,'だから、アポプラスステーション様と話したい');
-[['01','未病領域の新規事業を、共同で検討させてください','東洋医学 × 御社の事業アセット。サービス設計から実証までを一緒に。'],
+[['01','未病領域の新規事業を、共同で検討させてください','未病ノートのPhase 0を含め、サービス設計から実証までをご一緒に。'],
  ['02','人と組織の知見をお借りしたい','施術者の採用・育成・配置。属人から仕組みへ移すために必要です。'],
  ['03','実証の場をご一緒したい','法人向けの健康支援など、未病層に届く場で。効果は学会発表として残します。']
 ].forEach((a,i)=>{
@@ -265,10 +324,10 @@ title(s,'だから、アポプラスステーション様と話したい');
   s.addText(a[2],{x:M+0.75,y:y+0.36,w:11,h:0.36,fontSize:14,fontFace:SANS,color:INK2,isTextBox:true,margin:0,valign:'middle'});
 });
 quote(s,M,5.0,CW,1.45,'本日お願いしたいこと',[{text:'生きづらさを抱えた人を、治療が必要になる手前で減らしたい。'},{text:'まずは本日、この3つのうちどこに可能性がありそうか、率直なご意見をいただけたら嬉しいです。',options:{bold:true,color:INK}}],SHU);
-foot(s,'4:35 → 5:00');
+foot(s,'6:40 → 7:00');
 s.addNotes('お願いしたいことは3つです。未病領域の新規事業の共同検討、人材・組織の知見、そして実証の場。治療が必要になる手前で、生きづらさを抱えた人を減らしたい。まずは本日、この3つのうちどこに可能性がありそうか、率直なご意見をいただけたら嬉しいです。');
 
-/* ---------- 10 参考資料 ---------- */
+/* ---------- 13 参考資料 ---------- */
 s=p.addSlide(); bg(s); eyebrow(s,'','APPENDIX ／ 参考');
 title(s,'公開されている実績・共同研究');
 [['共同研究','開業鍼灸院でのメンタルヘルスの可能性を検証する共同研究','ここちめいど／東京有明医療大学／理化学研究所／ケアクル　― PR TIMES'],
@@ -285,7 +344,7 @@ title(s,'公開されている実績・共同研究');
   s.addText(r[2],{x:M+1.25,y:y+0.34,w:10.58,h:0.3,fontSize:12,fontFace:SANS,color:INK3,isTextBox:true,margin:0,valign:'middle'});
 });
 hr(s,M,1.9+6*0.8-0.12,CW);
-s.addText('参考資料（本編5分には含みません）',{x:W-M-4,y:6.93,w:4,h:0.3,fontSize:12,fontFace:SANS,color:INK3,
+s.addText('参考資料（本編には含みません）',{x:W-M-4,y:6.93,w:4,h:0.3,fontSize:12,fontFace:SANS,color:INK3,
   isTextBox:true,margin:0,valign:'middle',align:'right'});
 s.addText('米倉まな｜アポプラスステーション様 ご提案',{x:M,y:6.93,w:8,h:0.3,fontSize:12,fontFace:SANS,color:INK3,
   isTextBox:true,margin:0,valign:'middle',charSpacing:1});
