@@ -24,6 +24,7 @@ function S(dark) {
   return {
     addText: (t, o) => rec.items.push({ k: "text", t, o }),
     addShape: (st, o) => rec.items.push({ k: "shape", st, o }),
+    addChart: (ct, d, o) => rec.items.push({ k: "chart", ct, d, o }),
     addNotes: (t) => { rec.notes = t; },
   };
 }
@@ -829,6 +830,131 @@ kata.forEach((k, i) => {
     "【46:30-48:00】✕と◯の対比は音読する。耳だけで聴いている人がいる。"][i]);
 });
 
+// 症例 1／紹介
+{
+  const s = S(false);
+  eyebrow(s, "症例", false);
+  title(s, "標準治療で、難渋していた方");
+  card(s, M, 2.1, CW * 0.56, 2.75);
+  s.addText("42歳　女性　主婦", {
+    x: M + 0.5, y: 2.4, w: CW * 0.56 - 1.0, h: 0.4, isTextBox: true, margin: 0,
+    fontFace: MIN, fontSize: 19, bold: true, color: INK,
+  });
+  body(s, "主訴：全身倦怠感・頭痛・睡眠障害\n\nうつ病の発症から17年。再発をくり返してきた。\n2ヶ月前、任意入院を勧められた。\nけれど子どもは3歳。入院は、難しかった。",
+    M + 0.5, 2.9, CW * 0.56 - 1.0, 1.8, { fontSize: 14.5, lineSpacing: 27 });
+  const rx = M + CW * 0.56 + 0.55, rw = CW - CW * 0.56 - 0.55;
+  const facts = [["初診時", "PHQ-9　13点　／　PHQ-15　20点"], ["東洋医学的病態", "脾陽虚・胃熱・肝鬱気滞"], ["ご本人の目標", "「働くこと」"]];
+  facts.forEach((f, i) => {
+    const y = 2.2 + i * 0.92;
+    s.addText(f[0], { x: rx, y, w: rw, h: 0.3, isTextBox: true, margin: 0, fontFace: GO, fontSize: 11, bold: true, color: MUTED });
+    s.addText(f[1], {
+      x: rx, y: y + 0.32, w: rw, h: 0.42, isTextBox: true, margin: 0,
+      fontFace: MIN, fontSize: i === 2 ? 22 : 17, bold: true, color: i === 2 ? SHU : INK,
+    });
+  });
+  s.addText("入院を避けたい。それが、来院の理由でした。", {
+    x: M, y: 5.15, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 23, bold: true, color: INK,
+  });
+  s.addText("米倉まな・松浦悠人・柴田健一「標準治療で難渋したうつ病患者に鍼灸と傾聴が奏功した一症例」日本うつ病学会", {
+    x: M, y: 5.85, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10, color: "9E9484",
+  });
+  note(s, "【44:30-45:40】\n★共同演者（松浦悠人先生・柴田健一先生）のお名前と学会名・年をご確認ください。\n\n『目標：働くこと』を必ず読む。これが傾聴で聴き取った治療目標です。\n症状ではなく、その人が何をしたいのか。ここが後半の型②③に繋がります。");
+}
+
+// 症例 2／鍼灸でやっていたこと
+{
+  const s = S(false);
+  eyebrow(s, "症例", false);
+  title(s, "鍼灸で、やっていたこと");
+  const tx = [["温補脾陽", "全身倦怠感・めまい・冷え"], ["清胃熱", "胃のむかつき・便秘"], ["疏肝理気", "頭痛・睡眠障害・イライラ"]];
+  tx.forEach((t, i) => {
+    const y = 2.1 + i * 0.72;
+    card(s, M, y, CW * 0.58, 0.6);
+    s.addText(t[0], { x: M + 0.35, y, w: 1.6, h: 0.6, isTextBox: true, margin: 0, valign: "middle", fontFace: MIN, fontSize: 16, bold: true, color: SHU });
+    s.addText(t[1], { x: M + 2.1, y, w: CW * 0.58 - 2.4, h: 0.6, isTextBox: true, margin: 0, valign: "middle", fontFace: GO, fontSize: 13, color: INK });
+  });
+  const rx = M + CW * 0.58 + 0.4, rw = CW - CW * 0.58 - 0.4;
+  card(s, rx, 2.1, rw, 2.34);
+  s.addText("使った経穴", { x: rx + 0.35, y: 2.35, w: rw - 0.7, h: 0.32, isTextBox: true, margin: 0, fontFace: GO, fontSize: 11, bold: true, color: MUTED });
+  s.addText("百会　風池　完骨　肩井\n足三里　三陰交", {
+    x: rx + 0.35, y: 2.72, w: rw - 0.7, h: 0.85, isTextBox: true, margin: 0,
+    fontFace: MIN, fontSize: 19, bold: true, color: INK, lineSpacing: 32,
+  });
+  s.addText("＋　腹部の散鍼（鍼による擦過刺激）", {
+    x: rx + 0.35, y: 3.65, w: rw - 0.7, h: 0.4, isTextBox: true, margin: 0, fontFace: GO, fontSize: 13, color: MORI,
+  });
+  body(s, "使用鍼：0.12〜0.20mm ステンレス鍼　／　灸：温筒灸・棒灸\n10診目〜 頭部に電気鍼（1Hz・15分）　／　15診目〜 頭痛にセルフケアの耳灸を指導",
+    M, 4.6, CW, 0.8, { fontSize: 12, color: MUTED, lineSpacing: 21 });
+  s.addText("鍼灸は、特別なことをしていません。", {
+    x: M, y: 5.5, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 24, bold: true, color: INK,
+  });
+  note(s, "【45:40-46:50】\n★ここを丁寧にやると、鍼灸師の聴衆が『自分にもできる』と思えます。\n　奇をてらった手技は使っていない、と言い切ること。\n\n★締めの一行が重要：差は鍼灸の腕ではなく、上に乗せた傾聴にある、という含み。\n　言い過ぎない。「特別なことはしていません」で止めて、次のスライドへ。");
+}
+
+// 症例 3／傾聴の4段階
+{
+  const s = S(false);
+  eyebrow(s, "症例", false);
+  title(s, "同じように、聴いていたわけではありません");
+  const st = [
+    ["2–4診", "受容と共感で、まず信頼関係をつくる", "頭痛薬と頓服が、止まった", SHU],
+    ["5–10診", "家族の課題について、情報を整理する", "抑うつを感じにくくなり、出かけるように", MORI],
+    ["11–15診", "行動と問題に焦点を当て、できる範囲を明確に", "主治医も親も「回復に驚いている」", SHU],
+    ["16–20診", "どう感じているかを聴き、感情の認知を促す", "「次回も鍼灸、楽しみにしている」", MORI],
+  ];
+  st.forEach((t, i) => {
+    const y = 2.1 + i * 0.86;
+    card(s, M, y, CW, 0.74);
+    s.addText(t[0], { x: M + 0.35, y, w: 1.1, h: 0.74, isTextBox: true, margin: 0, valign: "middle", fontFace: MIN, fontSize: 15, bold: true, color: t[3] });
+    s.addText(t[1], { x: M + 1.6, y, w: 4.9, h: 0.74, isTextBox: true, margin: 0, valign: "middle", fontFace: GO, fontSize: 13.5, bold: true, color: INK });
+    s.addText("→", { x: M + 6.6, y, w: 0.4, h: 0.74, isTextBox: true, margin: 0, align: "center", valign: "middle", fontFace: GO, fontSize: 12, color: MUTED });
+    s.addText(t[2], { x: M + 7.1, y, w: CW - 7.45, h: 0.74, isTextBox: true, margin: 0, valign: "middle", fontFace: GO, fontSize: 13, color: MUTED });
+  });
+  s.addText("傾聴にも、順番があります。", {
+    x: M, y: 5.75, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 26, bold: true, color: INK,
+  });
+  note(s, "【46:50-48:20】\n★この講演の核心スライド。いちばん時間をかけてよい場所です。\n\n受容共感 → 情報整理 → 行動と問題の焦点化 → 感情の認知。\nいきなり4段目をやると失敗します。信頼ができる前に感情に触れない。\n\n★「順番がある」＝「学べる」ということ。\n　才能の話ではないという、この講演全体の主張がここで実証されます。\n　57枚目『独学で伸びない理由』への最短の橋になります。");
+}
+
+// 症例 4／結果
+{
+  const s = S(false);
+  eyebrow(s, "症例", false);
+  title(s, "20診　184日");
+  s.addText("PHQ-9（うつ症状）の推移", {
+    x: M, y: 2.05, w: CW * 0.6, h: 0.32, isTextBox: true, margin: 0, fontFace: GO, fontSize: 12, bold: true, color: MUTED,
+  });
+  s.addChart(pres.ChartType.line,
+    [{ name: "PHQ-9", labels: ["初診", "5診目", "10診目", "15診目", "20診目"], values: [13, 17, 10, 6, 5] }],
+    {
+      x: M - 0.1, y: 2.4, w: CW * 0.6, h: 2.6,
+      chartColors: [SHU], lineSize: 2.5,
+      lineDataSymbol: "circle", lineDataSymbolSize: 8, lineDataSymbolLineColor: PAPER,
+      showLegend: false, showTitle: false, showValue: false,
+      valAxisMinVal: 0, valAxisMaxVal: 20, valAxisMajorUnit: 5,
+      valAxisLabelColor: MUTED, valAxisLabelFontSize: 10, valAxisLabelFontFace: GO,
+      catAxisLabelColor: MUTED, catAxisLabelFontSize: 10, catAxisLabelFontFace: GO,
+      valGridLine: { color: "DED3C0", size: 1 }, catGridLine: { style: "none" },
+      valAxisLineShow: false, catAxisLineColor: "D3C7B2",
+      border: { pt: 0, color: CREAM }, fill: CREAM,
+    });
+  const rx = M + CW * 0.62, rw = CW - CW * 0.62;
+  s.addText("PHQ-9", { x: rx, y: 2.2, w: rw, h: 0.3, isTextBox: true, margin: 0, fontFace: GO, fontSize: 11, bold: true, color: MUTED });
+  s.addText("13　→　5", {
+    x: rx, y: 2.5, w: rw, h: 0.95, isTextBox: true, margin: 0,
+    fontFace: MIN, fontSize: 46, bold: true, color: SHU,
+  });
+  body(s, "身体症状（PHQ-15）は 20 → 19。\n大きくは変わっていません。\n\n変わったのは、気分と睡眠、\nそして日常生活でした。",
+    rx, 3.6, rw, 1.5, { fontSize: 13.5, lineSpacing: 24 });
+  s.addText("入院は、回避できました。", {
+    x: M, y: 5.35, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 28, bold: true, color: INK,
+  });
+  s.addText("米倉まな・松浦悠人・柴田健一「標準治療で難渋したうつ病患者に鍼灸と傾聴が奏功した一症例」日本うつ病学会", {
+    x: M, y: 6.05, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10, color: "9E9484",
+  });
+  note(s, "【48:20-49:30】\n★5診目で いったん上がっている（13→17）ことを隠さない。\n　「最初はむしろ上がりました」と正直に言うほうが、信頼されます。\n　※理由は症例報告では述べられていないので、推測を語らないこと。\n\n★PHQ-15（身体症状）がほぼ横ばいであることも、そのまま伝える。\n　過大に言わないことが、この講演全体の誠実さを担保します。\n\n締めの一行は、静かに。「入院は、回避できました」");
+}
+
 // 症例：継続患者に起きた変化
 {
   const s = S(false);
@@ -1017,7 +1143,7 @@ kata.forEach((k, i) => {
   note(s, "【57:40-60:00】\n★このスライドを30秒 黙って映す。読み取り待ち。ここを急ぐと激減します。\n★Q&Aの間も、このスライドを出しっぱなしにする。\n★チャットにも同じリンクを投下（事前にメモ帳に用意してコピペ／共同ホストに依頼）。\n　ただしチャットは録画に残らないので、画面表示が本体です。\n★短縮URLは口頭でも読み上げる（音声だけで聴いている人がいます）。\n\n【Q&Aのコツ】\n質問には即答せず、まず「その患者さん、なんて仰ってました？」と聴き返す。\n傾聴の実演が、いちばん強い営業になります。");
 }
 
-const TIMINGS = {1: "0:00-0:20", 2: "0:20-1:20", 3: "1:20-3:00", 4: "3:00-4:30", 5: "4:30-5:45", 6: "5:45-6:45", 7: "6:45-8:00", 8: "8:00-9:15", 9: "9:15-10:15", 10: "10:15-10:45", 11: "10:45-12:00", 12: "12:00-13:30", 13: "13:30-15:00", 14: "15:00-17:00", 15: "17:00-18:30", 16: "18:30-19:15", 17: "19:15-20:45", 18: "20:45-21:30", 19: "21:30-22:45", 20: "22:45-24:15", 21: "24:15-25:30", 22: "25:30-26:45", 23: "26:45-27:50", 24: "27:50-28:20", 25: "28:20-29:00", 26: "29:00-30:00", 27: "30:00-31:30", 28: "31:30-32:00", 29: "32:00-33:30", 30: "33:30-34:00", 41: "34:10-35:00", 42: "35:00-35:40", 43: "35:40-39:30", 44: "39:30-40:00", 45: "40:00-42:30", 46: "42:30-43:00", 47: "43:00-43:45", 48: "43:45-45:45", 49: "45:45-47:15", 50: "47:15-48:45", 51: "48:45-50:15", 52: "50:15-51:45", 53: "51:45-53:00", 54: "53:00-54:15", 55: "54:15-55:15", 56: "55:15-56:15", 57: "56:15-57:00", 58: "57:00-57:45", 59: "57:45-60:00"};
+const TIMINGS = {1: "0:00-0:20", 2: "0:20-1:20", 3: "1:20-2:50", 4: "2:50-4:10", 5: "4:10-5:20", 6: "5:20-6:15", 7: "6:15-7:20", 8: "7:20-8:30", 9: "8:30-9:25", 10: "9:25-9:55", 11: "9:55-11:05", 12: "11:05-12:25", 13: "12:25-13:45", 14: "13:45-15:30", 15: "15:30-16:50", 16: "16:50-17:30", 17: "17:30-18:45", 18: "18:45-19:20", 19: "19:20-20:25", 20: "20:25-21:45", 21: "21:45-22:50", 22: "22:50-23:55", 23: "23:55-24:55", 24: "24:55-25:20", 25: "25:20-26:00", 26: "26:00-27:00", 27: "27:00-28:30", 28: "28:30-29:00", 29: "29:00-30:20", 30: "30:20-30:50", 41: "31:00-31:50", 42: "31:50-32:30", 43: "32:30-36:10", 44: "36:10-36:40", 45: "36:40-39:00", 46: "39:00-39:30", 47: "39:30-40:10", 48: "40:10-41:50", 49: "41:50-43:10", 50: "43:10-44:30", 51: "44:30-45:40", 52: "45:40-46:50", 53: "46:50-48:20", 54: "48:20-49:30", 55: "49:30-50:10", 56: "50:10-51:30", 57: "51:30-52:40", 58: "52:40-53:50", 59: "53:50-54:45", 60: "54:45-55:45", 61: "55:45-56:40", 62: "56:40-57:30", 63: "57:30-60:00"};
 
 const TOP = 0.34, BOTTOM = 6.92;
 
@@ -1045,7 +1171,9 @@ for (const rec of decks) {
     const isEllipse = it.k === "shape" && it.st === pres.ShapeType.ellipse;
     const [ny, nh] = map(it.o.y, it.o.h, isEllipse);
     const o = Object.assign({}, it.o, { y: ny, h: nh });
-    if (it.k === "text") s.addText(it.t, o); else s.addShape(it.st, o);
+    if (it.k === "text") s.addText(it.t, o);
+    else if (it.k === "chart") s.addChart(it.ct, it.d, o);
+    else s.addShape(it.st, o);
   }
   if (rec.num > 1) s.addText(String(rec.num), {
     x: W - 0.85, y: H - 0.5, w: 0.5, h: 0.3, isTextBox: true, margin: 0,
