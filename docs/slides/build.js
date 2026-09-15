@@ -5,10 +5,15 @@ pres.author = "米倉まな";
 pres.title = "経絡に触れ、こころに耳を傾ける";
 pres.subject = "APNET 講演 60分 / 鍼灸師のための傾聴トレーニング";
 
-// ── ブランドトークン（docs/HANDOFF.md より） ────────────────
-const CREAM = "ECE3D4", PAPER = "FCFAF4", INK = "2B2620";
-const SHU = "9C5446", MORI = "5E7060";
-const MUTED = "7A6E60", MUTED_D = "A2937F", ONDARK = "ECE3D4";
+// ── ブランドトークン（オンラインサロン「ここちめいど」ロゴ由来）────────
+// ロゴ実測：深緑 #1D8A53 / ミント #34D39B / ピンク #F15C9E
+// 小さい文字でもコントラストが足りるよう、深緑とピンクは一段濃く調整している。
+const CREAM = "F0FAF5", PAPER = "FFFFFF", INK = "123C2A";
+const SHU = "17784A";    // 主アクセント＝深緑（どのサイズでも使える）
+const MORI = "C92A78";   // 副アクセント＝ピンク（濃いめ。小さい文字でも可）
+const PINKB = "F15C9E";  // ロゴのピンクそのまま。濃色スライドの見せ場だけ
+const MINT = "34D39B";   // ロゴのミント。面で使い、文字は INK を乗せる
+const MUTED = "4F6F60", MUTED_D = "8FB8A2", ONDARK = "E8F5EE";
 const MIN = "游明朝", GO = "游ゴシック";     // 見出し=明朝 / 本文=ゴシック
 
 const W = 13.333, H = 7.5, M = 0.8, CW = W - M * 2;
@@ -58,7 +63,7 @@ function circle(s, label, x, y, d, fill, txtColor, size) {
 function card(s, x, y, w, h, fill) {
   s.addShape(pres.ShapeType.roundRect, {
     x, y, w, h, rectRadius: 0.1, fill: { color: fill || PAPER },
-    shadow: { type: "outer", angle: 90, blur: 10, offset: 0.04, color: "8C7F6E", opacity: 0.25 },
+    shadow: { type: "outer", angle: 90, blur: 10, offset: 0.04, color: "7FA795", opacity: 0.25 },
   });
 }
 function body(s, txt, x, y, w, h, opt) {
@@ -75,7 +80,7 @@ function body(s, txt, x, y, w, h, opt) {
 // 1 タイトル
 {
   const s = S(true);
-  s.addShape(pres.ShapeType.ellipse, { x: 9.5, y: 1.1, w: 5.3, h: 5.3, fill: { color: "35302A" } });
+  s.addShape(pres.ShapeType.ellipse, { x: 9.5, y: 1.1, w: 5.3, h: 5.3, fill: { color: "1B4E36" } });
   s.addText("APNET 講演", { x: M, y: 1.9, w: 8, h: 0.3, isTextBox: true, margin: 0, fontFace: GO, fontSize: 12, bold: true, charSpacing: 3, color: MUTED_D });
   s.addText("経絡に触れ、\nこころに耳を傾ける", {
     x: M, y: 2.4, w: 8.6, h: 2.0, isTextBox: true, margin: 0,
@@ -104,12 +109,12 @@ function body(s, txt, x, y, w, h, opt) {
 // 3 11秒
 {
   const s = S(true);
-  s.addText("11", { x: 0.6, y: 1.5, w: 5.2, h: 3.2, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 190, bold: true, color: SHU, align: "center", valign: "middle" });
+  s.addText("11", { x: 0.6, y: 1.5, w: 5.2, h: 3.2, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 190, bold: true, color: PINKB, align: "center", valign: "middle" });
   s.addText("秒", { x: 5.4, y: 3.3, w: 1.0, h: 0.8, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 30, bold: true, color: ONDARK, valign: "middle" });
   s.addText("医師が、患者の話を遮るまでの時間", { x: 6.8, y: 2.35, w: 5.8, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: ONDARK, lineSpacing: 34 });
   body(s, "話し始めてから遮られるまでの中央値。\n先行研究では平均18秒と報告されている。", 6.8, 3.05, 5.8, 1.0, { color: MUTED_D, fontSize: 14 });
   s.addText("Singh Ospina et al., 2019 ／ Beckman & Frankel, 1984", {
-    x: 6.8, y: 4.2, w: 5.8, h: 0.6, isTextBox: true, margin: 0, fontFace: GO, fontSize: 9.5, color: "6B5F51", lineSpacing: 15,
+    x: 6.8, y: 4.2, w: 5.8, h: 0.6, isTextBox: true, margin: 0, fontFace: GO, fontSize: 9.5, color: MUTED_D, lineSpacing: 15,
   });
   s.addText("では、私たち鍼灸師は？　――　私たちには 40分 あります。", {
     x: M, y: 5.9, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 21, bold: true, color: ONDARK,
@@ -139,7 +144,7 @@ function body(s, txt, x, y, w, h, opt) {
   });
   s.addText("ただ、話を最後まで\n聴いてもらうことでした。", {
     x: M + CW * 0.54 + 0.6, y: 3.75, w: CW * 0.46 - 0.6, h: 1.0, isTextBox: true, margin: 0,
-    fontFace: MIN, fontSize: 22, bold: true, color: SHU, lineSpacing: 36,
+    fontFace: MIN, fontSize: 22, bold: true, color: MORI, lineSpacing: 36,
   });
   note(s, "【3:00-4:30】\n★非常に個人的な開示です。話すかどうかは、ご自身で決めてください。\n　削除しても講演は成立します。ただ、この講演では最も強い一枚になり得ます。\n\n淡々と言う。同情を求めない。事実だけ置いて、最後の一行に重心をかける。\n★ここが、41枚目のワーク④『最後にちゃんと聴いてもらえたのはいつ？』への伏線になります。");
 }
@@ -243,14 +248,14 @@ function body(s, txt, x, y, w, h, opt) {
   const q = ["東洋医学、できていますか？", "対話、できていますか？"];
   q.forEach((t, i) => {
     const y = 2.5 + i * 1.15;
-    circle(s, "？", M, y + 0.02, 0.62, i === 0 ? "4A4239" : SHU, ONDARK, 20);
+    circle(s, "？", M, y + 0.02, 0.62, i === 0 ? "2C6448" : MINT, i === 0 ? ONDARK : INK, 20);
     s.addText(t, {
       x: M + 1.0, y, w: CW - 1.0, h: 0.68, isTextBox: true, margin: 0, valign: "middle",
       fontFace: MIN, fontSize: 32, bold: true, color: ONDARK,
     });
   });
   s.addText("私は、胸を張って「はい」とは言えませんでした。", {
-    x: M, y: 5.1, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 20, bold: true, color: SHU,
+    x: M, y: 5.1, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 20, bold: true, color: MINT,
   });
   note(s, "【9:15-10:15】\n★講演でいちばん空気が変わる場所。ここは急がない。\n2つの問いを読んだあと、必ず3秒黙る。会場（画面の向こう）に考えさせる。\n最後の一行は、自分のこととして静かに言う。責める調子にしない。\n\n※ここで『私も聴けていませんでした』（4枚目）を思い出してもらえると効く。");
 }
@@ -295,7 +300,7 @@ function body(s, txt, x, y, w, h, opt) {
   shin.forEach((it, i) => {
     const x = M + i * 1.2;
     const on = it[0] === "問";
-    circle(s, it[0], x, 2.55, 1.0, on ? SHU : "D9CDB8", on ? PAPER : INK, 28);
+    circle(s, it[0], x, 2.55, 1.0, on ? SHU : "CDEBDC", on ? PAPER : INK, 28);
     s.addText(it[1], {
       x: x - 0.1, y: 3.68, w: 1.2, h: 0.35, isTextBox: true, margin: 0, align: "center",
       fontFace: GO, fontSize: 11, bold: on, color: on ? SHU : MUTED,
@@ -346,7 +351,7 @@ function body(s, txt, x, y, w, h, opt) {
     });
   });
   s.addText("慢性疼痛診療研修会「痛みの治療」（日本いたみ財団）より要約", {
-    x: M, y: 6.0, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: "9E9484",
+    x: M, y: 6.0, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: "4F6F60",
   });
   s.addText("5つとも、患者さんから話を聴かなければ、始まりません。", {
     x: M, y: 6.45, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: SHU,
@@ -384,7 +389,7 @@ function body(s, txt, x, y, w, h, opt) {
     x: M, y: 5.35, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 24, bold: true, color: INK,
   });
   s.addText("米倉まな「地域医療における鍼灸師と精神科医との連携の実際」（2026.06）より", {
-    x: M, y: 5.95, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: "9E9484",
+    x: M, y: 5.95, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: "4F6F60",
   });
   note(s, "【13:30-15:00】\n★ご自身の学会発表からの引用なので、堂々と出せます。\n★②と④は傾聴そのもの。①も、聴かなければ異変に気づけない。③も、\n　困りごとを聞き出せなければ どの資源に繋ぐか決められない。\n　→「4つとも入口は聴くこと」という締めに説得力が出ます。\n\n読み上げは①と②だけ。③④は「こういうこともします」と流す。");
 }
@@ -457,7 +462,7 @@ function body(s, txt, x, y, w, h, opt) {
   });
   s.addText("構造の問題です。", { x: M, y: 4.2, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 24, bold: true, color: INK });
   s.addText("悪いのは、あなたではありません。習っていないだけです。", {
-    x: M, y: 4.85, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 28, bold: true, color: SHU,
+    x: M, y: 4.85, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 28, bold: true, color: MORI,
   });
   note(s, "【15:30-16:15】\n★ここで責めると問合せは来ない。必ず逃げ道を用意する。\n「習っていないだけ」＝『習えば変わる』への伏線。");
 }
@@ -489,7 +494,7 @@ function body(s, txt, x, y, w, h, opt) {
     x: M, y: 5.1, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 26, bold: true, color: INK,
   });
   s.addText("米倉まな・松浦悠人ら「鍼灸院におけるうつと不安症状を有する患者の実態調査（第4報）電子システムを用いた集積」第74回 全日本鍼灸学会学術大会", {
-    x: M, y: 5.8, w: CW, h: 0.45, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: "9E9484", lineSpacing: 17,
+    x: M, y: 5.8, w: CW, h: 0.45, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10.5, color: "4F6F60", lineSpacing: 17,
   });
   note(s, "【19:15-20:45】\n★ご自身の第4報のデータ。数字はPDFの記載どおりです。発表前に最新値をご確認ください。\n\n★締めの一行がこのスライドの主役。\n　「受診を迷っている方が来る」＝だからレッドフラッグを拾う耳が要る、\n　という13枚目への回収になります。\n数字は読み上げず、「うつ病が3割弱、10年以上の方が4分の1」くらいで流す。");
 }
@@ -497,7 +502,7 @@ function body(s, txt, x, y, w, h, opt) {
 // 12 スルーライン（濃色）
 {
   const s = S(true);
-  s.addShape(pres.ShapeType.ellipse, { x: 4.7, y: 0.6, w: 6.3, h: 6.3, fill: { color: "342F28" } });
+  s.addShape(pres.ShapeType.ellipse, { x: 4.7, y: 0.6, w: 6.3, h: 6.3, fill: { color: "18452F" } });
   s.addText("経絡に触れ、\nこころに耳を傾ける。", {
     x: 1.5, y: 2.4, w: 10.3, h: 1.9, isTextBox: true, margin: 0, align: "center",
     fontFace: MIN, fontSize: 40, bold: true, color: ONDARK, lineSpacing: 66,
@@ -577,7 +582,7 @@ principles.forEach((p, i) => {
   const s = S(true);
   s.addText("ここまでは、知識です。", { x: M, y: 2.5, w: CW, h: 0.8, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 34, bold: true, color: MUTED_D });
   s.addText("知識では、1ミリも変わりません。", { x: M, y: 3.4, w: CW, h: 0.9, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 40, bold: true, color: ONDARK });
-  s.addText("では、やってみましょう。", { x: M, y: 4.6, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: GO, fontSize: 20, color: SHU });
+  s.addText("では、やってみましょう。", { x: M, y: 4.6, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: GO, fontSize: 20, color: MINT });
   note(s, "【26:50-27:20】\nワークへの切り替え。ここで声のトーンを一段上げる。");
 }
 
@@ -621,7 +626,7 @@ principles.forEach((p, i) => {
 // 21 90秒タイマー
 {
   const s = S(true);
-  s.addShape(pres.ShapeType.ellipse, { x: 4.87, y: 1.35, w: 3.6, h: 3.6, fill: { color: INK }, line: { color: SHU, width: 3 } });
+  s.addShape(pres.ShapeType.ellipse, { x: 4.87, y: 1.35, w: 3.6, h: 3.6, fill: { color: INK }, line: { color: MINT, width: 3 } });
   s.addText("90", { x: 4.87, y: 1.35, w: 3.6, h: 3.6, isTextBox: true, margin: 0, align: "center", valign: "middle", fontFace: MIN, fontSize: 96, bold: true, color: ONDARK });
   s.addText("秒", { x: 8.5, y: 3.4, w: 0.8, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: MUTED_D });
   s.addText("患者さんが言った「言葉そのもの」を、3つ", { x: 1.5, y: 5.4, w: 10.3, h: 0.5, isTextBox: true, margin: 0, align: "center", fontFace: GO, fontSize: 16, color: MUTED_D });
@@ -649,10 +654,10 @@ principles.forEach((p, i) => {
   card(s, M, 2.95, CW, 1.55);
   body(s, "私たちは、聴いたつもりで「情報」に変換しています。\n人の言葉としては、残っていないんです。",
     M + 0.6, 3.35, CW - 1.2, 0.9, { fontSize: 18, lineSpacing: 32 });
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: 4.75, w: CW, h: 0.95, rectRadius: 0.1, fill: { color: MORI } });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: 4.75, w: CW, h: 0.95, rectRadius: 0.1, fill: { color: MINT } });
   s.addText("▶ チャットへ　「何個 書けましたか？」　数字だけ送ってください", {
     x: M + 0.5, y: 4.75, w: CW - 1.0, h: 0.95, isTextBox: true, margin: 0, valign: "middle",
-    fontFace: GO, fontSize: 17, bold: true, color: "FFFFFF",
+    fontFace: GO, fontSize: 17, bold: true, color: INK,
   });
   note(s, "【30:40-32:30】\n★数字1文字なら100名でも一気に流れる。\n「0」「1」が並ぶ光景そのものがメッセージ。『ほら、みなさん同じです』と拾う。\n★サロンメンバー1〜2名に、最初に投げる役を頼んでおくこと（口火を切る役）。");
 }
@@ -672,12 +677,12 @@ principles.forEach((p, i) => {
 // 25-34 カウントダウン 10→1
 for (let k = 10; k >= 1; k--) {
   const s = S(true);
-  s.addShape(pres.ShapeType.ellipse, { x: 5.17, y: 1.75, w: 3.0, h: 3.0, fill: { color: INK }, line: { color: k <= 3 ? SHU : "4A4239", width: 2.5 } });
+  s.addShape(pres.ShapeType.ellipse, { x: 5.17, y: 1.75, w: 3.0, h: 3.0, fill: { color: INK }, line: { color: k <= 3 ? PINKB : "2C6448", width: 2.5 } });
   s.addText(String(k), {
     x: 5.17, y: 1.75, w: 3.0, h: 3.0, isTextBox: true, margin: 0, align: "center", valign: "middle",
-    fontFace: MIN, fontSize: 88, bold: true, color: k <= 3 ? SHU : ONDARK,
+    fontFace: MIN, fontSize: 88, bold: true, color: k <= 3 ? PINKB : ONDARK,
   });
-  s.addText("沈黙のワーク", { x: 1.5, y: 5.35, w: 10.3, h: 0.4, isTextBox: true, margin: 0, align: "center", fontFace: GO, fontSize: 13, color: "6B5F51" });
+  s.addText("沈黙のワーク", { x: 1.5, y: 5.35, w: 10.3, h: 0.4, isTextBox: true, margin: 0, align: "center", fontFace: GO, fontSize: 13, color: MUTED_D });
   if (k === 10) note(s, "★このスライドから10枚が、10秒のカウントダウンです。\n\n【設定方法】\n1. スライド一覧でこの10枚を選択\n2.「画面切り替え」タブ →「自動的に切り替え」に 00:01 と入力\n3.「クリック時」のチェックを外す\n\nこれで自動的に10秒進みます。数字を画面に出すことで、\nアーカイブ視聴者に『配信事故』と誤解されるのを防げます。\n\nこの10秒、絶対に話しかけないこと。");
   else note(s, "無言。（自動切り替え 1秒）");
 }
@@ -687,10 +692,10 @@ for (let k = 10; k >= 1; k--) {
   const s = S(false);
   eyebrow(s, "体験ワーク ②", false);
   title(s, "どうでしたか");
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: 1.95, w: CW, h: 0.95, rectRadius: 0.1, fill: { color: MORI } });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: 1.95, w: CW, h: 0.95, rectRadius: 0.1, fill: { color: MINT } });
   s.addText("▶ チャットへ　落ち着かなかった方は「1」を送ってください", {
     x: M + 0.5, y: 1.95, w: CW - 1.0, h: 0.95, isTextBox: true, margin: 0, valign: "middle",
-    fontFace: GO, fontSize: 17, bold: true, color: "FFFFFF",
+    fontFace: GO, fontSize: 17, bold: true, color: INK,
   });
   card(s, M, 3.25, CW, 2.25);
   body(s, "たった10秒でも、落ち着かないですよね。\n\nこの居心地の悪さが、あなたが\n患者さんの沈黙をつぶしている理由です。",
@@ -773,9 +778,9 @@ for (let k = 10; k >= 1; k--) {
   const s = S(true);
   s.addText("いまのは、全部で 13分です。", { x: M, y: 2.2, w: CW, h: 0.8, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 34, bold: true, color: MUTED_D });
   s.addText("あなたの施術は、40分あります。", { x: M, y: 3.1, w: CW, h: 1.0, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 44, bold: true, color: ONDARK });
-  s.addShape(pres.ShapeType.roundRect, { x: 9.6, y: 4.45, w: 2.9, h: 2.35, rectRadius: 0.08, fill: { color: "35302A" }, line: { color: MUTED_D, width: 1, dashType: "dash" } });
+  s.addShape(pres.ShapeType.roundRect, { x: 9.6, y: 4.45, w: 2.9, h: 2.35, rectRadius: 0.08, fill: { color: "1B4E36" }, line: { color: MUTED_D, width: 1, dashType: "dash" } });
   s.addText("▶ ここに\n公式LINEのQRを\n貼ってください", { x: 9.7, y: 4.75, w: 2.7, h: 1.1, isTextBox: true, margin: 0, align: "center", fontFace: GO, fontSize: 11, color: MUTED_D, lineSpacing: 18 });
-  s.addText("先に撮っておきたい方はどうぞ", { x: 9.6, y: 6.25, w: 2.9, h: 0.35, isTextBox: true, margin: 0, align: "center", fontFace: GO, fontSize: 10, color: "6B5F51" });
+  s.addText("先に撮っておきたい方はどうぞ", { x: 9.6, y: 6.25, w: 2.9, h: 0.35, isTextBox: true, margin: 0, align: "center", fontFace: GO, fontSize: 10, color: MUTED_D });
   note(s, "【41:30-42:00】\n★希望のピーク。ここで聴衆は『やってみたい』状態。\n『あとで出しますが、先に撮っておきたい方はどうぞ』と一言だけ。売り込まない。\n★QR画像を貼り替えてください（点線枠を削除して画像を配置）。");
 }
 
@@ -856,7 +861,7 @@ kata.forEach((k, i) => {
     x: M, y: 5.15, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 23, bold: true, color: INK,
   });
   s.addText("米倉まな・松浦悠人・柴田健一「標準治療で難渋したうつ病患者に鍼灸と傾聴が奏功した一症例」日本うつ病学会", {
-    x: M, y: 5.85, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10, color: "9E9484",
+    x: M, y: 5.85, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10, color: "4F6F60",
   });
   note(s, "【44:30-45:40】\n★共同演者（松浦悠人先生・柴田健一先生）のお名前と学会名・年をご確認ください。\n\n『目標：働くこと』を必ず読む。これが傾聴で聴き取った治療目標です。\n症状ではなく、その人が何をしたいのか。ここが後半の型②③に繋がります。");
 }
@@ -928,21 +933,21 @@ kata.forEach((k, i) => {
     [{ name: "PHQ-9", labels: ["初診", "5診目", "10診目", "15診目", "20診目"], values: [13, 17, 10, 6, 5] }],
     {
       x: M - 0.1, y: 2.4, w: CW * 0.6, h: 2.6,
-      chartColors: [SHU], lineSize: 2.5,
+      chartColors: [MORI], lineSize: 2.5,
       lineDataSymbol: "circle", lineDataSymbolSize: 8, lineDataSymbolLineColor: PAPER,
       showLegend: false, showTitle: false, showValue: false,
       valAxisMinVal: 0, valAxisMaxVal: 20, valAxisMajorUnit: 5,
       valAxisLabelColor: MUTED, valAxisLabelFontSize: 10, valAxisLabelFontFace: GO,
       catAxisLabelColor: MUTED, catAxisLabelFontSize: 10, catAxisLabelFontFace: GO,
-      valGridLine: { color: "DED3C0", size: 1 }, catGridLine: { style: "none" },
-      valAxisLineShow: false, catAxisLineColor: "D3C7B2",
+      valGridLine: { color: "D2EBDF", size: 1 }, catGridLine: { style: "none" },
+      valAxisLineShow: false, catAxisLineColor: "BCDDCC",
       border: { pt: 0, color: CREAM }, fill: CREAM,
     });
   const rx = M + CW * 0.62, rw = CW - CW * 0.62;
   s.addText("PHQ-9", { x: rx, y: 2.2, w: rw, h: 0.3, isTextBox: true, margin: 0, fontFace: GO, fontSize: 11, bold: true, color: MUTED });
   s.addText("13　→　5", {
     x: rx, y: 2.5, w: rw, h: 0.95, isTextBox: true, margin: 0,
-    fontFace: MIN, fontSize: 46, bold: true, color: SHU,
+    fontFace: MIN, fontSize: 46, bold: true, color: MORI,
   });
   body(s, "身体症状（PHQ-15）は 20 → 19。\n大きくは変わっていません。\n\n変わったのは、気分と睡眠、\nそして日常生活でした。",
     rx, 3.6, rw, 1.5, { fontSize: 13.5, lineSpacing: 24 });
@@ -950,7 +955,7 @@ kata.forEach((k, i) => {
     x: M, y: 5.35, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 28, bold: true, color: INK,
   });
   s.addText("米倉まな・松浦悠人・柴田健一「標準治療で難渋したうつ病患者に鍼灸と傾聴が奏功した一症例」日本うつ病学会", {
-    x: M, y: 6.05, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10, color: "9E9484",
+    x: M, y: 6.05, w: CW, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 10, color: "4F6F60",
   });
   note(s, "【48:20-49:30】\n★5診目で いったん上がっている（13→17）ことを隠さない。\n　「最初はむしろ上がりました」と正直に言うほうが、信頼されます。\n　※理由は症例報告では述べられていないので、推測を語らないこと。\n\n★PHQ-15（身体症状）がほぼ横ばいであることも、そのまま伝える。\n　過大に言わないことが、この講演全体の誠実さを担保します。\n\n締めの一行は、静かに。「入院は、回避できました」");
 }
@@ -994,11 +999,11 @@ kata.forEach((k, i) => {
   const s = S(true);
   eyebrow(s, "明日からの臨床", true);
   title(s, "ただ、私は一度 失敗しています", true);
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: 2.1, w: CW, h: 2.3, rectRadius: 0.1, fill: { color: "35302A" } });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: 2.1, w: CW, h: 2.3, rectRadius: 0.1, fill: { color: "1B4E36" } });
   body(s, "聴きすぎて、自分が消耗した時期があります。\nカウンセラーになろうとして、施術がぶれた時期もありました。\n\n傾聴には、自分を守る技術がセットで必要です。",
     M + 0.6, 2.5, CW - 1.2, 1.6, { fontSize: 18, color: ONDARK, lineSpacing: 34 });
   s.addText("ひとりでやると、壊れます。", {
-    x: M, y: 4.75, w: CW, h: 0.7, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 30, bold: true, color: SHU,
+    x: M, y: 4.75, w: CW, h: 0.7, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 30, bold: true, color: PINKB,
   });
   note(s, "【49:00-50:30】\n★ここが、後半への唯一の橋。飛ばすと最後がただの宣伝になる。\n弱さを見せることで、次のスライドの提案が『売り込み』でなく『招待』になる。\n声を落として、ゆっくり。");
 }
@@ -1091,7 +1096,7 @@ kata.forEach((k, i) => {
 {
   const s = S(true);
   s.addText("今日、ひとつだけ持ち帰るなら", { x: M, y: 1.9, w: CW, h: 0.6, isTextBox: true, margin: 0, fontFace: GO, fontSize: 18, color: MUTED_D });
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: 2.7, w: CW, h: 1.75, rectRadius: 0.12, fill: { color: SHU } });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: 2.7, w: CW, h: 1.75, rectRadius: 0.12, fill: { color: PINKB } });
   s.addText("最初の90秒、遮らない。", {
     x: M, y: 2.7, w: CW, h: 1.75, isTextBox: true, margin: 0, align: "center", valign: "middle",
     fontFace: MIN, fontSize: 42, bold: true, color: "FFFFFF",
@@ -1105,14 +1110,14 @@ kata.forEach((k, i) => {
 // 52 スルーラインで閉じる
 {
   const s = S(true);
-  s.addShape(pres.ShapeType.ellipse, { x: 4.7, y: 0.6, w: 6.3, h: 6.3, fill: { color: "342F28" } });
+  s.addShape(pres.ShapeType.ellipse, { x: 4.7, y: 0.6, w: 6.3, h: 6.3, fill: { color: "18452F" } });
   s.addText("経絡に触れ、\nこころに耳を傾ける。", {
     x: 1.5, y: 2.3, w: 10.3, h: 1.9, isTextBox: true, margin: 0, align: "center",
     fontFace: MIN, fontSize: 40, bold: true, color: ONDARK, lineSpacing: 66,
   });
   s.addText("それが、私たちの持っているチカラです。", {
     x: 1.5, y: 4.5, w: 10.3, h: 0.6, isTextBox: true, margin: 0, align: "center",
-    fontFace: MIN, fontSize: 22, bold: true, color: SHU,
+    fontFace: MIN, fontSize: 22, bold: true, color: PINKB,
   });
   note(s, "【57:00-57:40】\n冒頭（12枚目）と同じ言葉で閉じる。\n読んだあと、3秒 黙る。ここで拍手が来る設計。");
 }
@@ -1135,10 +1140,10 @@ kata.forEach((k, i) => {
     x: qx + 0.3, y: 4.75, w: qw - 0.6, h: 0.4, isTextBox: true, margin: 0, align: "center",
     fontFace: GO, fontSize: 11, color: MUTED,
   });
-  s.addShape(pres.ShapeType.roundRect, { x: M, y: 5.75, w: CW, h: 0.95, rectRadius: 0.1, fill: { color: MORI } });
+  s.addShape(pres.ShapeType.roundRect, { x: M, y: 5.75, w: CW, h: 0.95, rectRadius: 0.1, fill: { color: MINT } });
   s.addText("録画でご覧の方も、同じように送ってください。全部読みます。　／　本日のスライドをお送りします。", {
     x: M + 0.4, y: 5.75, w: CW - 0.8, h: 0.95, isTextBox: true, margin: 0, valign: "middle",
-    fontFace: GO, fontSize: 15, bold: true, color: "FFFFFF",
+    fontFace: GO, fontSize: 15, bold: true, color: INK,
   });
   note(s, "【57:40-60:00】\n★このスライドを30秒 黙って映す。読み取り待ち。ここを急ぐと激減します。\n★Q&Aの間も、このスライドを出しっぱなしにする。\n★チャットにも同じリンクを投下（事前にメモ帳に用意してコピペ／共同ホストに依頼）。\n　ただしチャットは録画に残らないので、画面表示が本体です。\n★短縮URLは口頭でも読み上げる（音声だけで聴いている人がいます）。\n\n【Q&Aのコツ】\n質問には即答せず、まず「その患者さん、なんて仰ってました？」と聴き返す。\n傾聴の実演が、いちばん強い営業になります。");
 }
@@ -1177,7 +1182,7 @@ for (const rec of decks) {
   }
   if (rec.num > 1) s.addText(String(rec.num), {
     x: W - 0.85, y: H - 0.5, w: 0.5, h: 0.3, isTextBox: true, margin: 0,
-    align: "right", fontFace: GO, fontSize: 10, color: rec.dark ? "6B5F51" : "B7A991",
+    align: "right", fontFace: GO, fontSize: 10, color: rec.dark ? "3A6450" : "AFD2C1",
   });
   if (rec.notes) {
     let nt = rec.notes;
