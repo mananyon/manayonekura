@@ -9,6 +9,7 @@ mosh で販売する買い切りのフロント講座の設計資料です。
 | [01_curriculum.md](01_curriculum.md) | 講座の全体設計・章立て・各動画の説明文・**追加動画の提案と台本の骨子** |
 | [02_sales_page.md](02_sales_page.md) | mosh 販売ページの文章（タイトル・紹介文・対象者・FAQ・注意書き） |
 | [03_worksheets_quiz.md](03_worksheets_quiz.md) | 章ごとのPDFワーク・声かけ例シート・確認クイズの原稿 |
+| [04_kikaku.pdf](04_kikaku.pdf) | 企画書（A4 1枚）。元データは 04_kikaku.html |
 
 ## 前提（ヒアリング結果）
 
