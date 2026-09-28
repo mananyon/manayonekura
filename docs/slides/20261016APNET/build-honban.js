@@ -104,7 +104,7 @@ function source(s, txt, y) {
   eyebrow(s, "はじめに", false);
   title(s, "こんなこと、ありませんか");
   const a = [
-    "患者さんへ、どうアドバイスしたらいいか分からない",
+    "患者さんへ かける言葉が、見つからない",
     "なぜ鍼灸院に来ているんだろう？という方がいる",
     "患者さんに「良くなった」と言われたい",
     "患者さんの施術後、自分が疲れてしまう",
@@ -233,10 +233,36 @@ function source(s, txt, y) {
   note(s, "【8:30-9:30】\n★「時間は増えません」が効きます。忙しい人ほど身構えているので、\n　最初に負担が増えないことを保証する。");
 }
 
+// 8b 今日の地図：聴けると、4つのことができる
+{
+  const s = S(false);
+  eyebrow(s, "今日の地図", false);
+  title(s, "聴けると、4つのことができます");
+  const pil = [
+    ["①", "情報が集まる", "東洋医学的にも、西洋医学的にも", GREEN],
+    ["②", "危険に気づける", "見落としてはいけないものを拾える", PINK],
+    ["③", "つなげる", "困りごとを整理して、次の依存先へ", GREEN],
+    ["④", "自分が潰れない", "患者さんとの距離が、適切になる", PINK],
+  ];
+  pil.forEach((it, i) => {
+    const x = M + (i % 2) * (CW / 2 + 0.15);
+    const y = 2.1 + Math.floor(i / 2) * 1.45;
+    const w = CW / 2 - 0.15;
+    card(s, x, y, w, 1.25);
+    circle(s, it[0], x + 0.35, y + 0.3, 0.62, it[3], PAPER, 17);
+    s.addText(it[1], { x: x + 1.15, y: y + 0.22, w: w - 1.45, h: 0.45, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 21, bold: true, color: INK });
+    s.addText(it[2], { x: x + 1.15, y: y + 0.7, w: w - 1.45, h: 0.4, isTextBox: true, margin: 0, fontFace: GO, fontSize: 13, color: MUTED });
+  });
+  s.addText("今日は、この4つを順に見ていきます。", {
+    x: M, y: 5.1, w: CW, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 24, bold: true, color: INK,
+  });
+  note(s, "【7:20-8:20】\n★このセミナーの背骨です。ここで地図を渡しておくと、\n　以降のスライドが全部「4つのどれか」として受け取ってもらえます。\n\n★左上のラベル（① 情報が集まる ② 危険に気づける…）が、\n　いま どこの話をしているかの目印になっています。\n\n★最後に50枚目「聴けたから、できたこと」で、この4つを実例で回収します。");
+}
+
 // 9 2つの情報が同時に集まる
 {
   const s = S(false);
-  eyebrow(s, "傾聴のメリット ①", false);
+  eyebrow(s, "① 情報が集まる", false);
   title(s, "傾聴すると、2種類の情報が同時に集まります");
   const cols = [
     ["東洋医学的な情報", ["睡眠　食欲　便通　月経", "情志　冷え　のぼせ", "生活リズム　仕事と家族"], GREEN],
@@ -256,7 +282,7 @@ function source(s, txt, y) {
 // 10 東洋医学：四診の問
 {
   const s = S(false);
-  eyebrow(s, "傾聴のメリット ①", false);
+  eyebrow(s, "① 情報が集まる", false);
   title(s, "「証」は、聞かなければ立ちません");
   s.addText("四診", { x: M, y: 2.1, w: 2.0, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 12, bold: true, charSpacing: 2, color: MUTED });
   [["望", "見る"], ["聞", "聞く・嗅ぐ"], ["問", "尋ねる"], ["切", "触れる"]].forEach((it, i) => {
@@ -276,7 +302,7 @@ function source(s, txt, y) {
 // 11 西洋医学：レッドフラッグ
 {
   const s = S(false);
-  eyebrow(s, "傾聴のメリット ①", false);
+  eyebrow(s, "② 危険に気づける", false);
   title(s, "聴いていたから、気づけました");
   const talk = [
     [0, "最近、気分が落ち込んでいて、眠れません"],
@@ -299,7 +325,7 @@ function source(s, txt, y) {
 // 12 ご高診後の診断名
 {
   const s = S(false);
-  eyebrow(s, "傾聴のメリット ①", false);
+  eyebrow(s, "② 危険に気づける", false);
   title(s, "抑うつを訴えて来られた方の、ご高診後の診断名");
   const g = [
     ["脳神経系", "パーキンソン病／レビー小体型認知症／アルツハイマー病／脳腫瘍"],
@@ -321,7 +347,7 @@ function source(s, txt, y) {
 // 13 実費の強み
 {
   const s = S(false);
-  eyebrow(s, "傾聴のメリット ②", false);
+  eyebrow(s, "鍼灸師だから、できる", false);
   title(s, "情報を集められることが、実費診療の強みです");
   const adv = [["40〜60分", "ふたりきりの時間がある"], ["身体に触れる", "言葉の前に、からだの情報がある"], ["会い続ける", "一度きりではない"], ["制約が少ない", "時間の使い方を自分で決められる"]];
   adv.forEach((it, i) => {
@@ -343,7 +369,7 @@ function source(s, txt, y) {
 // 14 医師からの評価
 {
   const s = S(false);
-  eyebrow(s, "傾聴のメリット ②", false);
+  eyebrow(s, "鍼灸師だから、できる", false);
   title(s, "医師の先生方から、こう言われます");
   [["「患者さんと、\n　時間がある」", GREEN], ["「身体全体を、\n　見てくれる」", PINK], ["「東洋医学の、\n　専門家だから」", GREEN]].forEach((it, i) => {
     const x = M + i * (CW / 3), w = CW / 3 - 0.35;
@@ -360,7 +386,7 @@ function source(s, txt, y) {
 // 15 鍼灸院にいる時間
 {
   const s = S(false);
-  eyebrow(s, "抱えない、という考え方", false);
+  eyebrow(s, "③ つなげる", false);
   title(s, "鍼灸院にいる時間は、人生のごく一部です");
   card(s, M, 2.2, CW * 0.44, 2.3);
   s.addText("週に1回・45分", { x: M + 0.5, y: 2.55, w: CW * 0.44 - 1.0, h: 0.5, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 24, bold: true, color: GREEN });
@@ -376,7 +402,7 @@ function source(s, txt, y) {
 // 16 困っているのは症状ではない
 {
   const s = S(false);
-  eyebrow(s, "抱えない、という考え方", false);
+  eyebrow(s, "③ つなげる", false);
   title(s, "患者さんが困っているのは、症状ではありません");
   card(s, M, 2.15, CW, 1.5);
   s.addText("「うつ病の症状で困っているのではなく、\n　症状があることで、できなくなった何かに困っている」", {
@@ -392,7 +418,7 @@ function source(s, txt, y) {
 // 17 個人の課題／社会の課題
 {
   const s = S(false);
-  eyebrow(s, "抱えない、という考え方", false);
+  eyebrow(s, "③ つなげる", false);
   title(s, "困りごとは、2つに分けて整理する");
   const cols = [
     ["個人の課題", "内省のサポートに、傾聴を", ["働く不安", "自信喪失", "職業適性", "家族・友人との関係性"], GREEN],
@@ -412,7 +438,7 @@ function source(s, txt, y) {
 // 18 依存先を増やす
 {
   const s = S(true);
-  eyebrow(s, "抱えない、という考え方", true);
+  eyebrow(s, "③ つなげる", true);
   s.addText("自立とは、", { x: M, y: 2.3, w: CW, h: 0.8, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 34, bold: true, color: MUTED_D });
   s.addText("依存先を増やすこと。", {
     x: M, y: 3.2, w: CW, h: 1.1, isTextBox: true, margin: 0,
@@ -427,7 +453,7 @@ function source(s, txt, y) {
 // 19 連携先
 {
   const s = S(false);
-  eyebrow(s, "抱えない、という考え方", false);
+  eyebrow(s, "③ つなげる", false);
   title(s, "連携先は、こんなにあります");
   const groups = [
     ["医療", ["精神科・心療内科", "その他の医療機関", "訪問看護ステーション", "薬剤師", "訪問鍼灸"], GREEN],
@@ -440,14 +466,14 @@ function source(s, txt, y) {
     s.addText(g[0], { x: x + 0.4, y: 2.45, w: w - 0.8, h: 0.4, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 19, bold: true, color: g[2] });
     s.addText(g[1].map((t) => "・" + t).join("\n"), { x: x + 0.4, y: 2.95, w: w - 0.8, h: 1.9, isTextBox: true, margin: 0, fontFace: GO, fontSize: 13, color: INK, lineSpacing: 26 });
   });
-  kicker(s, "全部知らなくていい。ひとつずつ増やせば大丈夫です。", 5.45, INK, 23);
+  kicker(s, "全部知らなくて大丈夫。ひとつずつ増やしていけます。", 5.45, INK, 23);
   note(s, "【24:00-25:30】\n★「こんなに覚えられない」と思わせないこと。\n自分の地域で使ったことがある先を1つずつ増やしていけばいい、と伝える。\n※地域包括支援センターなど、ご自身が実際に連携した先を口頭で足すと生々しくなります。");
 }
 
 // 20 事例：傷病手当金
 {
   const s = S(false);
-  eyebrow(s, "つなぐ ― 事例", false);
+  eyebrow(s, "③ つなげる ― 事例", false);
   title(s, "聴いたから、つなげました");
   const talk = [
     [0, "病院に行きたくない。休職と言われたら困る"],
@@ -470,7 +496,7 @@ function source(s, txt, y) {
 // 21 事例：薬が怖い
 {
   const s = S(false);
-  eyebrow(s, "つなぐ ― 事例", false);
+  eyebrow(s, "③ つなげる ― 事例", false);
   title(s, "「薬が怖い」と言われたら");
   card(s, M, 2.15, CW, 1.2);
   s.addText("「薬が怖い！」　「薬をやめたい！」", {
@@ -492,7 +518,7 @@ function source(s, txt, y) {
 // 22 薬は止めない
 {
   const s = S(false);
-  eyebrow(s, "つなぐ ― 安全のために", false);
+  eyebrow(s, "③ つなげる ― 安全のために", false);
   title(s, "薬は、止めないよう指導します");
   const r = [["離脱症状の可能性がある", "自己判断の中断は危険です"], ["越権行為になる", "薬の判断は医師の領域です"], ["自分を守るため", "何かあったとき、責任を負えません"]];
   r.forEach((it, i) => {
@@ -502,7 +528,7 @@ function source(s, txt, y) {
     s.addText(it[0], { x: M + 1.0, y, w: 4.6, h: 0.85, isTextBox: true, margin: 0, valign: "middle", fontFace: MIN, fontSize: 17, bold: true, color: INK });
     s.addText(it[1], { x: M + 5.8, y, w: CW - 6.1, h: 0.85, isTextBox: true, margin: 0, valign: "middle", fontFace: GO, fontSize: 14, color: MUTED });
   });
-  kicker(s, "減薬の話が出たら、「主治医に相談してみては」が正解です。", 5.5, INK, 22);
+  kicker(s, "減薬の話が出たら、お伝えするのは「主治医に相談してみては」まで。", 5.5, INK, 22);
   note(s, "【29:00-30:00】\n★ここは必ず入れてください。傾聴を教えると、必ず踏み越える人が出ます。\n聴くことと、介入することは別。境界線をはっきり引いておく。");
 }
 
@@ -511,7 +537,7 @@ function source(s, txt, y) {
 // 23 こんな患者さん
 {
   const s = S(false);
-  eyebrow(s, "距離感の話", false);
+  eyebrow(s, "④ 自分が潰れない", false);
   title(s, "こんな患者さん、いませんか");
   card(s, M, 2.2, CW, 1.6);
   s.addText("「今まで、話を聴いてもらえなかった」", {
@@ -526,7 +552,7 @@ function source(s, txt, y) {
 // 24 長く続く患者さんになる
 {
   const s = S(false);
-  eyebrow(s, "距離感の話", false);
+  eyebrow(s, "④ 自分が潰れない", false);
   title(s, "その方は、長く続く患者さんになります");
   const seq = [["聴いてもらえた", GREEN], ["ここなら話せる", GREEN], ["ここしかない", PINK]];
   seq.forEach((t, i) => {
@@ -539,7 +565,7 @@ function source(s, txt, y) {
   body(s, "売上としては、ありがたい話です。けれど――",
     M, 3.65, CW, 0.5, { fontSize: 15, color: MUTED });
   kicker(s, "「ここしかない」は、患者さんにとって危うい状態です。", 4.4, PINK, 25);
-  body(s, "治らないわけではありません。良くなっている方も、たくさんいます。\nただ、依存先がひとつしかないまま、というのが問題なのです。",
+  body(s, "治らないわけではありません。日常が動きはじめる方も、たくさんいます。\nただ、依存先がひとつしかないまま、というのが問題なのです。",
     M, 5.2, CW, 1.0, { fontSize: 15, lineSpacing: 28 });
   note(s, "【31:00-32:30】\n★ここは誤解されやすいので丁寧に。\n「長く通ってもらうのが悪い」と言っているのではない。\n依存先がひとつきりになることが危ない、という話です。");
 }
@@ -547,10 +573,10 @@ function source(s, txt, y) {
 // 25 私の失敗
 {
   const s = S(true);
-  eyebrow(s, "距離感の話", true);
+  eyebrow(s, "④ 自分が潰れない", true);
   title(s, "私の、失敗です", true);
   s.addShape(pres.ShapeType.roundRect, { x: M, y: 2.1, w: CW, h: 2.2, rectRadius: 0.1, fill: { color: "1B4E36" } });
-  body(s, "最初は「とてもいい！」と言ってくださっていました。\nどんどん頼られて、私も応えていました。\n\nそれが、クレームになりました。",
+  body(s, "最初は「ここに来ると、楽になる」と言ってくださっていました。\nどんどん頼られて、私も応えていました。\n\nそれが、クレームになりました。",
     M + 0.6, 2.5, CW - 1.2, 1.6, { fontSize: 18, color: ONDARK, lineSpacing: 34 });
   s.addText("患者さんのせいではなく、私の距離感が間違っていたのです。", {
     x: M, y: 4.65, w: CW, h: 0.7, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 26, bold: true, color: PINKB,
@@ -561,7 +587,7 @@ function source(s, txt, y) {
 // 26 距離が近すぎるサイン
 {
   const s = S(false);
-  eyebrow(s, "距離感の話", false);
+  eyebrow(s, "④ 自分が潰れない", false);
   title(s, "距離が近すぎる、3つのサイン");
   const sg = [["施術後、自分が疲れている", "感情を受け取りすぎています"],
               ["患者さんの課題を、自分ごとにしている", "その課題は、誰のものですか？"],
@@ -580,7 +606,7 @@ function source(s, txt, y) {
 // 27 次の依存先へつなぐ
 {
   const s = S(false);
-  eyebrow(s, "距離感の話", false);
+  eyebrow(s, "④ 自分が潰れない", false);
   title(s, "依存させ切らない。次の依存先へ、つなぐ。");
   const st = [["受け止める", "まず、ちゃんと聴く。ここを飛ばすと繋がりません"],
               ["枠をつくる", "「今日は10分、じっくり伺います」と先に言う"],
@@ -599,7 +625,7 @@ function source(s, txt, y) {
 // 28 自己理解
 {
   const s = S(false);
-  eyebrow(s, "距離感の話", false);
+  eyebrow(s, "④ 自分が潰れない", false);
   title(s, "なぜ「良くなった」と言われたいのでしょう");
   const two = [["なぜ、良くなったと\n言われたいのか？", GREEN], ["なぜ、アドバイスを\nしたいのか？", PINK]];
   two.forEach((t, i) => {
@@ -872,7 +898,7 @@ gi.forEach((g, gi2) => {
   eyebrow(s, "ワーク", false);
   title(s, "ワーク①　イラストを覚えてください");
   card(s, M, 2.3, CW, 1.8);
-  s.addText("次の画面に出るイラストを、10秒間よく見て、覚えてください。", {
+  s.addText("次の画面に出るイラストを、10秒間しっかり見て、覚えてください。", {
     x: M, y: 2.3, w: CW, h: 1.8, isTextBox: true, margin: 0, align: "center", valign: "middle",
     fontFace: MIN, fontSize: 24, bold: true, color: INK,
   });
@@ -883,7 +909,7 @@ gi.forEach((g, gi2) => {
 {
   const s = S(false);
   s.addImage({ path: ASSETS + "/pink-elephant.png", x: 4.9, y: 0.9, w: 3.5, h: 3.5 });
-  s.addText("10秒間、よく見てください", {
+  s.addText("10秒間、しっかり見てください", {
     x: M, y: 4.7, w: CW, h: 0.6, isTextBox: true, margin: 0, align: "center",
     fontFace: MIN, fontSize: 26, bold: true, color: INK,
   });
@@ -997,6 +1023,36 @@ gi.forEach((g, gi2) => {
   note(s, "【52:50-53:50】\n★患者さんに向ける前に、まず自分に向ける。\n「疲れた自分はダメだ」と思っている施術者が本当に多いです。");
 }
 
+// 48b 聴けたから、できたこと
+{
+  const s = S(false);
+  eyebrow(s, "だから、聴くんです", false);
+  title(s, "聴けたから、できたこと");
+  const got = [
+    ["①", "証が立った", "睡眠・食欲・便通・情志が、出てきた", GREEN],
+    ["②", "見落とさなかった", "幻視と手の震えに、気づけた", PINK],
+    ["②", "治療目標が分かった", "その方の目標は「働くこと」だった", PINK],
+    ["③", "制度につなげた", "傷病手当金を、知らない方だった", GREEN],
+    ["③", "薬をやめずに済んだ", "不安を言葉にして、主治医へ渡せた", GREEN],
+    ["④", "入院を回避できた", "PHQ-9　13 → 5", PINK],
+  ];
+  got.forEach((it, i) => {
+    const y = 2.1 + i * 0.7;
+    card(s, M, y, CW, 0.6);
+    circle(s, it[0], M + 0.28, y + 0.13, 0.34, it[3], PAPER, 11);
+    s.addText(it[1], { x: M + 0.85, y, w: 4.4, h: 0.6, isTextBox: true, margin: 0, valign: "middle", fontFace: MIN, fontSize: 16, bold: true, color: INK });
+    s.addText(it[2], { x: M + 5.4, y, w: CW - 5.75, h: 0.6, isTextBox: true, margin: 0, valign: "middle", fontFace: GO, fontSize: 13.5, color: MUTED });
+  });
+  s.addText("どれも、聴かなければ できませんでした。", {
+    x: M, y: 6.35, w: CW * 0.62, h: 0.55, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 22, bold: true, color: INK,
+  });
+  s.addText("だから、聴くんです。", {
+    x: M + CW * 0.62, y: 6.3, w: CW * 0.38, h: 0.65, isTextBox: true, margin: 0, align: "right",
+    fontFace: MIN, fontSize: 30, bold: true, color: PINK,
+  });
+  note(s, "【49:15-50:45】\n★このセミナーの結論スライドです。いちばんゆっくり読んでください。\n\n★6つとも、今日の中で実際に出てきた話です。\n　抽象論ではなく「さっき見たあれ」として並べているのがポイント。\n　番号は9枚目の地図（①〜④）と対応しています。\n\n★読み上げるのは①②④の3つで足ります。残りは目で追ってもらう。\n★最後の「だから、聴くんです。」の前で、必ず一拍おく。");
+}
+
 // 41 3つの型
 {
   const s = S(false);
@@ -1011,7 +1067,7 @@ gi.forEach((g, gi2) => {
     s.addText(it[0], { x: x + 0.25, y: 3.45, w: w - 0.5, h: 0.45, isTextBox: true, margin: 0, align: "center", fontFace: MIN, fontSize: 20, bold: true, color: INK });
     s.addText(it[1], { x: x + 0.25, y: 3.9, w: w - 0.5, h: 0.4, isTextBox: true, margin: 0, align: "center", fontFace: GO, fontSize: 13, color: MUTED });
   });
-  s.addText("全部やらなくていいです。ひとつだけ選んでください。", {
+  s.addText("全部やらなくて大丈夫です。ひとつだけ選んでください。", {
     x: M, y: 4.9, w: CW, h: 0.5, isTextBox: true, margin: 0, fontFace: GO, fontSize: 16, color: INK,
   });
   note(s, "【42:00-43:00】\n先に3つ見せてから、1枚ずつ展開する（地図を渡してから歩く）。");
@@ -1049,17 +1105,18 @@ kata.forEach((k, i) => {
   const s = S(false);
   eyebrow(s, "まとめ", false);
   title(s, "今日、持ち帰っていただきたいこと");
-  const sum = [["聴くと、情報が集まる", "東洋医学的にも、西洋医学的にも。それが実費診療の強み"],
-               ["抱えない。つなぐ。", "自立とは、依存先を増やすこと"],
-               ["距離は、冷たさではない", "渡す準備をしておくこと"]];
+  const sum = [["聴くと、情報が集まる", "東洋医学的にも、西洋医学的にも。それが実費診療の強み", GREEN],
+               ["聴くと、危険に気づける", "見落としてはいけないものが、会話の中に出てくる", PINK],
+               ["抱えない。つなぐ。", "自立とは、依存先を増やすこと", GREEN],
+               ["距離は、冷たさではない", "渡す準備をしておくこと。それが自分を守ります", PINK]];
   sum.forEach((it, i) => {
-    const y = 2.15 + i * 1.15;
-    card(s, M, y, CW, 1.0);
-    circle(s, String(i + 1), M + 0.35, y + 0.22, 0.56, i === 1 ? PINK : GREEN, PAPER, 16);
-    s.addText(it[0], { x: M + 1.15, y: y + 0.12, w: CW - 1.5, h: 0.42, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 20, bold: true, color: INK });
-    s.addText(it[1], { x: M + 1.15, y: y + 0.56, w: CW - 1.5, h: 0.35, isTextBox: true, margin: 0, fontFace: GO, fontSize: 13.5, color: MUTED });
+    const y = 2.1 + i * 1.0;
+    card(s, M, y, CW, 0.85);
+    circle(s, String(i + 1), M + 0.33, y + 0.17, 0.5, it[2], PAPER, 15);
+    s.addText(it[0], { x: M + 1.1, y: y + 0.08, w: CW - 1.45, h: 0.4, isTextBox: true, margin: 0, fontFace: MIN, fontSize: 19, bold: true, color: INK });
+    s.addText(it[1], { x: M + 1.1, y: y + 0.48, w: CW - 1.45, h: 0.33, isTextBox: true, margin: 0, fontFace: GO, fontSize: 13, color: MUTED });
   });
-  kicker(s, "明日は、最初の90秒を遮らないところから。", 5.85, INK, 24);
+  kicker(s, "明日は、最初の90秒を遮らないところから。", 6.3, INK, 24);
   note(s, "【56:10-57:10】\n★持ち帰りは3つまで。最後の一行で行動を1つに絞る。");
 }
 
@@ -1157,7 +1214,7 @@ kata.forEach((k, i) => {
 /* ══════════ F. クロージング ══════════ */
 
 /* ══════════ 出力（縦方向の自動リフロー付き） ══════════ */
-const TIMINGS = {1: "0:00-0:30", 2: "0:30-2:20", 3: "2:20-2:40", 4: "2:40-4:30", 5: "4:30-5:40", 6: "5:40-6:30", 7: "6:30-7:20", 8: "7:20-8:10", 9: "8:10-9:30", 10: "9:30-10:40", 11: "10:40-12:30", 12: "12:30-13:20", 13: "13:20-14:40", 14: "14:40-15:30", 15: "15:30-16:50", 16: "16:50-18:00", 17: "18:00-19:10", 18: "19:10-20:20", 19: "20:20-21:30", 20: "21:30-23:10", 21: "23:10-24:20", 22: "24:20-25:10", 23: "25:10-26:00", 24: "26:00-27:20", 25: "27:20-29:00", 26: "29:00-30:10", 27: "30:10-31:20", 28: "31:20-32:30", 29: "32:30-33:40", 30: "33:40-34:50", 31: "34:50-36:30", 32: "36:30-37:40", 33: "37:40-38:30", 34: "38:30-39:40", 35: "39:40-40:40", 36: "40:40-41:50", 37: "41:50-43:10", 38: "43:10-43:50", 39: "43:50-45:00", 40: "45:00-45:15", 41: "45:15-45:35", 42: "45:35-46:10", 43: "46:10-46:30", 44: "46:30-49:30", 45: "49:30-50:00", 46: "50:00-50:20", 47: "50:20-51:20", 48: "51:20-52:05", 49: "52:05-52:40", 50: "52:40-53:50", 51: "53:50-54:50", 52: "54:50-55:50", 53: "55:50-56:45", 54: "56:45-57:50", 55: "57:50-60:00", 56: "付録・時間があれば", 57: "付録・時間があれば"};
+const TIMINGS = {1: "0:00-0:30", 2: "0:30-2:10", 3: "2:10-2:30", 4: "2:30-4:10", 5: "4:10-5:10", 6: "5:10-5:50", 7: "5:50-6:35", 8: "6:35-7:20", 9: "7:20-8:20", 10: "8:20-9:30", 11: "9:30-10:35", 12: "10:35-12:15", 13: "12:15-13:00", 14: "13:00-14:10", 15: "14:10-14:55", 16: "14:55-16:05", 17: "16:05-17:10", 18: "17:10-18:10", 19: "18:10-19:10", 20: "19:10-20:10", 21: "20:10-21:40", 22: "21:40-22:45", 23: "22:45-23:30", 24: "23:30-24:15", 25: "24:15-25:30", 26: "25:30-27:00", 27: "27:00-28:05", 28: "28:05-29:10", 29: "29:10-30:15", 30: "30:15-31:20", 31: "31:20-32:25", 32: "32:25-33:55", 33: "33:55-35:00", 34: "35:00-35:50", 35: "35:50-37:00", 36: "37:00-38:00", 37: "38:00-39:05", 38: "39:05-40:20", 39: "40:20-41:00", 40: "41:00-42:10", 41: "42:10-42:25", 42: "42:25-42:45", 43: "42:45-43:20", 44: "43:20-43:40", 45: "43:40-46:40", 46: "46:40-47:10", 47: "47:10-47:30", 48: "47:30-48:30", 49: "48:30-49:15", 50: "49:15-50:45", 51: "50:45-51:20", 52: "51:20-52:40", 53: "52:40-53:50", 54: "53:50-55:00", 55: "55:00-56:10", 56: "56:10-57:20", 57: "57:20-60:00", 58: "付録・時間があれば", 59: "付録・時間があれば"};
 
 const TOP = 0.34, BOTTOM = 6.92;
 for (const rec of decks) {
