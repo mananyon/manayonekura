@@ -1,3 +1,5 @@
+> APNET講演用の資料です。サロン募集用のセミナー資料は `README-seminar.md` を参照。
+
 # APNET 講演スライド
 
 `APNET-keicho-60min.pptx` — **全63枚** / 16:9 / 全スライドに発表者ノート（時間配分つき）。
