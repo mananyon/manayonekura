@@ -84,6 +84,7 @@
 | ここちはり | https://cocochihari-gezbog2.gamma.site/ |
 | Google Scholar | https://scholar.google.com/citations?view_op=list_works&hl=ja&user=_6XMzOwAAAAJ |
 | researchmap | https://researchmap.jp/mana0306 |
+| 傾聴講座（MOSH） | https://mosh.jp/public/landing-pages/a643d9dd-a7d7-406f-88a2-cddef4bebcbd |
 | LINE 四日市院 | https://lin.ee/9NReWxy |
 | LINE 町田院 | https://lin.ee/9C3gDXy |
 
